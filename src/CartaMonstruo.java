@@ -5,6 +5,7 @@ class CartaMonstruo implements Carta{
 
     CartaMonstruo(Monstruo m) {
 
+        m.setCarta(this);
         this.monstruo = m;
         this.boca = new BocaNeutra();
 
@@ -39,21 +40,15 @@ class CartaMonstruo implements Carta{
         this.monstruo.activarEfecto();
     }
 
-    Efecto efecto(){
-
-        return this.monstruo.efecto();
-
-    }
-
     Botin atacar(CartaMonstruo m) {
 
-        return this.monstruo.atacar(m.monstruo);
+        return this.boca.pelear(this.monstruo, m.monstruo);
 
     }
 
     void destruir(Cementerio c) {
 
-        c.enviar(this.monstruo);
+        c.enviar(this);
 
     }
 }

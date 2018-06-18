@@ -23,13 +23,14 @@ public class PosDefensaTest extends TestCase {
         PosDefensa p = new PosDefensa();
         Cementerio c = new Cementerio();
         Monstruo m = new Monstruo(1,1,1);
+        CartaMonstruo carta = new CartaMonstruo(m);
         Botin b = new Botin();
 
         p.matar(m, b);
 
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
-        assertFalse(c.esta(m));
+        assertFalse(c.esta(carta));
 
     }
 

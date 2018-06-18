@@ -3,14 +3,15 @@ public class Monstruo{
     private Posicion posicion;
     private int danio;
     private int defensa;
-    private int estrellas;
+    private Sacrificio estrellas;
     private Efecto efecto;
+    private Carta carta;
 
     Monstruo(int danio, int defensa, int estrellas){
 
         this.danio = danio;
         this.defensa = defensa;
-        this.estrellas = estrellas;
+        this.estrellas = SacrificioCreador.crear(estrellas);
         this.posicion = new PosDormido();
 
     }
@@ -19,9 +20,15 @@ public class Monstruo{
 
         this.danio = danio;
         this.defensa = defensa;
-        this.estrellas = estrellas;
+        this.estrellas = SacrificioCreador.crear(estrellas);
         this.posicion = new PosDormido();
         this.efecto = e;
+
+    }
+
+    void setCarta(Carta c){
+
+        this.carta = c;
 
     }
 
@@ -94,6 +101,12 @@ public class Monstruo{
     public Efecto efecto() {
 
         return this.efecto;
+
+    }
+
+    public Carta carta() {
+
+        return this.carta;
 
     }
 }

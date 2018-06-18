@@ -31,11 +31,11 @@ class Botin {
 
     }
 
-    void ejecutar(Cementerio c){
+    void ejecutar(Campo c){
 
         for (Monstruo m : this.muertos){
 
-            c.enviar(m);
+            c.destruir(m.carta());
 
         }
 

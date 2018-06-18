@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 class EfectoDestruirMonstruo implements Efecto {
 
-    Campo campo;
+    private Campo campo;
 
     public EfectoDestruirMonstruo(Campo campoOponente) {
 

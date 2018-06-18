@@ -8,13 +8,15 @@ public class EntregaUnoTest extends TestCase {
         ganador.colocarEnPosAtaque();
         Monstruo perdedor = new Monstruo(1000, 0, 0);
         perdedor.colocarEnPosAtaque();
+        CartaMonstruo cGanador = new CartaMonstruo(ganador);
+        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor);
 
         Botin b = ganador.atacar(perdedor);
         Cementerio c = new Cementerio();
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
-        assertTrue(c.esta(perdedor));
-        assertFalse(c.esta(ganador));
+        assertTrue(c.esta(cPerdedor));
+        assertFalse(c.esta(cGanador));
 
     }
 
@@ -24,21 +26,23 @@ public class EntregaUnoTest extends TestCase {
         ganador.colocarEnPosDefensa();
         Monstruo perdedor = new Monstruo(1000, 0, 0);
         perdedor.colocarEnPosAtaque();
+        CartaMonstruo cGanador = new CartaMonstruo(ganador);
+        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor);
 
         Botin b = perdedor.atacar(ganador);
         Cementerio c = new Cementerio();
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
-        assertFalse(c.esta(perdedor));
-        assertFalse(c.esta(ganador));
+        assertFalse(c.esta(cPerdedor));
+        assertFalse(c.esta(cGanador));
 
     }
 
     public void testColocarMagicaBocaAbajoNoActivaNingunEfecto(){
 
-        Campo campo = new Campo();
         Cementerio cementerio = new Cementerio();
-        AgujeroOscuro agujero = new AgujeroOscuro(campo, cementerio);
+        Campo campo = new Campo(cementerio);
+        AgujeroOscuro agujero = new AgujeroOscuro(campo);
         CartaMagica agujeroOscuro = new CartaMagica(agujero);
         Monstruo m = new Monstruo(100, 100, 4);
         CartaMonstruo aitsu = new CartaMonstruo(m);
@@ -47,7 +51,7 @@ public class EntregaUnoTest extends TestCase {
         campo.colocarCarta(agujeroOscuro);
         campo.colocarCarta(aitsu);
 
-        assertFalse(cementerio.esta(m));
+        assertFalse(cementerio.esta(aitsu));
     }
 
     public void testDestruirCartaMandaAlMonstruoAlCementerio(){
@@ -58,7 +62,7 @@ public class EntregaUnoTest extends TestCase {
 
         aitsu.destruir(cementerio);
 
-        assertTrue(cementerio.esta(m));
+        assertTrue(cementerio.esta(aitsu));
 
     }
 
@@ -69,17 +73,19 @@ public class EntregaUnoTest extends TestCase {
         CartaMonstruo aitsu = new CartaMonstruo(ai);
         CartaMonstruo agujaAsesina = new CartaMonstruo(ag);
         aitsu.colocarEnPosAtaque();
+        aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
+        agujaAsesina.colocarBocaArriba();
         Jugador jAitsu = new Jugador("", 10000);
         Jugador jAgujero = new Jugador("", 10000);
 
         Botin b = agujaAsesina.atacar(aitsu);
         Cementerio c = new Cementerio();
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
         b.infligirDanios(jAgujero, jAitsu);
 
-        assertTrue(c.esta(ai));
+        assertTrue(c.esta(aitsu));
         assertEquals(jAitsu.verVida(), 10000 - 1100);
 
     }
@@ -91,18 +97,20 @@ public class EntregaUnoTest extends TestCase {
         CartaMonstruo agujaAsesina1 = new CartaMonstruo(ag1);
         CartaMonstruo agujaAsesina2 = new CartaMonstruo(ag2);
         agujaAsesina1.colocarEnPosAtaque();
+        agujaAsesina1.colocarBocaArriba();
         agujaAsesina2.colocarEnPosAtaque();
+        agujaAsesina2.colocarBocaArriba();
         Jugador j1 = new Jugador("", 10000);
         Jugador j2 = new Jugador("", 10000);
 
         Botin b = agujaAsesina1.atacar(agujaAsesina2);
         Cementerio c = new Cementerio();
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
         b.infligirDanios(j1, j2);
 
-        assertTrue(c.esta(ag1));
-        assertTrue(c.esta(ag2));
+        assertTrue(c.esta(agujaAsesina1));
+        assertTrue(c.esta(agujaAsesina2));
         assertEquals(j1.verVida(), 10000);
         assertEquals(j2.verVida(), 10000);
 
@@ -115,17 +123,19 @@ public class EntregaUnoTest extends TestCase {
         CartaMonstruo aitsu = new CartaMonstruo(ai);
         CartaMonstruo agujaAsesina = new CartaMonstruo(ag);
         aitsu.colocarEnPosDefensa();
+        aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
+        agujaAsesina.colocarBocaArriba();
         Jugador jAitsu = new Jugador("", 10000);
         Jugador jAgujero = new Jugador("", 10000);
 
         Botin b = agujaAsesina.atacar(aitsu);
         Cementerio c = new Cementerio();
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
         b.infligirDanios(jAgujero, jAitsu);
 
-        assertTrue(c.esta(ai));
+        assertTrue(c.esta(aitsu));
         assertEquals(jAitsu.verVida(), 10000);
 
     }
@@ -143,20 +153,20 @@ public class EntregaUnoTest extends TestCase {
 
         Botin b = aitsu.atacar(agujaAsesina);
         Cementerio c = new Cementerio();
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
         b.infligirDanios(jAgujero, jAitsu);
 
-        assertFalse(c.esta(ai));
+        assertFalse(c.esta(aitsu));
         assertEquals(jAitsu.verVida(), 10000);
 
     }
 
     public void testColocarAgujeroOscuroBocaArribaMataATodosEnElCampo(){
 
-        Campo campo = new Campo();
         Cementerio cementerio = new Cementerio();
-        AgujeroOscuro agujero = new AgujeroOscuro(campo, cementerio);
+        Campo campo = new Campo(cementerio);
+        AgujeroOscuro agujero = new AgujeroOscuro(campo);
         CartaMagica agujeroOscuro = new CartaMagica(agujero);
         Monstruo m = new Monstruo(100, 100, 4);
         CartaMonstruo aitsu = new CartaMonstruo(m);
@@ -165,7 +175,11 @@ public class EntregaUnoTest extends TestCase {
         campo.colocarCarta(agujeroOscuro);
         agujeroOscuro.colocarBocaArriba();
 
-        assertFalse(cementerio.esta(m));
+        assertTrue(cementerio.esta(aitsu));
+    }
+
+    public void testColocarMonstruoDe5EstrellasSacrifica1Carta() {
+
     }
 
 }

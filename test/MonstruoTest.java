@@ -4,28 +4,30 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYAitsuMuere(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo a = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        CartaMonstruo aitsu = new CartaMonstruo(a);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = aitsu.atacar(agujaAsesina);
-        b.ejecutar(c);
+        Botin b = a.atacar(agujaAsesina);
+        b.ejecutar(new Campo(c));
 
         assertTrue(c.esta(aitsu));
     }
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAlasDeLaLlamaPerversaEnAtaqueYAlasDeLaLlamaPerversaMuere(){
 
-        Monstruo alasDeLlamaPerversa = new Monstruo(700, 600, 2);
+        Monstruo a = new Monstruo(700, 600, 2);
+        CartaMonstruo alasDeLlamaPerversa = new CartaMonstruo(a);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
         alasDeLlamaPerversa.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = agujaAsesina.atacar(alasDeLlamaPerversa);
-        b.ejecutar(c);
+        Botin b = agujaAsesina.atacar(a);
+        b.ejecutar(new Campo(c));
 
         assertTrue(c.esta(alasDeLlamaPerversa));
     }
@@ -34,45 +36,51 @@ public class MonstruoTest extends TestCase {
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        CartaMonstruo cartaAgresor = new CartaMonstruo(agresorOscuro);
+        CartaMonstruo cartaAguja = new CartaMonstruo(agujaAsesina);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
         Botin b = agujaAsesina.atacar(agresorOscuro);
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
-        assertTrue(c.esta(agresorOscuro));
-        assertTrue(c.esta(agujaAsesina));
+        assertTrue(c.esta(cartaAgresor));
+        assertTrue(c.esta(cartaAguja));
     }
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere(){
 
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        CartaMonstruo cAitsu = new CartaMonstruo(aitsu);
+        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
 
         Botin b = aitsu.atacar(agujaAsesina);
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
-        assertFalse(c.esta(aitsu));
-        assertFalse(c.esta(agujaAsesina));
+        assertFalse(c.esta(cAitsu));
+        assertFalse(c.esta(cAguja));
     }
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro(){
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        CartaMonstruo cAgresor = new CartaMonstruo(agresorOscuro);
+        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
         Botin b = agujaAsesina.atacar(agresorOscuro);
-        b.ejecutar(c);
+        b.ejecutar(new Campo(c));
 
-        assertTrue(c.esta(agresorOscuro));
-        assertFalse(c.esta(agujaAsesina));
+        assertTrue(c.esta(cAgresor));
+        assertFalse(c.esta(cAguja));
     }
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida(){
