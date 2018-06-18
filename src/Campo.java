@@ -1,22 +1,36 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
-class Campo {
+public class Campo {
 
-    private LinkedList<Carta> cartas = new LinkedList<>();
+    private LinkedList<Carta> cartas;
+    private Cementerio cementerio;
 
-    void colocarCarta(Carta c) {
+    public Campo(Cementerio unCementerio){
+        this.cementerio = unCementerio;
+        this.cartas = new LinkedList<Carta>();
+    }
 
-        cartas.add(c);
+    public Campo() {
+
+        this.cementerio = new Cementerio();
+        this.cartas = new LinkedList<Carta>();
 
     }
 
-    void destruirTodas(Cementerio c) {
-
-        for (Carta m : this.cartas){
-
-            m.destruir(c);
-
-        }
-
+    public boolean esta(Object unaCarta) {
+        return this.cartas.contains(unaCarta);
     }
+
+
+    public void destruir(Object unaCarta) {
+
+        this.cementerio.enviar(unaCarta);
+    }
+
+    void colocarCarta(Carta carta){
+
+        this.cartas.add(carta);
+    }
+
 }
