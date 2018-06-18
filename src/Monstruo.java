@@ -4,6 +4,7 @@ public class Monstruo{
     private int danio;
     private int defensa;
     private int estrellas;
+    private Efecto efecto;
 
     Monstruo(int danio, int defensa, int estrellas){
 
@@ -11,6 +12,16 @@ public class Monstruo{
         this.defensa = defensa;
         this.estrellas = estrellas;
         this.posicion = new PosDormido();
+
+    }
+
+    Monstruo(int danio, int defensa, int estrellas, Efecto e){
+
+        this.danio = danio;
+        this.defensa = defensa;
+        this.estrellas = estrellas;
+        this.posicion = new PosDormido();
+        this.efecto = e;
 
     }
 
@@ -30,6 +41,18 @@ public class Monstruo{
     private int obtenerPuntos() {
 
         return this.posicion.obtenerPuntos(this.danio, this.defensa);
+
+    }
+
+    void aumentarAtaque(int aumento) {
+
+        this.danio += aumento;
+
+    }
+
+    void aumentarDefensa(int aumento) {
+
+        this.defensa += aumento;
 
     }
 
@@ -60,6 +83,17 @@ public class Monstruo{
     private void matar(Monstruo enemigo, Botin b) {
 
         this.posicion.matar(enemigo, b);
+
+    }
+
+    void activarEfecto(){
+
+        this.efecto.activar();
+    }
+
+    public Efecto efecto() {
+
+        return this.efecto;
 
     }
 }

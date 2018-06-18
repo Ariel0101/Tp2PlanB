@@ -34,6 +34,17 @@ class CartaMonstruo implements Carta{
 
     }
 
+    void activarEfecto(){
+
+        this.monstruo.activarEfecto();
+    }
+
+    Efecto efecto(){
+
+        return this.monstruo.efecto();
+
+    }
+
     Botin atacar(CartaMonstruo m) {
 
         return this.monstruo.atacar(m.monstruo);
