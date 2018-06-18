@@ -44,4 +44,30 @@ public class CartaMonstruoTest extends TestCase {
 
     }
 
+
+    public void testInsectoComeHombresDestruyeUnMonstruoEnElCampoAlPosicionarloBocaArriba(){
+
+        Cementerio cementerioOponente = new Cementerio();
+
+        Campo campoOponente = new Campo(cementerioOponente);
+
+        Efecto destruirMonstruo = new EfectoDestruirMonstruo(campoOponente);
+        Monstruo insecto = new Monstruo(2,2,2, destruirMonstruo);
+        CartaMonstruo ins = new CartaMonstruo(insecto);
+        MonstruoComeHombres insectoComeHombres = new MonstruoComeHombres(ins);
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        CartaMonstruo mOponente = new CartaMonstruo(aitsu);
+
+        campoOponente.colocarCarta(mOponente);
+        mOponente.colocarEnPosAtaque();
+        insectoComeHombres.colocarBocaArriba(mOponente);
+
+
+        assertTrue(cementerioOponente.esta(mOponente));
+
+
+    }
+
+
 }
