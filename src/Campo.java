@@ -6,31 +6,31 @@ public class Campo {
     private LinkedList<Carta> cartas;
     private Cementerio cementerio;
 
-    public Campo(Cementerio unCementerio){
-        this.cementerio = unCementerio;
-        this.cartas = new LinkedList<Carta>();
-    }
+    Campo(Cementerio c){
 
-    public Campo() {
-
-        this.cementerio = new Cementerio();
-        this.cartas = new LinkedList<Carta>();
+        this.cementerio = c;
 
     }
 
-    public boolean esta(Object unaCarta) {
-        return this.cartas.contains(unaCarta);
-    }
-
-
-    public void destruir(Object unaCarta) {
+    void destruir(Carta unaCarta) {
 
         this.cementerio.enviar(unaCarta);
+
     }
 
     void colocarCarta(Carta carta){
 
         this.cartas.add(carta);
+
     }
 
+    void destruirTodas() {
+
+        for (Carta c : this.cartas){
+
+            this.destruir(c);
+
+        }
+
+    }
 }
