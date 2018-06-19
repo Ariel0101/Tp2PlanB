@@ -21,4 +21,10 @@ class CartaMagica implements Carta{
         this.boca = new BocaArriba();
 
     }
+
+    public void colocarse(Campo c) {
+
+        c.colocarCarta(this);
+
+    }
 }

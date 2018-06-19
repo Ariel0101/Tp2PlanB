@@ -4,12 +4,12 @@ public class EntregaUnoTest extends TestCase {
 
     public void testColocarUnMonstruoEnPosicionDeAtaque(){
 
-        Monstruo ganador = new Monstruo(1001, 0, 0);
+        Monstruo ganador = new Monstruo(1001, 0);
         ganador.colocarEnPosAtaque();
-        Monstruo perdedor = new Monstruo(1000, 0, 0);
+        Monstruo perdedor = new Monstruo(1000, 0);
         perdedor.colocarEnPosAtaque();
-        CartaMonstruo cGanador = new CartaMonstruo(ganador);
-        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor);
+        CartaMonstruo cGanador = new CartaMonstruo(ganador, 0);
+        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor, 0);
 
         Botin b = ganador.atacar(perdedor);
         Cementerio c = new Cementerio();
@@ -22,12 +22,12 @@ public class EntregaUnoTest extends TestCase {
 
     public void testColocarUnMonstruoEnPosicionDeDefensa(){
 
-        Monstruo ganador = new Monstruo(0, 1001, 0);
+        Monstruo ganador = new Monstruo(0, 1001);
         ganador.colocarEnPosDefensa();
-        Monstruo perdedor = new Monstruo(1000, 0, 0);
+        Monstruo perdedor = new Monstruo(1000, 0);
         perdedor.colocarEnPosAtaque();
-        CartaMonstruo cGanador = new CartaMonstruo(ganador);
-        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor);
+        CartaMonstruo cGanador = new CartaMonstruo(ganador, 0);
+        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor, 0);
 
         Botin b = perdedor.atacar(ganador);
         Cementerio c = new Cementerio();
@@ -44,8 +44,8 @@ public class EntregaUnoTest extends TestCase {
         Campo campo = new Campo(cementerio);
         AgujeroOscuro agujero = new AgujeroOscuro(campo);
         CartaMagica agujeroOscuro = new CartaMagica(agujero);
-        Monstruo m = new Monstruo(100, 100, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(m);
+        Monstruo m = new Monstruo(100, 100);
+        CartaMonstruo aitsu = new CartaMonstruo(m, 4);
 
         agujeroOscuro.colocarBocaAbajo();
         campo.colocarCarta(agujeroOscuro);
@@ -57,8 +57,8 @@ public class EntregaUnoTest extends TestCase {
     public void testDestruirCartaMandaAlMonstruoAlCementerio(){
 
         Cementerio cementerio = new Cementerio();
-        Monstruo m = new Monstruo(100, 100, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(m);
+        Monstruo m = new Monstruo(100, 100);
+        CartaMonstruo aitsu = new CartaMonstruo(m, 4);
 
         aitsu.destruir(cementerio);
 
@@ -68,10 +68,10 @@ public class EntregaUnoTest extends TestCase {
 
     public void testAgujaAsesinaEnAtaqueContraAitsuEnAtaqueDestruyoAAitsuYElJugadorSufreDanio(){
 
-        Monstruo ai = new Monstruo(100, 100, 5);
-        Monstruo ag = new Monstruo(1200, 1000, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(ai);
-        CartaMonstruo agujaAsesina = new CartaMonstruo(ag);
+        Monstruo ai = new Monstruo(100, 100);
+        Monstruo ag = new Monstruo(1200, 1000);
+        CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
+        CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
         aitsu.colocarEnPosAtaque();
         aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
@@ -92,10 +92,10 @@ public class EntregaUnoTest extends TestCase {
 
     public void testAgujaAsesinaEnAtaqueContraAgujaAsesinaEnAtaqueDestruyoAAmbosNadieSufrioDanio(){
 
-        Monstruo ag1 = new Monstruo(1200, 1000, 4);
-        Monstruo ag2 = new Monstruo(1200, 1000, 4);
-        CartaMonstruo agujaAsesina1 = new CartaMonstruo(ag1);
-        CartaMonstruo agujaAsesina2 = new CartaMonstruo(ag2);
+        Monstruo ag1 = new Monstruo(1200, 1000);
+        Monstruo ag2 = new Monstruo(1200, 1000);
+        CartaMonstruo agujaAsesina1 = new CartaMonstruo(ag1, 4);
+        CartaMonstruo agujaAsesina2 = new CartaMonstruo(ag2, 4);
         agujaAsesina1.colocarEnPosAtaque();
         agujaAsesina1.colocarBocaArriba();
         agujaAsesina2.colocarEnPosAtaque();
@@ -118,10 +118,10 @@ public class EntregaUnoTest extends TestCase {
 
     public void testAgujaAsesinaEnAtaqueContraAitsuEnDefensaDestruyoAAitsuYElJugadorNoSufreDanio(){
 
-        Monstruo ai = new Monstruo(100, 100, 5);
-        Monstruo ag = new Monstruo(1200, 1000, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(ai);
-        CartaMonstruo agujaAsesina = new CartaMonstruo(ag);
+        Monstruo ai = new Monstruo(100, 100);
+        Monstruo ag = new Monstruo(1200, 1000);
+        CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
+        CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
         aitsu.colocarEnPosDefensa();
         aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
@@ -142,10 +142,10 @@ public class EntregaUnoTest extends TestCase {
 
     public void testAitsuEnAtaqueContraAgujaAsesinaEnDefensaNoDestruyoAAitsuYElJugadorNoSufreDanio(){
 
-        Monstruo ai = new Monstruo(100, 100, 5);
-        Monstruo ag = new Monstruo(1200, 1000, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(ai);
-        CartaMonstruo agujaAsesina = new CartaMonstruo(ag);
+        Monstruo ai = new Monstruo(100, 100);
+        Monstruo ag = new Monstruo(1200, 1000);
+        CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
+        CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
         Jugador jAitsu = new Jugador("", 10000);
@@ -168,8 +168,8 @@ public class EntregaUnoTest extends TestCase {
         Campo campo = new Campo(cementerio);
         AgujeroOscuro agujero = new AgujeroOscuro(campo);
         CartaMagica agujeroOscuro = new CartaMagica(agujero);
-        Monstruo m = new Monstruo(100, 100, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(m);
+        Monstruo m = new Monstruo(100, 100);
+        CartaMonstruo aitsu = new CartaMonstruo(m, 4);
 
         campo.colocarCarta(aitsu);
         campo.colocarCarta(agujeroOscuro);
@@ -179,6 +179,8 @@ public class EntregaUnoTest extends TestCase {
     }
 
     public void testColocarMonstruoDe5EstrellasSacrifica1Carta() {
+
+        Monstruo a = new Monstruo(100, 100);
 
     }
 

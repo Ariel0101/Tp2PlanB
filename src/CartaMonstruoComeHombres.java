@@ -2,11 +2,13 @@ public class CartaMonstruoComeHombres implements Carta{
 
     private Monstruo monstruo;
     private Boca boca;
+    private int estrellas;
 
-    CartaMonstruoComeHombres(Monstruo m) {
+    CartaMonstruoComeHombres(Monstruo m, int e) {
 
         this.monstruo = m;
         this.boca = new BocaNeutra();
+        this.estrellas = e;
 
     }
 
@@ -30,5 +32,7 @@ public class CartaMonstruoComeHombres implements Carta{
 
     }
 
+    public void colocarse(Campo c) {
 
+    }
 }

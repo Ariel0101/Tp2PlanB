@@ -4,9 +4,9 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYAitsuMuere(){
 
-        Monstruo a = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        CartaMonstruo aitsu = new CartaMonstruo(a);
+        Monstruo a = new Monstruo(100, 100);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
+        CartaMonstruo aitsu = new CartaMonstruo(a, 5);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -19,9 +19,9 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAlasDeLaLlamaPerversaEnAtaqueYAlasDeLaLlamaPerversaMuere(){
 
-        Monstruo a = new Monstruo(700, 600, 2);
-        CartaMonstruo alasDeLlamaPerversa = new CartaMonstruo(a);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Monstruo a = new Monstruo(700, 600);
+        CartaMonstruo alasDeLlamaPerversa = new CartaMonstruo(a, 2);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
         Cementerio c = new Cementerio();
         alasDeLlamaPerversa.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -34,10 +34,10 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnAtaqueYMuerenAmbos(){
 
-        Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        CartaMonstruo cartaAgresor = new CartaMonstruo(agresorOscuro);
-        CartaMonstruo cartaAguja = new CartaMonstruo(agujaAsesina);
+        Monstruo agresorOscuro = new Monstruo(1200, 1200);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
+        CartaMonstruo cartaAgresor = new CartaMonstruo(agresorOscuro, 4);
+        CartaMonstruo cartaAguja = new CartaMonstruo(agujaAsesina, 4);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -51,10 +51,10 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        CartaMonstruo cAitsu = new CartaMonstruo(aitsu);
-        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina);
+        Monstruo aitsu = new Monstruo(100, 100);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
+        CartaMonstruo cAitsu = new CartaMonstruo(aitsu, 5);
+        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina, 4);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
@@ -68,10 +68,10 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro(){
 
-        Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        CartaMonstruo cAgresor = new CartaMonstruo(agresorOscuro);
-        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina);
+        Monstruo agresorOscuro = new Monstruo(1200, 1200);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
+        CartaMonstruo cAgresor = new CartaMonstruo(agresorOscuro, 5);
+        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina, 4);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
@@ -85,8 +85,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida(){
 
-        Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Monstruo agresorOscuro = new Monstruo(1200, 1200);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
         Jugador atacante = new Jugador("", 1000);
         Jugador atacado = new Jugador("", 1000);
         agresorOscuro.colocarEnPosDefensa();
@@ -102,8 +102,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYElBotinQuita1100DeVidaAlAtacado(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Monstruo aitsu = new Monstruo(100, 100);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
         Jugador atacante = new Jugador("", 10000);
         Jugador atacado = new Jugador("", 10000);
         aitsu.colocarEnPosAtaque();
@@ -119,8 +119,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnDefensaContraAgujaAsesinaEnAtaqueYElBotinNoQuitaVida(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Monstruo aitsu = new Monstruo(100, 100);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
         Jugador atacante = new Jugador("", 10000);
         Jugador atacado = new Jugador("", 10000);
         aitsu.colocarEnPosDefensa();
@@ -136,8 +136,8 @@ public class MonstruoTest extends TestCase {
 
     public void testAitsuEnPosDefensaIntentaAtacarAAgujaAsesinaYSeLevantaUnaExcepcion(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Monstruo aitsu = new Monstruo(100, 100);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
         aitsu.colocarEnPosDefensa();
 
         boolean lanzoError = false;
@@ -158,8 +158,8 @@ public class MonstruoTest extends TestCase {
 
     public void testAitsuEnPosAtaqueIntentaAtacarAAgujaAsesinaYNoSeLevantaUnaExcepcion(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Monstruo aitsu = new Monstruo(100, 100);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
 

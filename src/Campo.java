@@ -3,11 +3,14 @@ import java.util.LinkedList;
 
 public class Campo {
 
-    private LinkedList<Carta> cartas;
+    private LinkedList<CartaMonstruo> monstruos;
+    private LinkedList<CartaMagica> magicas;
     private Cementerio cementerio;
 
     Campo(Cementerio c){
 
+        this.monstruos = new LinkedList<>();
+        this.magicas = new LinkedList<>();
         this.cementerio = c;
 
     }
@@ -18,19 +21,21 @@ public class Campo {
 
     }
 
-    void colocarCarta(Carta carta){
+    void colocarCarta(CartaMonstruo carta){
 
-        this.cartas.add(carta);
+        this.monstruos.add(carta);
 
     }
 
-    void destruirTodas() {
+    void colocarCarta(CartaMagica carta){
 
-        for (Carta c : this.cartas){
+        this.magicas.add(carta);
 
-            this.destruir(c);
+    }
 
-        }
+    LinkedList<CartaMonstruo> monstruos() {
+
+        return this.monstruos;
 
     }
 }

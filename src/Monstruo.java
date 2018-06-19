@@ -3,24 +3,21 @@ public class Monstruo{
     private Posicion posicion;
     private int danio;
     private int defensa;
-    private Sacrificio estrellas;
     private Efecto efecto;
     private Carta carta;
 
-    Monstruo(int danio, int defensa, int estrellas){
+    Monstruo(int danio, int defensa){
 
         this.danio = danio;
         this.defensa = defensa;
-        this.estrellas = SacrificioCreador.crear(estrellas);
         this.posicion = new PosDormido();
 
     }
 
-    Monstruo(int danio, int defensa, int estrellas, Efecto e){
+    Monstruo(int danio, int defensa, Efecto e){
 
         this.danio = danio;
         this.defensa = defensa;
-        this.estrellas = SacrificioCreador.crear(estrellas);
         this.posicion = new PosDormido();
         this.efecto = e;
 
