@@ -1,16 +1,16 @@
 import junit.framework.TestCase;
 
-public class CartaMonstruoTest extends TestCase {
+public class CartaMonstruoSimpleTest extends TestCase {
 
     public void testCartaConMosntruoAitsuNoAtacaSiEstaBocaAbajo(){
 
         Monstruo aitsu = new Monstruo(100, 100, 5);
-        CartaMonstruo cAitsu = new CartaMonstruo(aitsu);
+        CartaMonstruoSimple cAitsu = new CartaMonstruoSimple(aitsu);
         cAitsu.colocarEnPosAtaque();
         cAitsu.colocarBocaAbajo();
 
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina);
+        CartaMonstruoSimple cAguja = new CartaMonstruoSimple(agujaAsesina);
         cAguja.colocarEnPosAtaque();
         cAguja.colocarBocaArriba();
 
@@ -26,12 +26,12 @@ public class CartaMonstruoTest extends TestCase {
     public void testCartaConMosntruoAitsuAtacaSiEstaBocaArriba(){
 
         Monstruo aitsu = new Monstruo(100, 100, 5);
-        CartaMonstruo cAitsu = new CartaMonstruo(aitsu);
+        CartaMonstruoSimple cAitsu = new CartaMonstruoSimple(aitsu);
         cAitsu.colocarEnPosAtaque();
         cAitsu.colocarBocaArriba();
 
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina);
+        CartaMonstruoSimple cAguja = new CartaMonstruoSimple(agujaAsesina);
         cAguja.colocarEnPosAtaque();
         cAguja.colocarBocaArriba();
 
@@ -53,11 +53,11 @@ public class CartaMonstruoTest extends TestCase {
 
         Efecto destruirMonstruo = new EfectoDestruirMonstruo(campoOponente);
         Monstruo insecto = new Monstruo(2,2,2, destruirMonstruo);
-        CartaMonstruo ins = new CartaMonstruo(insecto);
+        CartaMonstruoSimple ins = new CartaMonstruoSimple(insecto);
         MonstruoComeHombres insectoComeHombres = new MonstruoComeHombres(ins);
 
         Monstruo aitsu = new Monstruo(100, 100, 5);
-        CartaMonstruo mOponente = new CartaMonstruo(aitsu);
+        CartaMonstruoSimple mOponente = new CartaMonstruoSimple(aitsu);
 
         campoOponente.colocarCarta(mOponente);
         mOponente.colocarEnPosAtaque();
@@ -66,6 +66,24 @@ public class CartaMonstruoTest extends TestCase {
 
         assertTrue(cementerioOponente.esta(mOponente));
 
+    }
+
+    public void testMonstruoConSeisEstrellasSacrificaUnMonstruoDelCampoAlColocarse(){
+
+        Cementerio cementerio = new Cementerio();
+        Campo campo = new Campo(cementerio);
+
+        Monstruo aitsu = new Monstruo(100, 100, 2);
+        CartaMonstruoSimple otroMonstruo = new CartaMonstruoSimple(aitsu);
+
+        Monstruo monstruo = new Monstruo(1, 1, 6);
+        CartaMonstruoSimple carta = new CartaMonstruoSimple(monstruo);
+        MonstruoConSacrificio cartaConSacrificio = new MonstruoConSacrificio(carta);
+
+        campo.colocarCarta(otroMonstruo);
+        campo.colocarCarta(cartaConSacrificio);
+
+        assertTrue(cementerio.esta(otroMonstruo));
 
     }
 

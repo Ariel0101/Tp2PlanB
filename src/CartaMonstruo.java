@@ -1,9 +1,9 @@
-class CartaMonstruo implements Carta{
+class CartaMonstruoSimple implements CartaMonstruo {
 
     private Monstruo monstruo;
     private Boca boca;
 
-    CartaMonstruo(Monstruo m) {
+    CartaMonstruoSimple(Monstruo m) {
 
         this.monstruo = m;
         this.boca = new BocaNeutra();
@@ -45,7 +45,7 @@ class CartaMonstruo implements Carta{
 
     }
 
-    Botin atacar(CartaMonstruo m) {
+    Botin atacar(CartaMonstruoSimple m) {
 
         return this.monstruo.atacar(m.monstruo);
 
