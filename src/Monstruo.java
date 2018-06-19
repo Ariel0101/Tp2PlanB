@@ -4,7 +4,7 @@ public class Monstruo{
     private int danio;
     private int defensa;
     private Efecto efecto;
-    private Carta carta;
+    private Carta carta = new NoCarta();
 
     Monstruo(int danio, int defensa){
 
