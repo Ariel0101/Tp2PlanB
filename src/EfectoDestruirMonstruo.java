@@ -32,8 +32,12 @@ class EfectoDestruirMonstruo implements Efecto {
 
         for (CartaMonstruo m: monstruos){
 
-            this.activarEn(m);
+            this.activar(m);
         }
+
+    }
+
+    public void activarEn(CartaMonstruo carta) {
 
     }
 

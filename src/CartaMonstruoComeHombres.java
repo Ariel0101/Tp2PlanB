@@ -10,7 +10,7 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
     private void activarEfectoEn(CartaMonstruo m){
 
         Efecto efect = this.monstruo.efecto();
-        efect.activarEn(m);
+        efect.activar(m);
 
     }
 
@@ -22,7 +22,7 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
     void activarEfecto(){
 
         Efecto efecto = this.monstruo.efecto();
-        efecto.activarEn(this.cartaSeleccionada);
+        efecto.activar(this.cartaSeleccionada);
 
     }
 

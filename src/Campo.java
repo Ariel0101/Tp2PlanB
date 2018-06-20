@@ -30,7 +30,7 @@ public class Campo {
 
     void colocarCarta(CartaMonstruo carta){
     	
-    	efectoDeCampo.activarEn(carta);
+    	efectoDeCampo.activar(carta);
         this.monstruos.add(carta);
         this.listaMonstruos.agregar(carta);
 

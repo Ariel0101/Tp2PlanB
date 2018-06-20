@@ -10,7 +10,6 @@ public interface Efecto {
 
     }
 
-    default void activarEn(CartaMonstruo carta){
+    void activar(CartaMonstruo carta);
 
-    }
 }
