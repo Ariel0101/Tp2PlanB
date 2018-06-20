@@ -7,7 +7,7 @@ public class CartaExodia extends CartaMonstruo {
     public void colocarse(Mano unaMano){
         unaMano.agregar(this);
         Efecto efectoArmarExodia = this.monstruo.efecto();
-        efectoArmarExodia.activarEn(unaMano);
+        efectoArmarExodia.activar(unaMano);
 
     }
 }

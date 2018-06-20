@@ -104,7 +104,7 @@ public class EntregaDosTest extends TestCase {
         Campo unCampo = new Campo(new Cementerio());
         Mazo unMazo = new Mazo("", new Partida());
         unMazo.agregar(new CartaMonstruo(new Monstruo(1,1),1));
-        unMazo.agregar(new CartaMagica(new AgujeroOscuro(unCampo)));
+        unMazo.agregar(new CartaMagica(new AgujeroOscuro(unCampo, unCampo)));
         Mano unaMano = new Mano("", new Partida());
         OllaDeLaCodicia unaOlla = new OllaDeLaCodicia(unaMano, unMazo);
         CartaMagica cartaOlla = new CartaMagica(unaOlla);

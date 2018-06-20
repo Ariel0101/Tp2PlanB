@@ -19,4 +19,5 @@ public class Fisura implements Magica {
 
     }
 
+
 }

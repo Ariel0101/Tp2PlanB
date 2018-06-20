@@ -15,12 +15,8 @@ public class EfectoAumentarDefensa implements Efecto {
 		
 	}
 
-	public void activarEn(Carta monstruo) {
-
-	}
-
 	@Override
-	public void activarEn(Mano unaMano) {
+	public void activar(Mano unaMano) {
 
 	}
 
@@ -31,6 +27,11 @@ public class EfectoAumentarDefensa implements Efecto {
 			this.activar(m);
 
 		}
+
+	}
+
+	@Override
+	public void activar() {
 
 	}
 

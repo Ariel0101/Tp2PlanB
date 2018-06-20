@@ -6,11 +6,15 @@ public class BocaAbajoComeHombres implements Boca {
 
     public Botin recibirAtaque(CartaMonstruo miCarta, Monstruo monstruoAtacado, Monstruo monstruoAtacante, Campo miCampo) {
         miCarta.colocarBocaArriba();
-        miCarta.activarEfecto();
         return new Botin();
     }
 
     public boolean estaBocaArriba() {
         return false;
+    }
+
+    @Override
+    public boolean estaBocaAbajo() {
+        return true;
     }
 }

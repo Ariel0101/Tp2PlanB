@@ -11,6 +11,17 @@ public class Campo {
     private Efecto efectoDeCampoEnemigo;
     private ListaMonstruos listaMonstruos;
 
+    Campo(){
+
+        this.monstruos = new LinkedList<>();
+        this.magicas = new LinkedList<>();
+        this.trampas = new LinkedList<>();
+        this.cementerio = new Cementerio();
+        this.efectoDeCampoPropio = new EfectoNulo();
+        this.efectoDeCampoEnemigo = new EfectoNulo();
+        this.listaMonstruos = new ListaMonstruos();
+
+    }
 
     Campo(Cementerio c){
 

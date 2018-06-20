@@ -17,7 +17,7 @@ public class EfectoAumentarAtaque implements Efecto {
 
 
 	@Override
-	public void activarEn(Mano unaMano) {
+	public void activar(Mano unaMano) {
 
 	}
 
@@ -28,6 +28,11 @@ public class EfectoAumentarAtaque implements Efecto {
 			this.activar(m);
 
 		}
+
+	}
+
+	@Override
+	public void activar() {
 
 	}
 }

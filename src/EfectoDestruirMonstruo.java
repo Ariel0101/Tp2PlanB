@@ -16,7 +16,7 @@ class EfectoDestruirMonstruo implements Efecto {
 
     }
 
-    public void activarEn(Mano unaMano) {
+    public void activar(Mano unaMano) {
     }
 
     public void activarEn(Carta unaCarta) {
@@ -36,6 +36,11 @@ class EfectoDestruirMonstruo implements Efecto {
 
             this.activar(m);
         }
+
+    }
+
+    @Override
+    public void activar() {
 
     }
 

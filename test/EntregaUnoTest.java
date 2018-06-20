@@ -42,7 +42,7 @@ public class EntregaUnoTest extends TestCase {
 
         Cementerio cementerio = new Cementerio();
         Campo campo = new Campo(cementerio);
-        AgujeroOscuro agujero = new AgujeroOscuro(campo);
+        AgujeroOscuro agujero = new AgujeroOscuro(campo, campo);
         CartaMagica agujeroOscuro = new CartaMagica(agujero);
         Monstruo m = new Monstruo(100, 100);
         CartaMonstruo aitsu = new CartaMonstruo(m, 4);
@@ -162,19 +162,24 @@ public class EntregaUnoTest extends TestCase {
 
     }
 
-    public void testColocarAgujeroOscuroBocaArribaMataATodosEnElCampo(){
+    public void testColocarAgujeroOscuroBocaArribaMataATodosLosMonstruosDeTodoElCampo(){
 
         Cementerio cementerio = new Cementerio();
-        Campo campo = new Campo(cementerio);
-        AgujeroOscuro agujero = new AgujeroOscuro(campo);
+        Campo campoUno = new Campo(cementerio);
+        Campo campoDos = new Campo(cementerio);
+        AgujeroOscuro agujero = new AgujeroOscuro(campoUno, campoDos);
         CartaMagica agujeroOscuro = new CartaMagica(agujero);
-        Monstruo m = new Monstruo(100, 100);
-        CartaMonstruo aitsu = new CartaMonstruo(m, 4);
-
-        campo.colocarCarta(aitsu);
-        campo.colocarCarta(agujeroOscuro);
+        Monstruo a = new Monstruo(100, 100);
+        CartaMonstruo aitsu = new CartaMonstruo(a, 4);
+        Monstruo m = new Monstruo(300,100);
+        CartaMonstruo mokeyMokey = new CartaMonstruo(m,3);
+        campoUno.colocarCarta(aitsu);
+        campoDos.colocarCarta(mokeyMokey);
+        campoUno.colocarCarta(agujeroOscuro);
         agujeroOscuro.colocarBocaArriba();
 
         assertTrue(cementerio.esta(aitsu));
+        assertTrue(cementerio.esta(mokeyMokey));
+        
     }
 }

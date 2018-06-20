@@ -2,21 +2,23 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
 
     private CartaMonstruo cartaSeleccionada;
 
-    CartaMonstruoComeHombres(Monstruo m, int e) {
-        super(m,e);
+    CartaMonstruoComeHombres(Monstruo monstruo, int estrellas) {
+        super(monstruo, estrellas);
         this.cartaSeleccionada = new CartaMonstruo(new Monstruo(0,0),0);
     }
 
-    private void activarEfectoEn(CartaMonstruo m){
-
-        Efecto efect = this.monstruo.efecto();
-        efect.activar(m);
-
-    }
 
     public void colocarBocaAbajo(){
 
-        this.boca = new BocaAbajoComeHombres();
+        this.boca = new BocaAbajoComeHombres(); //Aqui quite BocaAbajoComeHombres
+
+    }
+
+    public void colocarBocaArriba(){
+        if (this.boca.estaBocaAbajo()){
+            this.activarEfecto();
+        }
+        this.boca = new BocaArriba();
     }
 
     void activarEfecto(){
@@ -31,7 +33,7 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
         return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
 
-    private void seleccionar(CartaMonstruo unaCarta) {
+    public void seleccionar(CartaMonstruo unaCarta) {
         this.cartaSeleccionada = unaCarta;
     }
 

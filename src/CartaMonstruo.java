@@ -7,10 +7,10 @@ class CartaMonstruo implements Carta {
     protected Boca boca;
     private int estrellas;
 
-    CartaMonstruo(Monstruo m, int estrellas){
+    CartaMonstruo(Monstruo monstruo, int estrellas){
 
-        m.setCarta(this);
-        this.monstruo = m;
+        monstruo.setCarta(this);
+        this.monstruo = monstruo;
         this.boca = new BocaNeutra();
         this.estrellas = estrellas;
     }

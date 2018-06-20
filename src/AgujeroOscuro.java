@@ -1,17 +1,19 @@
 class AgujeroOscuro implements Magica {
 
-    private Campo campo;
+    private final Campo campoAmigo;
+    private final Campo campoEnemigo;
 
-    AgujeroOscuro(Campo campo) {
+    AgujeroOscuro(Campo campoAmigo, Campo campoEnemigo) {
 
-        this.campo = campo;
+        this.campoAmigo = campoAmigo;
+        this.campoEnemigo = campoEnemigo;
 
     }
 
 
     public void activar() {
-
-        this.campo.aplicarEnMonstruos(new EfectoDestruirMonstruo(this.campo));
-
+        this.campoAmigo.aplicarEnMonstruos(new EfectoDestruirMonstruo(this.campoAmigo));
+        this.campoEnemigo.aplicarEnMonstruos(new EfectoDestruirMonstruo(this.campoEnemigo));
     }
+
 }

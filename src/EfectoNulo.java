@@ -6,7 +6,7 @@ public class EfectoNulo implements Efecto {
 	}
 
 	@Override
-	public void activarEn(Mano unaMano) {
+	public void activar(Mano unaMano) {
 
 	}
 
@@ -17,6 +17,11 @@ public class EfectoNulo implements Efecto {
 			this.activar(m);
 
 		}
+
+	}
+
+	@Override
+	public void activar() {
 
 	}
 

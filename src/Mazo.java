@@ -20,6 +20,9 @@ public class Mazo {
     }
 
     public Carta sacar() {
+        if (this.cartas.size() == 0){
+            throw new NoHayCartasError();
+        }
         Carta unaCarta = this.cartas.remove();
         if (this.cartas.size() == 0){
             this.partida.setPerdedor(this.nombreJugador);

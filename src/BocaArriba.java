@@ -14,5 +14,10 @@ public class BocaArriba implements Boca {
     public boolean estaBocaArriba() {
         return true;
     }
+
+    @Override
+    public boolean estaBocaAbajo() {
+        return false;
+    }
 }
 
