@@ -25,14 +25,17 @@ public class CartaMonstruoComeHombres implements Carta{
 
     }
 
-    void colocarBocaArriba(Carta m){
+    public void colocarBocaArriba(){
 
         this.boca = new BocaArriba();
-        this.activarEfectoEn(m);
 
     }
 
     public void colocarse(Campo c) {
+
+    }
+
+    public void colocarBocaAbajo() {
 
     }
 }

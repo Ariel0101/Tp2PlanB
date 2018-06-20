@@ -16,6 +16,9 @@ public class EntregaDosTest extends TestCase {
         CartaDeCampo waste = new CartaDeCampo(w);
         aitsu1.colocarEnPosAtaque();
         aitsu2.colocarEnPosAtaque();
+        aitsu1.colocarBocaArriba();
+        aitsu2.colocarBocaArriba();
+        waste.colocarBocaArriba();
         aitsu1.colocarse(c1);
         waste.colocarse(c1);
         aitsu2.colocarse(c2);

@@ -6,6 +6,7 @@ public class Campo {
     private LinkedList<CartaMonstruo> monstruos;
     private LinkedList<CartaMagica> magicas;
     private Cementerio cementerio;
+    private CartaDeCampo cartaCampo;
 
     Campo(Cementerio c){
 
@@ -33,9 +34,19 @@ public class Campo {
 
     }
 
+    void colocarCarta(CartaDeCampo carta){
+
+        carta.activar();
+        this.cartaCampo = carta;
+
+    }
+
     LinkedList<CartaMonstruo> monstruos() {
 
         return this.monstruos;
 
+    }
+
+    void agregarEfecto(Aumento aumentoAtaque) {
     }
 }

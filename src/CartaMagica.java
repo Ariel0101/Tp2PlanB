@@ -9,13 +9,13 @@ class CartaMagica implements Carta{
 
     }
 
-    void colocarBocaAbajo() {
+    public void colocarBocaAbajo() {
 
         this.boca = new BocaAbajo();
 
     }
 
-    void colocarBocaArriba() {
+    public void colocarBocaArriba() {
 
         this.magia.activar();
         this.boca = new BocaArriba();
