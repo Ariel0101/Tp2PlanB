@@ -56,6 +56,37 @@ public class EntregaDosTest extends TestCase {
 
     }
 
+    public void testActivarCartaFisuraDestruyeMonstruoDeMenorAtaqueEnemigoBocaArriba() {
+
+        Cementerio cementerio = new Cementerio();
+        Campo unCampo = new Campo(new Cementerio());
+        Campo otroCampo = new Campo(cementerio);
+        Fisura fisura = new Fisura(otroCampo);
+        CartaMagica cartaFisura = new CartaMagica(fisura);
+
+        Monstruo muchoAtaque = new Monstruo(400, 0);
+        Monstruo pocoAtaque = new Monstruo(30, 12);
+        Monstruo poquisimoAtaque = new Monstruo(5, 0);
+        CartaMonstruo cartaMonstruoUno = new CartaMonstruo(muchoAtaque, 1);
+        CartaMonstruo cartaMonstruoDos = new CartaMonstruo(pocoAtaque, 2);
+        CartaMonstruo cartaMonstruoTres = new CartaMonstruo(poquisimoAtaque, 2);
+
+        cartaMonstruoUno.colocarse(otroCampo);
+        cartaMonstruoDos.colocarse(otroCampo);
+        cartaMonstruoTres.colocarse(otroCampo);
+        cartaMonstruoUno.colocarBocaArriba();
+        cartaMonstruoDos.colocarBocaArriba();
+        cartaMonstruoTres.colocarBocaAbajo(); //Fisura no la tiene que contar. Solo mira las boca Arriba
+
+        cartaFisura.colocarse(unCampo);
+        cartaFisura.colocarBocaArriba();
+
+        assertFalse(cementerio.esta(cartaMonstruoUno));
+        assertTrue(cementerio.esta(cartaMonstruoDos));
+        assertFalse(cementerio.esta(cartaMonstruoTres));
+
+    }
+
     public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo(){
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
