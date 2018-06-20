@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.util.LinkedList;
+
 class CartaMonstruo implements Carta {
 
     protected Monstruo monstruo;
@@ -10,7 +13,6 @@ class CartaMonstruo implements Carta {
         this.monstruo = m;
         this.boca = new BocaNeutra();
         this.estrellas = estrellas;
-
     }
 
     void colocarEnPosAtaque() {
@@ -47,6 +49,10 @@ class CartaMonstruo implements Carta {
         return this.boca.atacar(this, cartaAtacada, campoEnemigo);
 
     }
+
+    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
+        return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
+    }
     
     public void aumentarAtaque(int aumento) {
     	
@@ -76,11 +82,7 @@ class CartaMonstruo implements Carta {
 
     }
 
-    private void invocar(Campo c) {
+    private void invocar(Campo miCampo) {
 
-    }
-
-    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
-        return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
 }

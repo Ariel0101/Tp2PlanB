@@ -177,11 +177,4 @@ public class EntregaUnoTest extends TestCase {
 
         assertTrue(cementerio.esta(aitsu));
     }
-
-    public void testColocarMonstruoDe5EstrellasSacrifica1Carta() {
-
-        Monstruo a = new Monstruo(100, 100);
-
-    }
-
 }

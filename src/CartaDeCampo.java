@@ -16,7 +16,7 @@ public class CartaDeCampo implements Carta {
 	public void colocarse(Campo unCampo) {
 		
 		unCampo.colocarCarta(this);
-		
+
 	}
 
 	public void activar() {
@@ -30,6 +30,5 @@ public class CartaDeCampo implements Carta {
     }
 
     public void colocarBocaArriba() {
-
     }
 }
