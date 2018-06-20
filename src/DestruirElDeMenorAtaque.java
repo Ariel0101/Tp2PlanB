@@ -1,5 +1,3 @@
-import java.util.Collection;
-
 public class DestruirElDeMenorAtaque implements Efecto{
 
     Campo campo;
@@ -7,20 +5,13 @@ public class DestruirElDeMenorAtaque implements Efecto{
     DestruirElDeMenorAtaque(Campo campo) {
 
         this.campo = campo;
+    }
+
+
+    public void activarEn(Mano unaMano) {
 
     }
 
-    @Override
-    public void activar() {
-
-    }
-
-    @Override
-    public void activar(Monstruo m) {
-
-    }
-
-    @Override
     public void activar(ListaMonstruos monstruos) {
 
         ListaMonstruos monstruosBocaArriba = monstruos.monstruosBocaArriba();

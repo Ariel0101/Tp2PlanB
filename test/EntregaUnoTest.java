@@ -79,7 +79,7 @@ public class EntregaUnoTest extends TestCase {
         Jugador jAitsu = new Jugador("", 10000);
         Jugador jAgujero = new Jugador("", 10000);
 
-        Botin b = agujaAsesina.atacar(aitsu);
+        Botin b = agujaAsesina.atacar(aitsu, new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
         b.ejecutar(new Campo(c));
 
@@ -103,7 +103,7 @@ public class EntregaUnoTest extends TestCase {
         Jugador j1 = new Jugador("", 10000);
         Jugador j2 = new Jugador("", 10000);
 
-        Botin b = agujaAsesina1.atacar(agujaAsesina2);
+        Botin b = agujaAsesina1.atacar(agujaAsesina2,new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
         b.ejecutar(new Campo(c));
 
@@ -129,7 +129,7 @@ public class EntregaUnoTest extends TestCase {
         Jugador jAitsu = new Jugador("", 10000);
         Jugador jAgujero = new Jugador("", 10000);
 
-        Botin b = agujaAsesina.atacar(aitsu);
+        Botin b = agujaAsesina.atacar(aitsu,new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
         b.ejecutar(new Campo(c));
 
@@ -151,7 +151,7 @@ public class EntregaUnoTest extends TestCase {
         Jugador jAitsu = new Jugador("", 10000);
         Jugador jAgujero = new Jugador("", 10000);
 
-        Botin b = aitsu.atacar(agujaAsesina);
+        Botin b = aitsu.atacar(agujaAsesina,new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
         b.ejecutar(new Campo(c));
 

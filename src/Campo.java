@@ -4,14 +4,17 @@ public class Campo {
 
     private LinkedList<CartaMonstruo> monstruos;
     private LinkedList<CartaMagica> magicas;
+    private LinkedList<CartaTrampa> trampas;
     private Cementerio cementerio;
     private CartaDeCampo cartaDeCampo;
     private AplicadorEfecto efectoDeCampo;
+
 
     Campo(Cementerio c){
 
         this.monstruos = new LinkedList<>();
         this.magicas = new LinkedList<>();
+        this.trampas = new LinkedList<>();
         this.cementerio = c;
         this.efectoDeCampo = new EfectoNulo();
 
@@ -67,4 +70,18 @@ public class Campo {
 		
 	}
 
+    public void colocarCarta(CartaTrampa cartaTrampa) {
+        this.trampas.add(cartaTrampa);
+    }
+
+    public Botin activarTrampa(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) {
+        if (this.trampas.size() == 0){
+            CartaTrampa unaCartaTrampa = new CartaTrampa(new TrampaNula());
+            return unaCartaTrampa.activar(monstruoAtacante, monstruoAtacado, unBotin);
+        }
+        CartaTrampa unaCartaTrampa = this.trampas.remove();
+        this.cementerio.enviar(unaCartaTrampa);
+        return unaCartaTrampa.activar(monstruoAtacante, monstruoAtacado, unBotin);
+
+    }
 }

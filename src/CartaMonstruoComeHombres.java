@@ -1,21 +1,10 @@
-public class CartaMonstruoComeHombres implements Carta{
+public class CartaMonstruoComeHombres extends CartaMonstruo {
 
-    private Monstruo monstruo;
-    private Boca boca;
-    private int estrellas;
+    private Carta cartaSeleccionada;
 
     CartaMonstruoComeHombres(Monstruo m, int e) {
-
-        this.monstruo = m;
-        this.boca = new BocaNeutra();
-        this.estrellas = e;
-
-    }
-
-    public void colocarEnPosAtaque(){
-
-        this.monstruo.colocarEnPosAtaque();
-        this.monstruo.activarEfecto();
+        super(m,e);
+        this.cartaSeleccionada = new CartaMonstruo(new Monstruo(0,0),0);
     }
 
     private void activarEfectoEn(Carta m){
@@ -25,17 +14,25 @@ public class CartaMonstruoComeHombres implements Carta{
 
     }
 
-    public void colocarBocaArriba(){
+    public void colocarBocaAbajo(){
 
-        this.boca = new BocaArriba();
+        this.boca = new BocaAbajoComeHombres();
+    }
+
+    void activarEfecto(){
+
+        Efecto efecto = this.monstruo.efecto();
+        efecto.activarEn(this.cartaSeleccionada);
 
     }
 
-    public void colocarse(Campo c) {
-
+    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
+        this.seleccionar(cartaAtacante);
+        return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
 
-    public void colocarBocaAbajo() {
-
+    private void seleccionar(CartaMonstruo cartaAtacante) {
+        this.cartaSeleccionada = cartaAtacante;
     }
+
 }

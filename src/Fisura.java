@@ -1,6 +1,8 @@
-public class Fisura implements CartaDeCampo {
+
+public class Fisura implements Magica {
 
     private final DestruirElDeMenorAtaque efecto;
+
     Campo campoOponente;
 
     Fisura(Campo campoOponente){
@@ -13,7 +15,7 @@ public class Fisura implements CartaDeCampo {
     @Override
     public void activar() {
 
-        this.campoOponente.aplicarEnTodosLosMonstruos(this.efecto);
+        this.campoOponente.aplicarEnMonstruos(this.efecto);
 
     }
 

@@ -1,4 +1,4 @@
-public class CartaDeCampo implements Carta{
+public class CartaDeCampo implements Carta {
 
 	private EfectoDeCampo efectoDeCampo;
 	
@@ -7,7 +7,12 @@ public class CartaDeCampo implements Carta{
 		this.efectoDeCampo = unEfectoDeCampo;
 		
 	}
-	
+
+
+	public void colocarse(Mano unaMano) {
+		unaMano.agregar(this);
+	}
+
 	public void colocarse(Campo unCampo) {
 		
 		unCampo.colocarCarta(this);

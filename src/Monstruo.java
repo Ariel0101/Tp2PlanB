@@ -5,12 +5,14 @@ public class Monstruo{
     private int defensa;
     private Efecto efecto;
     private Carta carta = new NoCarta();
+    private int aumentosTemporales;
 
     Monstruo(int danio, int defensa){
 
         this.danio = danio;
         this.defensa = defensa;
         this.posicion = new PosDormido();
+        this.aumentosTemporales = 0;
 
     }
 
@@ -20,7 +22,7 @@ public class Monstruo{
         this.defensa = defensa;
         this.posicion = new PosDormido();
         this.efecto = e;
-
+        this.aumentosTemporales = 0;
     }
 
     void setCarta(Carta c){
@@ -73,6 +75,11 @@ public class Monstruo{
     Botin atacar(Monstruo enemigo) {
 
         this.posicion.atacar();
+        return enemigo.recibirAtaque(this);
+    }
+
+    public Botin recibirAtaque(Monstruo enemigo){
+
         Botin botin = new Botin();
 
         int dif = this.obtenerPuntos() - enemigo.obtenerPuntos();
@@ -80,13 +87,13 @@ public class Monstruo{
         if(dif >= 0){
 
             this.matar(enemigo, botin);
-            botin.setDanioAtacado(enemigo.posicion.danioDePersonaje(dif));
+            botin.setDanioAtacante(enemigo.posicion.danioDePersonaje(dif));
 
         }
         if(dif <= 0){
 
             enemigo.matar(this, botin);
-            botin.setDanioAtacante(this.posicion.danioDePersonaje(dif));
+            botin.setDanioAtacado(this.posicion.danioDePersonaje(dif));
 
         }
 
@@ -115,5 +122,10 @@ public class Monstruo{
 
         return this.carta;
 
+    }
+
+    public void agregarAumentoTemporal(int aumento) {
+        this.aumentosTemporales += aumento;
+        this.aumentarAtaque(aumento);
     }
 }

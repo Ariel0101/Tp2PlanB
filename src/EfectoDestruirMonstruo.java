@@ -1,8 +1,8 @@
-import java.util.LinkedList;
+import java.util.Collection;
 
 class EfectoDestruirMonstruo implements Efecto {
 
-    private Campo campo;
+    Campo campo;
 
     public EfectoDestruirMonstruo(Campo campoOponente) {
 
@@ -14,9 +14,22 @@ class EfectoDestruirMonstruo implements Efecto {
 
     }
 
-    public void activarEn(Carta m){
+    public void activarEn(Carta monstruo) {
 
-        this.campo.destruir(m);
+    }
+
+    public void activar(Monstruo m){
+
+        this.campo.destruir(m.carta());
+
+    }
+
+    public void activarEn(Mano unaMano) {
+
+    }
+
+
+    public void activar(Collection<Monstruo> monstruos) {
 
     }
 
