@@ -58,4 +58,6 @@ public class CartaDeCampoTest extends TestCase {
 		assertTrue(m3.obtenerPuntosDeAtaque() == (ataqueInicialM3 + 200));
 		assertTrue(m4.obtenerPuntosDeDefensa() == (defensaInicialM4 + 300));
 	}
+
+
 }

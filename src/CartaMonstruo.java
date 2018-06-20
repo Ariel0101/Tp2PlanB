@@ -83,4 +83,25 @@ class CartaMonstruo implements Carta {
     public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
         return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
+
+    public boolean estaBocaArriba() {
+
+        return this.boca.estaBocaArriba();
+
+    }
+
+    public CartaMonstruo monstruoConMenorAtaque(CartaMonstruo otra) {
+
+        Monstruo m = this.monstruo.MonstruoConMenorAtaqueQue(otra.monstruo);
+
+        if (m == this.monstruo){
+
+            return this;
+
+        }
+
+        return otra;
+
+
+    }
 }

@@ -7,7 +7,8 @@ public class Campo {
     private LinkedList<CartaTrampa> trampas;
     private Cementerio cementerio;
     private CartaDeCampo cartaDeCampo;
-    private AplicadorEfecto efectoDeCampo;
+    private Efecto efectoDeCampo;
+    private ListaMonstruos listaMonstruos;
 
 
     Campo(Cementerio c){
@@ -17,6 +18,7 @@ public class Campo {
         this.trampas = new LinkedList<>();
         this.cementerio = c;
         this.efectoDeCampo = new EfectoNulo();
+        this.listaMonstruos = new ListaMonstruos();
 
     }
 
@@ -30,6 +32,7 @@ public class Campo {
     	
     	efectoDeCampo.activarEn(carta);
         this.monstruos.add(carta);
+        this.listaMonstruos.agregar(carta);
 
     }
 
@@ -46,6 +49,18 @@ public class Campo {
 
     }
 
+    ListaMonstruos listaMonstruos(){
+
+        return this.listaMonstruos;
+
+    }
+
+    void aplicarEnMonstruos(Efecto efecto){
+
+        efecto.activar(this.listaMonstruos);
+
+    }
+
 	public void colocarCarta(CartaDeCampo unaCartaDeCampo) {
 		
 		this.cartaDeCampo = unaCartaDeCampo;
@@ -54,18 +69,10 @@ public class Campo {
 	}
 
 
-	private void aplicarEnTodosLosMonstruos(AplicadorEfecto unEfecto) {
-		
-		for(CartaMonstruo monstruo: monstruos){
-			unEfecto.activarEn(monstruo);
-		}		
-		
-	}
-
-	public void setEfectoDeCampo(AplicadorEfecto unEfectoDeCampo) {
+	public void setEfectoDeCampo(Efecto unEfectoDeCampo) {
 		
 		this.efectoDeCampo = unEfectoDeCampo;
-		this.aplicarEnTodosLosMonstruos(efectoDeCampo);
+		this.aplicarEnMonstruos(efectoDeCampo);
 
 		
 	}

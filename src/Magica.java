@@ -1,3 +1,5 @@
 interface Magica {
+
     void activar();
+
 }

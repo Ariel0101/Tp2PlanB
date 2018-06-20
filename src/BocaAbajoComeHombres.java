@@ -9,4 +9,9 @@ public class BocaAbajoComeHombres implements Boca {
         miCarta.activarEfecto();
         return new Botin();
     }
+
+    @Override
+    public boolean estaBocaArriba() {
+        return false;
+    }
 }

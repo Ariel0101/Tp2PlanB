@@ -15,5 +15,10 @@ public class BocaArriba implements Boca {
         unBotin = miCampo.activarTrampa(monstruoAtacante, monstruoAtacado, unBotin);
         return unBotin;
     }
+
+    @Override
+    public boolean estaBocaArriba() {
+        return true;
+    }
 }
 

@@ -23,4 +23,9 @@ public class BocaNeutra implements Boca {
 
 
     }
+
+    @Override
+    public boolean estaBocaArriba() {
+        return false;
+    }
 }

@@ -2,14 +2,15 @@ import java.util.Collection;
 
 public interface Efecto {
 
-    void activar();
-
-    void activarEn(Carta monstruo);
-
     void activarEn(Mano unaMano);
 
-    void activar(Monstruo m);
+    void activar(ListaMonstruos listaMonstruos);
 
-    void activar(Collection<Monstruo> monstruos);
+    default void activar() {
 
+    }
+
+    default void activarEn(CartaMonstruo carta){
+
+    }
 }

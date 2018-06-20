@@ -1,5 +1,5 @@
 
-public class EfectoAumentarDefensa implements AplicadorEfecto {
+public class EfectoAumentarDefensa implements Efecto {
 
 	private int aumentoDeDefensa;
 	
@@ -13,6 +13,25 @@ public class EfectoAumentarDefensa implements AplicadorEfecto {
 		
 		monstruo.aumentarDefensa(aumentoDeDefensa);
 		
+	}
+
+	public void activarEn(Carta monstruo) {
+
+	}
+
+	@Override
+	public void activarEn(Mano unaMano) {
+
+	}
+
+	public void activar(ListaMonstruos monstruos){
+
+		for (CartaMonstruo m: monstruos){
+
+			this.activarEn(m);
+
+		}
+
 	}
 
 }

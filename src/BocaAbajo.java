@@ -16,4 +16,9 @@ public class BocaAbajo implements Boca {
         cartaAtacada.colocarBocaArriba();
         return monstruoAtacante.atacar(monstruoAtacado);
     }
+
+    @Override
+    public boolean estaBocaArriba() {
+        return false;
+    }
 }
