@@ -1,13 +1,13 @@
 public class CartaMonstruoComeHombres extends CartaMonstruo {
 
-    private Carta cartaSeleccionada;
+    private CartaMonstruo cartaSeleccionada;
 
     CartaMonstruoComeHombres(Monstruo m, int e) {
         super(m,e);
         this.cartaSeleccionada = new CartaMonstruo(new Monstruo(0,0),0);
     }
 
-    private void activarEfectoEn(Carta m){
+    private void activarEfectoEn(CartaMonstruo m){
 
         Efecto efect = this.monstruo.efecto();
         efect.activarEn(m);
