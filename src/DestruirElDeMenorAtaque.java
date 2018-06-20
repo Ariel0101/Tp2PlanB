@@ -19,4 +19,9 @@ public class DestruirElDeMenorAtaque implements Efecto{
         this.campo.destruir(monstruoConMenorAtaque);
 
     }
+
+    @Override
+    public void activar(CartaMonstruo carta) {
+
+    }
 }

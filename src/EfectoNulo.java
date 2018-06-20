@@ -1,7 +1,7 @@
 
 public class EfectoNulo implements Efecto {
 
-	public void activarEn(CartaMonstruo carta) {
+	public void activar(CartaMonstruo carta) {
 
 	}
 
@@ -14,7 +14,7 @@ public class EfectoNulo implements Efecto {
 
 		for (CartaMonstruo m: monstruos){
 
-			this.activarEn(m);
+			this.activar(m);
 
 		}
 

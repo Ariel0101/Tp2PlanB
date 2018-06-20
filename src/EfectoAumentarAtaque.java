@@ -9,7 +9,7 @@ public class EfectoAumentarAtaque implements Efecto {
 		
 	}
 	
-	public void activarEn(CartaMonstruo monstruo) {
+	public void activar(CartaMonstruo monstruo) {
 		
 		monstruo.aumentarAtaque(aumentoDeAtaque);
 		
@@ -25,7 +25,7 @@ public class EfectoAumentarAtaque implements Efecto {
 
 		for (CartaMonstruo m: monstruos){
 
-			this.activarEn(m);
+			this.activar(m);
 
 		}
 

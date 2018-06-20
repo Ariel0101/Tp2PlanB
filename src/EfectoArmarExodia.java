@@ -13,4 +13,8 @@ public class EfectoArmarExodia implements Efecto {
 
     }
 
+    public void activar(CartaMonstruo carta) {
+
+    }
+
 }
