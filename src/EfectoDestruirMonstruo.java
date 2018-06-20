@@ -17,6 +17,13 @@ class EfectoDestruirMonstruo implements Efecto {
     }
 
     public void activarEn(Mano unaMano) {
+    }
+
+    public void activarEn(Carta unaCarta) {
+        this.campo.destruir(unaCarta);
+    }
+
+    public void activar(Monstruo m){
 
     }
 
@@ -25,7 +32,7 @@ class EfectoDestruirMonstruo implements Efecto {
 
         for (CartaMonstruo m: monstruos){
 
-            this.activar(m);
+            this.activarEn(m);
         }
 
     }

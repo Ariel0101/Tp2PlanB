@@ -31,8 +31,8 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
         return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
 
-    private void seleccionar(CartaMonstruo cartaAtacante) {
-        this.cartaSeleccionada = cartaAtacante;
+    private void seleccionar(CartaMonstruo unaCarta) {
+        this.cartaSeleccionada = unaCarta;
     }
 
 }
