@@ -18,13 +18,13 @@ public class EfectoWasteland extends EfectoDeCampo {
 	
 	private void activarEfectoEnCampoAmigo() {
 		
-		campoAmigo.setEfectoDeCampo(new EfectoAumentarAtaque(aumentoDeAtaqueAMonstruosAmigos));
+		campoAmigo.setEfectoDeCampoPropio(new EfectoAumentarAtaque(aumentoDeAtaqueAMonstruosAmigos));
 
 	}
 	
 	private void activarEfectoEnCampoEnemigo() {
 		
-		campoEnemigo.setEfectoDeCampo(new EfectoAumentarDefensa(aumentoDeDefensaAMonstruosEnemigos));
+		campoEnemigo.setEfectoDeCampoEnemigo(new EfectoAumentarDefensa(aumentoDeDefensaAMonstruosEnemigos));
 		
 	}
 	

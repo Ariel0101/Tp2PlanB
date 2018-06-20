@@ -7,7 +7,8 @@ public class Campo {
     private LinkedList<CartaTrampa> trampas;
     private Cementerio cementerio;
     private CartaDeCampo cartaDeCampo;
-    private Efecto efectoDeCampo;
+    private Efecto efectoDeCampoPropio;
+    private Efecto efectoDeCampoEnemigo;
     private ListaMonstruos listaMonstruos;
 
 
@@ -17,7 +18,8 @@ public class Campo {
         this.magicas = new LinkedList<>();
         this.trampas = new LinkedList<>();
         this.cementerio = c;
-        this.efectoDeCampo = new EfectoNulo();
+        this.efectoDeCampoPropio = new EfectoNulo();
+        this.efectoDeCampoEnemigo = new EfectoNulo();
         this.listaMonstruos = new ListaMonstruos();
 
     }
@@ -30,7 +32,8 @@ public class Campo {
 
     void colocarCarta(CartaMonstruo carta){
     	
-    	efectoDeCampo.activar(carta);
+    	efectoDeCampoPropio.activar(carta);
+    	efectoDeCampoEnemigo.activar(carta);
         this.monstruos.add(carta);
         this.listaMonstruos.agregar(carta);
 
@@ -69,13 +72,19 @@ public class Campo {
 	}
 
 
-	public void setEfectoDeCampo(Efecto unEfectoDeCampo) {
+	public void setEfectoDeCampoPropio(Efecto unEfectoDeCampo) {
 		
-		this.efectoDeCampo = unEfectoDeCampo;
-		this.aplicarEnMonstruos(efectoDeCampo);
+		this.efectoDeCampoPropio = unEfectoDeCampo;
+		this.aplicarEnMonstruos(unEfectoDeCampo);
 
-		
 	}
+
+    public void setEfectoDeCampoEnemigo(Efecto unEfectoDeCampo) {
+
+        this.efectoDeCampoEnemigo = unEfectoDeCampo;
+        this.aplicarEnMonstruos(unEfectoDeCampo);
+
+    }
 
     public void colocarCarta(CartaTrampa cartaTrampa) {
         this.trampas.add(cartaTrampa);
