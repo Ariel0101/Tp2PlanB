@@ -7,6 +7,7 @@ class CartaMonstruo implements Carta {
     protected Boca boca;
     private int estrellas;
 
+
     CartaMonstruo(Monstruo monstruo, int estrellas){
 
         monstruo.setCarta(this);
@@ -105,5 +106,9 @@ class CartaMonstruo implements Carta {
         return otra;
 
 
+    }
+
+    public void desactivarTemporales() {
+        this.monstruo.desactivarTemporales();
     }
 }

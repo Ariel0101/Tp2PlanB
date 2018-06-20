@@ -138,4 +138,9 @@ public class Monstruo{
         }
         return monstruo;
     }
+
+    public void desactivarTemporales() {
+        this.danio -= this.aumentosTemporales;
+        this.aumentosTemporales = 0;
+    }
 }
