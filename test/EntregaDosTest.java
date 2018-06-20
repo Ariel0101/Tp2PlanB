@@ -41,7 +41,7 @@ public class EntregaDosTest extends TestCase {
 
     public void testOllaDeLaCodiciaActivarSacaDosCartasDelMazoYlasColocaEnLaMano(){
         Campo unCampo = new Campo(new Cementerio());
-        Mazo unMazo = new Mazo();
+        Mazo unMazo = new Mazo("", new Partida());
         unMazo.agregar(new CartaMonstruo(new Monstruo(1,1),1));
         unMazo.agregar(new CartaMagica(new AgujeroOscuro(unCampo)));
         Mano unaMano = new Mano("", new Partida());
@@ -175,6 +175,18 @@ public class EntregaDosTest extends TestCase {
         cartaPiernaIzquierda.colocarse(unaMano);
 
         assertEquals("Jugador 1",unaPartida.verGanador());
+
+    }
+
+    public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
+        Partida unaPartida = new Partida();
+        Mazo unMazo = new Mazo("Jugador 1", unaPartida);
+        Monstruo aitsu = new Monstruo(100,100);
+        CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
+        unMazo.agregar(cartaAitsu);
+        unMazo.sacar();
+
+        assertEquals("Jugador 1", unaPartida.verPerdedor());
 
     }
 }
