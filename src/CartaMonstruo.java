@@ -1,7 +1,7 @@
-class CartaMonstruo implements Carta{
+class CartaMonstruo implements Carta {
 
-    private Monstruo monstruo;
-    private Boca boca;
+    protected Monstruo monstruo;
+    protected Boca boca;
     private int estrellas;
 
     CartaMonstruo(Monstruo m, int estrellas){
@@ -41,6 +41,12 @@ class CartaMonstruo implements Carta{
 
         this.monstruo.activarEfecto();
     }
+
+    Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) {
+
+        return this.boca.atacar(this, cartaAtacada, campoEnemigo);
+
+    }
     
     public void aumentarAtaque(int aumento) {
     	
@@ -51,12 +57,7 @@ class CartaMonstruo implements Carta{
     	
     	this.monstruo.aumentarDefensa(aumento);
     }
-    
-    Botin atacar(CartaMonstruo m) {
 
-        return this.boca.pelear(this.monstruo, m.monstruo);
-
-    }
 
     void destruir(Cementerio c) {
 
@@ -64,6 +65,9 @@ class CartaMonstruo implements Carta{
 
     }
 
+    public void colocarse(Mano unaMano) {
+        unaMano.agregar(this);
+    }
 
     public void colocarse(Campo c) {
 
@@ -76,4 +80,7 @@ class CartaMonstruo implements Carta{
 
     }
 
+    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
+        return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
+    }
 }

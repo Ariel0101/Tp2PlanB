@@ -1,17 +1,21 @@
 public class NoCarta implements Carta {
+    @Override
+    public void colocarse(Mano unaMano) {
 
+    }
+
+    @Override
     public void colocarse(Campo c) {
 
     }
 
-	public void colocarBocaAbajo() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void colocarBocaAbajo() {
 
-	public void colocarBocaArriba() {
-		// TODO Auto-generated method stub
-		
-	}
+    }
 
+    @Override
+    public void colocarBocaArriba() {
+
+    }
 }

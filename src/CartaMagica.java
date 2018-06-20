@@ -1,4 +1,4 @@
-class CartaMagica implements Carta{
+class CartaMagica implements Carta {
 
     private Magica magia;
     private Boca boca;
@@ -22,9 +22,17 @@ class CartaMagica implements Carta{
 
     }
 
+
+    public void colocarse(Mano unaMano) {
+
+        unaMano.agregar(this);
+
+    }
+
     public void colocarse(Campo c) {
 
         c.colocarCarta(this);
 
     }
+
 }

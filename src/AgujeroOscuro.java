@@ -1,4 +1,4 @@
-class AgujeroOscuro implements Magica{
+class AgujeroOscuro implements Magica {
 
     private Campo campo;
 

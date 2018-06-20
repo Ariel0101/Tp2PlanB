@@ -5,4 +5,22 @@ public class BocaNeutra implements Boca {
         return new Botin();
 
     }
+
+
+    public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo) {
+
+
+        return new Botin();
+
+
+    }
+
+
+    public Botin recibirAtaque(CartaMonstruo miCarta, Monstruo monstruoAtacado, Monstruo monstruoAtacante, Campo miCampo) {
+
+
+        return new Botin();
+
+
+    }
 }
