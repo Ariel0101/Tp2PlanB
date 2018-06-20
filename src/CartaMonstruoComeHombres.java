@@ -7,13 +7,6 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
         this.cartaSeleccionada = new CartaMonstruo(new Monstruo(0,0),0);
     }
 
-    private void activarEfectoEn(CartaMonstruo m){
-
-        Efecto efect = this.monstruo.efecto();
-        efect.activarEn(m);
-
-    }
-
     public void colocarBocaAbajo(){
 
         this.boca = new BocaAbajoComeHombres();
@@ -32,7 +25,9 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
     }
 
     public void seleccionar(CartaMonstruo unaCarta) {
+
         this.cartaSeleccionada = unaCarta;
+
     }
 
 }

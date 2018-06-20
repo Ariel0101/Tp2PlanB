@@ -20,7 +20,9 @@ class EfectoDestruirMonstruo implements Efecto {
     }
 
     public void activarEn(Carta unaCarta) {
+
         this.campo.destruir(unaCarta);
+
     }
 
     public void activar(Monstruo m){

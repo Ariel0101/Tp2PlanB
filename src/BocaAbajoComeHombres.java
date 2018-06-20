@@ -10,7 +10,6 @@ public class BocaAbajoComeHombres implements Boca {
         return new Botin();
     }
 
-    @Override
     public boolean estaBocaArriba() {
         return false;
     }

@@ -1,11 +1,5 @@
 public class BocaArriba implements Boca {
 
-    public Botin pelear(Monstruo m1, Monstruo m2) {
-
-        return m1.atacar(m2);
-
-    }
-
     public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo){
         return cartaAtacada.recibirAtaque(cartaAtacante, campoEnemigo);
     }
