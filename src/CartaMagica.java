@@ -1,4 +1,4 @@
-class CartaMagica implements Carta{
+class CartaMagica extends Carta{
 
     private Magica magia;
     private Boca boca;

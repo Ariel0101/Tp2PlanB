@@ -47,6 +47,16 @@ public class Monstruo{
         return this.posicion.obtenerPuntos(this.danio, this.defensa);
 
     }
+    
+    int obtenerPuntosDeAtaque() {
+    	
+    	return this.danio;
+    }
+    
+    int obtenerPuntosDeDefensa() {
+    	
+    	return this.defensa;
+    }
 
     void aumentarAtaque(int aumento) {
 

@@ -1,4 +1,4 @@
-public class CartaMonstruoComeHombres implements Carta{
+public class CartaMonstruoComeHombres extends Carta{
 
     private Monstruo monstruo;
     private Boca boca;

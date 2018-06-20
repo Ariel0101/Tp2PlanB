@@ -1,4 +1,4 @@
-class CartaMonstruo implements Carta{
+class CartaMonstruo extends Carta{
 
     private Monstruo monstruo;
     private Boca boca;
@@ -41,7 +41,17 @@ class CartaMonstruo implements Carta{
 
         this.monstruo.activarEfecto();
     }
-
+    
+    public void aumentarAtaque(int aumento) {
+    	
+    	this.monstruo.aumentarAtaque(aumento);
+    }
+    
+    public void aumentarDefensa(int aumento) {
+    	
+    	this.monstruo.aumentarDefensa(aumento);
+    }
+    
     Botin atacar(CartaMonstruo m) {
 
         return this.boca.pelear(this.monstruo, m.monstruo);
