@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Campo {
@@ -8,7 +7,7 @@ public class Campo {
     private Cementerio cementerio;
     private CartaDeCampo cartaDeCampo;
     private AplicadorEfecto efectoDeCampo;
-    
+
     Campo(Cementerio c){
 
         this.monstruos = new LinkedList<>();
@@ -36,6 +35,7 @@ public class Campo {
         this.magicas.add(carta);
 
     }
+
 
     LinkedList<CartaMonstruo> monstruos() {
 

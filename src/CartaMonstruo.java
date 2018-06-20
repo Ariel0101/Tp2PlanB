@@ -1,4 +1,4 @@
-class CartaMonstruo extends Carta{
+class CartaMonstruo implements Carta{
 
     private Monstruo monstruo;
     private Boca boca;
@@ -25,13 +25,13 @@ class CartaMonstruo extends Carta{
 
     }
 
-    void colocarBocaAbajo() {
+    public void colocarBocaAbajo() {
 
         this.boca = new BocaAbajo();
 
     }
 
-    void colocarBocaArriba() {
+    public void colocarBocaArriba() {
 
         this.boca = new BocaArriba();
 

@@ -1,4 +1,4 @@
-public class CartaMonstruoComeHombres extends Carta{
+public class CartaMonstruoComeHombres implements Carta{
 
     private Monstruo monstruo;
     private Boca boca;
@@ -25,14 +25,17 @@ public class CartaMonstruoComeHombres extends Carta{
 
     }
 
-    void colocarBocaArriba(Carta m){
+    public void colocarBocaArriba(){
 
         this.boca = new BocaArriba();
-        this.activarEfectoEn(m);
 
     }
 
     public void colocarse(Campo c) {
+
+    }
+
+    public void colocarBocaAbajo() {
 
     }
 }

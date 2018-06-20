@@ -1,5 +1,4 @@
-
-public class CartaDeCampo extends Carta{
+public class CartaDeCampo implements Carta{
 
 	private EfectoDeCampo efectoDeCampo;
 	
@@ -20,4 +19,12 @@ public class CartaDeCampo extends Carta{
 		efectoDeCampo.activar();
 	}
 
+
+    public void colocarBocaAbajo() {
+
+    }
+
+    public void colocarBocaArriba() {
+
+    }
 }

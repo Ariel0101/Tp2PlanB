@@ -1,4 +1,4 @@
-class CartaMagica extends Carta{
+class CartaMagica implements Carta{
 
     private Magica magia;
     private Boca boca;
@@ -9,13 +9,13 @@ class CartaMagica extends Carta{
 
     }
 
-    void colocarBocaAbajo() {
+    public void colocarBocaAbajo() {
 
         this.boca = new BocaAbajo();
 
     }
 
-    void colocarBocaArriba() {
+    public void colocarBocaArriba() {
 
         this.magia.activar();
         this.boca = new BocaArriba();

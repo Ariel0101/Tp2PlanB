@@ -60,7 +60,7 @@ public class CartaMonstruoTest extends TestCase {
 
         campoOponente.colocarCarta(mOponente);
         mOponente.colocarEnPosAtaque();
-        insectoComeHombres.colocarBocaArriba(mOponente);
+        insectoComeHombres.colocarBocaArriba();
 
 
         assertTrue(cementerioOponente.esta(mOponente));

@@ -1,5 +1,8 @@
-public abstract class Carta {
+public interface Carta {
 
-    abstract void colocarse(Campo c);
+     void colocarse(Campo c);
 
+     void colocarBocaAbajo();
+
+     void colocarBocaArriba();
 }
