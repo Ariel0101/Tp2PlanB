@@ -128,4 +128,14 @@ public class Monstruo{
         this.aumentosTemporales += aumento;
         this.aumentarAtaque(aumento);
     }
+
+    public Monstruo MonstruoConMenorAtaqueQue(Monstruo monstruo) {
+
+        if (this.danio < monstruo.danio){
+
+            return this;
+
+        }
+        return monstruo;
+    }
 }

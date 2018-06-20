@@ -34,5 +34,4 @@ class CartaMagica implements Carta {
         c.colocarCarta(this);
 
     }
-
 }

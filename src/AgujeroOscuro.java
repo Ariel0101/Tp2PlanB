@@ -11,11 +11,7 @@ class AgujeroOscuro implements Magica {
 
     public void activar() {
 
-        for(CartaMonstruo m : this.campo.monstruos()){
-
-            this.campo.destruir(m);
-
-        }
+        this.campo.aplicarEnMonstruos(new EfectoDestruirMonstruo(this.campo));
 
     }
 }

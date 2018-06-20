@@ -2,8 +2,6 @@ import java.util.Collection;
 
 public class EfectoArmarExodia implements Efecto {
 
-    public void activar() { }
-
     public void activarEn(Carta monstruo) { }
 
     public void activarEn(Mano unaMano) {
@@ -11,12 +9,8 @@ public class EfectoArmarExodia implements Efecto {
     }
 
     @Override
-    public void activar(Monstruo m) {
+    public void activar(ListaMonstruos listaMonstruos) {
 
     }
 
-    @Override
-    public void activar(Collection<Monstruo> monstruos) {
-
-    }
 }

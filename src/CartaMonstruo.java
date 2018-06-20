@@ -85,4 +85,25 @@ class CartaMonstruo implements Carta {
     private void invocar(Campo miCampo) {
 
     }
+
+    public boolean estaBocaArriba() {
+
+        return this.boca.estaBocaArriba();
+
+    }
+
+    public CartaMonstruo monstruoConMenorAtaque(CartaMonstruo otra) {
+
+        Monstruo m = this.monstruo.MonstruoConMenorAtaqueQue(otra.monstruo);
+
+        if (m == this.monstruo){
+
+            return this;
+
+        }
+
+        return otra;
+
+
+    }
 }

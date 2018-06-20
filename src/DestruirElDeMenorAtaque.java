@@ -1,31 +1,22 @@
-import java.util.Collection;
+public class DestruirElDeMenorAtaque implements Efecto{
 
-public class DestruirElDeMenorAtaque implements Efecto {
+    Campo campo;
 
+    DestruirElDeMenorAtaque(Campo campo) {
 
-    @Override
-    public void activar() {
-
+        this.campo = campo;
     }
 
-    @Override
-    public void activarEn(Carta monstruo) {
 
-    }
-
-    @Override
     public void activarEn(Mano unaMano) {
 
     }
 
-    @Override
-    public void activar(Monstruo m) {
+    public void activar(ListaMonstruos monstruos) {
 
-    }
-
-    @Override
-    public void activar(Collection<Monstruo> monstruos) { //??¿¿¿metodo: monstruo.obtenerPuntosDeAtaque??????????
-
+        ListaMonstruos monstruosBocaArriba = monstruos.monstruosBocaArriba();
+        CartaMonstruo monstruoConMenorAtaque = monstruosBocaArriba.monstruoConMenorAtaque();
+        this.campo.destruir(monstruoConMenorAtaque);
 
     }
 }
