@@ -1,14 +1,14 @@
 
 public class Fisura implements Magica {
 
-    private final DestruirElDeMenorAtaque efecto;
+    private final EfectoDestruirElDeMenorAtaque efecto;
 
     Campo campoOponente;
 
     Fisura(Campo campoOponente){
 
         this.campoOponente = campoOponente;
-        this.efecto = new DestruirElDeMenorAtaque(campoOponente);
+        this.efecto = new EfectoDestruirElDeMenorAtaque(campoOponente);
 
     }
 

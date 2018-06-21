@@ -23,7 +23,9 @@ public class MazoTest extends TestCase {
         CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
         CartaMagica cartaMagica = new CartaMagica(new MagiaNula());
         CartaTrampa cartaTrampa = new CartaTrampa(new TrampaNula());
-        CartaDeCampo cartaDeCampo = new CartaDeCampo(new EfectoDeCampoNulo(new Campo(), new Campo()));
+        Cementerio c1 = new Cementerio();
+        Cementerio c2 = new Cementerio();
+        CartaDeCampo cartaDeCampo = new CartaDeCampo(new EfectoDeCampoNulo(new Campo(c1), new Campo(c2)));
         unMazo.agregar(cartaMonstruo);
         unMazo.agregar(cartaMagica);
         unMazo.agregar(cartaTrampa);

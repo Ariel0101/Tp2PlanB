@@ -1,8 +1,8 @@
-public class DestruirElDeMenorAtaque implements Efecto{
+public class EfectoDestruirElDeMenorAtaque implements Efecto{
 
     Campo campo;
 
-    DestruirElDeMenorAtaque(Campo campo) {
+    EfectoDestruirElDeMenorAtaque(Campo campo) {
 
         this.campo = campo;
     }
