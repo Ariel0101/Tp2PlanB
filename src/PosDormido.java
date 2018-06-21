@@ -1,6 +1,6 @@
 public class PosDormido implements Posicion {
 
-    public int obtenerPuntos(int danio, int defensa) {
+    public int obtenerPuntos(int danio, int defensa) throws MonstruoNoPuedeAtacarError {
 
         throw new MonstruoNoPuedeAtacarError();
 
@@ -12,13 +12,13 @@ public class PosDormido implements Posicion {
 
     }
 
-    public void matar(Monstruo enemigo, Botin b) {
+    public void matar(Monstruo enemigo, Botin b) throws MonstruoNoPuedeAtacarError {
 
         throw new MonstruoNoPuedeAtacarError();
 
     }
 
-    public void atacar() {
+    public void atacar() throws MonstruoNoPuedeAtacarError {
 
         throw new MonstruoNoPuedeAtacarError();
 

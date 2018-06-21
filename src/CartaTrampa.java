@@ -24,7 +24,7 @@ public class CartaTrampa implements Carta {
         this.boca = new BocaArriba();
     }
 
-    public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) {
+    public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
         this.colocarBocaArriba();
         return this.trampa.activar(monstruoAtacante, monstruoAtacado, unBotin);
     }

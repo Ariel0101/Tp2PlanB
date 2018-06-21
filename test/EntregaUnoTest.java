@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 
 public class EntregaUnoTest extends TestCase {
 
-    public void testColocarUnMonstruoEnPosicionDeAtaque(){
+    public void testColocarUnMonstruoEnPosicionDeAtaque() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ganador = new Monstruo(1001, 0);
         ganador.colocarEnPosAtaque();
@@ -20,7 +20,7 @@ public class EntregaUnoTest extends TestCase {
 
     }
 
-    public void testColocarUnMonstruoEnPosicionDeDefensa(){
+    public void testColocarUnMonstruoEnPosicionDeDefensa() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ganador = new Monstruo(0, 1001);
         ganador.colocarEnPosDefensa();
@@ -66,7 +66,7 @@ public class EntregaUnoTest extends TestCase {
 
     }
 
-    public void testAgujaAsesinaEnAtaqueContraAitsuEnAtaqueDestruyoAAitsuYElJugadorSufreDanio(){
+    public void testAgujaAsesinaEnAtaqueContraAitsuEnAtaqueDestruyoAAitsuYElJugadorSufreDanio() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ai = new Monstruo(100, 100);
         Monstruo ag = new Monstruo(1200, 1000);
@@ -90,7 +90,7 @@ public class EntregaUnoTest extends TestCase {
 
     }
 
-    public void testAgujaAsesinaEnAtaqueContraAgujaAsesinaEnAtaqueDestruyoAAmbosNadieSufrioDanio(){
+    public void testAgujaAsesinaEnAtaqueContraAgujaAsesinaEnAtaqueDestruyoAAmbosNadieSufrioDanio() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ag1 = new Monstruo(1200, 1000);
         Monstruo ag2 = new Monstruo(1200, 1000);
@@ -116,7 +116,7 @@ public class EntregaUnoTest extends TestCase {
 
     }
 
-    public void testAgujaAsesinaEnAtaqueContraAitsuEnDefensaDestruyoAAitsuYElJugadorNoSufreDanio(){
+    public void testAgujaAsesinaEnAtaqueContraAitsuEnDefensaDestruyoAAitsuYElJugadorNoSufreDanio() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ai = new Monstruo(100, 100);
         Monstruo ag = new Monstruo(1200, 1000);
@@ -140,7 +140,7 @@ public class EntregaUnoTest extends TestCase {
 
     }
 
-    public void testAitsuEnAtaqueContraAgujaAsesinaEnDefensaNoDestruyoAAitsuYElJugadorNoSufreDanio(){
+    public void testAitsuEnAtaqueContraAgujaAsesinaEnDefensaNoDestruyoAAitsuYElJugadorNoSufreDanio() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ai = new Monstruo(100, 100);
         Monstruo ag = new Monstruo(1200, 1000);
@@ -181,5 +181,63 @@ public class EntregaUnoTest extends TestCase {
         assertTrue(cementerio.esta(aitsu));
         assertTrue(cementerio.esta(mokeyMokey));
         
+    }
+    
+    public void testColocarMonstruoDe5EstrellasSacrificaAMonstruoEnCampo() throws MonstruoNoPuedeAtacarError {
+    	
+        Cementerio unCementerio = new Cementerio();
+        Cementerio otroCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+        Campo otroCampo = new Campo(otroCementerio);
+        Monstruo monstruoSacrificado = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada = new CartaMonstruo(monstruoSacrificado, 4);
+        Monstruo monstruo5Estrellas = new Monstruo(300, 100);
+        CartaMonstruo carta5Estrellas = new CartaMonstruo(monstruo5Estrellas ,5);
+        Monstruo monstruoAtacado = new Monstruo(10, 10);
+        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        
+        unCampo.colocarCarta(cartaSacrificada);
+        unCampo.colocarCarta(carta5Estrellas);
+        carta5Estrellas.colocarBocaArriba();
+        carta5Estrellas.colocarEnPosAtaque();
+        otroCampo.colocarCarta(cartaAtacada);
+        cartaAtacada.colocarBocaArriba();
+        cartaAtacada.colocarEnPosAtaque();
+        Botin b = carta5Estrellas.atacar(cartaAtacada, otroCampo);
+        b.ejecutar(otroCampo);
+    	
+    	assertTrue(unCementerio.esta(cartaSacrificada));
+    	assertTrue(otroCementerio.esta(cartaAtacada));
+    }
+    
+    public void testColocarMonstruoDe7EstrellasSacrificaDosMonstruosEnCampo() throws MonstruoNoPuedeAtacarError {
+    	
+        Cementerio unCementerio = new Cementerio();
+        Cementerio otroCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+        Campo otroCampo = new Campo(otroCementerio);
+        Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 2);
+        Monstruo monstruo7Estrellas = new Monstruo(300, 100);
+        CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
+        Monstruo monstruoAtacado = new Monstruo(10, 10);
+        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        
+        unCampo.colocarCarta(cartaSacrificada1);
+        unCampo.colocarCarta(cartaSacrificada2);
+        unCampo.colocarCarta(carta7Estrellas);
+        carta7Estrellas.colocarBocaArriba();
+        carta7Estrellas.colocarEnPosAtaque();
+        otroCampo.colocarCarta(cartaAtacada);
+        cartaAtacada.colocarBocaArriba();
+        cartaAtacada.colocarEnPosAtaque();
+        Botin b = carta7Estrellas.atacar(cartaAtacada, otroCampo);
+        b.ejecutar(otroCampo);
+    	
+    	assertTrue(unCementerio.esta(cartaSacrificada1));
+    	assertTrue(unCementerio.esta(cartaSacrificada2));
+    	assertTrue(otroCementerio.esta(cartaAtacada));
     }
 }

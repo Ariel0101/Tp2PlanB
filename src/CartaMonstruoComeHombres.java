@@ -28,7 +28,7 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
 
     }
 
-    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
+    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError {
         this.seleccionar(cartaAtacante);
         return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }

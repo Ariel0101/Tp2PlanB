@@ -44,10 +44,9 @@ public class Monstruo{
 
     }
 
-    private int obtenerPuntos() {
-
+    private int obtenerPuntos() throws MonstruoNoPuedeAtacarError {
+    	
         return this.posicion.obtenerPuntos(this.danio, this.defensa);
-
     }
     
     int obtenerPuntosDeAtaque() {
@@ -72,13 +71,13 @@ public class Monstruo{
 
     }
 
-    Botin atacar(Monstruo enemigo) {
+    Botin atacar(Monstruo enemigo) throws MonstruoNoPuedeAtacarError {
 
         this.posicion.atacar();
         return enemigo.recibirAtaque(this);
     }
 
-    public Botin recibirAtaque(Monstruo enemigo){
+    public Botin recibirAtaque(Monstruo enemigo) throws MonstruoNoPuedeAtacarError{
 
         Botin botin = new Botin();
 
@@ -101,7 +100,7 @@ public class Monstruo{
 
     }
 
-    private void matar(Monstruo enemigo, Botin b) {
+    private void matar(Monstruo enemigo, Botin b) throws MonstruoNoPuedeAtacarError {
 
         this.posicion.matar(enemigo, b);
 

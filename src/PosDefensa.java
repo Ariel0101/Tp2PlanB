@@ -15,7 +15,7 @@ public class PosDefensa implements Posicion {
     public void matar(Monstruo enemigo, Botin b) {
     }
 
-    public void atacar() {
+    public void atacar() throws MonstruoNoPuedeAtacarError {
 
         throw new MonstruoNoPuedeAtacarError();
 

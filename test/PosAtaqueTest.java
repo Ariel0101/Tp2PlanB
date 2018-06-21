@@ -42,7 +42,7 @@ public class PosAtaqueTest extends TestCase {
 
     }
 
-    public void testPosAtaqueAtacarNoLanzaError(){
+   /* public void testPosAtaqueAtacarNoLanzaError(){
 
         PosAtaque p = new PosAtaque();
         boolean lanzoError = false;
@@ -59,5 +59,5 @@ public class PosAtaqueTest extends TestCase {
 
         assertFalse(lanzoError);
     }
-
+*/
 }

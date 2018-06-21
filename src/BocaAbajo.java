@@ -12,7 +12,7 @@ public class BocaAbajo implements Boca {
 
     }
 
-    public Botin recibirAtaque(CartaMonstruo cartaAtacada, Monstruo monstruoAtacado, Monstruo monstruoAtacante, Campo miCampo){
+    public Botin recibirAtaque(CartaMonstruo cartaAtacada, Monstruo monstruoAtacado, Monstruo monstruoAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError{
         cartaAtacada.colocarBocaArriba();
         Botin unBotin = monstruoAtacante.atacar(monstruoAtacado);
         unBotin = miCampo.activarTrampa(monstruoAtacante, monstruoAtacado, unBotin);

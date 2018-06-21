@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 
 public class CartaMonstruoTest extends TestCase {
 
-    public void testCartaConMosntruoAitsuNoAtacaSiEstaBocaAbajo(){
+    public void testCartaConMosntruoAitsuNoAtacaSiEstaBocaAbajo() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ai = new Monstruo(100, 100);
         CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
@@ -23,7 +23,7 @@ public class CartaMonstruoTest extends TestCase {
 
     }
 
-    public void testCartaConMosntruoAitsuAtacaSiEstaBocaArriba(){
+    public void testCartaConMosntruoAitsuAtacaSiEstaBocaArriba() throws MonstruoNoPuedeAtacarError{
 
         Monstruo ai = new Monstruo(100, 100);
         CartaMonstruo aitsu = new CartaMonstruo(ai, 5);

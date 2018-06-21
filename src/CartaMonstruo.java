@@ -6,7 +6,7 @@ class CartaMonstruo implements Carta {
     protected Monstruo monstruo;
     protected Boca boca;
     private int estrellas;
-
+    protected Invocacion invocacion;
 
     CartaMonstruo(Monstruo monstruo, int estrellas){
 
@@ -14,6 +14,11 @@ class CartaMonstruo implements Carta {
         this.monstruo = monstruo;
         this.boca = new BocaNeutra();
         this.estrellas = estrellas;
+        this.invocacion = new InvocacionSacrificio(estrellas);
+    }
+    
+    CartaMonstruo(){
+    	
     }
 
     void colocarEnPosAtaque() {
@@ -45,13 +50,13 @@ class CartaMonstruo implements Carta {
         this.monstruo.activarEfecto();
     }
 
-    Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) {
+    Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
 
         return this.boca.atacar(this, cartaAtacada, campoEnemigo);
 
     }
 
-    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
+    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError {
         return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
     
@@ -76,14 +81,9 @@ class CartaMonstruo implements Carta {
         unaMano.agregar(this);
     }
 
-    public void colocarse(Campo c) {
 
-        this.invocar(c);
-        c.colocarCarta(this);
-
-    }
-
-    private void invocar(Campo miCampo) {
+    private void invocar(Campo miCampo) { 	
+    	invocacion.activar(miCampo);
 
     }
 
@@ -110,5 +110,12 @@ class CartaMonstruo implements Carta {
 
     public void desactivarTemporales() {
         this.monstruo.desactivarTemporales();
+    }
+
+    public void colocarse(Campo c) {
+    	
+    	this.invocar(c);
+        c.agregarMonstruo(this);
+
     }
 }

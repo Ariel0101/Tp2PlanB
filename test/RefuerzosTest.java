@@ -1,7 +1,7 @@
 import junit.framework.TestCase;
 
 public class RefuerzosTest extends TestCase {
-    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno(){
+    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -36,7 +36,7 @@ public class RefuerzosTest extends TestCase {
         assertTrue(unCementerio.esta(cartaAlasDeLlamaPerversa));
     }
 
-    public void testTrampaRefuerzosTrasActivarseSeMantieneActiva(){
+    public void testTrampaRefuerzosTrasActivarseSeMantieneActiva() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -74,7 +74,7 @@ public class RefuerzosTest extends TestCase {
         assertEquals(1000, jugadorDos.verVida());
     }
 
-    public void testTrampaRefuerzosEfectoSobreMonstruoSeDesactivaCuandoSeDesactivanTemporales(){
+    public void testTrampaRefuerzosEfectoSobreMonstruoSeDesactivaCuandoSeDesactivanTemporales() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);

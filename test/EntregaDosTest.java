@@ -1,7 +1,7 @@
 import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
-    public void testJinzo7PuedeAtacarDirectamenteAlJugador(){
+    public void testJinzo7PuedeAtacarDirectamenteAlJugador() throws MonstruoNoPuedeAtacarError{
         Jugador j1 = new Jugador("1",1000);
         Monstruo jinzo7 = new Monstruo(500,400);
         CartaMonstruoJinzo7 cartaJinzo7 = new CartaMonstruoJinzo7(jinzo7, 2);
@@ -10,7 +10,7 @@ public class EntregaDosTest extends TestCase {
 
         assertEquals(1000-500,j1.verVida());
     }
-    public void testActivarWasteLandAumenta200ElDanioDeMonstruosAmigosY300LaDefensaOponente(){
+    public void testActivarWasteLandAumenta200ElDanioDeMonstruosAmigosY300LaDefensaOponente() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);
@@ -55,7 +55,7 @@ public class EntregaDosTest extends TestCase {
         assertFalse(unCementerio.esta(aitsu4));
     }
 
-    public void testActivarSogenAumenta500LaDefensaDeMonstruosAmigosY200ElAtaqueOponente(){
+    public void testActivarSogenAumenta500LaDefensaDeMonstruosAmigosY200ElAtaqueOponente() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);
@@ -148,7 +148,63 @@ public class EntregaDosTest extends TestCase {
 
     }
 
-    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo(){
+    public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones() throws MonstruoNoPuedeAtacarError {
+        Cementerio unCementerio = new Cementerio();
+        Cementerio otroCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+        Campo otroCampo = new Campo(otroCementerio);
+        Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 3);
+        Monstruo monstruoSacrificado3 = new Monstruo(100, 8);
+        CartaMonstruo cartaSacrificada3 = new CartaMonstruo(monstruoSacrificado3, 4);
+        Monstruo monstruoSacrificado4 = new Monstruo(100, 6);
+        CartaMonstruo cartaSacrificada4 = new CartaMonstruo(monstruoSacrificado4, 1);
+        Monstruo monstruoSacrificado5 = new Monstruo(100, 77);
+        CartaMonstruo cartaSacrificada5 = new CartaMonstruo(monstruoSacrificado5, 2);
+        Monstruo monstruoSacrificado6 = new Monstruo(100, 33);
+        CartaMonstruo cartaSacrificada6 = new CartaMonstruo(monstruoSacrificado6, 1);
+        
+        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon();
+        CartaMonstruo cartaDragon2 = new CartaMonstruoDragon();
+        CartaMonstruo cartaDragon3 = new CartaMonstruoDragon();
+        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo();
+        Monstruo monstruoAtacado = new Monstruo(10, 10);
+        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        
+        unCampo.colocarCarta(cartaSacrificada1);
+        unCampo.colocarCarta(cartaSacrificada2);
+        unCampo.colocarCarta(cartaSacrificada3);
+        unCampo.colocarCarta(cartaSacrificada4);
+        unCampo.colocarCarta(cartaSacrificada5);
+        unCampo.colocarCarta(cartaSacrificada6);
+        unCampo.colocarCarta(cartaDragon1);
+        unCampo.colocarCarta(cartaDragon2);
+        unCampo.colocarCarta(cartaDragon3);
+        unCampo.colocarCarta(cartaDragonDefinitivo);
+        
+        cartaDragonDefinitivo.colocarBocaArriba();
+        cartaDragonDefinitivo.colocarEnPosAtaque();
+        otroCampo.colocarCarta(cartaAtacada);
+        cartaAtacada.colocarBocaArriba();
+        cartaAtacada.colocarEnPosAtaque();
+        Botin b = cartaDragonDefinitivo.atacar(cartaAtacada, otroCampo);
+        b.ejecutar(otroCampo);
+    	
+    	assertTrue(unCementerio.esta(cartaSacrificada1));
+    	assertTrue(unCementerio.esta(cartaSacrificada2));
+    	assertTrue(unCementerio.esta(cartaSacrificada3));
+    	assertTrue(unCementerio.esta(cartaSacrificada4));
+    	assertTrue(unCementerio.esta(cartaSacrificada5));
+    	assertTrue(unCementerio.esta(cartaSacrificada6));
+    	assertTrue(unCementerio.esta(cartaDragon1));
+    	assertTrue(unCementerio.esta(cartaDragon2));
+    	assertTrue(unCementerio.esta(cartaDragon3));
+    	assertTrue(otroCementerio.esta(cartaAtacada));
+    }
+    
+    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -178,7 +234,7 @@ public class EntregaDosTest extends TestCase {
         assertTrue(unCementerio.esta(cartaAlasDeLLama));
     }
 
-    public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo(){
+    public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -211,7 +267,7 @@ public class EntregaDosTest extends TestCase {
 
     }
 
-    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno(){
+    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);

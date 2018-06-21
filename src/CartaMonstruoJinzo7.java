@@ -3,7 +3,7 @@ public class CartaMonstruoJinzo7 extends CartaMonstruo {
         super(m, estrellas);
     }
 
-    public void atacar(Jugador jugadorAtacado) {
+    public void atacar(Jugador jugadorAtacado) throws MonstruoNoPuedeAtacarError {
         Monstruo monstruoTemporal = new Monstruo(0,0);
         monstruoTemporal.colocarEnPosAtaque();
         Botin unBotin = this.monstruo.atacar(monstruoTemporal);
