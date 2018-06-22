@@ -1,5 +1,5 @@
 
-public class Fisura implements Magica {
+public class Fisura implements Magia {
 
     private final EfectoDestruirElDeMenorAtaque efecto;
 

@@ -11,10 +11,6 @@ public class Mano {
         this.cartas = new LinkedList<Carta>();
     }
 
-    public int cantidad() {
-        return this.cartas.size();
-    }
-
     public void agregar(Carta unaCarta) {
         this.cartas.add(unaCarta);
     }
@@ -23,7 +19,7 @@ public class Mano {
         int cantidad = 0;
         for (int i = 0; i<this.cartas.size(); i++){
             Carta cadaCarta = this.cartas.get(i);
-            if ((unTipo).isAssignableFrom(cadaCarta.getClass())) {
+            if (unTipo.isAssignableFrom(cadaCarta.getClass())) {
                 cantidad += 1;
             }
         }

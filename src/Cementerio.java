@@ -4,13 +4,13 @@ public class Cementerio {
 
     private ArrayList<Carta> cartas;
     private ArrayList<Monstruo> monstruos;
-    private ArrayList<Magica> magicas;
+    private ArrayList<Magia> magicas;
 
     public Cementerio(){
 
         this.cartas = new ArrayList<>();
         this.monstruos = new ArrayList<Monstruo>();
-        this.magicas = new ArrayList<Magica>();
+        this.magicas = new ArrayList<Magia>();
     }
 
     boolean esta(Carta unaCarta) {
@@ -31,7 +31,7 @@ public class Cementerio {
 
     }
 
-    void enviar(Magica m) {
+    void enviar(Magia m) {
 
         this.magicas.add(m);
 
@@ -43,7 +43,7 @@ public class Cementerio {
 
     }
 
-    public boolean esta(Magica carta) {
+    public boolean esta(Magia carta) {
         return this.magicas.contains(carta);
     }
 }

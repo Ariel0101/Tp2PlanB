@@ -1,4 +1,4 @@
-public class OllaDeLaCodicia implements Magica {
+public class OllaDeLaCodicia implements Magia {
     private final Mano mano;
     private final Mazo mazo;
 

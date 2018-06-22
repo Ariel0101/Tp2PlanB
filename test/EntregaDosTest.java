@@ -112,7 +112,7 @@ public class EntregaDosTest extends TestCase {
         cartaOlla.colocarse(unCampo);
         cartaOlla.colocarBocaArriba();
 
-        assertEquals(2,unaMano.cantidad());
+        assertEquals(2,unaMano.contarCartas(Carta.class));
         assertEquals(0, unMazo.cantidad());
 
     }

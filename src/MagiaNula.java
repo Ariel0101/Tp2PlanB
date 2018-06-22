@@ -1,4 +1,4 @@
-public class MagiaNula implements Magica {
+public class MagiaNula implements Magia {
 
     public void activar() {
 

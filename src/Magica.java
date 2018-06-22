@@ -1,4 +1,4 @@
-interface Magica {
+interface Magia {
 
     void activar();
 

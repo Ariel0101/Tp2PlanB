@@ -1,9 +1,9 @@
 class CartaMagica implements Carta {
 
-    private Magica magia;
+    private Magia magia;
     private Boca boca;
 
-    CartaMagica(Magica magia) {
+    CartaMagica(Magia magia) {
 
         this.magia = magia;
 
