@@ -19,15 +19,21 @@ public class Mano {
         this.cartas.add(unaCarta);
     }
 
-    public void armarExodia() {
-        int contadorPartesExodia = 0;
+    public int contarCartas(Class unTipo) {
+        int cantidad = 0;
         for (int i = 0; i<this.cartas.size(); i++){
-            Carta unaCarta = this.cartas.get(i);
-            if (unaCarta instanceof CartaMonstruoExodia){
-                contadorPartesExodia += 1;
+            Carta cadaCarta = this.cartas.get(i);
+            if ((unTipo).isAssignableFrom(cadaCarta.getClass())) {
+                cantidad += 1;
             }
         }
-        if (contadorPartesExodia == 5){
+        return cantidad;
+    }
+
+    public void ganar() {
+        Class claseExodia = CartaMonstruoExodia.class;
+        int cantidadDePartesDeExodia = this.contarCartas(claseExodia);
+        if (cantidadDePartesDeExodia == 5){
             this.partida.setGanador(this.nombreJugador);
         }
     }

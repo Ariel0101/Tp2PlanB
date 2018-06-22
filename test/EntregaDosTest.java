@@ -305,17 +305,16 @@ public class EntregaDosTest extends TestCase {
     public void testManoAgregarLas5PartesDeExodiaSeteaEnPartidaAlGanador(){
         Partida unaPartida = new Partida();
         Mano unaMano = new Mano("Jugador 1", unaPartida);
-        Efecto efectoArmarExodia = new EfectoArmarExodia();
         Monstruo cabezaExodia = new Monstruo(1000,1000);
-        Monstruo brazoDerechoExodia = new Monstruo(1000,1000);
-        Monstruo brazoIzquierdoExodia = new Monstruo(1000,1000);
-        Monstruo piernaDerechaExodia = new Monstruo(1000,1000);
-        Monstruo piernaIzquierdaExodia = new Monstruo(1000,1000);
-        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia(cabezaExodia,3, efectoArmarExodia);
-        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia(brazoDerechoExodia,3, efectoArmarExodia);
-        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia(brazoIzquierdoExodia,3, efectoArmarExodia);
-        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia(piernaDerechaExodia,3, efectoArmarExodia);
-        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia(piernaIzquierdaExodia,3, efectoArmarExodia);
+        Monstruo brazoDerechoExodia = new Monstruo(200,300);
+        Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
+        Monstruo piernaDerechaExodia = new Monstruo(200,300);
+        Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
+        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia(cabezaExodia,3);
+        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia(brazoDerechoExodia,3);
+        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia(brazoIzquierdoExodia,3);
+        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia(piernaDerechaExodia,3);
+        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia(piernaIzquierdaExodia,3);
         cartaCabeza.colocarse(unaMano);
         cartaBrazoDerecho.colocarse(unaMano);
         cartaBrazoIzquierdo.colocarse(unaMano);
