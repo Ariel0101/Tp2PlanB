@@ -3,7 +3,6 @@ public class Monstruo{
     private Posicion posicion;
     private int danio;
     private int defensa;
-    private Efecto efecto;
     private Carta carta = new NoCarta();
     private int aumentosTemporales;
 
@@ -14,15 +13,6 @@ public class Monstruo{
         this.posicion = new PosDormido();
         this.aumentosTemporales = 0;
 
-    }
-
-    Monstruo(int danio, int defensa, Efecto e){
-
-        this.danio = danio;
-        this.defensa = defensa;
-        this.posicion = new PosDormido();
-        this.efecto = e;
-        this.aumentosTemporales = 0;
     }
 
     void setCarta(Carta c){
@@ -103,17 +93,6 @@ public class Monstruo{
     private void matar(Monstruo enemigo, Botin b) throws MonstruoNoPuedeAtacarError {
 
         this.posicion.matar(enemigo, b);
-
-    }
-
-    void activarEfecto(){
-
-        this.efecto.activar();
-    }
-
-    public Efecto efecto() {
-
-        return this.efecto;
 
     }
 

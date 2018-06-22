@@ -1,16 +1,17 @@
 public class CartaMonstruoComeHombres extends CartaMonstruo {
 
     private CartaMonstruo cartaSeleccionada;
-
-    CartaMonstruoComeHombres(Monstruo monstruo, int estrellas) {
+    private Efecto efecto;
+    CartaMonstruoComeHombres(Monstruo monstruo, int estrellas, Efecto efecto) {
         super(monstruo, estrellas);
         this.cartaSeleccionada = new CartaMonstruo(new Monstruo(0,0),0);
+        this.efecto = efecto;
     }
 
 
     public void colocarBocaAbajo(){
 
-        this.boca = new BocaAbajoComeHombres(); //Aqui quite BocaAbajoComeHombres
+        this.boca = new BocaAbajoComeHombres();
 
     }
 
@@ -22,10 +23,7 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
     }
 
     void activarEfecto(){
-
-        Efecto efecto = this.monstruo.efecto();
-        efecto.activar(this.cartaSeleccionada);
-
+        this.efecto.activar(this.cartaSeleccionada);
     }
 
     public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError {

@@ -23,7 +23,7 @@ public class Mano {
         int contadorPartesExodia = 0;
         for (int i = 0; i<this.cartas.size(); i++){
             Carta unaCarta = this.cartas.get(i);
-            if (unaCarta instanceof CartaExodia){
+            if (unaCarta instanceof CartaMonstruoExodia){
                 contadorPartesExodia += 1;
             }
         }

@@ -45,11 +45,6 @@ class CartaMonstruo implements Carta {
 
     }
 
-    void activarEfecto(){
-
-        this.monstruo.activarEfecto();
-    }
-
     Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
 
         return this.boca.atacar(this, cartaAtacada, campoEnemigo);

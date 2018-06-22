@@ -6,8 +6,8 @@ public class CartaMonstruoComeHombresTest extends TestCase {
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
         Efecto efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoUno);
-        Monstruo insecto = new Monstruo(450,600, efectoDestruirMonstruo);
-        CartaMonstruoComeHombres cartaInsectoComeHombres = new CartaMonstruoComeHombres(insecto,4);
+        Monstruo insecto = new Monstruo(450,600);
+        CartaMonstruoComeHombres cartaInsectoComeHombres = new CartaMonstruoComeHombres(insecto,4, efectoDestruirMonstruo);
         Monstruo mokeyMokey = new Monstruo(300,100);
         CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
         cartaInsectoComeHombres.seleccionar(cartaMokey);
@@ -28,8 +28,8 @@ public class CartaMonstruoComeHombresTest extends TestCase {
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
         Efecto efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoUno);
-        Monstruo insecto = new Monstruo(450,600, efectoDestruirMonstruo);
-        CartaMonstruoComeHombres cartaInsectoComeHombres = new CartaMonstruoComeHombres(insecto,4);
+        Monstruo insecto = new Monstruo(450,600);
+        CartaMonstruoComeHombres cartaInsectoComeHombres = new CartaMonstruoComeHombres(insecto,4,efectoDestruirMonstruo);
         Monstruo mokeyMokey = new Monstruo(300,100);
         CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
         cartaInsectoComeHombres.seleccionar(cartaMokey);
@@ -51,10 +51,10 @@ public class CartaMonstruoComeHombresTest extends TestCase {
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 1000);
 
         Efecto efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoUno);
-        Monstruo insectoComeHombres = new Monstruo(450,600, efectoDestruirMonstruo);
+        Monstruo insectoComeHombres = new Monstruo(450,600);
 
         CartaMonstruo cartaAlasDeLLama = new CartaMonstruo(alasDeLlamaPerversa,1);
-        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2);
+        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
 
         cartaAlasDeLLama.colocarBocaArriba();
         cartaAlasDeLLama.colocarEnPosAtaque();

@@ -212,10 +212,10 @@ public class EntregaDosTest extends TestCase {
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 1000);
 
         Efecto efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoUno);
-        Monstruo insectoComeHombres = new Monstruo(450,600, efectoDestruirMonstruo);
+        Monstruo insectoComeHombres = new Monstruo(450,600);
 
         CartaMonstruo cartaAlasDeLLama = new CartaMonstruo(alasDeLlamaPerversa,1);
-        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2);
+        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2,efectoDestruirMonstruo);
 
         cartaAlasDeLLama.colocarBocaArriba();
         cartaAlasDeLLama.colocarEnPosAtaque();
@@ -306,16 +306,16 @@ public class EntregaDosTest extends TestCase {
         Partida unaPartida = new Partida();
         Mano unaMano = new Mano("Jugador 1", unaPartida);
         Efecto efectoArmarExodia = new EfectoArmarExodia();
-        Monstruo cabezaExodia = new Monstruo(1000,1000, efectoArmarExodia);
-        Monstruo brazoDerechoExodia = new Monstruo(1000,1000, efectoArmarExodia);
-        Monstruo brazoIzquierdoExodia = new Monstruo(1000,1000, efectoArmarExodia);
-        Monstruo piernaDerechaExodia = new Monstruo(1000,1000, efectoArmarExodia);
-        Monstruo piernaIzquierdaExodia = new Monstruo(1000,1000, efectoArmarExodia);
-        CartaExodia cartaCabeza = new CartaExodia(cabezaExodia,3);
-        CartaExodia cartaBrazoDerecho = new CartaExodia(brazoDerechoExodia,3);
-        CartaExodia cartaBrazoIzquierdo = new CartaExodia(brazoIzquierdoExodia,3);
-        CartaExodia cartaPiernaDerecha = new CartaExodia(piernaDerechaExodia,3);
-        CartaExodia cartaPiernaIzquierda = new CartaExodia(piernaIzquierdaExodia,3);
+        Monstruo cabezaExodia = new Monstruo(1000,1000);
+        Monstruo brazoDerechoExodia = new Monstruo(1000,1000);
+        Monstruo brazoIzquierdoExodia = new Monstruo(1000,1000);
+        Monstruo piernaDerechaExodia = new Monstruo(1000,1000);
+        Monstruo piernaIzquierdaExodia = new Monstruo(1000,1000);
+        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia(cabezaExodia,3, efectoArmarExodia);
+        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia(brazoDerechoExodia,3, efectoArmarExodia);
+        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia(brazoIzquierdoExodia,3, efectoArmarExodia);
+        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia(piernaDerechaExodia,3, efectoArmarExodia);
+        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia(piernaIzquierdaExodia,3, efectoArmarExodia);
         cartaCabeza.colocarse(unaMano);
         cartaBrazoDerecho.colocarse(unaMano);
         cartaBrazoIzquierdo.colocarse(unaMano);
