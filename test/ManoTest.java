@@ -2,7 +2,10 @@ import junit.framework.TestCase;
 
 public class ManoTest extends TestCase {
     public void testManoContarCartasDevuelveLaCantidadDeCartasAgregadasALaManoDelTipoRecibido(){
-        Mano unaMano = new Mano("", new Partida());
+        String nombreJugador = "Jugador 1";
+        Partida unaPartida = new Partida();
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         Monstruo cabezaExodia = new Monstruo(1000,1000);
         Monstruo brazoDerechoExodia = new Monstruo(200,300);
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
@@ -31,7 +34,8 @@ public class ManoTest extends TestCase {
     public void testManoGanarSeteaASuJugadorComoGanadorEnPartidaCuandoTodasLasPartesDeExodiaEstanEnLaMano(){
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
-        Mano unaMano = new Mano(nombreJugador, unaPartida);
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         Monstruo cabezaExodia = new Monstruo(1000,1000);
         Monstruo brazoDerechoExodia = new Monstruo(200,300);
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
@@ -55,7 +59,8 @@ public class ManoTest extends TestCase {
     public void testManoGanarNoHaceNadaCuandoNoTodasLasPartesDeExodiaEstanEnLaMano(){
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
-        Mano unaMano = new Mano(nombreJugador, unaPartida);
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
 
         unaMano.ganar();
 
@@ -63,8 +68,10 @@ public class ManoTest extends TestCase {
     }
 
     public void testManoAgregarLas5PartesDeExodiaHaceGanarAlJugadorDeLaMano(){
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
-        Mano unaMano = new Mano("Jugador 1", unaPartida);
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         Monstruo cabezaExodia = new Monstruo(1000,1000);
         Monstruo brazoDerechoExodia = new Monstruo(200,300);
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);

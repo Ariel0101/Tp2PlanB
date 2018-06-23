@@ -3,12 +3,22 @@ public class Jugador {
 
     private int vida;
     private String nombre;
+    private Partida partida;
 
     Jugador(String nombre, int vida) {
     	
         this.vida = vida;
         this.nombre = nombre;
-        
+        this.partida = new Partida();
+    }
+
+
+    Jugador(String nombre, int vida, Partida partida) {
+
+        this.vida = vida;
+        this.nombre = nombre;
+        this.partida = partida;
+
     }
 
     void recibirAtaque(int puntosRestarAtacante) {
@@ -23,4 +33,11 @@ public class Jugador {
 
     }
 
+    public void ganar() {
+        this.partida.setGanador(this.nombre);
+    }
+
+    public void perder() {
+        this.partida.setPerdedor(this.nombre);
+    }
 }

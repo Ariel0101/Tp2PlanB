@@ -105,7 +105,10 @@ public class EntregaDosTest extends TestCase {
         Mazo unMazo = new Mazo("", new Partida());
         unMazo.agregar(new CartaMonstruo(new Monstruo(1,1),1));
         unMazo.agregar(new CartaMagica(new AgujeroOscuro(unCampo, unCampo)));
-        Mano unaMano = new Mano("", new Partida());
+        String nombreJugador = "Jugador 1";
+        Partida unaPartida = new Partida();
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         OllaDeLaCodicia unaOlla = new OllaDeLaCodicia(unaMano, unMazo);
         CartaMagica cartaOlla = new CartaMagica(unaOlla);
         cartaOlla.colocarBocaAbajo();
@@ -303,8 +306,10 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testManoAgregarLas5PartesDeExodiaSeteaEnPartidaAlGanador(){
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
-        Mano unaMano = new Mano("Jugador 1", unaPartida);
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         Monstruo cabezaExodia = new Monstruo(1000,1000);
         Monstruo brazoDerechoExodia = new Monstruo(200,300);
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);

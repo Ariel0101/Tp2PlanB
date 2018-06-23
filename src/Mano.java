@@ -1,13 +1,11 @@
 import java.util.LinkedList;
 
 public class Mano {
-    private final String nombreJugador;
-    private final Partida partida;
+    private final Jugador jugador;
     private LinkedList<Carta> cartas;
 
-    Mano(String nombreJugador, Partida unaPartida){
-        this.nombreJugador = nombreJugador;
-        this.partida = unaPartida;
+    Mano(Jugador miJugador){
+        this.jugador = miJugador;
         this.cartas = new LinkedList<Carta>();
     }
 
@@ -30,7 +28,7 @@ public class Mano {
         Class claseExodia = CartaMonstruoExodia.class;
         int cantidadDePartesDeExodia = this.contarCartas(claseExodia);
         if (cantidadDePartesDeExodia == 5){
-            this.partida.setGanador(this.nombreJugador);
+            this.jugador.ganar();
         }
     }
 }
