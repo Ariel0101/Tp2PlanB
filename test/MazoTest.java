@@ -2,7 +2,8 @@ import junit.framework.TestCase;
 
 public class MazoTest extends TestCase {
     public void testMazoSacarLevantaErrorCuandoNoQuedanMasCartas(){
-        Mazo unMazo = new Mazo("", new Partida());
+        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Mazo unMazo = new Mazo(unJugador);
         boolean lanzoError = false;
         try {
             unMazo.sacar();
@@ -13,13 +14,15 @@ public class MazoTest extends TestCase {
     }
 
     public void testMazoCantidadEsCeroAlCrearse(){
-        Mazo unMazo = new Mazo("",new Partida());
+        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Mazo unMazo = new Mazo(unJugador);
 
         assertEquals(0, unMazo.cantidad());
     }
 
     public void testMazoCantidadEs4CuandoAgrego4Cartas(){
-        Mazo unMazo = new Mazo("", new Partida());
+        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Mazo unMazo = new Mazo(unJugador);
         CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
         CartaMagica cartaMagica = new CartaMagica(new MagiaNula());
         CartaTrampa cartaTrampa = new CartaTrampa(new TrampaNula());
@@ -35,14 +38,16 @@ public class MazoTest extends TestCase {
     }
 
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
-        Mazo unMazo = new Mazo("Jugador 1", unaPartida);
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mazo unMazo = new Mazo(unJugador);
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
         unMazo.agregar(cartaAitsu);
         unMazo.sacar();
 
-        assertEquals("Jugador 1", unaPartida.verPerdedor());
+        assertEquals(nombreJugador, unaPartida.verPerdedor());
 
     }
 }
