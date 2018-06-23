@@ -45,24 +45,49 @@ public class ConstructorDeCartas {
         return  new CartaMonstruoExodia(cabezaExodia,3);
     }
 
-    public  CartaMonstruoExodia brazoDerechoExodia(){
+    public CartaMonstruoExodia brazoDerechoExodia(){
         Monstruo brazoDerechoExodia = new Monstruo(200,300);
         return new CartaMonstruoExodia(brazoDerechoExodia,3);
     }
 
-    public  CartaMonstruoExodia brazoIzquierdoExodia(){
+    public CartaMonstruoExodia brazoIzquierdoExodia(){
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
         return new CartaMonstruoExodia(brazoIzquierdoExodia,3);
     }
 
-    public  CartaMonstruoExodia piernaDerechaExodia(){
+    public CartaMonstruoExodia piernaDerechaExodia(){
         Monstruo piernaDerechaExodia = new Monstruo(200,300);
         return new CartaMonstruoExodia(piernaDerechaExodia,3);
     }
 
-    public  CartaMonstruoExodia piernaizquierdaExodia(){
+    public CartaMonstruoExodia piernaizquierdaExodia(){
         Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
         return new CartaMonstruoExodia(piernaIzquierdaExodia,3);
     }
+
+    public CartaMonstruoDragon dragonDeOjosAzules(){
+        return new CartaMonstruoDragon();
+    }
+
+    public CartaMonstruoDragonDefinitivo dragonDefinitivoDeOjosAzules(){
+        return new CartaMonstruoDragonDefinitivo();
+    }
+
+    //CartasMagicas
+    public CartaMagica agujeroNegro(Campo unLadoDelCampo, Campo otroLadoDelCampo){
+        AgujeroOscuro agujeroOscuro = new AgujeroOscuro(unLadoDelCampo, otroLadoDelCampo);
+        return new CartaMagica(agujeroOscuro);
+    }
+
+    public CartaMagica ollaDeLaCodicia(Mano miMano, Mazo miMazo){
+        OllaDeLaCodicia ollaDeLaCodicia = new OllaDeLaCodicia(miMano, miMazo);
+        return new CartaMagica(ollaDeLaCodicia);
+    }
+
+    public CartaMagica fisura(Campo campoEnemigo){
+        Fisura fisura = new Fisura(campoEnemigo);
+        return new CartaMagica(fisura);
+    }
+
 
 }
