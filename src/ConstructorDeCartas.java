@@ -1,4 +1,6 @@
 public class ConstructorDeCartas {
+
+    //Cartas Monstruo
     public CartaMonstruo aitsu(){
         Monstruo aitsu = new Monstruo(100,100);
         return new CartaMonstruo(aitsu, 5);
@@ -73,7 +75,7 @@ public class ConstructorDeCartas {
         return new CartaMonstruoDragonDefinitivo();
     }
 
-    //CartasMagicas
+    //Cartas Magicas
     public CartaMagica agujeroNegro(Campo unLadoDelCampo, Campo otroLadoDelCampo){
         AgujeroOscuro agujeroOscuro = new AgujeroOscuro(unLadoDelCampo, otroLadoDelCampo);
         return new CartaMagica(agujeroOscuro);
@@ -89,5 +91,27 @@ public class ConstructorDeCartas {
         return new CartaMagica(fisura);
     }
 
+    //Cartas Trampa
 
+    public CartaTrampa refuerzos(){
+        Refuerzos refuerzos = new Refuerzos();
+        return new CartaTrampa(refuerzos);
+    }
+
+    public CartaTrampa cilindroMagico(){
+        CilindroMagico cilindroMagico = new CilindroMagico();
+        return  new CartaTrampa(cilindroMagico);
+    }
+
+    // Cartas de Campo
+
+    public CartaDeCampo wasteland(Campo campoAmigo, Campo campoEnemigo){
+        EfectoWasteland efectoWasteland = new EfectoWasteland(campoAmigo, campoEnemigo);
+        return new CartaDeCampo(efectoWasteland);
+    }
+
+    public CartaDeCampo sogen(Campo campoAmigo, Campo campoEnemigo){
+        EfectoSogen efectoSogen = new EfectoSogen(campoAmigo,campoEnemigo);
+        return new CartaDeCampo(efectoSogen);
+    }
 }
