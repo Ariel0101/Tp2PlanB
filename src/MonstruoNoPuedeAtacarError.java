@@ -1,4 +1,4 @@
 
-public class MonstruoNoPuedeAtacarError extends Exception {
+public class MonstruoNoPuedeAtacarError extends RuntimeException{
 
 }

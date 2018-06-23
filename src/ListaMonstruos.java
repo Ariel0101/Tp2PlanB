@@ -84,4 +84,7 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
 		
 	}
 
+    public boolean esta(CartaMonstruo unaCartaMonstruo) {
+	    return this.monstruos.contains(unaCartaMonstruo);
+    }
 }

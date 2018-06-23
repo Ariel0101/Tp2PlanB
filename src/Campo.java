@@ -2,7 +2,6 @@ import java.util.LinkedList;
 
 public class Campo {
 
-    private LinkedList<CartaMonstruo> monstruos;
     private LinkedList<CartaMagica> magicas;
     private LinkedList<CartaTrampa> trampas;
     private Cementerio cementerio;
@@ -13,7 +12,6 @@ public class Campo {
 
     Campo(Cementerio c){
 
-        this.monstruos = new LinkedList<>();
         this.magicas = new LinkedList<>();
         this.trampas = new LinkedList<>();
         this.cementerio = c;
@@ -42,20 +40,13 @@ public class Campo {
     void agregarMonstruo(CartaMonstruo carta) {
     	efectoDeCampoPropio.activar(carta);
     	efectoDeCampoEnemigo.activar(carta);
-        this.monstruos.add(carta);
+        /*this.monstruos.add(carta);*/
         this.listaMonstruos.agregar(carta);
     }
     
     void colocarCarta(CartaMagica carta){
 
         this.magicas.add(carta);
-
-    }
-
-
-    LinkedList<CartaMonstruo> monstruos() {
-
-        return this.monstruos;
 
     }
 
@@ -125,4 +116,8 @@ public class Campo {
 			}
 		}
 	}
+
+    public boolean esta(CartaMonstruo unaCartaMonstruo) {
+        return listaMonstruos.esta(unaCartaMonstruo);
+    }
 }

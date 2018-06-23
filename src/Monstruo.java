@@ -4,14 +4,14 @@ public class Monstruo{
     private int danio;
     private int defensa;
     private Carta carta = new NoCarta();
-    private int aumentosTemporales;
+    private int aumentosAtaqueTemporales;
 
     Monstruo(int danio, int defensa){
 
         this.danio = danio;
         this.defensa = defensa;
         this.posicion = new PosDormido();
-        this.aumentosTemporales = 0;
+        this.aumentosAtaqueTemporales = 0;
 
     }
 
@@ -61,13 +61,13 @@ public class Monstruo{
 
     }
 
-    Botin atacar(Monstruo enemigo) throws MonstruoNoPuedeAtacarError {
+    Botin atacar(Monstruo enemigo)  {
 
         this.posicion.atacar();
         return enemigo.recibirAtaque(this);
     }
 
-    public Botin recibirAtaque(Monstruo enemigo) throws MonstruoNoPuedeAtacarError{
+    public Botin recibirAtaque(Monstruo enemigo) {
 
         Botin botin = new Botin();
 
@@ -90,7 +90,7 @@ public class Monstruo{
 
     }
 
-    private void matar(Monstruo enemigo, Botin b) throws MonstruoNoPuedeAtacarError {
+    private void matar(Monstruo enemigo, Botin b) {
 
         this.posicion.matar(enemigo, b);
 
@@ -102,9 +102,14 @@ public class Monstruo{
 
     }
 
-    public void agregarAumentoTemporal(int aumento) {
-        this.aumentosTemporales += aumento;
+    public void agregarAumentoAtaqueTemporal(int aumento) {
+        this.aumentosAtaqueTemporales += aumento;
         this.aumentarAtaque(aumento);
+    }
+
+    public void desactivarTemporales() {
+        this.danio -= this.aumentosAtaqueTemporales;
+        this.aumentosAtaqueTemporales= 0;
     }
 
     public Monstruo MonstruoConMenorAtaqueQue(Monstruo monstruo) {
@@ -117,8 +122,5 @@ public class Monstruo{
         return monstruo;
     }
 
-    public void desactivarTemporales() {
-        this.danio -= this.aumentosTemporales;
-        this.aumentosTemporales = 0;
-    }
+
 }
