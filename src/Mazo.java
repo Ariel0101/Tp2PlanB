@@ -1,13 +1,11 @@
 import java.util.LinkedList;
 
 public class Mazo {
-    private final String nombreJugador;
-    private final Partida partida;
+    private final Jugador jugador;
     private LinkedList<Carta> cartas;
 
-    Mazo(String nombreJugador, Partida unaPartida){
-        this.nombreJugador = nombreJugador;
-        this.partida = unaPartida;
+    Mazo(Jugador miJugador){
+        this.jugador = miJugador;
         this.cartas = new LinkedList<Carta>();
     }
 
@@ -25,7 +23,7 @@ public class Mazo {
         }
         Carta unaCarta = this.cartas.remove();
         if (this.cartas.size() == 0){
-            this.partida.setPerdedor(this.nombreJugador);
+            this.jugador.perder();
         }
         return unaCarta;
 

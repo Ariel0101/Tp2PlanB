@@ -1,12 +1,10 @@
-import java.awt.*;
-import java.util.LinkedList;
-
 class CartaMonstruo implements Carta {
 
     protected Monstruo monstruo;
     protected Boca boca;
     private int estrellas;
     protected Invocacion invocacion;
+    String nombre;
 
     CartaMonstruo(Monstruo monstruo, int estrellas){
 
@@ -15,6 +13,7 @@ class CartaMonstruo implements Carta {
         this.boca = new BocaNeutra();
         this.estrellas = estrellas;
         this.invocacion = new InvocacionSacrificio(estrellas);
+        this.nombre = "sin-nombre";
     }
     
     CartaMonstruo(){
@@ -113,4 +112,17 @@ class CartaMonstruo implements Carta {
         c.agregarMonstruo(this);
 
     }
+
+    void ponerNombre(String nombre){
+
+        this.nombre = nombre;
+
+    }
+
+    public String nombre(){
+
+        return this.nombre;
+
+    }
+
 }

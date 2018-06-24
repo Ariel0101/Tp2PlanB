@@ -102,12 +102,12 @@ public class EntregaDosTest extends TestCase {
 
     public void testOllaDeLaCodiciaActivarSacaDosCartasDelMazoYlasColocaEnLaMano(){
         Campo unCampo = new Campo(new Cementerio());
-        Mazo unMazo = new Mazo("", new Partida());
-        unMazo.agregar(new CartaMonstruo(new Monstruo(1,1),1));
-        unMazo.agregar(new CartaMagica(new AgujeroOscuro(unCampo, unCampo)));
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mazo unMazo = new Mazo(unJugador);
+        unMazo.agregar(new CartaMonstruo(new Monstruo(1,1),1));
+        unMazo.agregar(new CartaMagica(new AgujeroOscuro(unCampo, unCampo)));
         Mano unaMano = new Mano(unJugador);
         OllaDeLaCodicia unaOlla = new OllaDeLaCodicia(unaMano, unMazo);
         CartaMagica cartaOlla = new CartaMagica(unaOlla);
@@ -331,14 +331,16 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
-        Mazo unMazo = new Mazo("Jugador 1", unaPartida);
+        Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mazo unMazo = new Mazo(unJugador);
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
         unMazo.agregar(cartaAitsu);
         unMazo.sacar();
 
-        assertEquals("Jugador 1", unaPartida.verPerdedor());
+        assertEquals(nombreJugador, unaPartida.verPerdedor());
 
     }
 }

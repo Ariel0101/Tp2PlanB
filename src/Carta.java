@@ -6,4 +6,8 @@ public interface Carta {
      void colocarBocaAbajo();
 
      void colocarBocaArriba();
+
+    default String nombre() {
+        return "caca";
+    }
 }

@@ -31,4 +31,21 @@ public class Mano {
             this.jugador.ganar();
         }
     }
+
+
+    //mmmmmmmmmmmmmmmmmmmmmmm:
+    public LinkedList<Carta> cartas(){
+
+        return this.cartas;
+
+    }
+
+    void sacar(Carta carta){
+
+        this.cartas.remove(carta);
+
+    }
+
+
+
 }
