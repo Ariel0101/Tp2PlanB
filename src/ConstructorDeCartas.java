@@ -55,7 +55,7 @@ public class ConstructorDeCartas {
         Monstruo insectoComeHombres = new Monstruo(450, 600);
         EfectoDestruirMonstruo efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoEnemigo);
         CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
-        carta.ponerNombre("Insecto Come Hombres");
+        carta.ponerNombre("Insecto Come-Hombres");
         return carta;
     }
 
@@ -95,11 +95,15 @@ public class ConstructorDeCartas {
     }
 
     public CartaMonstruoDragon dragonDeOjosAzules(){
-        return new CartaMonstruoDragon();
+        CartaMonstruoDragon carta = new CartaMonstruoDragon();
+        carta.ponerNombre("Dragon De Ojos Azules");
+        return carta;
     }
 
     public CartaMonstruoDragonDefinitivo dragonDefinitivoDeOjosAzules(){
-        return new CartaMonstruoDragonDefinitivo();
+        CartaMonstruoDragonDefinitivo carta = new CartaMonstruoDragonDefinitivo();
+        carta.ponerNombre("Dragon Definitivo");
+        return carta;
     }
 
     //Cartas Magicas
