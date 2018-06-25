@@ -18,12 +18,16 @@ public class ConstructorDeCartas {
 
     public CartaMonstruo goblinFalso(){
         Monstruo goblinFalso = new Monstruo(400,400);
-        return new CartaMonstruo(goblinFalso, 1);
+        CartaMonstruo cartaGoblinFalso = new CartaMonstruo(goblinFalso, 1);
+        cartaGoblinFalso.ponerNombre("Goblin Falso");
+        return cartaGoblinFalso;
     }
 
     public CartaMonstruo agujaAsesina(){
         Monstruo agujaAsesina = new Monstruo(1200,1000);
-        return new CartaMonstruo(agujaAsesina,4);
+        CartaMonstruo cartaAgugaAsesina = new CartaMonstruo(agujaAsesina,4);
+        cartaAgugaAsesina.ponerNombre("Aguja Asesina");
+        return cartaAgugaAsesina;
     }
 
     public CartaMonstruo agresorOscuro(){
