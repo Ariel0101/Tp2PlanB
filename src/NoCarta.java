@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class NoCarta implements Carta {
     @Override
     public void colocarse(Mano unaMano) {
@@ -16,6 +18,13 @@ public class NoCarta implements Carta {
 
     @Override
     public void colocarBocaArriba() {
+
+    }
+
+    @Override
+    public Image imagen() {
+
+        return new Image("imagenes/bocaNeutra.jpg");
 
     }
 }

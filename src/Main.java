@@ -57,17 +57,6 @@ public class Main extends Application {
         RandomizadorCartas randomizadorEnem = new RandomizadorCartas(campo, campoEnemigo, manoEnemiga, mazoEnemigo);
         randomizadorEnem.llenarMazo(mazoEnemigo);
 
-
-        //Boton choto de prueba:
-        Button aitsuEnCampo = new Button("Esta aitsu en el campo?");
-        aitsuEnCampo.setOnAction(e -> {    //Este boton es solo para probar si funciona
-        if(campo.esta(aitsu)){
-            System.out.print("si.");
-        }
-        else {System.out.print("no.");}}
-        );                                  //.
-
-
         //Contenedor de las imagenes de las cartas en campo del jugador:
         CampoMonstruosHBox monstruosEnCampo = new CampoMonstruosHBox(campo);
         monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
@@ -152,8 +141,12 @@ public class Main extends Application {
         gridDeEnemigo.add(monstruosEnCampoEnemigo, 0, 2);
 
 
+        //Boton para cambiar de turno:
+        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem);
+        Button botonDeTurno = new Button("Siguiente turno");
+        botonDeTurno.setOnAction(e -> turno.siguienteTurno());
 
-        VBox contenedorPrincipal = new VBox(gridDeJugador, gridDeEnemigo);
+        VBox contenedorPrincipal = new VBox(gridDeJugador, gridDeEnemigo, botonDeTurno);
         contenedorPrincipal.setSpacing(80);
         contenedorPrincipal.setPadding(new Insets(40));
 
@@ -165,4 +158,6 @@ public class Main extends Application {
 
 
     }
+
+
 }

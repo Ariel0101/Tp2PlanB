@@ -1,7 +1,10 @@
+import javafx.scene.image.Image;
+
 public class CartaDeCampo implements Carta {
 
 	private EfectoDeCampo efectoDeCampo;
-	
+	private String nombre;
+
 	CartaDeCampo(EfectoDeCampo unEfectoDeCampo) {
 		
 		this.efectoDeCampo = unEfectoDeCampo;
@@ -30,5 +33,12 @@ public class CartaDeCampo implements Carta {
     }
 
     public void colocarBocaArriba() {
+    }
+
+    @Override
+    public Image imagen() {
+        
+		return new Image("/imagen" + this.nombre + ".jpg");
+		
     }
 }

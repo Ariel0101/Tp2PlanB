@@ -11,11 +11,7 @@ public interface Carta {
 
      String toString();
 
-    default Image imagen(){
-
-         return new Image("Aitsu.jpg");
-
-    }
+     Image imagen();
 
     /*@Override
     default String toString() {
