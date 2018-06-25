@@ -88,6 +88,10 @@ public class Main extends Application {
         BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo);
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
+        Button verMano1 = new Button("Ver mano");
+        BotonVerMano accionVerMano1 = new BotonVerMano(mano);
+        verMano1.setOnAction(accionVerMano1);
+
         //Botones del enemigo:
 
         Button botonColocarEnemigo = new Button("Colocar una carta");
@@ -98,13 +102,16 @@ public class Main extends Application {
         BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador);
         botonEnemigoAtacar.setOnAction(botonEnemAtacarEventHandler);
 
+        Button verMano2 = new Button("Ver mano");
+        BotonVerMano accionVerMano2 = new BotonVerMano(manoEnemiga);
+        verMano2.setOnAction(accionVerMano2);
 
         //Contenedor de botones de jugador:
-        HBox contenedorHorizontal = new HBox(boton, botonAtacar);
+        HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1);
         contenedorHorizontal.setSpacing(8);
 
         //Contenedor de botones de enemigo:
-        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar);
+        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, verMano2);
         contenedorHorizontalEnem.setSpacing(20);
 
         //Grilla de jugador:

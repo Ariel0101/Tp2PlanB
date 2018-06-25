@@ -11,6 +11,5 @@ public class BotonSalir implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.partida.finalizar();
     }
 }
