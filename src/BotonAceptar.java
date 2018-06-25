@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 public class BotonAceptar implements EventHandler<ActionEvent> {
 
     private final ComboBox<String> pos;
-    private final CartaMonstruo monstruo;
+    private CartaMonstruo monstruo;
     private final Stage stage;
 
     public BotonAceptar(ComboBox<String> posicion, CartaMonstruo monstruo, Stage stage) {

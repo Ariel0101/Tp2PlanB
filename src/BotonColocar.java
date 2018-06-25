@@ -12,14 +12,14 @@ import javafx.stage.Stage;
 public class BotonColocar implements EventHandler<ActionEvent> {
 
     private final Campo campo;
-    private final ComboBox cm;
+    private final ComboBox<Carta> cm;
     private final Mano mano;
     private final HBox monstruos;
     private final ComboBox boca;
     Carta carta;
     Stage ventana;
 
-    BotonColocar(Campo campo, ComboBox cm, Mano mano, Stage ventana, HBox monstruos, ComboBox boca){
+    BotonColocar(Campo campo, ComboBox<Carta> cm, Mano mano, Stage ventana, HBox monstruos, ComboBox boca){
         
         this.campo = campo;
         this.cm = cm;
@@ -105,5 +105,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
         stage.show();
 
     }
-    
+
+
+
 }

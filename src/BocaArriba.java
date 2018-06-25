@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class BocaArriba implements Boca {
 
     public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError{
@@ -18,6 +20,11 @@ public class BocaArriba implements Boca {
     @Override
     public boolean estaBocaAbajo() {
         return false;
+    }
+
+    @Override
+    public Image imagen(String nombre) {
+        return new Image("imagenes/" + nombre + ".jpg");
     }
 
 }

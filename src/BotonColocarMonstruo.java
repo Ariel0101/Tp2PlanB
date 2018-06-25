@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
 
-    private final HBox monstruos;
+    private HBox monstruos;
     private Mano mano;
     private Campo campo;
     private Scene scene;
