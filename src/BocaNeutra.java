@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public class BocaNeutra implements Boca {
 
 
@@ -26,5 +28,10 @@ public class BocaNeutra implements Boca {
     @Override
     public boolean estaBocaAbajo() {
         return false;
+    }
+
+    @Override
+    public Image imagen(String nombre) {
+        return new Image("imagenes/bocaNeutra.jpg");
     }
 }
