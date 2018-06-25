@@ -32,17 +32,23 @@ public class ConstructorDeCartas {
 
     public CartaMonstruo agresorOscuro(){
         Monstruo agresorOscuro = new Monstruo(1200,1200);
-        return new CartaMonstruo(agresorOscuro,4);
+        CartaMonstruo carta = new CartaMonstruo(agresorOscuro,4);
+        carta.ponerNombre("Agresor Oscuro");
+        return carta;
     }
 
     public CartaMonstruo alasDeLlamaPerversa(){
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 600);
-        return new CartaMonstruo(alasDeLlamaPerversa, 2);
+        CartaMonstruo carta = new CartaMonstruo(alasDeLlamaPerversa, 2);
+        carta.ponerNombre("Alas De Llama Perversa");
+        return carta;
     }
 
     public CartaMonstruoJinzo7 jinzo7(){
         Monstruo jinzo7 = new Monstruo(500,400);
-        return new CartaMonstruoJinzo7(jinzo7,2);
+        CartaMonstruoJinzo7 carta = new CartaMonstruoJinzo7(jinzo7,2);
+        carta.ponerNombre("Jinzo 7");
+        return carta;
     }
 
     public CartaMonstruoComeHombres insectoComeHombres(Campo campoEnemigo){
