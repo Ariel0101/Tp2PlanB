@@ -1,10 +1,6 @@
+import javafx.scene.image.Image;
+
 public class BocaNeutra implements Boca {
-
-    public Botin pelear(Monstruo monstruo, Monstruo monstruo1) {
-
-        return new Botin();
-
-    }
 
 
     public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo) {
@@ -32,5 +28,10 @@ public class BocaNeutra implements Boca {
     @Override
     public boolean estaBocaAbajo() {
         return false;
+    }
+
+    @Override
+    public Image imagen(String nombre) {
+        return new Image("imagenes/bocaNeutra.jpg");
     }
 }

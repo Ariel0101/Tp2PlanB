@@ -24,6 +24,9 @@ public class Campo {
     void destruir(Carta unaCarta) {
 
         this.cementerio.enviar(unaCarta);
+        this.magicas.remove(unaCarta);
+        this.trampas.remove(unaCarta);
+        this.listaMonstruos.eliminar((CartaMonstruo) unaCarta);
 
     }
     

@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public interface Boca {
 
     Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError;
@@ -8,4 +10,5 @@ public interface Boca {
 
     boolean estaBocaAbajo();
 
+    Image imagen(String nombre);
 }
