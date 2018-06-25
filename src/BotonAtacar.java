@@ -9,17 +9,19 @@ import javafx.stage.Stage;
 
 public class BotonAtacar implements EventHandler<ActionEvent> {
 
+    private final ActualizadorDeRepresentaciones actualizador;
     private Campo campo;
     private Campo campoEnemigo;
     private final Jugador jugador;
     private final Jugador enemigo;
 
-    BotonAtacar(Campo campo, Campo campoEnemigo, Jugador jugador, Jugador enemigo) {
+    BotonAtacar(Campo campo, Campo campoEnemigo, Jugador jugador, Jugador enemigo, ActualizadorDeRepresentaciones actualizador) {
 
         this.campo = campo;
         this.campoEnemigo = campoEnemigo;
         this.jugador = jugador;
         this.enemigo = enemigo;
+        this.actualizador = actualizador;
 
     }
 
@@ -73,6 +75,7 @@ public class BotonAtacar implements EventHandler<ActionEvent> {
 
         Combate combate = new Combate(jugador, campo, enemigo, campoEnemigo);
         combate.combatir(atacante, atacado);
+        this.actualizador.actualizar();
         stage.close();
 
         System.out.print("Combate realizado:" + atacante.toString() + " vs " + atacado.toString());
