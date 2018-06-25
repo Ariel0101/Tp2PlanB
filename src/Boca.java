@@ -8,5 +8,4 @@ public interface Boca {
 
     boolean estaBocaAbajo();
 
-
 }

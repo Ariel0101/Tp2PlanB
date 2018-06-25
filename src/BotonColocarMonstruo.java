@@ -33,7 +33,6 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         this.stage = new Stage();
 
         ComboBox<Carta> eleccionCarta = new ComboBox<>();
-
         eleccionCarta.setPromptText("Eligi tu carta");
 
         for (Carta m : this.mano.cartas()) {
@@ -42,8 +41,14 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
 
         }
 
+        ComboBox<String> opcionesBoca = new ComboBox<>();
+        opcionesBoca.setPromptText("Boca arriba o boca abajo?");
+        opcionesBoca.getItems().add("Boca arriba");
+        opcionesBoca.getItems().add("Boca abajo");
+
+
         Button botN = new Button("Bueno, colocar en el campo");
-        BotonColocar botonColocar = new BotonColocar(campo, eleccionCarta, mano, this.stage, this.monstruos);
+        BotonColocar botonColocar = new BotonColocar(campo, eleccionCarta, mano, this.stage, this.monstruos, opcionesBoca);
         botN.setOnAction(botonColocar);
 
 
@@ -53,7 +58,7 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 300, 20));
-        layout.getChildren().addAll(eleccionCarta, botN, imagenDeCarta);
+        layout.getChildren().addAll(eleccionCarta,opcionesBoca, botN, imagenDeCarta);
 
 
         this.scene = new Scene(layout, 300, 500);
