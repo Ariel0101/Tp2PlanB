@@ -32,48 +32,66 @@ public class ConstructorDeCartas {
 
     public CartaMonstruo agresorOscuro(){
         Monstruo agresorOscuro = new Monstruo(1200,1200);
-        return new CartaMonstruo(agresorOscuro,4);
+        CartaMonstruo carta = new CartaMonstruo(agresorOscuro,4);
+        carta.ponerNombre("Agresor Oscuro");
+        return carta;
     }
 
     public CartaMonstruo alasDeLlamaPerversa(){
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 600);
-        return new CartaMonstruo(alasDeLlamaPerversa, 2);
+        CartaMonstruo carta = new CartaMonstruo(alasDeLlamaPerversa, 2);
+        carta.ponerNombre("Alas De Llama Perversa");
+        return carta;
     }
 
     public CartaMonstruoJinzo7 jinzo7(){
         Monstruo jinzo7 = new Monstruo(500,400);
-        return new CartaMonstruoJinzo7(jinzo7,2);
+        CartaMonstruoJinzo7 carta = new CartaMonstruoJinzo7(jinzo7,2);
+        carta.ponerNombre("Jinzo 7");
+        return carta;
     }
 
     public CartaMonstruoComeHombres insectoComeHombres(Campo campoEnemigo){
         Monstruo insectoComeHombres = new Monstruo(450, 600);
         EfectoDestruirMonstruo efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoEnemigo);
-        return new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
+        CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
+        carta.ponerNombre("Insecto Come Hombres");
+        return carta;
     }
 
     public CartaMonstruoExodia cabezaDeExodia(){
         Monstruo cabezaExodia = new Monstruo(1000,1000);
-        return  new CartaMonstruoExodia(cabezaExodia,3);
+        CartaMonstruoExodia carta = new CartaMonstruoExodia(cabezaExodia,3);
+        carta.ponerNombre("Cabeza De Exodia");
+        return carta;
     }
 
     public CartaMonstruoExodia brazoDerechoExodia(){
         Monstruo brazoDerechoExodia = new Monstruo(200,300);
-        return new CartaMonstruoExodia(brazoDerechoExodia,3);
+        CartaMonstruoExodia carta = new CartaMonstruoExodia(brazoDerechoExodia,3);
+        carta.ponerNombre("Brazo Derecho De Exodia");
+        return carta;
     }
 
     public CartaMonstruoExodia brazoIzquierdoExodia(){
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
-        return new CartaMonstruoExodia(brazoIzquierdoExodia,3);
+        CartaMonstruoExodia carta = new CartaMonstruoExodia(brazoIzquierdoExodia,3);
+        carta.ponerNombre("Brazo Izquierdo De Exodia");
+        return carta;
     }
 
     public CartaMonstruoExodia piernaDerechaExodia(){
         Monstruo piernaDerechaExodia = new Monstruo(200,300);
-        return new CartaMonstruoExodia(piernaDerechaExodia,3);
+        CartaMonstruoExodia carta = new CartaMonstruoExodia(piernaDerechaExodia,3);
+        carta.ponerNombre("Pierna Derecha De Exodia");
+        return carta;
     }
 
     public CartaMonstruoExodia piernaizquierdaExodia(){
         Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
-        return new CartaMonstruoExodia(piernaIzquierdaExodia,3);
+        CartaMonstruoExodia carta = new CartaMonstruoExodia(piernaIzquierdaExodia,3);
+        carta.ponerNombre("Pierna Izquiera De Exodia");
+        return carta;
     }
 
     public CartaMonstruoDragon dragonDeOjosAzules(){

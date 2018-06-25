@@ -28,6 +28,10 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
 
     }
 
+    public int cantidad(){
+        return this.monstruos.size();
+    }
+
 
     ListaMonstruos monstruosBocaArriba(){
 
@@ -58,20 +62,6 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
         return monstruo;
     }
 
-	/*public boolean contiene(int cantidadBuscada, CartaMonstruo monstruoBuscado) {
-		
-		int contador = 0;
-		for(CartaMonstruo monstruo : monstruos) {
-			if (monstruo.getClass() == monstruoBuscado.getClass()) contador++;
-
-		}
-		if (contador == cantidadBuscada) {
-			return true;
-		} else {
-			return false;
-		}
-	}*/
-
 	public LinkedList<CartaMonstruo> obtenerTodas(CartaMonstruo monstruoBuscado) {
 
 		LinkedList<CartaMonstruo> listaADevolver = new LinkedList<CartaMonstruo>();
@@ -85,6 +75,8 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
 	}
 
     public boolean esta(CartaMonstruo unaCartaMonstruo) {
-	    return this.monstruos.contains(unaCartaMonstruo);
+
+        return this.monstruos.contains(unaCartaMonstruo);
+
     }
 }
