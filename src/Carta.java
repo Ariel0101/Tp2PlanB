@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 public interface Carta {
      void colocarse(Mano unaMano);
 
@@ -7,7 +9,16 @@ public interface Carta {
 
      void colocarBocaArriba();
 
-    default String nombre() {
-        return "caca";
+     String toString();
+
+    default Image imagen(){
+
+         return new Image("Aitsu.jpg");
+
     }
+
+    /*@Override
+    default String toString() {
+        return "caca";
+    }*/
 }

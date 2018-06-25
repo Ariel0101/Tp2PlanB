@@ -4,8 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.geometry.Pos;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 
@@ -21,7 +19,7 @@ public class Main extends Application {
 
         ventana.setTitle("Al-Go-Oh");
 
-        //Grilla
+     /*   //Grilla
         GridPane grilla = new GridPane();
         grilla.setAlignment(Pos.CENTER);
         grilla.setHgap(10);
@@ -122,7 +120,7 @@ public class Main extends Application {
         Scene escenaInicial = new Scene(grilla, 600, 600);
         ventana.setScene(escenaInicial);
         ventana.show();
-
+*/
         //................
         //
         /// PRUEBA APARTE:
@@ -138,7 +136,6 @@ public class Main extends Application {
         mano.agregar(aitsu);
         mano.agregar(monkey);
 
-
         Button aitsuEnCampo = new Button("Esta aitsu en el campo?");
 
         aitsuEnCampo.setOnAction(e -> {    //Este boton es solo para probar si funciona
@@ -152,13 +149,21 @@ public class Main extends Application {
         );                                  //.
 
 
+        HBox monstruosEnCampo = new HBox();
+        monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
+        monstruosEnCampo.setSpacing(10);
+        monstruosEnCampo.setStyle("-fx-background-color: #336699;");
+
         Button boton = new Button("Colocar una carta");
-        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano);
+        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, monstruosEnCampo);
         boton.setOnAction(botonM);
 
-        HBox contenedorHorizontal = new HBox(boton, aitsuEnCampo);          //copiado de la catedra
+        //Contenedor de botones:
+        HBox contenedorHorizontal = new HBox(boton, aitsuEnCampo);
         contenedorHorizontal.setSpacing(8);
-        VBox contenedorPrincipal = new VBox(contenedorHorizontal);
+
+
+        VBox contenedorPrincipal = new VBox(contenedorHorizontal, monstruosEnCampo);
         contenedorPrincipal.setSpacing(80);
         contenedorPrincipal.setPadding(new Insets(20));
 

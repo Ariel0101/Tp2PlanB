@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 class CartaMonstruo implements Carta {
 
     protected Monstruo monstruo;
@@ -119,10 +121,17 @@ class CartaMonstruo implements Carta {
 
     }
 
-    public String nombre(){
+    @Override
+    public String toString(){
 
         return this.nombre;
 
+    }
+
+    @Override
+    public Image imagen() {
+
+        return new Image(this.nombre + ".jpg");
     }
 
 }
