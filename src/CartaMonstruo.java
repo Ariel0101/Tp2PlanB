@@ -131,7 +131,7 @@ class CartaMonstruo implements Carta {
     @Override
     public Image imagen() {
 
-        return new Image(this.nombre + ".jpg");
+        return new Image("imagenes/" + this.nombre + ".jpg");
     }
 
 }
