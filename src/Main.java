@@ -114,10 +114,10 @@ public class Main extends Application {
         Button botonMiJugador = new Button("MiJugador");
         grilla.add(botonMiJugador,2,6);
 
-        //Escena inicial
+        //Escena Basica
         Scene escenaInicial = new Scene(grilla, 600, 600);
         ventana.setScene(escenaInicial);
+        
         ventana.show();
-
     }
 }

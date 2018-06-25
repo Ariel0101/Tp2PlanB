@@ -31,4 +31,11 @@ public class Mano {
             this.jugador.ganar();
         }
     }
+
+    public void colocar(Carta unaCarta, Campo campo) {
+        if (this.cartas.contains(unaCarta)){
+            unaCarta.colocarse(campo);
+            this.cartas.remove(unaCarta);
+        }
+    }
 }

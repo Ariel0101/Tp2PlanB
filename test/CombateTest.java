@@ -1,7 +1,7 @@
 import junit.framework.TestCase;
 
 public class CombateTest extends TestCase {
-    public void testCombateDestruyeMokeyMpokeyYResta100AJugadorOponenteTrasCombatirAtacanteGoblinFalsoYAtacadoMokeyMokey(){
+    public void testCombateDestruyeMokeyMokeyYResta100AJugadorOponenteTrasCombatirAtacanteGoblinFalsoYAtacadoMokeyMokey(){
         Cementerio unCementerio = new Cementerio();
         Jugador miJugador = new Jugador("1", 8000);
         Campo miCampo = new Campo(unCementerio);

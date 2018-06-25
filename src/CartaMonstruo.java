@@ -1,3 +1,6 @@
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -113,4 +116,5 @@ class CartaMonstruo implements Carta {
         c.agregarMonstruo(this);
 
     }
+
 }
