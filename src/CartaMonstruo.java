@@ -1,8 +1,4 @@
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.awt.*;
-import java.util.LinkedList;
+import javafx.scene.image.Image;
 
 class CartaMonstruo implements Carta {
 
@@ -10,6 +6,7 @@ class CartaMonstruo implements Carta {
     protected Boca boca;
     private int estrellas;
     protected Invocacion invocacion;
+    String nombre;
 
     CartaMonstruo(Monstruo monstruo, int estrellas){
 
@@ -18,6 +15,7 @@ class CartaMonstruo implements Carta {
         this.boca = new BocaNeutra();
         this.estrellas = estrellas;
         this.invocacion = new InvocacionSacrificio(estrellas);
+        this.nombre = "sin-nombre";
     }
     
     CartaMonstruo(){
@@ -115,6 +113,25 @@ class CartaMonstruo implements Carta {
     	this.invocar(c);
         c.agregarMonstruo(this);
 
+    }
+
+    void ponerNombre(String nombre){
+
+        this.nombre = nombre;
+
+    }
+
+    @Override
+    public String toString(){
+
+        return this.nombre;
+
+    }
+
+    @Override
+    public Image imagen() {
+
+        return new Image("imagenes/" + this.nombre + ".jpg");
     }
 
 }

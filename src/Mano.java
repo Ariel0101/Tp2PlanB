@@ -32,10 +32,20 @@ public class Mano {
         }
     }
 
-    public void colocar(Carta unaCarta, Campo campo) {
-        if (this.cartas.contains(unaCarta)){
-            unaCarta.colocarse(campo);
-            this.cartas.remove(unaCarta);
-        }
+
+    //mmmmmmmmmmmmmmmmmmmmmmm:
+    public LinkedList<Carta> cartas(){
+
+        return this.cartas;
+
     }
+
+    void sacar(Carta carta){
+
+        this.cartas.remove(carta);
+
+    }
+
+
+
 }

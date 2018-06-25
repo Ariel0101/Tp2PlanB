@@ -3,12 +3,17 @@ public class ConstructorDeCartas {
     //Cartas Monstruo
     public CartaMonstruo aitsu(){
         Monstruo aitsu = new Monstruo(100,100);
-        return new CartaMonstruo(aitsu, 5);
+        CartaMonstruo aitsuCart =  new CartaMonstruo(aitsu, 5);
+        aitsuCart.ponerNombre("Aitsu");
+        return aitsuCart;
     }
 
     public CartaMonstruo mokeyMokey(){
         Monstruo mokeyMokey = new Monstruo(300,100);
-        return new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo monkey = new CartaMonstruo(mokeyMokey,3);
+        monkey.ponerNombre("Monkey");
+        return monkey;
+
     }
 
     public CartaMonstruo goblinFalso(){

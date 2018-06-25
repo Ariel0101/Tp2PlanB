@@ -19,5 +19,6 @@ public class BocaArriba implements Boca {
     public boolean estaBocaAbajo() {
         return false;
     }
+
 }
 

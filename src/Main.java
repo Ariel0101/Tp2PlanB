@@ -1,10 +1,12 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+
 
 public class Main extends Application {
 
@@ -17,7 +19,7 @@ public class Main extends Application {
 
         ventana.setTitle("Al-Go-Oh");
 
-        //Grilla
+     /*   //Grilla
         GridPane grilla = new GridPane();
         grilla.setAlignment(Pos.CENTER);
         grilla.setHgap(10);
@@ -114,10 +116,63 @@ public class Main extends Application {
         Button botonMiJugador = new Button("MiJugador");
         grilla.add(botonMiJugador,2,6);
 
-        //Escena Basica
+        //Escena inicial
         Scene escenaInicial = new Scene(grilla, 600, 600);
         ventana.setScene(escenaInicial);
-        
         ventana.show();
+*/
+        //................
+        //
+        /// PRUEBA APARTE:
+        //
+
+        Campo campo = new Campo(new Cementerio());
+        Mano mano = new Mano(new Jugador("1", 2));
+        Mazo mazo = new Mazo(new Jugador("2", 3));
+
+        ConstructorDeCartas constructor = new ConstructorDeCartas();  //se ponen dos cartas en la mano
+        CartaMonstruo aitsu = constructor.aitsu();
+        CartaMonstruo monkey = constructor.mokeyMokey();
+        mano.agregar(aitsu);
+        mano.agregar(monkey);
+
+        Button aitsuEnCampo = new Button("Esta aitsu en el campo?");
+
+        aitsuEnCampo.setOnAction(e -> {    //Este boton es solo para probar si funciona
+
+        if(campo.esta(aitsu)){
+
+            System.out.print("si.");
+
+        }
+        else {System.out.print("no.");}}
+        );                                  //.
+
+
+        HBox monstruosEnCampo = new HBox();
+        monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
+        monstruosEnCampo.setSpacing(10);
+        monstruosEnCampo.setStyle("-fx-background-color: #336699;");
+
+        Button boton = new Button("Colocar una carta");
+        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, monstruosEnCampo);
+        boton.setOnAction(botonM);
+
+        //Contenedor de botones:
+        HBox contenedorHorizontal = new HBox(boton, aitsuEnCampo);
+        contenedorHorizontal.setSpacing(8);
+
+
+        VBox contenedorPrincipal = new VBox(contenedorHorizontal, monstruosEnCampo);
+        contenedorPrincipal.setSpacing(80);
+        contenedorPrincipal.setPadding(new Insets(20));
+
+        Scene scene = new Scene(contenedorPrincipal, 500, 550); //
+
+        ventana.setScene(scene);
+
+        ventana.show();
+
+
     }
 }
