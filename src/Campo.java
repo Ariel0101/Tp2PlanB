@@ -43,7 +43,6 @@ public class Campo {
     void agregarMonstruo(CartaMonstruo carta) {
     	efectoDeCampoPropio.activar(carta);
     	efectoDeCampoEnemigo.activar(carta);
-        /*this.monstruos.add(carta);*/
         this.listaMonstruos.agregar(carta);
     }
     
@@ -103,7 +102,10 @@ public class Campo {
     }
 
 	public void sacrificar(int cantidadASacrificar) {
-		
+        if (this.listaMonstruos.cantidad() < cantidadASacrificar){
+            throw new NoHaySufucienteSacrificiosError();
+        }
+
 		for(int i = cantidadASacrificar; i>0; i--) {
 			CartaMonstruo monstruoADestruir = listaMonstruos.monstruoConMenorAtaque();
 			this.destruir(monstruoADestruir);
@@ -113,11 +115,14 @@ public class Campo {
 	public void fusionar(CartaMonstruo cartaMonstruoAFusionar, int cantidadAFusionar) {
 		
 		LinkedList<CartaMonstruo> listaObtenida = listaMonstruos.obtenerTodas(cartaMonstruoAFusionar);
-		if (listaObtenida.size() >= cantidadAFusionar) {
-			for (int i = cantidadAFusionar; i>0; i--) {
-				this.destruir(listaObtenida.removeFirst());
-			}
-		}
+        if (listaObtenida.size() < cantidadAFusionar) {
+            throw new NoHaySufucienteSacrificiosError();
+        }
+
+        for (int i = cantidadAFusionar; i>0; i--) {
+            this.destruir(listaObtenida.removeFirst());
+        }
+
 	}
 
     public boolean esta(CartaMonstruo unaCartaMonstruo) {

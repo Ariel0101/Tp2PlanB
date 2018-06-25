@@ -1,0 +1,165 @@
+import junit.framework.TestCase;
+
+public class SacrificiosTest extends TestCase {
+    public void testColocarMonstruoDe5EstrellasSacrificaAMonstruoEnCampo() {
+
+        Cementerio unCementerio = new Cementerio();
+        Cementerio otroCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+        Campo otroCampo = new Campo(otroCementerio);
+        Monstruo monstruoSacrificado = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada = new CartaMonstruo(monstruoSacrificado, 4);
+        Monstruo monstruo5Estrellas = new Monstruo(300, 100);
+        CartaMonstruo carta5Estrellas = new CartaMonstruo(monstruo5Estrellas ,5);
+        Monstruo monstruoAtacado = new Monstruo(10, 10);
+        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+
+        unCampo.colocarCarta(cartaSacrificada);
+        unCampo.colocarCarta(carta5Estrellas);
+        carta5Estrellas.colocarBocaArriba();
+        carta5Estrellas.colocarEnPosAtaque();
+        otroCampo.colocarCarta(cartaAtacada);
+        cartaAtacada.colocarBocaArriba();
+        cartaAtacada.colocarEnPosAtaque();
+        Botin b = carta5Estrellas.atacar(cartaAtacada, otroCampo);
+        b.ejecutar(otroCampo);
+
+        assertTrue(unCementerio.esta(cartaSacrificada));
+        assertTrue(otroCementerio.esta(cartaAtacada));
+    }
+
+    public void testColocarMonstruoDe7EstrellasSacrificaDosMonstruosEnCampo() {
+
+        Cementerio unCementerio = new Cementerio();
+        Cementerio otroCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+        Campo otroCampo = new Campo(otroCementerio);
+        Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 2);
+        Monstruo monstruo7Estrellas = new Monstruo(300, 100);
+        CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
+        Monstruo monstruoAtacado = new Monstruo(10, 10);
+        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+
+        unCampo.colocarCarta(cartaSacrificada1);
+        unCampo.colocarCarta(cartaSacrificada2);
+        unCampo.colocarCarta(carta7Estrellas);
+        carta7Estrellas.colocarBocaArriba();
+        carta7Estrellas.colocarEnPosAtaque();
+        otroCampo.colocarCarta(cartaAtacada);
+        cartaAtacada.colocarBocaArriba();
+        cartaAtacada.colocarEnPosAtaque();
+        Botin b = carta7Estrellas.atacar(cartaAtacada, otroCampo);
+        b.ejecutar(otroCampo);
+
+        assertTrue(unCementerio.esta(cartaSacrificada1));
+        assertTrue(unCementerio.esta(cartaSacrificada2));
+        assertTrue(otroCementerio.esta(cartaAtacada));
+    }
+
+    public void testColocarMonstruoLevantaNoHaySuficientesSacrificiosErrorCuandoNoHaySuficientesMonstruosEnElCampoParaInvoacionPedida(){
+        Cementerio unCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+
+        Monstruo monstruo7Estrellas = new Monstruo(300, 100);
+        CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
+
+        Boolean lanzoError = false;
+        try {
+            carta7Estrellas.colocarse(unCampo);
+        } catch (NoHaySufucienteSacrificiosError e){
+            lanzoError = true;
+        }
+
+        assertTrue(lanzoError);
+        assertFalse(unCampo.esta(carta7Estrellas));
+    }
+
+    public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones() {
+        Cementerio unCementerio = new Cementerio();
+        Cementerio otroCementerio = new Cementerio();
+        Campo unCampo = new Campo(unCementerio);
+        Campo otroCampo = new Campo(otroCementerio);
+        Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 3);
+        Monstruo monstruoSacrificado3 = new Monstruo(100, 8);
+        CartaMonstruo cartaSacrificada3 = new CartaMonstruo(monstruoSacrificado3, 4);
+        Monstruo monstruoSacrificado4 = new Monstruo(100, 6);
+        CartaMonstruo cartaSacrificada4 = new CartaMonstruo(monstruoSacrificado4, 1);
+        Monstruo monstruoSacrificado5 = new Monstruo(100, 77);
+        CartaMonstruo cartaSacrificada5 = new CartaMonstruo(monstruoSacrificado5, 2);
+        Monstruo monstruoSacrificado6 = new Monstruo(100, 33);
+        CartaMonstruo cartaSacrificada6 = new CartaMonstruo(monstruoSacrificado6, 1);
+
+        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon();
+        CartaMonstruo cartaDragon2 = new CartaMonstruoDragon();
+        CartaMonstruo cartaDragon3 = new CartaMonstruoDragon();
+        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo();
+        Monstruo monstruoAtacado = new Monstruo(10, 10);
+        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+
+        unCampo.colocarCarta(cartaSacrificada1);
+        unCampo.colocarCarta(cartaSacrificada2);
+        unCampo.colocarCarta(cartaSacrificada3);
+        unCampo.colocarCarta(cartaSacrificada4);
+        unCampo.colocarCarta(cartaSacrificada5);
+        unCampo.colocarCarta(cartaSacrificada6);
+        unCampo.colocarCarta(cartaDragon1);
+        unCampo.colocarCarta(cartaDragon2);
+        unCampo.colocarCarta(cartaDragon3);
+        unCampo.colocarCarta(cartaDragonDefinitivo);
+
+        cartaDragonDefinitivo.colocarBocaArriba();
+        cartaDragonDefinitivo.colocarEnPosAtaque();
+        otroCampo.colocarCarta(cartaAtacada);
+        cartaAtacada.colocarBocaArriba();
+        cartaAtacada.colocarEnPosAtaque();
+        Botin b = cartaDragonDefinitivo.atacar(cartaAtacada, otroCampo);
+        b.ejecutar(otroCampo);
+
+        assertTrue(unCementerio.esta(cartaSacrificada1));
+        assertTrue(unCementerio.esta(cartaSacrificada2));
+        assertTrue(unCementerio.esta(cartaSacrificada3));
+        assertTrue(unCementerio.esta(cartaSacrificada4));
+        assertTrue(unCementerio.esta(cartaSacrificada5));
+        assertTrue(unCementerio.esta(cartaSacrificada6));
+        assertTrue(unCementerio.esta(cartaDragon1));
+        assertTrue(unCementerio.esta(cartaDragon2));
+        assertTrue(unCementerio.esta(cartaDragon3));
+        assertTrue(otroCementerio.esta(cartaAtacada));
+    }
+
+    public void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoLevantaErrorNohaySufucienteSacrificiosErrorCuandoNoHaySuficientesDragonesBlancosDeOjosAzulesEnJuego(){
+        Cementerio unCementerio = new Cementerio();
+
+        Campo unCampo = new Campo(unCementerio);
+        Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 3);
+        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon();
+        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo();
+
+        cartaSacrificada1.colocarse(unCampo);
+        cartaSacrificada2.colocarse(unCampo);
+        cartaDragon1.colocarse(unCampo);
+
+        boolean lanzoError = false;
+        try {
+            unCampo.colocarCarta(cartaDragonDefinitivo);
+        } catch (NoHaySufucienteSacrificiosError e){
+            lanzoError = true;
+        }
+
+        assertTrue(lanzoError);
+        assertFalse(unCampo.esta(cartaDragonDefinitivo));
+
+
+
+    }
+}
+
