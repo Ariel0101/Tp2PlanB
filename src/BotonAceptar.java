@@ -21,7 +21,7 @@ public class BotonAceptar implements EventHandler<ActionEvent> {
 
         if (pos.getValue() == "Ataque"){
 
-            System.out.print("Colocado en pos ataque");
+            System.out.print("Colocado en pos ataque.\n");
 
             monstruo.colocarEnPosAtaque();
 
@@ -29,7 +29,7 @@ public class BotonAceptar implements EventHandler<ActionEvent> {
 
         if (pos.getValue() == "Defensa"){
 
-            System.out.print("Colocado en pos defensa");
+            System.out.print("Colocado en pos defensa.\n");
 
             monstruo.colocarEnPosDefensa();
 

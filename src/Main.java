@@ -18,11 +18,67 @@ public class Main extends Application {
     public void start(Stage ventana) throws Exception {
 
         ventana.setTitle("Al-Go-Oh");
+        //Constructor de Cartas
+        ConstructorDeCartas unConstructor = new ConstructorDeCartas();
+        CartaMonstruo aitsu2 = unConstructor.aitsu();
+        aitsu2.colocarEnPosAtaque();
+        aitsu2.colocarBocaArriba();
+        CartaMonstruo mokey = unConstructor.mokeyMokey();
+        mokey.colocarEnPosAtaque();
+        mokey.colocarBocaArriba();
+        //Partida
+        Partida unaPartida = new Partida();
+        //Enemigo
+        Campo campoEnemigo = new Campo(new Cementerio());
+        Jugador jugadorEnemigo = new Jugador("J-Amigo",8000,unaPartida);
+        mokey.colocarse(campoEnemigo);
 
-        //................
-        //
-        /// PRUEBA APARTE:
-        //
+        //Amigo
+        Campo campoAmigo = new Campo(new Cementerio());
+        Jugador jugadorAmigo = new Jugador("J-Enemigo",8000,unaPartida);
+        aitsu2.colocarse(campoAmigo);
+
+        //Boton atacar
+        BotonElegirMonstruo botonElegirMonstruoAtacante = new BotonElegirMonstruo(campoAmigo, "Elegir monstruo atacante :");
+        Button botonElegirMonstruoAtacanteWrapper = new Button("Elegir Monstruo Atacante");
+        botonElegirMonstruoAtacanteWrapper.setOnAction(botonElegirMonstruoAtacante);
+
+        BotonElegirMonstruo botonElegirMonstruoAtacado = new BotonElegirMonstruo(campoEnemigo, "Elegir monstruo atacado :");
+        Button botonElegirMonstruoAtacadoWrapper = new Button("Elegir Monstruo Atacado");
+        botonElegirMonstruoAtacadoWrapper.setOnAction(botonElegirMonstruoAtacado);
+
+        BotonAtacar botonAtacar = new BotonAtacar(jugadorAmigo,campoAmigo,botonElegirMonstruoAtacante, jugadorEnemigo, campoEnemigo, botonElegirMonstruoAtacado);
+        Button botonAtacarWrapper = new Button("Atacar");
+        botonAtacarWrapper.setOnAction(botonAtacar);
+
+        //Campo de Batalla
+        CampoMonstruosHBox campoMonstruosHBoxAmigo = new CampoMonstruosHBox(campoAmigo);
+        campoMonstruosHBoxAmigo.setPadding(new Insets(10, 12, 44, 12));
+        campoMonstruosHBoxAmigo.setSpacing(10);
+        campoMonstruosHBoxAmigo.actualizar();
+        campoMonstruosHBoxAmigo.setStyle("-fx-background-color: #336699;");
+        CampoMonstruosHBox campoMonstruosHBoxEnemigo = new CampoMonstruosHBox(campoEnemigo);
+        campoMonstruosHBoxEnemigo.setPadding(new Insets(10, 12, 44, 12));
+        campoMonstruosHBoxEnemigo.setSpacing(10);
+        campoMonstruosHBoxEnemigo.setStyle("-fx-background-color: #336699;");
+        campoMonstruosHBoxEnemigo.actualizar();
+
+        HBox campoEnemigoMasBotonElegirAtacadoHBox = new HBox(campoMonstruosHBoxEnemigo, botonElegirMonstruoAtacadoWrapper);
+        campoEnemigoMasBotonElegirAtacadoHBox.setPadding(new Insets(10, 12, 44, 12));
+        campoEnemigoMasBotonElegirAtacadoHBox.setSpacing(10);
+        HBox campoEnemigoMasBotonElegirAtacanteHBox = new HBox(campoMonstruosHBoxAmigo, botonElegirMonstruoAtacanteWrapper);
+        campoEnemigoMasBotonElegirAtacanteHBox.setPadding(new Insets(10, 12, 44, 12));
+        campoEnemigoMasBotonElegirAtacanteHBox.setSpacing(10);
+        VBox campoDeBatalaVBox = new VBox(campoEnemigoMasBotonElegirAtacadoHBox, campoEnemigoMasBotonElegirAtacanteHBox, botonAtacarWrapper );
+
+        Scene escenaDeBatalla = new Scene(campoDeBatalaVBox, 500,550);
+
+
+        //Boton cambiar a Escena Campo de Batalla
+        Button botonAPelear = new Button("A Pelear !!!");
+        botonAPelear.setOnAction(actionEvent -> {
+            ventana.setScene(escenaDeBatalla);
+        });
 
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(new Jugador("1", 2));
@@ -57,7 +113,7 @@ public class Main extends Application {
         boton.setOnAction(botonM);
 
         //Contenedor de botones:
-        HBox contenedorHorizontal = new HBox(boton, aitsuEnCampo);
+        HBox contenedorHorizontal = new HBox(boton, aitsuEnCampo, botonAPelear);
         contenedorHorizontal.setSpacing(8);
 
 

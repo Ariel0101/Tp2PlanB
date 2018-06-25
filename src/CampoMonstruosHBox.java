@@ -2,10 +2,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.image.ImageView;
 import java.util.Iterator;
 
-class CampoMonstruoHBox extends HBox {
+class CampoMonstruosHBox extends HBox {
     private final Campo campo;
 
-    CampoMonstruoHBox(Campo campoARepresentar){
+    CampoMonstruosHBox(Campo campoARepresentar){
         this.campo = campoARepresentar;
     }
 
@@ -16,6 +16,8 @@ class CampoMonstruoHBox extends HBox {
         while (iteradorMonstruos.hasNext()) {
             CartaMonstruo carta = iteradorMonstruos.next();
             ImageView imagenCarta = new ImageView();
+            imagenCarta.setFitWidth(60);
+            imagenCarta.setFitHeight(100);
             imagenCarta.setImage(carta.imagen());
             this.getChildren().add(imagenCarta);
         }

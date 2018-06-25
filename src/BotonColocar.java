@@ -66,7 +66,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         if (this.boca.getValue() == "Boca arriba"){
 
-            System.out.print("Colocado boca arriba");
+            System.out.print("Colocado boca arriba.\n");
 
             carta.colocarBocaArriba();
 
@@ -74,7 +74,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         if (this.boca.getValue() == "Boca abajo"){
 
-            System.out.print("Colocado boca abajo");
+            System.out.print("Colocado boca abajo.\n");
 
             carta.colocarBocaAbajo();
 
