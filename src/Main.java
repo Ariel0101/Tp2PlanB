@@ -150,10 +150,5 @@ public class Main extends Application {
         ventana.setScene(scene);
 
         ventana.show();
-
-
-
-
-
     }
 }
