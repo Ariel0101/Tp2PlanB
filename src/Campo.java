@@ -129,4 +129,7 @@ public class Campo {
         return listaMonstruos.esta(unaCartaMonstruo);
     }
 
+    LinkedList<CartaMagica> magicas(){
+        return this.magicas;
+    }
 }

@@ -32,6 +32,7 @@ public class BocaNeutra implements Boca {
 
     @Override
     public Image imagen(String nombre) {
-        return new Image("imagenes/" + nombre + ".jpg");
+        return new Image("imagenes/" + nombre +".jpg");
+
     }
 }

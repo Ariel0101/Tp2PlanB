@@ -65,7 +65,7 @@ public class BotonAtacar implements EventHandler<ActionEvent> {
 
     }
 
-    void aceptar(CartaMonstruo atacante, CartaMonstruo atacado, Stage stage){
+    private void aceptar(CartaMonstruo atacante, CartaMonstruo atacado, Stage stage){
 
         if (atacante == null || atacado == null){
 

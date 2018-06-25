@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -61,7 +60,7 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         layout.getChildren().addAll(eleccionCarta,opcionesBoca, botN, imagenDeCarta);
 
 
-        this.scene = new Scene(layout, 300, 500);
+        this.scene = new Scene(layout, 300, 550);
         this.stage.setScene(this.scene);
         this.stage.show();
 
