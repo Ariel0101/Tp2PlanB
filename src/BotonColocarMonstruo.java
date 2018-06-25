@@ -5,24 +5,23 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
 
-    private HBox monstruos;
+    private final ActualizadorDeRepresentaciones actualizador;
     private Mano mano;
     private Campo campo;
     private Scene scene;
     private Stage stage;
 
 
-    BotonColocarMonstruo(Campo campo, Mano mano, HBox monstruosEnCampo) {
+    BotonColocarMonstruo(Campo campo, Mano mano, ActualizadorDeRepresentaciones actualizador) {
 
         this.campo = campo;
         this.mano = mano;
-        this.monstruos = monstruosEnCampo;
+        this.actualizador = actualizador;
 
     }
 
@@ -48,7 +47,7 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
 
 
         Button botN = new Button("Bueno, colocar en el campo");
-        BotonColocar botonColocar = new BotonColocar(campo, eleccionCarta, mano, this.stage, this.monstruos, opcionesBoca);
+        BotonColocar botonColocar = new BotonColocar(campo, eleccionCarta, mano, this.stage, this.actualizador, opcionesBoca);
         botN.setOnAction(botonColocar);
 
 

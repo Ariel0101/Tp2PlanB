@@ -1,7 +1,10 @@
+import javafx.scene.image.Image;
+
 class CartaMagica implements Carta {
 
     private Magia magia;
     private Boca boca;
+    private String nombre;
 
     CartaMagica(Magia magia) {
 
@@ -34,4 +37,22 @@ class CartaMagica implements Carta {
         c.colocarCarta(this);
 
     }
+
+    public void ponerNombre(String nombre) {
+
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString(){
+
+        return this.nombre;
+    }
+
+    public Image imagen(){
+
+        return new Image("imagenes/" + this.nombre + ".jpg");
+
+    }
+
 }

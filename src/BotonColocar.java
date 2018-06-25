@@ -14,23 +14,23 @@ public class BotonColocar implements EventHandler<ActionEvent> {
     private final Campo campo;
     private final ComboBox<Carta> cm;
     private final Mano mano;
-    private final HBox monstruos;
     private final ComboBox boca;
+    private final ActualizadorDeRepresentaciones actualizador;
     Carta carta;
     Stage ventana;
 
-    BotonColocar(Campo campo, ComboBox<Carta> cm, Mano mano, Stage ventana, HBox monstruos, ComboBox boca){
+    BotonColocar(Campo campo, ComboBox<Carta> cm, Mano mano, Stage ventana,ActualizadorDeRepresentaciones actualizador , ComboBox boca){
         
         this.campo = campo;
         this.cm = cm;
         this.mano = mano;
         this.ventana = ventana;
         this.carta = new NoCarta(); //parche terrible
-        this.monstruos = monstruos;
+        this.actualizador = actualizador;
         this.boca = boca;
         
     }
-    
+
     public void handle(ActionEvent actionEvent){
 
         this.carta = (Carta) cm.getValue();
@@ -52,12 +52,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         }
 
-        ImageView imagen = new ImageView();
-        imagen.setImage(carta.imagen());
-        imagen.setFitWidth(100);
-        imagen.setFitHeight(150);
-        this.monstruos.getChildren().add(imagen);
-
+        this.actualizador.actualizar();
         this.ventana.close();
 
     }

@@ -87,7 +87,10 @@ public class ConstructorDeCartas {
     //Cartas Magicas
     public CartaMagica agujeroNegro(Campo unLadoDelCampo, Campo otroLadoDelCampo){
         AgujeroOscuro agujeroOscuro = new AgujeroOscuro(unLadoDelCampo, otroLadoDelCampo);
-        return new CartaMagica(agujeroOscuro);
+        CartaMagica cartaAgujero = new CartaMagica(agujeroOscuro);
+        cartaAgujero.ponerNombre("Agujero Oscuro");
+        return cartaAgujero;
+
     }
 
     public CartaMagica ollaDeLaCodicia(Mano miMano, Mazo miMazo){

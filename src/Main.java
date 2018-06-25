@@ -8,6 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.LinkedList;
 
 
 public class Main extends Application {
@@ -32,6 +33,7 @@ public class Main extends Application {
         //Cartas para probar
         CartaMonstruo aitsu = constructor.aitsu();
         CartaMonstruo monkey = constructor.mokeyMokey();
+
         mano.agregar(aitsu);
         mano.agregar(monkey);
 
@@ -46,6 +48,8 @@ public class Main extends Application {
         CartaMonstruo agujaAsesina = constructor.agujaAsesina();
         manoEnemiga.agregar(goblin);
         manoEnemiga.agregar(agujaAsesina);
+        CartaMagica agujero = constructor.agujeroNegro(campo, campoEnemigo);
+        mano.agregar(agujero);
 
         //Llenar mazos:
         RandomizadorCartas randomizador = new RandomizadorCartas(campoEnemigo, campo, mano, mazo);
@@ -65,55 +69,66 @@ public class Main extends Application {
 
 
         //Contenedor de las imagenes de las cartas en campo del jugador:
-        HBox monstruosEnCampo = new HBox();
+        CampoMonstruosHBox monstruosEnCampo = new CampoMonstruosHBox(campo);
         monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampo.setSpacing(10);
         monstruosEnCampo.setStyle("-fx-background-color: #336699;");
 
         //Contenedor de las imagenes de las cartas en campo del enemigo:
-        HBox monstruosEnCampoEnemigo = new HBox();
+        CampoMonstruosHBox monstruosEnCampoEnemigo = new CampoMonstruosHBox(campoEnemigo);
         monstruosEnCampoEnemigo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampoEnemigo.setSpacing(10);
         monstruosEnCampoEnemigo.setAlignment(Pos.BASELINE_CENTER);
         monstruosEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
 
+        //Actualizador de Representaciones (actualiza el campo de batalla)
+        LinkedList<Actualizable> representaciones = new LinkedList<>();
+        representaciones.add(monstruosEnCampo);
+        representaciones.add(monstruosEnCampoEnemigo);
+        ActualizadorDeRepresentaciones actualizador = new ActualizadorDeRepresentaciones(representaciones);
 
         //Botones del jugador:
 
         Button boton = new Button("Colocar una carta");
-        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, monstruosEnCampo);
+        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, actualizador);
         boton.setOnAction(botonM);
 
         Button botonAtacar = new Button("Atacar");
-        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo);
+        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador);
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
         Button botonActivarMagica = new Button("Activar carta Magica");
         BotonActivarMagica activarMagicaHandler = new BotonActivarMagica(campo);
         botonActivarMagica.setOnAction(activarMagicaHandler);
 
+        Button verMano1 = new Button("Ver mano");
+        BotonVerMano accionVerMano1 = new BotonVerMano(mano);
+        verMano1.setOnAction(accionVerMano1);
 
         //Botones del enemigo:
 
         Button botonColocarEnemigo = new Button("Colocar una carta");
-        BotonColocarMonstruo botonEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, monstruosEnCampoEnemigo);
+        BotonColocarMonstruo botonEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, actualizador);
         botonColocarEnemigo.setOnAction(botonEnemigoHandler);
 
         Button botonEnemigoAtacar = new Button("Atacar");
-        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador);
+        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador);
         botonEnemigoAtacar.setOnAction(botonEnemAtacarEventHandler);
 
         Button botonEnemActivarMagica = new Button("Activar carta Magica");
         BotonActivarMagica activarMagicaEnemHandler = new BotonActivarMagica(campo);
         botonEnemActivarMagica.setOnAction(activarMagicaEnemHandler);
 
+        Button verMano2 = new Button("Ver mano");
+        BotonVerMano accionVerMano2 = new BotonVerMano(manoEnemiga);
+        verMano2.setOnAction(accionVerMano2);
 
         //Contenedor de botones de jugador:
-        HBox contenedorHorizontal = new HBox(boton, botonAtacar, aitsuEnCampo, botonActivarMagica);
+        HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica);
         contenedorHorizontal.setSpacing(8);
 
         //Contenedor de botones de enemigo:
-        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, botonEnemActivarMagica);
+        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, verMano2, botonEnemActivarMagica);
         contenedorHorizontalEnem.setSpacing(20);
 
         //Grilla de jugador:
