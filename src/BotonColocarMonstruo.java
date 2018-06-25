@@ -61,7 +61,7 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         layout.getChildren().addAll(eleccionCarta,opcionesBoca, botN, imagenDeCarta);
 
 
-        this.scene = new Scene(layout, 300, 500);
+        this.scene = new Scene(layout, 300, 550);
         this.stage.setScene(this.scene);
         this.stage.show();
 

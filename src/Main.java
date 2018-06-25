@@ -21,12 +21,6 @@ public class Main extends Application {
 
         ventana.setTitle("Al-Go-Oh");
 
-        
-        //................
-        //
-        /// PRUEBA APARTE:
-        //
-
         ConstructorDeCartas constructor = new ConstructorDeCartas();
 
         //Cosas del jugador:
@@ -45,6 +39,7 @@ public class Main extends Application {
         Jugador enemigo = new Jugador("coco", 7000);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
+        Mazo mazoEnemigo = new Mazo(enemigo);
 
         //Cartas para probar
         CartaMonstruo goblin = constructor.goblinFalso();
@@ -52,25 +47,30 @@ public class Main extends Application {
         manoEnemiga.agregar(goblin);
         manoEnemiga.agregar(agujaAsesina);
 
+        //Llenar mazos:
+        RandomizadorCartas randomizador = new RandomizadorCartas(campoEnemigo, campo, mano, mazo);
+        randomizador.llenarMazo(mazo);
+        RandomizadorCartas randomizadorEnem = new RandomizadorCartas(campo, campoEnemigo, manoEnemiga, mazoEnemigo);
+        randomizadorEnem.llenarMazo(mazoEnemigo);
 
+
+        //Boton choto de prueba:
         Button aitsuEnCampo = new Button("Esta aitsu en el campo?");
-
         aitsuEnCampo.setOnAction(e -> {    //Este boton es solo para probar si funciona
-
         if(campo.esta(aitsu)){
-
             System.out.print("si.");
-
         }
         else {System.out.print("no.");}}
         );                                  //.
 
 
+        //Contenedor de las imagenes de las cartas en campo del jugador:
         HBox monstruosEnCampo = new HBox();
         monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampo.setSpacing(10);
         monstruosEnCampo.setStyle("-fx-background-color: #336699;");
 
+        //Contenedor de las imagenes de las cartas en campo del enemigo:
         HBox monstruosEnCampoEnemigo = new HBox();
         monstruosEnCampoEnemigo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampoEnemigo.setSpacing(10);
@@ -88,6 +88,11 @@ public class Main extends Application {
         BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo);
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
+        Button botonActivarMagica = new Button("Activar carta Magica");
+        BotonActivarMagica activarMagicaHandler = new BotonActivarMagica(campo);
+        botonActivarMagica.setOnAction(activarMagicaHandler);
+
+
         //Botones del enemigo:
 
         Button botonColocarEnemigo = new Button("Colocar una carta");
@@ -98,13 +103,17 @@ public class Main extends Application {
         BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador);
         botonEnemigoAtacar.setOnAction(botonEnemAtacarEventHandler);
 
+        Button botonEnemActivarMagica = new Button("Activar carta Magica");
+        BotonActivarMagica activarMagicaEnemHandler = new BotonActivarMagica(campo);
+        botonEnemActivarMagica.setOnAction(activarMagicaEnemHandler);
+
 
         //Contenedor de botones de jugador:
-        HBox contenedorHorizontal = new HBox(boton, botonAtacar);
+        HBox contenedorHorizontal = new HBox(boton, botonAtacar, aitsuEnCampo, botonActivarMagica);
         contenedorHorizontal.setSpacing(8);
 
         //Contenedor de botones de enemigo:
-        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar);
+        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, botonEnemActivarMagica);
         contenedorHorizontalEnem.setSpacing(20);
 
         //Grilla de jugador:
@@ -133,14 +142,11 @@ public class Main extends Application {
         contenedorPrincipal.setSpacing(80);
         contenedorPrincipal.setPadding(new Insets(40));
 
-        Scene scene = new Scene(contenedorPrincipal, 500, 550); //
+        Scene scene = new Scene(contenedorPrincipal, 700, 650);
 
         ventana.setScene(scene);
 
         ventana.show();
-
-
-
 
 
     }
