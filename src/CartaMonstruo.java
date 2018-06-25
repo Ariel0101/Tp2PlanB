@@ -1,7 +1,5 @@
 import javafx.scene.image.Image;
 
-import javax.swing.text.Element;
-
 class CartaMonstruo implements Carta {
 
     protected Monstruo monstruo;
@@ -135,4 +133,5 @@ class CartaMonstruo implements Carta {
 
         return this.boca.imagen(this.nombre);
     }
+
 }
