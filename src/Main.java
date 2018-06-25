@@ -90,7 +90,7 @@ public class Main extends Application {
         boton.setOnAction(botonM);
 
         Button botonAtacar = new Button("Atacar");
-        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo);
+        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador);
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
         //Botones del enemigo:
@@ -100,7 +100,7 @@ public class Main extends Application {
         botonColocarEnemigo.setOnAction(botonEnemigoHandler);
 
         Button botonEnemigoAtacar = new Button("Atacar");
-        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador);
+        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador);
         botonEnemigoAtacar.setOnAction(botonEnemAtacarEventHandler);
 
 
