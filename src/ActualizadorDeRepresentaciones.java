@@ -1,19 +1,15 @@
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-
 import java.util.Collection;
 import java.util.Iterator;
 
-public class BotonActualizarEventHandler implements EventHandler<ActionEvent> {
+public class ActualizadorDeRepresentaciones {
 
     private final Collection<Actualizable> representaciones;
 
-    BotonActualizarEventHandler(Collection<Actualizable> representaciones){
+    ActualizadorDeRepresentaciones(Collection<Actualizable> representaciones){
         this.representaciones = representaciones;
     }
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
+    public void actualizar() {
         Iterator<Actualizable> iteradorActualizables = this.representaciones.iterator();
         while (iteradorActualizables.hasNext()){
             Actualizable representacion = iteradorActualizables.next();

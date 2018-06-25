@@ -8,6 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.LinkedList;
 
 
 public class Main extends Application {
@@ -65,23 +66,27 @@ public class Main extends Application {
         else {System.out.print("no.");}}
         );                                  //.
 
-
-        HBox monstruosEnCampo = new HBox();
+        CampoMonstruosHBox monstruosEnCampo = new CampoMonstruosHBox(campo);
         monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampo.setSpacing(10);
         monstruosEnCampo.setStyle("-fx-background-color: #336699;");
 
-        HBox monstruosEnCampoEnemigo = new HBox();
+        CampoMonstruosHBox monstruosEnCampoEnemigo = new CampoMonstruosHBox(campoEnemigo);
         monstruosEnCampoEnemigo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampoEnemigo.setSpacing(10);
         monstruosEnCampoEnemigo.setAlignment(Pos.BASELINE_CENTER);
         monstruosEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
 
+        //Actualizador de Representaciones (actualiza el campo de batalla)
+        LinkedList<Actualizable> representaciones = new LinkedList<>();
+        representaciones.add(monstruosEnCampo);
+        representaciones.add(monstruosEnCampoEnemigo);
+        ActualizadorDeRepresentaciones actualizador = new ActualizadorDeRepresentaciones(representaciones);
 
         //Botones del jugador:
 
         Button boton = new Button("Colocar una carta");
-        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, monstruosEnCampo);
+        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, actualizador);
         boton.setOnAction(botonM);
 
         Button botonAtacar = new Button("Atacar");
@@ -95,7 +100,7 @@ public class Main extends Application {
         //Botones del enemigo:
 
         Button botonColocarEnemigo = new Button("Colocar una carta");
-        BotonColocarMonstruo botonEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, monstruosEnCampoEnemigo);
+        BotonColocarMonstruo botonEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, actualizador);
         botonColocarEnemigo.setOnAction(botonEnemigoHandler);
 
         Button botonEnemigoAtacar = new Button("Atacar");
