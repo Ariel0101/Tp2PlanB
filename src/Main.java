@@ -116,7 +116,7 @@ public class Main extends Application {
 
         //Contenedor de botones de jugador:
         HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
-        contenedorHorizontal.setSpacing(8);
+        contenedorHorizontal.setSpacing(20);
 
         //Contenedor de botones de enemigo:
         HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, verMano2, botonEnemActivarMagica, botonAgarrarCartaEnem);
@@ -152,7 +152,7 @@ public class Main extends Application {
         contenedorPrincipal.setSpacing(80);
         contenedorPrincipal.setPadding(new Insets(40));
 
-        Scene scene = new Scene(contenedorPrincipal, 500, 550); //
+        Scene scene = new Scene(contenedorPrincipal, 800, 650); //
 
         ventana.setScene(scene);
 
