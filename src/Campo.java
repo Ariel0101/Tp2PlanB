@@ -20,6 +20,21 @@ public class Campo {
         this.listaMonstruos = new ListaMonstruos();
 
     }
+    void destruir (CartaMagica carta){
+        this.cementerio.enviar(carta);
+        this.magicas.remove(carta);
+    }
+
+    void destruir (CartaTrampa carta){
+        this.cementerio.enviar(carta);
+        this.trampas.remove(carta);
+    }
+
+    void destruir(CartaMonstruo unMonstruo) {
+
+        this.cementerio.enviar(unMonstruo);
+        listaMonstruos.eliminar(unMonstruo);
+    }
 
     void destruir(Carta unaCarta) {
 
@@ -30,11 +45,7 @@ public class Campo {
 
     }
     
-    void destruir(CartaMonstruo unMonstruo) {
 
-        this.cementerio.enviar(unMonstruo);
-        listaMonstruos.eliminar(unMonstruo);
-    }
 
     void colocarCarta(CartaMonstruo monstruo){
     	monstruo.colocarse(this);
@@ -132,4 +143,5 @@ public class Campo {
     LinkedList<CartaMagica> magicas(){
         return this.magicas;
     }
+    LinkedList<CartaTrampa> trampas() { return this.trampas; }
 }
