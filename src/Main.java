@@ -110,7 +110,7 @@ public class Main extends Application {
         botonEnemActivarMagica.setOnAction(activarMagicaEnemHandler);
 
         Button botonAgarrarCartaEnem = new Button("Sacar carta del mazo");
-        BotonSacarCartaDeMazo botonAgarrarCartaEnemHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCartaEnem);
+        BotonSacarCartaDeMazo botonAgarrarCartaEnemHandler = new BotonSacarCartaDeMazo(mazoEnemigo, manoEnemiga, botonAgarrarCartaEnem);
         botonAgarrarCartaEnem.setOnAction(botonAgarrarCartaEnemHandler);
 
 
