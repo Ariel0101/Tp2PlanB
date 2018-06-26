@@ -102,7 +102,7 @@ public class Main extends Application {
         verMano2.setOnAction(accionVerMano2);
 
         Button botonEnemActivarMagica = new Button("Activar carta Magica");
-        BotonActivarMagica activarMagicaEnemHandler = new BotonActivarMagica(campo);
+        BotonActivarMagica activarMagicaEnemHandler = new BotonActivarMagica(campoEnemigo);
         botonEnemActivarMagica.setOnAction(activarMagicaEnemHandler);
 
         //Contenedor de botones de jugador:
