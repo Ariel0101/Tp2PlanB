@@ -117,12 +117,16 @@ public class ConstructorDeCartas {
 
     public CartaMagica ollaDeLaCodicia(Mano miMano, Mazo miMazo){
         OllaDeLaCodicia ollaDeLaCodicia = new OllaDeLaCodicia(miMano, miMazo);
-        return new CartaMagica(ollaDeLaCodicia);
+        CartaMagica carta = new CartaMagica(ollaDeLaCodicia);
+        carta.ponerNombre("Olla De La Codicia");
+        return carta;
     }
 
     public CartaMagica fisura(Campo campoEnemigo){
         Fisura fisura = new Fisura(campoEnemigo);
-        return new CartaMagica(fisura);
+        CartaMagica carta = new CartaMagica(fisura);
+        carta.ponerNombre("Fisura");
+        return carta;
     }
 
     //Cartas Trampa
