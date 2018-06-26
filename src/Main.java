@@ -88,6 +88,10 @@ public class Main extends Application {
         BotonActivarMagica activarMagicaHandler = new BotonActivarMagica(campo);
         botonActivarMagica.setOnAction(activarMagicaHandler);
 
+        Button botonAgarrarCarta = new Button("Sacar carta del mazo");
+        BotonSacarCartaDeMazo botonAgarrarCartaHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCarta);
+        botonAgarrarCarta.setOnAction(botonAgarrarCartaHandler);
+
         //Botones del enemigo:
         Button botonColocarEnemigo = new Button("Colocar una carta");
         BotonColocarMonstruo botonEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, actualizador);
@@ -105,12 +109,17 @@ public class Main extends Application {
         BotonActivarMagica activarMagicaEnemHandler = new BotonActivarMagica(campoEnemigo);
         botonEnemActivarMagica.setOnAction(activarMagicaEnemHandler);
 
+        Button botonAgarrarCartaEnem = new Button("Sacar carta del mazo");
+        BotonSacarCartaDeMazo botonAgarrarCartaEnemHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCartaEnem);
+        botonAgarrarCartaEnem.setOnAction(botonAgarrarCartaEnemHandler);
+
+
         //Contenedor de botones de jugador:
-        HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica );
+        HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
         contenedorHorizontal.setSpacing(8);
 
         //Contenedor de botones de enemigo:
-        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, verMano2, botonEnemActivarMagica);
+        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, verMano2, botonEnemActivarMagica, botonAgarrarCartaEnem);
         contenedorHorizontalEnem.setSpacing(20);
 
         //Grilla de jugador:
@@ -135,7 +144,7 @@ public class Main extends Application {
 
 
         //Boton para cambiar de turno:
-        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem);
+        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem, botonAgarrarCarta, botonAgarrarCartaEnem);
         Button botonDeTurno = new Button("Siguiente turno");
         botonDeTurno.setOnAction(e -> turno.siguienteTurno());
 
