@@ -163,8 +163,8 @@ public class Main extends Application {
         LinkedList<Reiniciable> botonesAReiniciar = new LinkedList<>();
         botonesAReiniciar.add(botonAtacarEventHandler);
         botonesAReiniciar.add(botonEnemAtacarEventHandler);
-        /*botonesAReiniciar.add(botonColocarCartaHandler);
-        botonesAReiniciar.add(botonColocarCartaEnemigoHandler);*/
+        botonesAReiniciar.add(botonColocarCartaHandler);
+        botonesAReiniciar.add(botonColocarCartaEnemigoHandler);
 
         //Contenedor de botones de jugador:
         HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);

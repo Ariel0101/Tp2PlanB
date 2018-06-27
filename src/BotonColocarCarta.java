@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonColocarCarta implements EventHandler<ActionEvent> {
+public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable {
 
     private final Campo campo;
     private final Mano mano;
@@ -186,6 +186,10 @@ public class BotonColocarCarta implements EventHandler<ActionEvent> {
         }
 
         ventanaElegirPosicion.close();
+    }
+
+    public void reiniciar(){
+        this.seColocoMonstruo = false;
     }
 
 
