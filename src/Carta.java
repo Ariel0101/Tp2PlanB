@@ -13,5 +13,5 @@ public interface Carta {
 
      Image imagen();
 
-     void ponerNombre(String refuerzos);
+     void ponerNombre(String nombre);
 }

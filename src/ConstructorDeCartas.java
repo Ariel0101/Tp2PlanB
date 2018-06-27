@@ -140,18 +140,24 @@ public class ConstructorDeCartas {
 
     public CartaTrampa cilindroMagico(){
         CilindroMagico cilindroMagico = new CilindroMagico();
-        return  new CartaTrampa(cilindroMagico);
+        CartaTrampa carta = new CartaTrampa(cilindroMagico);
+        carta.ponerNombre("Cilindro Magico");
+        return carta;
     }
 
     // Cartas de Campo
 
     public CartaDeCampo wasteland(Campo campoAmigo, Campo campoEnemigo){
         EfectoWasteland efectoWasteland = new EfectoWasteland(campoAmigo, campoEnemigo);
-        return new CartaDeCampo(efectoWasteland);
+        CartaDeCampo carta = new CartaDeCampo(efectoWasteland);
+        carta.ponerNombre("WasteLand");
+        return carta;
     }
 
     public CartaDeCampo sogen(Campo campoAmigo, Campo campoEnemigo){
         EfectoSogen efectoSogen = new EfectoSogen(campoAmigo,campoEnemigo);
-        return new CartaDeCampo(efectoSogen);
+        CartaDeCampo carta = new CartaDeCampo(efectoSogen);
+        carta.ponerNombre("Sogen");
+        return carta;
     }
 }
