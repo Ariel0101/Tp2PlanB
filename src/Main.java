@@ -47,6 +47,8 @@ public class Main extends Application {
         manoEnemiga.agregar(agujaAsesina);
         CartaMagica agujero = constructor.agujeroNegro(campo, campoEnemigo);
         mano.agregar(agujero);
+        CartaMonstruo alasDeLlamaPerversa = constructor.alasDeLlamaPerversa();
+        manoEnemiga.agregar(alasDeLlamaPerversa);
 
 
         //Llenar mazos:

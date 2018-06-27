@@ -9,6 +9,7 @@ class CartaMagica implements Carta {
     CartaMagica(Magia magia) {
 
         this.magia = magia;
+        this.boca = new BocaNeutra();
 
     }
 
@@ -51,7 +52,7 @@ class CartaMagica implements Carta {
 
     public Image imagen(){
 
-        return new Image("imagenes/" + this.nombre + ".jpg");
+        return this.boca.imagen(this.nombre);
 
     }
 

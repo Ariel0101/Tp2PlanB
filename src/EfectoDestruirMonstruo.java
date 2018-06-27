@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.Iterator;
 
 class EfectoDestruirMonstruo implements Efecto {
 
@@ -19,11 +20,6 @@ class EfectoDestruirMonstruo implements Efecto {
     public void activar(Mano unaMano) {
     }
 
-    public void activarEn(Carta unaCarta) {
-
-        this.campo.destruir(unaCarta);
-
-    }
 
     public void activar(Monstruo m){
 
@@ -31,11 +27,6 @@ class EfectoDestruirMonstruo implements Efecto {
 
 
     public void activar(ListaMonstruos monstruos) {
-
-        for (CartaMonstruo m: monstruos){
-
-            this.activar(m);
-        }
 
     }
 

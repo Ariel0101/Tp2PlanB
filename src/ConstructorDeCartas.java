@@ -40,7 +40,7 @@ public class ConstructorDeCartas {
     public CartaMonstruo alasDeLlamaPerversa(){
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 600);
         CartaMonstruo carta = new CartaMonstruo(alasDeLlamaPerversa, 2);
-        carta.ponerNombre("Alas De Llama Perversa");
+        carta.ponerNombre("Alas De La Llama Perversa");
         return carta;
     }
 

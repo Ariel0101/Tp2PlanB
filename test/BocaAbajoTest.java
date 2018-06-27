@@ -1,7 +1,7 @@
 import junit.framework.TestCase;
 
-public class BocaNeutraTest extends TestCase {
-    public void testBocaNeutraAtacarDevuelveBotinVacio(){
+public class BocaAbajoTest extends TestCase {
+    public void testBocaAbajoAtacarDevuelveBotinVacio(){
         Cementerio unCementerio = new Cementerio();
         ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         CartaMonstruo mokeyMokey = constructorDeCartas.mokeyMokey();
@@ -10,9 +10,9 @@ public class BocaNeutraTest extends TestCase {
         Campo campoAmigo = new Campo(unCementerio);
         mokeyMokey.colocarse(campoAmigo);
         goblinFalso.colocarse(campoEnemigo);
-        Boca bocaNeutra = new BocaNeutra();
+        Boca bocaAbajo = new BocaAbajo();
 
-        Botin botinVacio = bocaNeutra.atacar(mokeyMokey, goblinFalso, campoEnemigo);
+        Botin botinVacio = bocaAbajo.atacar(mokeyMokey, goblinFalso, campoEnemigo);
 
         botinVacio.ejecutar(campoAmigo);
         botinVacio.ejecutar(campoEnemigo);
@@ -21,38 +21,44 @@ public class BocaNeutraTest extends TestCase {
         assertTrue(campoEnemigo.esta(goblinFalso));
     }
 
-    public void testBocaNeutraRecibirAtaqueDevuelveBotinVacio(){
+    public void testBocaAbajoRecibirAtaqueDevuelveBotinConResultadoDeLaBatalla(){
         Cementerio unCementerio = new Cementerio();
-        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Monstruo mokeyMokey = new Monstruo(300,100);
         CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        cartaMokey.colocarEnPosAtaque();
+
         Monstruo goblinFalso = new Monstruo(400,400);
         CartaMonstruo cartaGoblin = new CartaMonstruo(goblinFalso,3);
+        cartaGoblin.colocarEnPosAtaque();
 
         Campo campoEnemigo = new Campo(unCementerio);
         Campo campoAmigo = new Campo(unCementerio);
         cartaMokey.colocarse(campoAmigo);
         cartaGoblin.colocarse(campoEnemigo);
-        Boca bocaNeutra = new BocaNeutra();
+        Boca bocaAbajo = new BocaAbajo();
 
-        Botin botinVacio = bocaNeutra.recibirAtaque(cartaMokey, mokeyMokey,goblinFalso, campoAmigo);
+        Botin botinVacio = bocaAbajo.recibirAtaque(cartaMokey, mokeyMokey,goblinFalso, campoAmigo);
 
         botinVacio.ejecutar(campoAmigo);
         botinVacio.ejecutar(campoEnemigo);
 
-        assertTrue(campoAmigo.esta(cartaMokey));
+        assertFalse(campoAmigo.esta(cartaMokey));
+        assertTrue(unCementerio.esta(cartaMokey));
         assertTrue(campoEnemigo.esta(cartaGoblin));
     }
 
-    public void testBocaNeutraEstaBocaArribaDevuelveFalse(){
-        Boca bocaNeutra = new BocaNeutra();
+    public void testBocaAbajoEstaBocaArribaDevuelveFalse(){
+        Boca bocaAbajo = new BocaAbajo();
 
-        assertFalse(bocaNeutra.estaBocaArriba());
+        assertFalse(bocaAbajo.estaBocaArriba());
     }
 
-    public void testBocaNeutraEstaBocaAbajoDevuelveFalse(){
-        Boca bocaNeutra = new BocaNeutra();
+    public void testBocaAbajoEstaBocaAbajoDevuelveTrue(){
+        Boca bocaAbajo = new BocaAbajo();
 
-        assertFalse(bocaNeutra.estaBocaAbajo());
+
+        assertTrue(bocaAbajo.estaBocaAbajo());
     }
+
+
 }
