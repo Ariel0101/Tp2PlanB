@@ -41,4 +41,9 @@ public class CartaDeCampo implements Carta {
 		return new Image("/imagen" + this.nombre + ".jpg");
 		
     }
+
+	@Override
+	public void ponerNombre(String nombre) {
+		this.nombre = nombre;
+	}
 }

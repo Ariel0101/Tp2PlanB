@@ -27,4 +27,9 @@ public class NoCarta implements Carta {
         return new Image("imagenes/bocaNeutra.jpg");
 
     }
+
+    @Override
+    public void ponerNombre(String nombre) {
+
+    }
 }
