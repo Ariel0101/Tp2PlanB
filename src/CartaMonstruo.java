@@ -115,7 +115,7 @@ class CartaMonstruo implements Carta {
 
     }
 
-    void ponerNombre(String nombre){
+    public void ponerNombre(String nombre){
 
         this.nombre = nombre;
 
