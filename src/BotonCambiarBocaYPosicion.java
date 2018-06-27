@@ -7,14 +7,19 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent> {
+import java.util.HashSet;
+
+public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Reiniciable {
 
     private final Campo campo;
     private final ActualizadorDeRepresentaciones actualizador;
+    private final HashSet<CartaMonstruo> monstruosQueYaCambiaron;
+
 
     BotonCambiarBocaYPosicion(Campo campo, ActualizadorDeRepresentaciones actualizador){
         this.campo = campo;
         this.actualizador = actualizador;
+        this.monstruosQueYaCambiaron = new HashSet<CartaMonstruo>();
     }
 
     public void handle(ActionEvent actionEvent) {
@@ -24,9 +29,9 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent> {
         opcionesMonstruo.setPromptText("Eligi tu Monstruo");
 
         for (CartaMonstruo m : this.campo.listaMonstruos()) {
-
-            opcionesMonstruo.getItems().add(m);
-
+            if (!this.monstruosQueYaCambiaron.contains(m)){
+                opcionesMonstruo.getItems().add(m);
+            }
         }
 
         ComboBox<String> opcionesBoca = new ComboBox<>();
@@ -46,6 +51,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent> {
             if (cartaElegida != null) {
                 this.colocarBoca(opcionesBoca, cartaElegida);
                 this.colocarPosicion(opcionesPosicion,cartaElegida);
+                this.monstruosQueYaCambiaron.add(cartaElegida);
                 this.actualizador.actualizar();
             }
             ventanaCambiarPosicion.close();
@@ -93,4 +99,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent> {
         }
     }
 
+    public void reiniciar(){
+        this.monstruosQueYaCambiaron.clear();
+    }
 }

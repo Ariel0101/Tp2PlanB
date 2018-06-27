@@ -171,6 +171,8 @@ public class Main extends Application {
         botonesAReiniciar.add(botonEnemAtacarEventHandler);
         botonesAReiniciar.add(botonColocarCartaHandler);
         botonesAReiniciar.add(botonColocarCartaEnemigoHandler);
+        botonesAReiniciar.add(botonCambiarBocaPosicionHandler);
+        botonesAReiniciar.add(botonCambiarBocaPosicionHandlerEnemigo);
 
         //Contenedor de botones de jugador:
         HBox contenedorHorizontal = new HBox(botonColocarCarta, botonCambiarBocaPosicionMonstruo,botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
