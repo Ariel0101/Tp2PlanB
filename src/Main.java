@@ -23,13 +23,13 @@ public class Main extends Application {
         unaPartida.setVentana(ventana);
 
         //Cosas del jugador:
-        Jugador jugador = new Jugador("Yugi-1", 100, unaPartida);
+        Jugador jugador = new Jugador("Yugi-1", 8000, unaPartida);
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
 
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("Yugi-2", 100, unaPartida);
+        Jugador enemigo = new Jugador("Yugi-2", 8000, unaPartida);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
@@ -117,8 +117,9 @@ public class Main extends Application {
 
         //Botones del jugador:
         Button boton = new Button("Colocar una carta");
-        BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, actualizador);
-        boton.setOnAction(botonM);
+        /*BotonColocarMonstruo botonColocarCartaHandler = new BotonColocarMonstruo(campo, mano, actualizador);*/
+        BotonColocarCarta botonColocarCartaHandler = new BotonColocarCarta(campo, mano, actualizador);
+        boton.setOnAction(botonColocarCartaHandler);
 
         Button botonAtacar = new Button("Atacar");
         BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador);
@@ -138,8 +139,9 @@ public class Main extends Application {
 
         //Botones del enemigo:
         Button botonColocarEnemigo = new Button("Colocar una carta");
-        BotonColocarMonstruo botonEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, actualizador);
-        botonColocarEnemigo.setOnAction(botonEnemigoHandler);
+        /*BotonColocarMonstruo botonColocarCartaEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, actualizador);*/
+        BotonColocarCarta botonColocarCartaEnemigoHandler = new BotonColocarCarta(campoEnemigo, manoEnemiga, actualizador);
+        botonColocarEnemigo.setOnAction(botonColocarCartaEnemigoHandler);
 
         Button botonEnemigoAtacar = new Button("Atacar");
         BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador);
@@ -157,6 +159,12 @@ public class Main extends Application {
         BotonSacarCartaDeMazo botonAgarrarCartaEnemHandler = new BotonSacarCartaDeMazo(mazoEnemigo, manoEnemiga, botonAgarrarCartaEnem);
         botonAgarrarCartaEnem.setOnAction(botonAgarrarCartaEnemHandler);
 
+        //Botones que deben reiniciarse
+        LinkedList<Reiniciable> botonesAReiniciar = new LinkedList<>();
+        botonesAReiniciar.add(botonAtacarEventHandler);
+        botonesAReiniciar.add(botonEnemAtacarEventHandler);
+        /*botonesAReiniciar.add(botonColocarCartaHandler);
+        botonesAReiniciar.add(botonColocarCartaEnemigoHandler);*/
 
         //Contenedor de botones de jugador:
         HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
@@ -178,7 +186,6 @@ public class Main extends Application {
         gridDeJugador.add(monstruosEnCampo, 0, 2);
         gridDeJugador.add(magicasTrampasEnCampo, 0, 3);
 
-
         //Grilla de enemigo:
         GridPane gridDeEnemigo = new GridPane();
         gridDeEnemigo.setMinSize(300, 240);
@@ -192,7 +199,7 @@ public class Main extends Application {
         gridDeEnemigo.add(magicasTrampasEnCampoEnemigo, 0, 3);
 
         //Boton para cambiar de turno:
-        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem, botonAgarrarCarta, botonAgarrarCartaEnem);
+        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem, botonAgarrarCarta, botonAgarrarCartaEnem, botonesAReiniciar);
         Button botonDeTurno = new Button("Siguiente turno");
         botonDeTurno.setOnAction(e -> turno.siguienteTurno());
 

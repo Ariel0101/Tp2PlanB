@@ -7,9 +7,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonAtacar implements EventHandler<ActionEvent> {
+import java.util.HashSet;
+
+public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
 
     private final ActualizadorDeRepresentaciones actualizador;
+    private final HashSet<CartaMonstruo> monstruosQueYaAtacaron;
     private Campo campo;
     private Campo campoEnemigo;
     private final Jugador jugador;
@@ -22,6 +25,7 @@ public class BotonAtacar implements EventHandler<ActionEvent> {
         this.jugador = jugador;
         this.enemigo = enemigo;
         this.actualizador = actualizador;
+        this.monstruosQueYaAtacaron = new HashSet<>();
 
     }
 
@@ -33,9 +37,9 @@ public class BotonAtacar implements EventHandler<ActionEvent> {
         eleccionAtacante.setPromptText("Eligi tu Monstruo");
 
         for (CartaMonstruo m : this.campo.listaMonstruos()) {
-
-            eleccionAtacante.getItems().add(m);
-
+            if (! this.monstruosQueYaAtacaron.contains(m)) {
+                eleccionAtacante.getItems().add(m);
+            }
         }
 
         ComboBox<CartaMonstruo> eleccionAtacado = new ComboBox<>();
@@ -75,11 +79,16 @@ public class BotonAtacar implements EventHandler<ActionEvent> {
 
         Combate combate = new Combate(jugador, campo, enemigo, campoEnemigo);
         combate.combatir(atacante, atacado);
+        this.monstruosQueYaAtacaron.add(atacante);
         this.actualizador.actualizar();
         stage.close();
 
         System.out.print("Combate realizado:" + atacante.toString() + " vs " + atacado.toString());
 
+    }
+
+    public void reiniciar(){
+        this.monstruosQueYaAtacaron.clear();
     }
 
 }

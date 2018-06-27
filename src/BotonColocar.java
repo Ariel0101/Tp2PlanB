@@ -35,10 +35,10 @@ public class BotonColocar implements EventHandler<ActionEvent> {
         this.carta = (Carta) cm.getValue();
 
         if (this.carta == null || carta.getClass() == NoCarta.class) {
-
             this.ventana.close();
             return;
         }
+
         try {
             carta.colocarse(this.campo);
         } catch (NoHaySufucienteSacrificiosError e){
