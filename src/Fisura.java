@@ -15,8 +15,12 @@ public class Fisura implements Magia {
     @Override
     public void activar() {
 
-        this.campoOponente.aplicarEnMonstruos(this.efecto);
+        ListaMonstruos monstruos = this.campoOponente.listaMonstruos();
+        this.efecto.activar(monstruos);
 
+        /*
+        this.campoOponente.aplicarEnMonstruos(this.efecto);
+        */
     }
 
 

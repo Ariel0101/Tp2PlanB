@@ -1,6 +1,3 @@
-import java.util.Collection;
-import java.util.Iterator;
-
 class EfectoDestruirMonstruo implements Efecto {
 
     Campo campo;
@@ -30,13 +27,10 @@ class EfectoDestruirMonstruo implements Efecto {
 
     }
 
-    @Override
+
     public void activar() {
 
     }
 
-    public void activarEn(CartaMonstruo carta) {
-
-    }
 
 }
