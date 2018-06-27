@@ -11,7 +11,7 @@ public class ConstructorDeCartas {
     public CartaMonstruo mokeyMokey(){
         Monstruo mokeyMokey = new Monstruo(300,100);
         CartaMonstruo monkey = new CartaMonstruo(mokeyMokey,3);
-        monkey.ponerNombre("Monkey");
+        monkey.ponerNombre("Mokey Mokey");
         return monkey;
 
     }
@@ -55,7 +55,7 @@ public class ConstructorDeCartas {
         Monstruo insectoComeHombres = new Monstruo(450, 600);
         EfectoDestruirMonstruo efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoEnemigo);
         CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
-        carta.ponerNombre("Insecto Come-Hombres");
+        carta.ponerNombre("Insecto Come Hombres");
         return carta;
     }
 

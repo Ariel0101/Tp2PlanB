@@ -43,13 +43,14 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         }
 
         ComboBox<CartaMonstruo> eleccionAtacado = new ComboBox<>();
-        eleccionAtacado.setPromptText("Eligi el Monstruo enemigo");
+        eleccionAtacado.setPromptText("Elige a quien quieres atacar ");
 
         for (CartaMonstruo m : this.campoEnemigo.listaMonstruos()) {
 
             eleccionAtacado.getItems().add(m);
 
         }
+
 
 
         Button comenzarAtaque = new Button("Comenzar ataque");

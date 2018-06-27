@@ -41,20 +41,23 @@ public class Main extends Application {
         CartaMonstruo aitsu = constructor.aitsu();
         CartaMonstruo monkey = constructor.mokeyMokey();
         CartaMagica agujero = constructor.agujeroNegro(campo, campoEnemigo);
+        CartaMonstruoJinzo7 jinzo7 = constructor.jinzo7();
         mano.agregar(aitsu);
         mano.agregar(monkey);
         mano.agregar(agujero);
+        mano.agregar(jinzo7);
         //Enemigo
         CartaMonstruo goblin = constructor.goblinFalso();
         CartaMonstruo agujaAsesina = constructor.agujaAsesina();
         CartaMonstruo alasDeLlamaPerversa = constructor.alasDeLlamaPerversa();
+        CartaMonstruoComeHombres insectoComeHombres = constructor.insectoComeHombres(campo);
         manoEnemiga.agregar(goblin);
         manoEnemiga.agregar(agujaAsesina);
         manoEnemiga.agregar(alasDeLlamaPerversa);
+        manoEnemiga.agregar(insectoComeHombres);
         //Sets de prueba
         //Prueba sacar ultima carta del mazo
         Mazo mazoDeUnaCarta = new Mazo(jugador);
-        CartaMonstruoJinzo7 jinzo7= constructor.jinzo7();
         mazoDeUnaCarta.agregar(jinzo7);
         //Prueba colocar 5 partes de exodia en la mano;
         Mazo mazoConUltimaParteDeExodia = new Mazo(jugador);
