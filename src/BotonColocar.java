@@ -50,6 +50,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
             String avisoParteTres = "7 o mas estrellas : 2 Sacrificios \n";
             String avisoParteCuatro = "En caso de fusion, leer descripcion en la carta \n";
             TextArea avisoDeErrorDeSacrifcios = new TextArea( avisoParteUno + avisoParteDos + avisoParteTres + avisoParteCuatro);
+            avisoDeErrorDeSacrifcios.setEditable(false);
             Scene escenaDeErrorDeInvocacion = new Scene(avisoDeErrorDeSacrifcios);
             ventanaDeError.setScene(escenaDeErrorDeInvocacion);
             ventanaDeError.show();

@@ -57,11 +57,12 @@ public class Main extends Application {
         randomizadorEnem.llenarMazo(mazoEnemigo);
 
         //Contenedor de las imagenes de las cartas en campo del jugador:
+        HBox jugadorVisualHBox = new HBox();
+        RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualHBox);
         HBox monstruosEnCampo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruos = new RepresentacionCampoMonstruos(campo,monstruosEnCampo);
         HBox magicasTrampasEnCampo = new HBox();
         RepresentacionCampoMagicasTrampas representacionCampoMagicasTrampas = new RepresentacionCampoMagicasTrampas(campo, magicasTrampasEnCampo);
-
 
         monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampo.setSpacing(10);
@@ -72,6 +73,8 @@ public class Main extends Application {
         magicasTrampasEnCampo.setStyle("-fx-background-color: #336699;");
 
         //Contenedor de las imagenes de las cartas en campo del jugador enemigo:
+        HBox jugadorEnemigoVisualHBox = new HBox();
+        RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualHBox);
         HBox monstruosEnCampoEnemigo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruosEnemigo = new RepresentacionCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
         HBox magicasTrampasEnCampoEnemigo = new HBox();
@@ -91,7 +94,10 @@ public class Main extends Application {
         representaciones.add(representacionCampoMonstruosEnemigo);
         representaciones.add(representacionCampoMagicasTrampas);
         representaciones.add(representacionCampoMagicasTrampasEnemigo);
+        representaciones.add(representacionJugador);
+        representaciones.add(representacionJugadorEnemigo);
         ActualizadorDeRepresentaciones actualizador = new ActualizadorDeRepresentaciones(representaciones);
+        actualizador.actualizar();
 
         //Botones del jugador:
         Button boton = new Button("Colocar una carta");
@@ -151,9 +157,11 @@ public class Main extends Application {
         gridDeJugador.setVgap(10);
         gridDeJugador.setHgap(10);
         gridDeJugador.setAlignment(Pos.TOP_CENTER);
+        gridDeJugador.add(jugadorVisualHBox,0,0);
         gridDeJugador.add(contenedorHorizontal, 0, 1);
         gridDeJugador.add(monstruosEnCampo, 0, 2);
         gridDeJugador.add(magicasTrampasEnCampo, 0, 3);
+
 
         //Grilla de enemigo:
         GridPane gridDeEnemigo = new GridPane();
@@ -162,6 +170,7 @@ public class Main extends Application {
         gridDeEnemigo.setVgap(10);
         gridDeEnemigo.setHgap(10);
         gridDeEnemigo.setAlignment(Pos.BOTTOM_CENTER);
+        gridDeEnemigo.add(jugadorEnemigoVisualHBox,0,0);
         gridDeEnemigo.add(contenedorHorizontalEnem, 0, 1);
         gridDeEnemigo.add(monstruosEnCampoEnemigo, 0, 2);
         gridDeEnemigo.add(magicasTrampasEnCampoEnemigo, 0, 3);
