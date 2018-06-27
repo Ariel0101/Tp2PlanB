@@ -14,23 +14,8 @@ class EfectoDestruirMonstruo implements Efecto {
 
     }
 
-    public void activar(Mano unaMano) {
-    }
 
-
-    public void activar(Monstruo m){
-
-    }
-
-
-    public void activar(ListaMonstruos monstruos) {
-
-    }
-
-
-    public void activar() {
-
-    }
+    public void activar(ListaMonstruos monstruos) { }
 
 
 }

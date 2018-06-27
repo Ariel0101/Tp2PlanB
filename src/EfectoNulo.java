@@ -1,14 +1,8 @@
 
 public class EfectoNulo implements Efecto {
 
-	public void activar(CartaMonstruo carta) {
+	public void activar(CartaMonstruo carta) { }
 
-	}
-
-	@Override
-	public void activar(Mano unaMano) {
-
-	}
 
 	public void activar(ListaMonstruos monstruos){
 
@@ -17,11 +11,6 @@ public class EfectoNulo implements Efecto {
 			this.activar(m);
 
 		}
-
-	}
-
-	@Override
-	public void activar() {
 
 	}
 

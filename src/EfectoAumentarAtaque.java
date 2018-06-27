@@ -15,12 +15,6 @@ public class EfectoAumentarAtaque implements Efecto {
 		
 	}
 
-
-	@Override
-	public void activar(Mano unaMano) {
-
-	}
-
 	public void activar(ListaMonstruos monstruos){
 
 		for (CartaMonstruo m: monstruos){
@@ -31,8 +25,4 @@ public class EfectoAumentarAtaque implements Efecto {
 
 	}
 
-	@Override
-	public void activar() {
-
-	}
 }

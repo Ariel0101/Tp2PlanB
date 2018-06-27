@@ -22,10 +22,10 @@ public class Main extends Application {
         ConstructorDeCartas constructor = new ConstructorDeCartas();
 
         //Cosas del jugador:
+        Jugador jugador = new Jugador("Jugador 1", 7000);
         Campo campo = new Campo(new Cementerio());
-        Mano mano = new Mano(new Jugador("1", 2));
-        Mazo mazo = new Mazo(new Jugador("2", 3));
-        Jugador jugador = new Jugador("pepe", 7000);
+        Mano mano = new Mano(jugador);
+        Mazo mazo = new Mazo(jugador);
 
         //Cartas para probar
         CartaMonstruo aitsu = constructor.aitsu();
@@ -35,7 +35,7 @@ public class Main extends Application {
         mano.agregar(monkey);
 
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("coco", 7000);
+        Jugador enemigo = new Jugador("Jugador 2", 7000);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
@@ -50,7 +50,6 @@ public class Main extends Application {
         CartaMonstruo alasDeLlamaPerversa = constructor.alasDeLlamaPerversa();
         manoEnemiga.agregar(alasDeLlamaPerversa);
 
-
         //Llenar mazos:
         RandomizadorCartas randomizador = new RandomizadorCartas(campoEnemigo, campo, mano, mazo);
         randomizador.llenarMazo(mazo);
@@ -58,34 +57,42 @@ public class Main extends Application {
         randomizadorEnem.llenarMazo(mazoEnemigo);
 
         //Contenedor de las imagenes de las cartas en campo del jugador:
-        CampoMonstruosHBox monstruosEnCampo = new CampoMonstruosHBox(campo);
-        CampoMagicasTrampasHBox magicasTrampasEnCampo = new CampoMagicasTrampasHBox(campo);
+        HBox monstruosEnCampo = new HBox();
+        RepresentacionCampoMonstruos representacionCampoMonstruos = new RepresentacionCampoMonstruos(campo,monstruosEnCampo);
+        HBox magicasTrampasEnCampo = new HBox();
+        RepresentacionCampoMagicasTrampas representacionCampoMagicasTrampas = new RepresentacionCampoMagicasTrampas(campo, magicasTrampasEnCampo);
+
+
         monstruosEnCampo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampo.setSpacing(10);
         monstruosEnCampo.setStyle("-fx-background-color: #336699;");
+
         magicasTrampasEnCampo.setPadding(new Insets(10, 12, 44, 12));
         magicasTrampasEnCampo.setSpacing(10);
         magicasTrampasEnCampo.setStyle("-fx-background-color: #336699;");
 
         //Contenedor de las imagenes de las cartas en campo del jugador enemigo:
-        CampoMonstruosHBox monstruosEnCampoEnemigo = new CampoMonstruosHBox(campoEnemigo);
-        CampoMagicasTrampasHBox magicasTrampasEnCampoEnemigo = new CampoMagicasTrampasHBox(campoEnemigo);
+        HBox monstruosEnCampoEnemigo = new HBox();
+        RepresentacionCampoMonstruos representacionCampoMonstruosEnemigo = new RepresentacionCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
+        HBox magicasTrampasEnCampoEnemigo = new HBox();
+        RepresentacionCampoMagicasTrampas representacionCampoMagicasTrampasEnemigo = new RepresentacionCampoMagicasTrampas(campoEnemigo, magicasTrampasEnCampoEnemigo);
+
         monstruosEnCampoEnemigo.setPadding(new Insets(10, 12, 44, 12));
         monstruosEnCampoEnemigo.setSpacing(10);
-        /*monstruosEnCampoEnemigo.setAlignment(Pos.BASELINE_CENTER);*/
         monstruosEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
+
         magicasTrampasEnCampoEnemigo.setPadding(new Insets(10, 12, 44, 12));
         magicasTrampasEnCampoEnemigo.setSpacing(10);
-        /*magicasTrampasEnCampoEnemigo.setAlignment(Pos.BASELINE_CENTER);*/
         magicasTrampasEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
 
         //Actualizador de Representaciones (actualiza el campo de batalla)
         LinkedList<Actualizable> representaciones = new LinkedList<>();
-        representaciones.add(monstruosEnCampo);
-        representaciones.add(monstruosEnCampoEnemigo);
-        representaciones.add(magicasTrampasEnCampo);
-        representaciones.add(magicasTrampasEnCampoEnemigo);
+        representaciones.add(representacionCampoMonstruos);
+        representaciones.add(representacionCampoMonstruosEnemigo);
+        representaciones.add(representacionCampoMagicasTrampas);
+        representaciones.add(representacionCampoMagicasTrampasEnemigo);
         ActualizadorDeRepresentaciones actualizador = new ActualizadorDeRepresentaciones(representaciones);
+
         //Botones del jugador:
         Button boton = new Button("Colocar una carta");
         BotonColocarMonstruo botonM = new BotonColocarMonstruo(campo, mano, actualizador);

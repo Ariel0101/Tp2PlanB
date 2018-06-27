@@ -4,29 +4,34 @@ import javafx.scene.layout.HBox;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class CampoMagicasTrampasHBox extends HBox implements Actualizable{
-    private final Campo campo;
+public class RepresentacionCampoMagicasTrampas implements Actualizable {
 
-    CampoMagicasTrampasHBox(Campo campo){
+    private final Campo campo;
+    private final HBox campoHBox;
+
+    RepresentacionCampoMagicasTrampas(Campo campo, HBox campoMagicasTrampasHBox){
         this.campo = campo;
+        this.campoHBox = campoMagicasTrampasHBox;
     }
 
-    public void actualizar(){
-        this.getChildren().clear();
-        LinkedList<CartaMagica>  cartasMagicas = this.campo.magicas();
+
+    public void actualizar() {
+        this.campoHBox.getChildren().clear();
+        LinkedList<CartaMagica> cartasMagicas = this.campo.magicas();
         LinkedList<CartaTrampa> cartasTrampa = this.campo.trampas();
 
         int ancho_imagen = 80;
         int alto_imagen = 120;
 
         Iterator<CartaMagica> iteradorMagicas = cartasMagicas.iterator();
+
         while (iteradorMagicas.hasNext()) {
             Carta carta = iteradorMagicas.next();
             ImageView imagenCarta = new ImageView();
             imagenCarta.setFitWidth(ancho_imagen);
             imagenCarta.setFitHeight(alto_imagen);
             imagenCarta.setImage(carta.imagen());
-            this.getChildren().add(imagenCarta);
+            this.campoHBox.getChildren().add(imagenCarta);
         }
 
         Iterator<CartaTrampa> iteradorTrampas = cartasTrampa.iterator();
@@ -37,9 +42,7 @@ public class CampoMagicasTrampasHBox extends HBox implements Actualizable{
             imagenCarta.setFitWidth(ancho_imagen);
             imagenCarta.setFitHeight(alto_imagen);
             imagenCarta.setImage(carta.imagen());
-            this.getChildren().add(imagenCarta);
+            this.campoHBox.getChildren().add(imagenCarta);
         }
-
-
     }
 }
