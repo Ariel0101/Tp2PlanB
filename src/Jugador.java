@@ -1,3 +1,4 @@
+import javafx.stage.Stage;
 
 public class Jugador {
 
@@ -9,7 +10,7 @@ public class Jugador {
     	
         this.vida = vida;
         this.nombre = nombre;
-        this.partida = new Partida();
+        this.partida = new Partida(new Stage());
     }
 
 
@@ -24,6 +25,9 @@ public class Jugador {
     void recibirAtaque(int puntosRestarAtacante) {
 
         this.vida = this.vida - puntosRestarAtacante;
+        if (this.vida <= 0){
+            this.perder();
+        }
 
     }
 

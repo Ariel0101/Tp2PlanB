@@ -20,9 +20,11 @@ public class Main extends Application {
 
         /// PRUEBA APARTE:
         ConstructorDeCartas constructor = new ConstructorDeCartas();
+        //
+        Partida unaPartida = new Partida(ventana);
 
         //Cosas del jugador:
-        Jugador jugador = new Jugador("Jugador 1", 7000);
+        Jugador jugador = new Jugador("Jugador 1", 100, unaPartida);
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
@@ -35,7 +37,7 @@ public class Main extends Application {
         mano.agregar(monkey);
 
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("Jugador 2", 7000);
+        Jugador enemigo = new Jugador("Jugador 2", 100, unaPartida);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
