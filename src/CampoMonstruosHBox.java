@@ -14,10 +14,10 @@ class CampoMonstruosHBox extends HBox implements Actualizable {
         ListaMonstruos monstruos = this.campo.listaMonstruos();
         Iterator<CartaMonstruo> iteradorMonstruos = monstruos.iterator();
         while (iteradorMonstruos.hasNext()) {
-            CartaMonstruo carta = iteradorMonstruos.next();
+            Carta carta = iteradorMonstruos.next();
             ImageView imagenCarta = new ImageView();
-            imagenCarta.setFitWidth(100);
-            imagenCarta.setFitHeight(150);
+            imagenCarta.setFitWidth(80);
+            imagenCarta.setFitHeight(120);
             imagenCarta.setImage(carta.imagen());
             this.getChildren().add(imagenCarta);
         }

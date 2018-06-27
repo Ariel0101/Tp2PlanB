@@ -10,11 +10,12 @@ import javafx.stage.Stage;
 public class BotonActivarMagica implements EventHandler<ActionEvent> {
 
     private final Campo campo;
+    private final ActualizadorDeRepresentaciones actualizador;
 
-    BotonActivarMagica(Campo campo){
+    BotonActivarMagica(Campo campo, ActualizadorDeRepresentaciones actualizador){
 
         this.campo = campo;
-
+        this.actualizador = actualizador;
     }
 
     public void handle(ActionEvent actionEvent){
@@ -54,6 +55,8 @@ public class BotonActivarMagica implements EventHandler<ActionEvent> {
         }
 
         carta.colocarBocaArriba();
+        this.campo.destruir(carta);
+        this.actualizador.actualizar();
 
         System.out.print("Carta magica colocada boca arriba y activada");
 

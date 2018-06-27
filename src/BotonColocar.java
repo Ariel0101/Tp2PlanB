@@ -68,6 +68,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         }
 
+
         this.actualizador.actualizar();
         this.ventana.close();
 
@@ -80,6 +81,10 @@ public class BotonColocar implements EventHandler<ActionEvent> {
             System.out.print("Colocado boca arriba");
 
             carta.colocarBocaArriba();
+
+            if (carta instanceof CartaMagica){
+                this.campo.destruir((CartaMagica) carta);
+            }
 
         }
 

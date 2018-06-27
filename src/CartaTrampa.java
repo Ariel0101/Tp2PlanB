@@ -1,6 +1,9 @@
+import javafx.scene.image.Image;
+
 public class CartaTrampa implements Carta {
     private final Trampa trampa;
     private Boca boca;
+    private String nombre;
 
     CartaTrampa(Trampa trampa) {
         this.trampa = trampa;
@@ -22,6 +25,12 @@ public class CartaTrampa implements Carta {
 
     public void colocarBocaArriba() {
         this.boca = new BocaArriba();
+    }
+
+    @Override
+    public Image imagen() {
+
+        return new Image("/imagen" + this.nombre + ".jpg");
     }
 
     public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
