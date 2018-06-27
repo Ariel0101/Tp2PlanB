@@ -6,14 +6,13 @@ import java.util.LinkedList;
 
 public class Turno {
 
-    private final Button boton1;
-    private final Button boton2;
-    private final LinkedList<Reiniciable> botonesAReiniciar;
+    private final LinkedList<Reiniciable> aReiniciar;
+    private final LinkedList<Button> botonesAHablitar;
     private  HBox activados;
     private  HBox desactivados;
     private  HBox refDesactivados;
 
-    Turno(HBox botonesUno, HBox botonesOtro, Button boton1, Button boton2, LinkedList<Reiniciable> botonesAReiniciar){
+    Turno(HBox botonesUno, HBox botonesOtro, LinkedList<Button> botonesAHabilitarAlTerminarElTurno, LinkedList<Reiniciable> reiniciablesAlTerminarTurno){
 
         this.activados = botonesUno;
         this.desactivados= botonesOtro;
@@ -21,10 +20,8 @@ public class Turno {
         this.refDesactivados = botonesOtro;
         this.desactivados.setDisable(true);
 
-        this.boton1 = boton1;
-        this.boton2 = boton2;
-
-        this.botonesAReiniciar = botonesAReiniciar;
+        this.botonesAHablitar = botonesAHabilitarAlTerminarElTurno;
+        this.aReiniciar = reiniciablesAlTerminarTurno;
     }
 
     void siguienteTurno(){
@@ -36,10 +33,13 @@ public class Turno {
         this.activados.setDisable(false);
         this.desactivados.setDisable(true);
 
-        this.boton1.setDisable(false);
-        this.boton2.setDisable(false);
+        Iterator<Button> iteratorBotones = this.botonesAHablitar.iterator();
+        while (iteratorBotones.hasNext()){
+            Button boton = iteratorBotones.next();
+            boton.setDisable(false);
+        }
 
-        Iterator<Reiniciable> iteradorBotonesReiniciar = this.botonesAReiniciar.iterator();
+        Iterator<Reiniciable> iteradorBotonesReiniciar = this.aReiniciar.iterator();
         while(iteradorBotonesReiniciar.hasNext()){
             Reiniciable boton = iteradorBotonesReiniciar.next();
             boton.reiniciar();

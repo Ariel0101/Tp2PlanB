@@ -17,10 +17,6 @@ class CartaMonstruo implements Carta {
         this.invocacion = new InvocacionSacrificio(estrellas);
         this.nombre = "sin-nombre";
     }
-    
-    CartaMonstruo(){
-    	
-    }
 
     void colocarEnPosAtaque() {
 

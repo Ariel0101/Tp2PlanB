@@ -1,6 +1,7 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Campo {
+public class Campo implements Reiniciable {
 
     private LinkedList<CartaMagica> magicas;
     private LinkedList<CartaTrampa> trampas;
@@ -36,19 +37,38 @@ public class Campo {
         listaMonstruos.eliminar(unMonstruo);
     }
 
-    void destruir(Carta unaCarta) {
+    void colocarCarta(CartaMonstruo monstruo){
 
-        this.cementerio.enviar(unaCarta);
-        this.magicas.remove(unaCarta);
-        this.trampas.remove(unaCarta);
-        this.listaMonstruos.eliminar((CartaMonstruo) unaCarta);
+        monstruo.colocarse(this);
+    }
+
+    void colocarCarta(CartaMagica carta){
+
+        this.magicas.add(carta);
 
     }
-    
 
+    public void colocarCarta(CartaTrampa cartaTrampa) {
+        this.trampas.add(cartaTrampa);
+    }
 
-    void colocarCarta(CartaMonstruo monstruo){
-    	monstruo.colocarse(this);
+    public void colocarCarta(CartaDeCampo unaCartaDeCampo) {
+
+        this.cartaDeCampo = unaCartaDeCampo;
+        cartaDeCampo.activar();
+
+    }
+
+    public void desactivarTemporales(){
+        Iterator<CartaMonstruo> iteradorMonstruos = this.listaMonstruos.iterator();
+        while (iteradorMonstruos.hasNext()){
+            CartaMonstruo monstruo = iteradorMonstruos.next();
+            monstruo.desactivarTemporales();
+        }
+    }
+
+    public void reiniciar(){
+        this.desactivarTemporales();
     }
 
     void agregarMonstruo(CartaMonstruo carta) {
@@ -56,11 +76,16 @@ public class Campo {
     	efectoDeCampoEnemigo.activar(carta);
         this.listaMonstruos.agregar(carta);
     }
-    
-    void colocarCarta(CartaMagica carta){
 
-        this.magicas.add(carta);
+    public boolean esta(CartaMonstruo unaCartaMonstruo) {
+        return listaMonstruos.esta(unaCartaMonstruo);
+    }
 
+    LinkedList<CartaMagica> magicas(){
+        return this.magicas;
+    }
+    LinkedList<CartaTrampa> trampas() {
+        return this.trampas;
     }
 
     ListaMonstruos listaMonstruos(){
@@ -72,16 +97,10 @@ public class Campo {
     void aplicarEnMonstruos(Efecto efecto){
 
         this.listaMonstruos.aplicar(efecto);
-        /*efecto.activar(this.listaMonstruos);*/
 
     }
 
-	public void colocarCarta(CartaDeCampo unaCartaDeCampo) {
-		
-		this.cartaDeCampo = unaCartaDeCampo;
-		cartaDeCampo.activar();
-		
-	}
+
 
 
 	public void setEfectoDeCampoPropio(Efecto unEfectoDeCampo) {
@@ -98,9 +117,6 @@ public class Campo {
 
     }
 
-    public void colocarCarta(CartaTrampa cartaTrampa) {
-        this.trampas.add(cartaTrampa);
-    }
 
     public Botin activarTrampa(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
         if (this.trampas.size() == 0){
@@ -136,13 +152,4 @@ public class Campo {
         }
 
 	}
-
-    public boolean esta(CartaMonstruo unaCartaMonstruo) {
-        return listaMonstruos.esta(unaCartaMonstruo);
-    }
-
-    LinkedList<CartaMagica> magicas(){
-        return this.magicas;
-    }
-    LinkedList<CartaTrampa> trampas() { return this.trampas; }
 }

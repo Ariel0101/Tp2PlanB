@@ -151,7 +151,7 @@ public class EntregaDosTest extends TestCase {
 
     }
 
-    public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones() throws MonstruoNoPuedeAtacarError {
+    public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones()  {
         Cementerio unCementerio = new Cementerio();
         Cementerio otroCementerio = new Cementerio();
         Campo unCampo = new Campo(unCementerio);
@@ -207,7 +207,7 @@ public class EntregaDosTest extends TestCase {
     	assertTrue(otroCementerio.esta(cartaAtacada));
     }
     
-    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() throws MonstruoNoPuedeAtacarError{
+    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -236,7 +236,7 @@ public class EntregaDosTest extends TestCase {
         assertTrue(unCementerio.esta(cartaAlasDeLLama));
     }
 
-    public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() throws MonstruoNoPuedeAtacarError{
+    public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -269,7 +269,7 @@ public class EntregaDosTest extends TestCase {
 
     }
 
-    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno() throws MonstruoNoPuedeAtacarError{
+    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno() {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);

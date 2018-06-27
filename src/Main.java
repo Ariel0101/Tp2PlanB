@@ -3,8 +3,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -57,7 +55,13 @@ public class Main extends Application {
         manoEnemiga.agregar(agujaAsesina);
         manoEnemiga.agregar(alasDeLlamaPerversa);
         manoEnemiga.agregar(insectoComeHombres);
+
         //Sets de prueba
+        //Mazo con cartas de campo
+        Mazo mazoConCartasDeCampo = new Mazo(jugador);
+        mazoConCartasDeCampo.agregar(constructor.sogen(campo,campoEnemigo));
+        mazoConCartasDeCampo.agregar(constructor.wasteland(campo,campoEnemigo));
+        mazoConCartasDeCampo.agregar(constructor.goblinFalso());
         //Prueba sacar ultima carta del mazo
         Mazo mazoDeUnaCarta = new Mazo(jugador);
         mazoDeUnaCarta.agregar(jinzo7);
@@ -170,15 +174,6 @@ public class Main extends Application {
         Button botonCambiarBocaPosicionMonstruoEnemigo = new Button("Cambiar Boca y Posicion");
         botonCambiarBocaPosicionMonstruoEnemigo.setOnAction(botonCambiarBocaPosicionHandlerEnemigo);
 
-        //Botones que deben reiniciarse
-        LinkedList<Reiniciable> botonesAReiniciar = new LinkedList<>();
-        botonesAReiniciar.add(botonAtacarEventHandler);
-        botonesAReiniciar.add(botonEnemAtacarEventHandler);
-        botonesAReiniciar.add(botonColocarCartaHandler);
-        botonesAReiniciar.add(botonColocarCartaEnemigoHandler);
-        botonesAReiniciar.add(botonCambiarBocaPosicionHandler);
-        botonesAReiniciar.add(botonCambiarBocaPosicionHandlerEnemigo);
-
         //Contenedor de botones de jugador:
         HBox contenedorHorizontal = new HBox(botonColocarCarta, botonCambiarBocaPosicionMonstruo,botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
         contenedorHorizontal.setSpacing(20);
@@ -211,8 +206,24 @@ public class Main extends Application {
         gridDeEnemigo.add(monstruosEnCampoEnemigo, 0, 2);
         gridDeEnemigo.add(magicasTrampasEnCampoEnemigo, 0, 3);
 
+        // Objetos a reiniciar cuando termine el turno
+        LinkedList<Reiniciable> reiniciablesAlTerminarTurno = new LinkedList<>();
+        reiniciablesAlTerminarTurno.add(botonAtacarEventHandler);
+        reiniciablesAlTerminarTurno.add(botonEnemAtacarEventHandler);
+        reiniciablesAlTerminarTurno.add(botonColocarCartaHandler);
+        reiniciablesAlTerminarTurno.add(botonColocarCartaEnemigoHandler);
+        reiniciablesAlTerminarTurno.add(botonCambiarBocaPosicionHandler);
+        reiniciablesAlTerminarTurno.add(botonCambiarBocaPosicionHandlerEnemigo);
+        reiniciablesAlTerminarTurno.add(campo);
+        reiniciablesAlTerminarTurno.add(campoEnemigo);
+
+        // Botones a habilitar cuando termine el turno
+        LinkedList<Button> botonesAHabilitarAlTerminarTurno = new LinkedList<>();
+        botonesAHabilitarAlTerminarTurno.add(botonAgarrarCarta);
+        botonesAHabilitarAlTerminarTurno.add(botonAgarrarCartaEnem);
+
         //Boton para cambiar de turno:
-        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem, botonAgarrarCarta, botonAgarrarCartaEnem, botonesAReiniciar);
+        Turno turno = new Turno(contenedorHorizontal, contenedorHorizontalEnem, botonesAHabilitarAlTerminarTurno, reiniciablesAlTerminarTurno);
         Button botonDeTurno = new Button("Siguiente turno");
         botonDeTurno.setOnAction(e -> turno.siguienteTurno());
 
@@ -220,7 +231,7 @@ public class Main extends Application {
         contenedorPrincipal.setSpacing(80);
         contenedorPrincipal.setPadding(new Insets(40));
 
-        Scene scene = new Scene(contenedorPrincipal, 1000, 850); //
+        Scene scene = new Scene(contenedorPrincipal, 1000, 850);
 
         ventana.setScene(scene);
 

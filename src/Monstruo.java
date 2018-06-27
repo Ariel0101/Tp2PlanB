@@ -3,7 +3,7 @@ public class Monstruo{
     private Posicion posicion;
     private int danio;
     private int defensa;
-    private Carta carta = new NoCarta();
+    private CartaMonstruo carta = null;
     private int aumentosAtaqueTemporales;
 
     Monstruo(int danio, int defensa){
@@ -15,7 +15,7 @@ public class Monstruo{
 
     }
 
-    void setCarta(Carta c){
+    void setCarta(CartaMonstruo c){
 
         this.carta = c;
 
@@ -96,7 +96,7 @@ public class Monstruo{
 
     }
 
-    public Carta carta() {
+    public CartaMonstruo carta() {
 
         return this.carta;
 
