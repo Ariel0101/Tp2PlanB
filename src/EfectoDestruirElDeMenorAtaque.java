@@ -7,21 +7,11 @@ public class EfectoDestruirElDeMenorAtaque implements Efecto{
         this.campo = campo;
     }
 
-
-    public void activar(Mano unaMano) {
-
-    }
-
     public void activar(ListaMonstruos monstruos) {
 
         ListaMonstruos monstruosBocaArriba = monstruos.monstruosBocaArriba();
         CartaMonstruo monstruoConMenorAtaque = monstruosBocaArriba.monstruoConMenorAtaque();
         this.campo.destruir(monstruoConMenorAtaque);
-
-    }
-
-    @Override
-    public void activar() {
 
     }
 

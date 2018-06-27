@@ -8,9 +8,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
+public class BotonColocarMonstruo implements EventHandler<ActionEvent>, Reiniciable {
 
     private final ActualizadorDeRepresentaciones actualizador;
+    private boolean seColocoMonstruo;
     private Mano mano;
     private Campo campo;
     private Scene scene;
@@ -22,6 +23,7 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         this.campo = campo;
         this.mano = mano;
         this.actualizador = actualizador;
+        this.seColocoMonstruo = false;
 
     }
 
@@ -34,14 +36,16 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         ComboBox<Carta> eleccionCarta = new ComboBox<>();
         eleccionCarta.setPromptText("Eligi tu carta");
 
-        for (Carta m : this.mano.cartas()) {
-
-            eleccionCarta.getItems().add(m);
+        for (Carta c : this.mano.cartas()) {
+            if (c instanceof CartaMonstruo && this.seColocoMonstruo){
+                continue;
+            }
+            eleccionCarta.getItems().add(c);
 
         }
 
         ComboBox<String> opcionesBoca = new ComboBox<>();
-        opcionesBoca.setPromptText("Boca arriba o boca abajo?");
+        opcionesBoca.setPromptText("Boca abajo");
         opcionesBoca.getItems().add("Boca arriba");
         opcionesBoca.getItems().add("Boca abajo");
 
@@ -65,8 +69,10 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         this.stage.show();
 
         eleccionCarta.setOnAction((e -> imagenDeCarta.setImage(eleccionCarta.getValue().imagen())));
+    }
 
-
+    public void reiniciar(){
+        this.seColocoMonstruo = false;
     }
 
 

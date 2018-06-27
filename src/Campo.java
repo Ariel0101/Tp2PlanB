@@ -71,7 +71,8 @@ public class Campo {
 
     void aplicarEnMonstruos(Efecto efecto){
 
-        efecto.activar(this.listaMonstruos);
+        this.listaMonstruos.aplicar(efecto);
+        /*efecto.activar(this.listaMonstruos);*/
 
     }
 

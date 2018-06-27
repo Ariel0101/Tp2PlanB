@@ -12,9 +12,4 @@ public interface Carta {
      String toString();
 
      Image imagen();
-
-    /*@Override
-    default String toString() {
-        return "caca";
-    }*/
 }

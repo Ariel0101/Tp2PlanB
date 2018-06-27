@@ -15,10 +15,6 @@ public class EfectoAumentarDefensa implements Efecto {
 		
 	}
 
-	@Override
-	public void activar(Mano unaMano) {
-
-	}
 
 	public void activar(ListaMonstruos monstruos){
 
@@ -27,11 +23,6 @@ public class EfectoAumentarDefensa implements Efecto {
 			this.activar(m);
 
 		}
-
-	}
-
-	@Override
-	public void activar() {
 
 	}
 

@@ -19,20 +19,26 @@ public class BotonAceptar implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent actionEvent){
 
-        if (pos.getValue() == "Ataque"){
+        if (pos.getValue() == "En Ataque"){
 
-            System.out.print("Colocado en pos ataque");
+            System.out.print("Colocado en pos ataque.\n");
 
             monstruo.colocarEnPosAtaque();
 
         }
 
-        if (pos.getValue() == "Defensa"){
+        if (pos.getValue() == "En Defensa"){
 
-            System.out.print("Colocado en pos defensa");
+            System.out.print("Colocado en pos defensa.\n");
 
             monstruo.colocarEnPosDefensa();
 
+        }
+
+        if (pos.getValue() == null){
+            System.out.print("Colocado en pos ataque, por defecto.\n");
+
+            monstruo.colocarEnPosAtaque();
         }
 
         this.stage.close();

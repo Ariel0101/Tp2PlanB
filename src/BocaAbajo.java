@@ -2,12 +2,6 @@ import javafx.scene.image.Image;
 
 public class BocaAbajo implements Boca {
 
-    public Botin pelear(Monstruo monstruo, Monstruo monstruo1) {
-
-        return new Botin();
-
-    }
-
     public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo){
 
         return new Botin();
