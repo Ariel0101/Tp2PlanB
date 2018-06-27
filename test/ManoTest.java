@@ -1,4 +1,3 @@
-import javafx.stage.Stage;
 import junit.framework.TestCase;
 
 public class ManoTest extends TestCase {

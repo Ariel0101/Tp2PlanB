@@ -18,40 +18,53 @@ public class Main extends Application {
     public void start(Stage ventana) throws Exception {
         ventana.setTitle("Al-Go-Oh");
 
-        /// PRUEBA APARTE:
-        ConstructorDeCartas constructor = new ConstructorDeCartas();
-        //
+        //Partida
         Partida unaPartida = new Partida();
         unaPartida.setVentana(ventana);
 
         //Cosas del jugador:
-        Jugador jugador = new Jugador("Jugador 1", 100, unaPartida);
+        Jugador jugador = new Jugador("Yugi-1", 100, unaPartida);
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
 
-        //Cartas para probar
-        CartaMonstruo aitsu = constructor.aitsu();
-        CartaMonstruo monkey = constructor.mokeyMokey();
-
-        mano.agregar(aitsu);
-        mano.agregar(monkey);
-
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("Jugador 2", 100, unaPartida);
+        Jugador enemigo = new Jugador("Yugi-2", 100, unaPartida);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
 
         //Cartas para probar
+        //Constructor Cartas
+        ConstructorDeCartas constructor = new ConstructorDeCartas();
+        //Amigo
+        CartaMonstruo aitsu = constructor.aitsu();
+        CartaMonstruo monkey = constructor.mokeyMokey();
+        CartaMagica agujero = constructor.agujeroNegro(campo, campoEnemigo);
+        mano.agregar(aitsu);
+        mano.agregar(monkey);
+        mano.agregar(agujero);
+        //Enemigo
         CartaMonstruo goblin = constructor.goblinFalso();
         CartaMonstruo agujaAsesina = constructor.agujaAsesina();
+        CartaMonstruo alasDeLlamaPerversa = constructor.alasDeLlamaPerversa();
         manoEnemiga.agregar(goblin);
         manoEnemiga.agregar(agujaAsesina);
-        CartaMagica agujero = constructor.agujeroNegro(campo, campoEnemigo);
-        mano.agregar(agujero);
-        CartaMonstruo alasDeLlamaPerversa = constructor.alasDeLlamaPerversa();
         manoEnemiga.agregar(alasDeLlamaPerversa);
+        //Sets de prueba
+        //Prueba sacar ultima carta del mazo
+        Mazo mazoDeUnaCarta = new Mazo(jugador);
+        CartaMonstruoJinzo7 jinzo7= constructor.jinzo7();
+        mazoDeUnaCarta.agregar(jinzo7);
+        //Prueba colocar 5 partes de exodia en la mano;
+        Mazo mazoConUltimaParteDeExodia = new Mazo(jugador);
+        mazoConUltimaParteDeExodia.agregar(constructor.cabezaDeExodia());
+        mazoConUltimaParteDeExodia.agregar(constructor.goblinFalso());
+        Mano manoConCuatroPartesDeExodia = new Mano(jugador);
+        manoConCuatroPartesDeExodia.agregar(constructor.brazoDerechoExodia());
+        manoConCuatroPartesDeExodia.agregar(constructor.brazoIzquierdoExodia());
+        manoConCuatroPartesDeExodia.agregar(constructor.piernaDerechaExodia());
+        manoConCuatroPartesDeExodia.agregar(constructor.piernaizquierdaExodia());
 
         //Llenar mazos:
         RandomizadorCartas randomizador = new RandomizadorCartas(campoEnemigo, campo, mano, mazo);
@@ -59,7 +72,7 @@ public class Main extends Application {
         RandomizadorCartas randomizadorEnem = new RandomizadorCartas(campo, campoEnemigo, manoEnemiga, mazoEnemigo);
         randomizadorEnem.llenarMazo(mazoEnemigo);
 
-        //Contenedor de las imagenes de las cartas en campo del jugador:
+        //Contenedor de las imagenes de cosas del jugador:
         HBox jugadorVisualHBox = new HBox();
         RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualHBox);
         HBox monstruosEnCampo = new HBox();
@@ -75,7 +88,7 @@ public class Main extends Application {
         magicasTrampasEnCampo.setSpacing(10);
         magicasTrampasEnCampo.setStyle("-fx-background-color: #336699;");
 
-        //Contenedor de las imagenes de las cartas en campo del jugador enemigo:
+        //Contenedor de las imagenes de cosas del jugador enemigo:
         HBox jugadorEnemigoVisualHBox = new HBox();
         RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualHBox);
         HBox monstruosEnCampoEnemigo = new HBox();

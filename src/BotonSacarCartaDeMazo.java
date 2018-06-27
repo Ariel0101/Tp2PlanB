@@ -17,8 +17,8 @@ public class BotonSacarCartaDeMazo implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-
-        this.mano.agregar(this.mazo.sacar());
+        Carta unaCarta = this.mazo.sacar();
+        unaCarta.colocarse(this.mano);
         this.boton.setDisable(true);
 
     }

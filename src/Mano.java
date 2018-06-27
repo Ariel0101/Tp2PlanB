@@ -32,8 +32,6 @@ public class Mano {
         }
     }
 
-
-    //mmmmmmmmmmmmmmmmmmmmmmm:
     public LinkedList<Carta> cartas(){
 
         return this.cartas;

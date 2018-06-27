@@ -20,20 +20,23 @@ public class Partida {
 
     }
 
-    public void setGanador(String nombreJugador) {
-        this.ganador = nombreJugador;
-
-        //Interfaz grafica
+    private void finalizarJuego(String resultadoDeLaPartida){
+        //Interfaz Grafica //Solo valido cuando las ordenes vienen desde el main.
         if (this.ventana != null){
             Stage ventanaFinDelJuego = new Stage();
-            String mensajeFinDelJuego = String.format("Jugador : %s ha ganado.", nombreJugador);
-            TextArea textoFinDelJuego = new TextArea(mensajeFinDelJuego);
+            TextArea textoFinDelJuego = new TextArea(resultadoDeLaPartida);
             textoFinDelJuego.setEditable(false);
-            Scene escenaJugadorPerdio = new Scene(textoFinDelJuego);
-            ventanaFinDelJuego.setScene(escenaJugadorPerdio);
+            Scene escenaFinDelJuego = new Scene(textoFinDelJuego);
+            ventanaFinDelJuego.setScene(escenaFinDelJuego);
             ventanaFinDelJuego.show();
             this.ventana.close();
         }
+    }
+
+    public void setGanador(String nombreJugador) {
+        this.ganador = nombreJugador;
+        String mensajeFinDelJuego = String.format("Jugador : %s ha ganado.", nombreJugador);
+        this.finalizarJuego(mensajeFinDelJuego);
     }
 
     public String verPerdedor() {
@@ -45,18 +48,8 @@ public class Partida {
     public void setPerdedor(String nombreJugador) {
 
         this.perdedor = nombreJugador;
-
-        //Interfaz grafica
-        if (this.ventana != null){
-            Stage ventanaFinDelJuego = new Stage();
-            String mensajeFinDelJuego = String.format("Jugador : %s ha perdido.", nombreJugador);
-            TextArea textoFinDelJuego = new TextArea(mensajeFinDelJuego);
-            textoFinDelJuego.setEditable(false);
-            Scene escenaJugadorPerdio = new Scene(textoFinDelJuego);
-            ventanaFinDelJuego.setScene(escenaJugadorPerdio);
-            ventanaFinDelJuego.show();
-            this.ventana.close();
-        }
+        String mensajeFinDelJuego = String.format("Jugador : %s ha perdido.", nombreJugador);
+        this.finalizarJuego(mensajeFinDelJuego);
     }
 
     public void setVentana(Stage ventana) {
