@@ -214,11 +214,10 @@ public class EntregaDosTest extends TestCase {
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 1000);
 
-        Efecto efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoUno);
         Monstruo insectoComeHombres = new Monstruo(450,600);
 
         CartaMonstruo cartaAlasDeLLama = new CartaMonstruo(alasDeLlamaPerversa,1);
-        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2,efectoDestruirMonstruo);
+        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2,campoUno);
 
         cartaAlasDeLLama.colocarBocaArriba();
         cartaAlasDeLLama.colocarEnPosAtaque();

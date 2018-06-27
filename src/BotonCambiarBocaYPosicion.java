@@ -17,7 +17,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
     private final BotonColocarCarta botonColocar;
 
 
-    BotonCambiarBocaYPosicion(Campo campo,BotonColocarCarta botonColocar ,ActualizadorDeRepresentaciones actualizador){
+    BotonCambiarBocaYPosicion(Campo campo, BotonColocarCarta botonColocar ,ActualizadorDeRepresentaciones actualizador){
         this.campo = campo;
         this.actualizador = actualizador;
         this.monstruosQueYaCambiaron = new HashSet<CartaMonstruo>();
@@ -69,18 +69,18 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
     }
 
     private void colocarBoca(ComboBox<String> opcionesBoca, CartaMonstruo cartaElegida) {
-        if (opcionesBoca.getValue() == "Boca arriba"){
-            System.out.print("Colocado boca arriba\n");
+        if (opcionesBoca.getValue() == "Boca arriba" || opcionesBoca.getValue() == null){ //por defecto
+            if (cartaElegida instanceof CartaMonstruoComeHombres){
+                CartaMonstruoComeHombres cartaComeHombres = (CartaMonstruoComeHombres) cartaElegida;
+                cartaComeHombres.activarEfectoVisualmente(this.actualizador);
+            }
             cartaElegida.colocarBocaArriba();
+            System.out.print("Colocado boca arriba\n");
         }
 
         if (opcionesBoca.getValue() == "Boca abajo"){
             System.out.print("Colocado boca abajo\n");
             cartaElegida.colocarBocaAbajo();
-        }
-        if (opcionesBoca.getValue() == null){ //Por defecto
-            System.out.println("Colocado boca arriba, por defecto\n");
-            cartaElegida.colocarBocaArriba();
         }
     }
 

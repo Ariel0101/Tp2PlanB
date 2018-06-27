@@ -53,8 +53,7 @@ public class ConstructorDeCartas {
 
     public CartaMonstruoComeHombres insectoComeHombres(Campo campoEnemigo){
         Monstruo insectoComeHombres = new Monstruo(450, 600);
-        EfectoDestruirMonstruo efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoEnemigo);
-        CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
+        CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, campoEnemigo);
         carta.ponerNombre("Insecto Come Hombres");
         return carta;
     }
