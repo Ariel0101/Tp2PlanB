@@ -133,7 +133,9 @@ public class ConstructorDeCartas {
 
     public CartaTrampa refuerzos(){
         Refuerzos refuerzos = new Refuerzos();
-        return new CartaTrampa(refuerzos);
+        CartaTrampa carta = new CartaTrampa(refuerzos);
+        carta.ponerNombre("Refuerzos");
+        return carta;
     }
 
     public CartaTrampa cilindroMagico(){

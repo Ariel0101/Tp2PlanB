@@ -33,6 +33,11 @@ public class CartaTrampa implements Carta {
         return this.boca.imagen(this.nombre);
     }
 
+    @Override
+    public void ponerNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
         this.colocarBocaArriba();
         return this.trampa.activar(monstruoAtacante, monstruoAtacado, unBotin);
