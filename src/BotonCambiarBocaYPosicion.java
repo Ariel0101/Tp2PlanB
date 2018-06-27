@@ -14,12 +14,14 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
     private final Campo campo;
     private final ActualizadorDeRepresentaciones actualizador;
     private final HashSet<CartaMonstruo> monstruosQueYaCambiaron;
+    private final BotonColocarCarta botonColocar;
 
 
-    BotonCambiarBocaYPosicion(Campo campo, ActualizadorDeRepresentaciones actualizador){
+    BotonCambiarBocaYPosicion(Campo campo,BotonColocarCarta botonColocar ,ActualizadorDeRepresentaciones actualizador){
         this.campo = campo;
         this.actualizador = actualizador;
         this.monstruosQueYaCambiaron = new HashSet<CartaMonstruo>();
+        this.botonColocar = botonColocar;
     }
 
     public void handle(ActionEvent actionEvent) {
@@ -29,7 +31,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
         opcionesMonstruo.setPromptText("Eligi tu Monstruo");
 
         for (CartaMonstruo m : this.campo.listaMonstruos()) {
-            if (!this.monstruosQueYaCambiaron.contains(m)){
+            if (!this.monstruosQueYaCambiaron.contains(m) && !botonColocar.colocaste(m)){
                 opcionesMonstruo.getItems().add(m);
             }
         }

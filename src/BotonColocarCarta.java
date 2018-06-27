@@ -14,14 +14,14 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
     private final Campo campo;
     private final Mano mano;
     private final ActualizadorDeRepresentaciones actualizador;
-    private boolean seColocoMonstruo;
+    private CartaMonstruo monstruoColocado;
 
     BotonColocarCarta(Campo campo, Mano mano, ActualizadorDeRepresentaciones actualizador) {
 
         this.campo = campo;
         this.mano = mano;
         this.actualizador = actualizador;
-        this.seColocoMonstruo = false;
+        this.monstruoColocado = null;
 
     }
 
@@ -32,7 +32,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         eleccionCarta.setPromptText("Eligi tu carta");
 
         for (Carta c : this.mano.cartas()) {
-            if (c instanceof CartaMonstruo && this.seColocoMonstruo){
+            if (c instanceof CartaMonstruo && this.monstruoColocado != null){
                 continue;
             }
             eleccionCarta.getItems().add(c);
@@ -71,7 +71,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
     private void aceptarColocar(ComboBox<Carta> eleccionCarta, ComboBox<String> opcionesBoca, Stage ventanaColocarCarta) {
         Carta cartaAColocar = eleccionCarta.getValue();
 
-        if (cartaAColocar == null || cartaAColocar.getClass() == NoCarta.class) {
+        if (cartaAColocar == null ) { //|| cartaAColocar.getClass() == NoCarta.class
             ventanaColocarCarta.close();
             return;
         }
@@ -93,7 +93,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
             return;
         }
         if (cartaAColocar instanceof CartaMonstruo){
-            this.seColocoMonstruo = true;
+            this.monstruoColocado = (CartaMonstruo) cartaAColocar;
         }
 
 
@@ -189,9 +189,16 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
     }
 
     public void reiniciar(){
-        this.seColocoMonstruo = false;
+
+        this.monstruoColocado = null;
+
     }
 
+    public boolean colocaste(CartaMonstruo carta){
+
+        return this.monstruoColocado == carta;
+
+    }
 
 }
 

@@ -136,7 +136,7 @@ public class Main extends Application {
         BotonSacarCartaDeMazo botonAgarrarCartaHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCarta);
         botonAgarrarCarta.setOnAction(botonAgarrarCartaHandler);
 
-        BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandler = new BotonCambiarBocaYPosicion(campo, actualizador);
+        BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandler = new BotonCambiarBocaYPosicion(campo, botonColocarCartaHandler, actualizador);
         Button botonCambiarBocaPosicionMonstruo = new Button("Cambiar Boca y Posicion");
         botonCambiarBocaPosicionMonstruo.setOnAction(botonCambiarBocaPosicionHandler);
 
@@ -161,7 +161,7 @@ public class Main extends Application {
         BotonSacarCartaDeMazo botonAgarrarCartaEnemHandler = new BotonSacarCartaDeMazo(mazoEnemigo, manoEnemiga, botonAgarrarCartaEnem);
         botonAgarrarCartaEnem.setOnAction(botonAgarrarCartaEnemHandler);
 
-        BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandlerEnemigo = new BotonCambiarBocaYPosicion(campoEnemigo, actualizador);
+        BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandlerEnemigo = new BotonCambiarBocaYPosicion(campoEnemigo, botonColocarCartaEnemigoHandler,actualizador);
         Button botonCambiarBocaPosicionMonstruoEnemigo = new Button("Cambiar Boca y Posicion");
         botonCambiarBocaPosicionMonstruoEnemigo.setOnAction(botonCambiarBocaPosicionHandlerEnemigo);
 
