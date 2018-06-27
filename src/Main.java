@@ -104,7 +104,7 @@ public class Main extends Application {
         magicasTrampasEnCampoEnemigo.setSpacing(10);
         magicasTrampasEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
 
-        //Actualizador de Representaciones (actualiza el campo de batalla)
+        //Actualizador de Representaciones
         LinkedList<Actualizable> representaciones = new LinkedList<>();
         representaciones.add(representacionCampoMonstruos);
         representaciones.add(representacionCampoMonstruosEnemigo);
@@ -116,10 +116,9 @@ public class Main extends Application {
         actualizador.actualizar();
 
         //Botones del jugador:
-        Button boton = new Button("Colocar una carta");
-        /*BotonColocarMonstruo botonColocarCartaHandler = new BotonColocarMonstruo(campo, mano, actualizador);*/
+        Button botonColocarCarta = new Button("Colocar una carta");
         BotonColocarCarta botonColocarCartaHandler = new BotonColocarCarta(campo, mano, actualizador);
-        boton.setOnAction(botonColocarCartaHandler);
+        botonColocarCarta.setOnAction(botonColocarCartaHandler);
 
         Button botonAtacar = new Button("Atacar");
         BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador);
@@ -137,9 +136,12 @@ public class Main extends Application {
         BotonSacarCartaDeMazo botonAgarrarCartaHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCarta);
         botonAgarrarCarta.setOnAction(botonAgarrarCartaHandler);
 
+        BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandler = new BotonCambiarBocaYPosicion(campo, actualizador);
+        Button botonCambiarBocaPosicionMonstruo = new Button("Cambiar Boca y Posicion");
+        botonCambiarBocaPosicionMonstruo.setOnAction(botonCambiarBocaPosicionHandler);
+
         //Botones del enemigo:
         Button botonColocarEnemigo = new Button("Colocar una carta");
-        /*BotonColocarMonstruo botonColocarCartaEnemigoHandler = new BotonColocarMonstruo(campoEnemigo, manoEnemiga, actualizador);*/
         BotonColocarCarta botonColocarCartaEnemigoHandler = new BotonColocarCarta(campoEnemigo, manoEnemiga, actualizador);
         botonColocarEnemigo.setOnAction(botonColocarCartaEnemigoHandler);
 
@@ -159,6 +161,10 @@ public class Main extends Application {
         BotonSacarCartaDeMazo botonAgarrarCartaEnemHandler = new BotonSacarCartaDeMazo(mazoEnemigo, manoEnemiga, botonAgarrarCartaEnem);
         botonAgarrarCartaEnem.setOnAction(botonAgarrarCartaEnemHandler);
 
+        BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandlerEnemigo = new BotonCambiarBocaYPosicion(campoEnemigo, actualizador);
+        Button botonCambiarBocaPosicionMonstruoEnemigo = new Button("Cambiar Boca y Posicion");
+        botonCambiarBocaPosicionMonstruoEnemigo.setOnAction(botonCambiarBocaPosicionHandlerEnemigo);
+
         //Botones que deben reiniciarse
         LinkedList<Reiniciable> botonesAReiniciar = new LinkedList<>();
         botonesAReiniciar.add(botonAtacarEventHandler);
@@ -167,11 +173,11 @@ public class Main extends Application {
         botonesAReiniciar.add(botonColocarCartaEnemigoHandler);
 
         //Contenedor de botones de jugador:
-        HBox contenedorHorizontal = new HBox(boton, botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
+        HBox contenedorHorizontal = new HBox(botonColocarCarta, botonCambiarBocaPosicionMonstruo,botonAtacar, verMano1, botonActivarMagica, botonAgarrarCarta);
         contenedorHorizontal.setSpacing(20);
 
         //Contenedor de botones de enemigo:
-        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonEnemigoAtacar, verMano2, botonEnemActivarMagica, botonAgarrarCartaEnem);
+        HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonCambiarBocaPosicionMonstruoEnemigo,botonEnemigoAtacar, verMano2, botonEnemActivarMagica, botonAgarrarCartaEnem);
         contenedorHorizontalEnem.setSpacing(20);
 
         //Grilla de jugador:
