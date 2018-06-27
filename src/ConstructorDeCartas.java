@@ -150,7 +150,7 @@ public class ConstructorDeCartas {
     public CartaDeCampo wasteland(Campo campoAmigo, Campo campoEnemigo){
         EfectoWasteland efectoWasteland = new EfectoWasteland(campoAmigo, campoEnemigo);
         CartaDeCampo carta = new CartaDeCampo(efectoWasteland);
-        carta.ponerNombre("WasteLand");
+        carta.ponerNombre("Wasteland");
         return carta;
     }
 
