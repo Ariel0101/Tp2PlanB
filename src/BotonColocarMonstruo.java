@@ -41,7 +41,7 @@ public class BotonColocarMonstruo implements EventHandler<ActionEvent> {
         }
 
         ComboBox<String> opcionesBoca = new ComboBox<>();
-        opcionesBoca.setPromptText("Boca arriba o boca abajo?");
+        opcionesBoca.setPromptText("Boca abajo"); //Por defecto
         opcionesBoca.getItems().add("Boca arriba");
         opcionesBoca.getItems().add("Boca abajo");
 
