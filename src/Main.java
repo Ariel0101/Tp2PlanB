@@ -14,14 +14,15 @@ public class Main extends Application {
     public static void main(String[] args){
         launch(args);
     }
-    @Override
+
     public void start(Stage ventana) throws Exception {
         ventana.setTitle("Al-Go-Oh");
 
         /// PRUEBA APARTE:
         ConstructorDeCartas constructor = new ConstructorDeCartas();
         //
-        Partida unaPartida = new Partida(ventana);
+        Partida unaPartida = new Partida();
+        unaPartida.setVentana(ventana);
 
         //Cosas del jugador:
         Jugador jugador = new Jugador("Jugador 1", 100, unaPartida);

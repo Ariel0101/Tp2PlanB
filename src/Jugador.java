@@ -10,7 +10,7 @@ public class Jugador {
     	
         this.vida = vida;
         this.nombre = nombre;
-        this.partida = new Partida(new Stage());
+        this.partida = new Partida();
     }
 
 
@@ -30,6 +30,8 @@ public class Jugador {
         }
 
     }
+
+
 
     int verVida() {
     	
