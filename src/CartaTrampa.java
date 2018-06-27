@@ -30,7 +30,7 @@ public class CartaTrampa implements Carta {
     @Override
     public Image imagen() {
 
-        return new Image("/imagen" + this.nombre + ".jpg");
+        return this.boca.imagen(this.nombre);
     }
 
     public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
