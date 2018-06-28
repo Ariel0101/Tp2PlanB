@@ -105,7 +105,7 @@ public class CartaMonstruoTest extends TestCase {
     public void testMonstruoJinzo7PuedeAtacarAJugadorAunqueHayMonstruosEnElCampoEnemigo() {
 
         Monstruo m1 = new Monstruo(400, 100);
-        CartaMonstruoJinzo7 jinzo7 = new CartaMonstruoJinzo7(m1, 1);
+        CartaMonstruo jinzo7 = new CartaMonstruoJinzo7(m1, 1);
         Monstruo m2 = new Monstruo(100, 100);
         CartaMonstruo aitsuEnemigo = new CartaMonstruo(m2, 1);
         Monstruo m3 = new Monstruo(1200, 1000);

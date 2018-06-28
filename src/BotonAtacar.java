@@ -57,9 +57,6 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
 
         }
 
-
-
-
         Button comenzarAtaque = new Button("Atacar");
 
         comenzarAtaque.setOnAction(e ->

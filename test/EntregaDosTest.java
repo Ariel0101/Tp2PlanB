@@ -2,17 +2,24 @@ import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
+
     public void testJinzo7PuedeAtacarDirectamenteAlJugador() throws MonstruoNoPuedeAtacarError{
+
         Jugador j1 = new Jugador("1",1000);
         Monstruo jinzo7 = new Monstruo(500,400);
         CartaMonstruoJinzo7 cartaJinzo7 = new CartaMonstruoJinzo7(jinzo7, 2);
-        Campo unCampo = new Campo(new Cementerio());
+        Monstruo m1 = new Monstruo(500,400);
+        CartaMonstruo cartaM = new CartaMonstruo(m1, 2);
+        Campo campoEnemigo = new Campo(new Cementerio());
 
+        cartaM.colocarse(campoEnemigo);
+        cartaJinzo7.colocarBocaArriba();
         cartaJinzo7.colocarEnPosAtaque();
-        cartaJinzo7.atacar(j1, unCampo);
+        cartaJinzo7.atacar(j1, campoEnemigo);
 
         assertEquals(1000-500,j1.verVida());
     }
+
     public void testActivarWasteLandAumenta200ElDanioDeMonstruosAmigosY300LaDefensaOponente() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
