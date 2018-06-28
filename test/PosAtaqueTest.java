@@ -51,7 +51,7 @@ public class PosAtaqueTest extends TestCase {
 
             p.atacar();
 
-        }catch(MonstruoNoPuedeAtacarError e ){
+        }catch(Excepciones.MonstruoNoPuedeAtacarError e ){
 
             lanzoError = true;
 

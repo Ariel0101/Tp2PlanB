@@ -1,15 +1,25 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
+
     public void testJinzo7PuedeAtacarDirectamenteAlJugador() throws MonstruoNoPuedeAtacarError{
+
         Jugador j1 = new Jugador("1",1000);
         Monstruo jinzo7 = new Monstruo(500,400);
         CartaMonstruoJinzo7 cartaJinzo7 = new CartaMonstruoJinzo7(jinzo7, 2);
+        Monstruo m1 = new Monstruo(500,400);
+        CartaMonstruo cartaM = new CartaMonstruo(m1, 2);
+        Campo campoEnemigo = new Campo(new Cementerio());
+
+        cartaM.colocarse(campoEnemigo);
+        cartaJinzo7.colocarBocaArriba();
         cartaJinzo7.colocarEnPosAtaque();
-        cartaJinzo7.atacar(j1);
+        cartaJinzo7.atacar(j1, campoEnemigo);
 
         assertEquals(1000-500,j1.verVida());
     }
+
     public void testActivarWasteLandAumenta200ElDanioDeMonstruosAmigosY300LaDefensaOponente() throws MonstruoNoPuedeAtacarError{
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
@@ -55,7 +65,7 @@ public class EntregaDosTest extends TestCase {
         assertFalse(unCementerio.esta(aitsu4));
     }
 
-    public void testActivarSogenAumenta500LaDefensaDeMonstruosAmigosY200ElAtaqueOponente() throws MonstruoNoPuedeAtacarError{
+    public void testActivarSogenAumenta500LaDefensaDeMonstruosAmigosY200ElAtaqueOponente() throws MonstruoNoPuedeAtacarError {
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);
@@ -151,7 +161,7 @@ public class EntregaDosTest extends TestCase {
 
     }
 
-    public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones() throws MonstruoNoPuedeAtacarError {
+    public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones()  {
         Cementerio unCementerio = new Cementerio();
         Cementerio otroCementerio = new Cementerio();
         Campo unCampo = new Campo(unCementerio);
@@ -207,18 +217,17 @@ public class EntregaDosTest extends TestCase {
     	assertTrue(otroCementerio.esta(cartaAtacada));
     }
     
-    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() throws MonstruoNoPuedeAtacarError{
+    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 1000);
 
-        Efecto efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoUno);
         Monstruo insectoComeHombres = new Monstruo(450,600);
 
         CartaMonstruo cartaAlasDeLLama = new CartaMonstruo(alasDeLlamaPerversa,1);
-        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2,efectoDestruirMonstruo);
+        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres(insectoComeHombres,2,campoUno);
 
         cartaAlasDeLLama.colocarBocaArriba();
         cartaAlasDeLLama.colocarEnPosAtaque();
@@ -237,7 +246,7 @@ public class EntregaDosTest extends TestCase {
         assertTrue(unCementerio.esta(cartaAlasDeLLama));
     }
 
-    public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() throws MonstruoNoPuedeAtacarError{
+    public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -270,7 +279,7 @@ public class EntregaDosTest extends TestCase {
 
     }
 
-    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno() throws MonstruoNoPuedeAtacarError{
+    public void testCartaTrampaRefuerzosAumentaElAtaqueDelMonstruoAtacadoEn100HastaElFinalDelTurno() {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);

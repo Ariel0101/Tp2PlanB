@@ -2,8 +2,8 @@ import java.util.LinkedList;
 
 class Botin {
 
-    private int danioDeAtacado;
-    private int danioDeAtacante;
+    private int danioDeAtacado = 0;
+    private int danioDeAtacante = 0;
     private LinkedList<Monstruo> muertos = new LinkedList<>();
 
     void agregarMuerto(Monstruo m ){
@@ -26,9 +26,14 @@ class Botin {
 
     void infligirDanios(Jugador atacante, Jugador atacado) {
 
-        atacado.recibirAtaque(this.danioDeAtacado);
-        atacante.recibirAtaque(this.danioDeAtacante);
+        atacado.restarVida(this.danioDeAtacado);
+        atacante.restarVida(this.danioDeAtacante);
 
+    }
+
+    void atacarJugador(Jugador atacado) {
+
+        atacado.restarVida(this.danioDeAtacado);
     }
 
     void ejecutar(Campo c){

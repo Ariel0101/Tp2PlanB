@@ -1,8 +1,9 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class EntregaUnoTest extends TestCase {
 
-    public void testColocarUnMonstruoEnPosicionDeAtaque() throws MonstruoNoPuedeAtacarError{
+    public void testColocarUnMonstruoEnPosicionDeAtaque() throws MonstruoNoPuedeAtacarError {
 
         Monstruo ganador = new Monstruo(1001, 0);
         ganador.colocarEnPosAtaque();

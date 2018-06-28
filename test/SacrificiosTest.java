@@ -1,3 +1,4 @@
+import Excepciones.NoHaySufucienteSacrificiosError;
 import junit.framework.TestCase;
 
 public class SacrificiosTest extends TestCase {

@@ -1,3 +1,5 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
+
 public class PosDefensa implements Posicion {
 
     public int obtenerPuntos(int danio, int defensa){
@@ -19,5 +21,10 @@ public class PosDefensa implements Posicion {
 
         throw new MonstruoNoPuedeAtacarError();
 
+    }
+
+    @Override
+    public String enCaracteres() {
+        return "Defensa";
     }
 }

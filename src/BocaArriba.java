@@ -1,8 +1,9 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import javafx.scene.image.Image;
 
 public class BocaArriba implements Boca {
 
-    public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError{
+    public Botin atacar(CartaMonstruo cartaAtacante, Atacable cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
         return cartaAtacada.recibirAtaque(cartaAtacante, campoEnemigo);
     }
 
@@ -23,8 +24,14 @@ public class BocaArriba implements Boca {
     }
 
     @Override
-    public Image imagen(String nombre) {
-        return new Image("imagenes/" + nombre + ".jpg");
+    public Image imagen(String nombre, String posicion) {
+
+        return new Image("imagenes/" + nombre + posicion + ".jpg");
+    }
+
+    @Override
+    public String verNombre(String nombre) {
+        return nombre;
     }
 
 }

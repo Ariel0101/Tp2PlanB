@@ -1,6 +1,7 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import javafx.scene.image.Image;
 
-class CartaMonstruo implements Carta {
+class CartaMonstruo implements Carta, Atacable {
 
     protected Monstruo monstruo;
     protected Boca boca;
@@ -16,10 +17,6 @@ class CartaMonstruo implements Carta {
         this.estrellas = estrellas;
         this.invocacion = new InvocacionSacrificio(estrellas);
         this.nombre = "sin-nombre";
-    }
-    
-    CartaMonstruo(){
-    	
     }
 
     void colocarEnPosAtaque() {
@@ -46,7 +43,7 @@ class CartaMonstruo implements Carta {
 
     }
 
-    Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
+    Botin atacar(Atacable cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
 
         return this.boca.atacar(this, cartaAtacada, campoEnemigo);
 
@@ -115,7 +112,11 @@ class CartaMonstruo implements Carta {
 
     }
 
-    void ponerNombre(String nombre){
+    public int conCuantosPuntosAtaca() {
+        return monstruo.obtenerPuntos();
+    }
+
+    public void ponerNombre(String nombre){
 
         this.nombre = nombre;
 
@@ -124,14 +125,18 @@ class CartaMonstruo implements Carta {
     @Override
     public String toString(){
 
-        return this.nombre;
+        return this.boca.verNombre(this.nombre);
 
     }
 
     @Override
     public Image imagen() {
+        String posicionEnCaracteres = this.monstruo.posicionEnCaracteres();
+        if (posicionEnCaracteres == "Dormido"){
+            posicionEnCaracteres = "Ataque";
+        }
 
-        return this.boca.imagen(this.nombre);
+        return this.boca.imagen(this.nombre, " " + posicionEnCaracteres);
     }
 
 }

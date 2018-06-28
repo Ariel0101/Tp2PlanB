@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class RefuerzosTest extends TestCase {
@@ -74,7 +75,7 @@ public class RefuerzosTest extends TestCase {
         assertEquals(1000, jugadorDos.verVida());
     }
 
-    public void testTrampaRefuerzosEfectoSobreMonstruoSeDesactivaCuandoSeDesactivanTemporales() throws MonstruoNoPuedeAtacarError{
+    public void testTrampaRefuerzosEfectoSobreMonstruoSeDesactivaCuandoSeDesactivanTemporales() throws MonstruoNoPuedeAtacarError {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);

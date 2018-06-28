@@ -13,8 +13,5 @@ public interface Carta {
 
      Image imagen();
 
-    /*@Override
-    default String toString() {
-        return "caca";
-    }*/
+     void ponerNombre(String nombre);
 }

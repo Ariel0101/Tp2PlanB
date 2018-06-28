@@ -79,4 +79,26 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
         return this.monstruos.contains(unaCartaMonstruo);
 
     }
+
+    public void aplicar(Efecto efecto) {
+        LinkedList<CartaMonstruo> copiaMonstruos = new LinkedList<>();
+
+        for(CartaMonstruo c : this.monstruos){
+
+            copiaMonstruos.add(c);
+
+        }
+
+        for(CartaMonstruo c : copiaMonstruos){
+
+            efecto.activar(c);
+
+        }
+
+    }
+
+    public boolean estaVacia() {
+
+        return monstruos.isEmpty();
+    }
 }

@@ -11,7 +11,7 @@ public class ConstructorDeCartas {
     public CartaMonstruo mokeyMokey(){
         Monstruo mokeyMokey = new Monstruo(300,100);
         CartaMonstruo monkey = new CartaMonstruo(mokeyMokey,3);
-        monkey.ponerNombre("Monkey");
+        monkey.ponerNombre("Mokey Mokey");
         return monkey;
 
     }
@@ -40,7 +40,7 @@ public class ConstructorDeCartas {
     public CartaMonstruo alasDeLlamaPerversa(){
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 600);
         CartaMonstruo carta = new CartaMonstruo(alasDeLlamaPerversa, 2);
-        carta.ponerNombre("Alas De Llama Perversa");
+        carta.ponerNombre("Alas De La Llama Perversa");
         return carta;
     }
 
@@ -53,9 +53,8 @@ public class ConstructorDeCartas {
 
     public CartaMonstruoComeHombres insectoComeHombres(Campo campoEnemigo){
         Monstruo insectoComeHombres = new Monstruo(450, 600);
-        EfectoDestruirMonstruo efectoDestruirMonstruo = new EfectoDestruirMonstruo(campoEnemigo);
-        CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, efectoDestruirMonstruo);
-        carta.ponerNombre("Insecto Come-Hombres");
+        CartaMonstruoComeHombres carta = new CartaMonstruoComeHombres(insectoComeHombres,2, campoEnemigo);
+        carta.ponerNombre("Insecto Come Hombres");
         return carta;
     }
 
@@ -117,35 +116,47 @@ public class ConstructorDeCartas {
 
     public CartaMagica ollaDeLaCodicia(Mano miMano, Mazo miMazo){
         OllaDeLaCodicia ollaDeLaCodicia = new OllaDeLaCodicia(miMano, miMazo);
-        return new CartaMagica(ollaDeLaCodicia);
+        CartaMagica carta = new CartaMagica(ollaDeLaCodicia);
+        carta.ponerNombre("Olla De La Codicia");
+        return carta;
     }
 
     public CartaMagica fisura(Campo campoEnemigo){
         Fisura fisura = new Fisura(campoEnemigo);
-        return new CartaMagica(fisura);
+        CartaMagica carta = new CartaMagica(fisura);
+        carta.ponerNombre("Fisura");
+        return carta;
     }
 
     //Cartas Trampa
 
     public CartaTrampa refuerzos(){
         Refuerzos refuerzos = new Refuerzos();
-        return new CartaTrampa(refuerzos);
+        CartaTrampa carta = new CartaTrampa(refuerzos);
+        carta.ponerNombre("Refuerzos");
+        return carta;
     }
 
     public CartaTrampa cilindroMagico(){
         CilindroMagico cilindroMagico = new CilindroMagico();
-        return  new CartaTrampa(cilindroMagico);
+        CartaTrampa carta = new CartaTrampa(cilindroMagico);
+        carta.ponerNombre("Cilindro Magico");
+        return carta;
     }
 
     // Cartas de Campo
 
     public CartaDeCampo wasteland(Campo campoAmigo, Campo campoEnemigo){
         EfectoWasteland efectoWasteland = new EfectoWasteland(campoAmigo, campoEnemigo);
-        return new CartaDeCampo(efectoWasteland);
+        CartaDeCampo carta = new CartaDeCampo(efectoWasteland);
+        carta.ponerNombre("Wasteland");
+        return carta;
     }
 
     public CartaDeCampo sogen(Campo campoAmigo, Campo campoEnemigo){
         EfectoSogen efectoSogen = new EfectoSogen(campoAmigo,campoEnemigo);
-        return new CartaDeCampo(efectoSogen);
+        CartaDeCampo carta = new CartaDeCampo(efectoSogen);
+        carta.ponerNombre("Sogen");
+        return carta;
     }
 }

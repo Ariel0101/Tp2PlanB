@@ -1,5 +1,3 @@
-import java.util.Collection;
-
 class EfectoDestruirMonstruo implements Efecto {
 
     Campo campo;
@@ -16,36 +14,8 @@ class EfectoDestruirMonstruo implements Efecto {
 
     }
 
-    public void activar(Mano unaMano) {
-    }
 
-    public void activarEn(Carta unaCarta) {
+    public void activar(ListaMonstruos monstruos) { }
 
-        this.campo.destruir(unaCarta);
-
-    }
-
-    public void activar(Monstruo m){
-
-    }
-
-
-    public void activar(ListaMonstruos monstruos) {
-
-        for (CartaMonstruo m: monstruos){
-
-            this.activar(m);
-        }
-
-    }
-
-    @Override
-    public void activar() {
-
-    }
-
-    public void activarEn(CartaMonstruo carta) {
-
-    }
 
 }

@@ -1,6 +1,7 @@
 import javafx.scene.image.Image;
 
-public class NoCarta implements Carta {
+public class NoCarta implements Carta{
+
     @Override
     public void colocarse(Mano unaMano) {
 
@@ -25,6 +26,11 @@ public class NoCarta implements Carta {
     public Image imagen() {
 
         return new Image("imagenes/bocaNeutra.jpg");
+
+    }
+
+    @Override
+    public void ponerNombre(String nombre) {
 
     }
 }

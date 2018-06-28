@@ -2,7 +2,7 @@ import javafx.scene.image.Image;
 
 public class BocaAbajoComeHombres implements Boca {
 
-    public Botin atacar(CartaMonstruo cartaMonstruo, CartaMonstruo cartaM, Campo campoEnemigo) {
+    public Botin atacar(CartaMonstruo cartaMonstruo, Atacable cartaM, Campo campoEnemigo) {
         return new Botin();
     }
 
@@ -21,7 +21,13 @@ public class BocaAbajoComeHombres implements Boca {
     }
 
     @Override
-    public Image imagen(String nombre) {
-        return new Image("imagenes/bocaAbajo.jpg");
+    public Image imagen(String nombre, String posicion) {
+
+        return new Image("imagenes/bocaAbajo " + posicion + ".jpg");
+    }
+
+    @Override
+    public String verNombre(String nombre) {
+        return "?";
     }
 }

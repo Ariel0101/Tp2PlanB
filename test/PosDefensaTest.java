@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class PosDefensaTest extends TestCase {
@@ -34,7 +35,7 @@ public class PosDefensaTest extends TestCase {
 
     }
 
-    public void testPosAtaqueAtacarLanzaError(){
+    public void testPosDefensaAtacarLanzaError(){
 
         PosDefensa p = new PosDefensa();
         boolean lanzoError = false;

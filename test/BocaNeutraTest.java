@@ -20,4 +20,39 @@ public class BocaNeutraTest extends TestCase {
         assertTrue(campoAmigo.esta(mokeyMokey));
         assertTrue(campoEnemigo.esta(goblinFalso));
     }
+
+    public void testBocaNeutraRecibirAtaqueDevuelveBotinVacio(){
+        Cementerio unCementerio = new Cementerio();
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
+        Monstruo mokeyMokey = new Monstruo(300,100);
+        CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        Monstruo goblinFalso = new Monstruo(400,400);
+        CartaMonstruo cartaGoblin = new CartaMonstruo(goblinFalso,3);
+
+        Campo campoEnemigo = new Campo(unCementerio);
+        Campo campoAmigo = new Campo(unCementerio);
+        cartaMokey.colocarse(campoAmigo);
+        cartaGoblin.colocarse(campoEnemigo);
+        Boca bocaNeutra = new BocaNeutra();
+
+        Botin botinVacio = bocaNeutra.recibirAtaque(cartaMokey, mokeyMokey,goblinFalso, campoAmigo);
+
+        botinVacio.ejecutar(campoAmigo);
+        botinVacio.ejecutar(campoEnemigo);
+
+        assertTrue(campoAmigo.esta(cartaMokey));
+        assertTrue(campoEnemigo.esta(cartaGoblin));
+    }
+
+    public void testBocaNeutraEstaBocaArribaDevuelveFalse(){
+        Boca bocaNeutra = new BocaNeutra();
+
+        assertFalse(bocaNeutra.estaBocaArriba());
+    }
+
+    public void testBocaNeutraEstaBocaAbajoDevuelveFalse(){
+        Boca bocaNeutra = new BocaNeutra();
+
+        assertFalse(bocaNeutra.estaBocaAbajo());
+    }
 }

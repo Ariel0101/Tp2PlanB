@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import javafx.scene.image.Image;
 
 public class CartaTrampa implements Carta {
@@ -8,8 +9,12 @@ public class CartaTrampa implements Carta {
     CartaTrampa(Trampa trampa) {
         this.trampa = trampa;
         this.boca = new BocaNeutra();
+        this.nombre = "sin-nombre";
     }
 
+    public String toString(){
+        return this.nombre;
+    }
 
     public void colocarse(Mano unaMano) {
         unaMano.agregar(this);
@@ -30,7 +35,12 @@ public class CartaTrampa implements Carta {
     @Override
     public Image imagen() {
 
-        return new Image("/imagen" + this.nombre + ".jpg");
+        return this.boca.imagen(this.nombre, "");
+    }
+
+    @Override
+    public void ponerNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {

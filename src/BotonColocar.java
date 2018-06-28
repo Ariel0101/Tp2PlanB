@@ -1,3 +1,4 @@
+import Excepciones.NoHaySufucienteSacrificiosError;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -5,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,10 +36,10 @@ public class BotonColocar implements EventHandler<ActionEvent> {
         this.carta = (Carta) cm.getValue();
 
         if (this.carta == null || carta.getClass() == NoCarta.class) {
-
             this.ventana.close();
             return;
         }
+
         try {
             carta.colocarse(this.campo);
         } catch (NoHaySufucienteSacrificiosError e){
@@ -50,6 +49,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
             String avisoParteTres = "7 o mas estrellas : 2 Sacrificios \n";
             String avisoParteCuatro = "En caso de fusion, leer descripcion en la carta \n";
             TextArea avisoDeErrorDeSacrifcios = new TextArea( avisoParteUno + avisoParteDos + avisoParteTres + avisoParteCuatro);
+            avisoDeErrorDeSacrifcios.setEditable(false);
             Scene escenaDeErrorDeInvocacion = new Scene(avisoDeErrorDeSacrifcios);
             ventanaDeError.setScene(escenaDeErrorDeInvocacion);
             ventanaDeError.show();
@@ -78,7 +78,7 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         if (this.boca.getValue() == "Boca arriba"){
 
-            System.out.print("Colocado boca arriba");
+            System.out.print("Colocado boca arriba\n");
 
             carta.colocarBocaArriba();
 
@@ -90,24 +90,28 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         if (this.boca.getValue() == "Boca abajo"){
 
-            System.out.print("Colocado boca abajo");
+            System.out.print("Colocado boca abajo\n");
 
             carta.colocarBocaAbajo();
 
         }
-
+        if (this.boca.getValue() == null){ //Por defecto
+            System.out.println("Colocado boca abajo, por defecto\n");
+            carta.colocarBocaAbajo();
+        }
     }
 
     void preguntarPosicion(){
 
-        Stage stage = new Stage();
+        Stage ventaElegirPosicion = new Stage();
+        ventaElegirPosicion.setTitle("¿Que posicion?");
 
         ComboBox<String> posicion = new ComboBox<>();
-        posicion.setPromptText("Que posicion?");
-        posicion.getItems().add("Ataque");
-        posicion.getItems().add("Defensa");
+        posicion.setPromptText("En Ataque");
+        posicion.getItems().add("En Ataque");
+        posicion.getItems().add("En Defensa");
 
-        BotonAceptar botonAceptar = new BotonAceptar(posicion, (CartaMonstruo) this.carta, stage);
+        BotonAceptar botonAceptar = new BotonAceptar(posicion, (CartaMonstruo) this.carta, ventaElegirPosicion);
         Button aceptar = new Button("aceptar");
         aceptar.setOnAction(botonAceptar);
 
@@ -117,8 +121,8 @@ public class BotonColocar implements EventHandler<ActionEvent> {
 
         Scene scene = new Scene(layout, 200, 250); //
 
-        stage.setScene(scene);
-        stage.show();
+        ventaElegirPosicion.setScene(scene);
+        ventaElegirPosicion.show();
 
     }
 

@@ -1,8 +1,9 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class MonstruoTest extends TestCase {
 
-    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYAitsuMuere() throws MonstruoNoPuedeAtacarError{
+    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYAitsuMuere() throws MonstruoNoPuedeAtacarError {
 
         Monstruo a = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -178,5 +179,4 @@ public class MonstruoTest extends TestCase {
         assertFalse(lanzoError);
 
     }
-
 }

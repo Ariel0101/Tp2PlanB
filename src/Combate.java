@@ -1,3 +1,6 @@
+import Excepciones.MonstruoAtacanteNoPertenceACampoAtacadoError;
+import Excepciones.MonstruoAtacanteNoPertenceACampoAtacanteError;
+
 public class Combate {
 
     private final Jugador jugadorAtacante;
@@ -13,13 +16,7 @@ public class Combate {
         this.campoAtacado = campoAtacado;
     }
 
-    public void combatir(CartaMonstruo atacante, CartaMonstruo atacado) {
-        if(!(this.campoAtacante.esta(atacante))){
-            throw new MonstruoAtacanteNoPertenceACampoAtacanteError();
-        }
-        if(!(this.campoAtacado.esta(atacado))){ //La otra es hacer metodo siEstaLevantaEsteError...
-            throw new MonstruoAtacanteNoPertenceACampoAtacadoError();
-        }
+    public void combatir(CartaMonstruo atacante, Atacable atacado) {
         Botin botin = atacante.atacar(atacado, this.campoAtacado);
         botin.infligirDanios(this.jugadorAtacante,this.jugadorAtacado);
         botin.ejecutar(this.campoAtacante);
