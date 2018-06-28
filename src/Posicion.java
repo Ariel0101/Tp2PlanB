@@ -7,4 +7,6 @@ public interface Posicion {
     void matar(Monstruo enemigo, Botin b) throws MonstruoNoPuedeAtacarError;
 
     void atacar() throws MonstruoNoPuedeAtacarError;
+
+    String enCaracteres();
 }

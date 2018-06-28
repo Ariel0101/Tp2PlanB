@@ -20,4 +20,9 @@ public class PosDefensa implements Posicion {
         throw new MonstruoNoPuedeAtacarError();
 
     }
+
+    @Override
+    public String enCaracteres() {
+        return "Defensa";
+    }
 }

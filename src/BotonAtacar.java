@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -31,7 +32,7 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
 
     public void handle(ActionEvent actionEvent){
 
-        Stage stage = new Stage();
+        Stage ventantaDeAtaque = new Stage();
 
         ComboBox<CartaMonstruo> eleccionAtacante = new ComboBox<>();
         eleccionAtacante.setPromptText("Eligi tu Monstruo");
@@ -56,7 +57,7 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         Button comenzarAtaque = new Button("Comenzar ataque");
 
         comenzarAtaque.setOnAction(e ->
-                this.aceptar(eleccionAtacante.getValue(), eleccionAtacado.getValue(), stage)
+                this.aceptar(eleccionAtacante.getValue(), eleccionAtacado.getValue(), ventantaDeAtaque)
         );
 
         VBox layout = new VBox(10);
@@ -64,13 +65,13 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         layout.getChildren().addAll(eleccionAtacante, eleccionAtacado, comenzarAtaque);
 
         Scene scene =  new Scene(layout, 300, 500);
-        stage.setScene(scene);
-        stage.show();
+        ventantaDeAtaque.setScene(scene);
+        ventantaDeAtaque.show();
 
 
     }
 
-    private void aceptar(CartaMonstruo atacante, CartaMonstruo atacado, Stage stage){
+    private void aceptar(CartaMonstruo atacante, CartaMonstruo atacado, Stage ventantaDeAtaque){
 
         if (atacante == null || atacado == null){
 
@@ -79,10 +80,22 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         }
 
         Combate combate = new Combate(jugador, campo, enemigo, campoEnemigo);
-        combate.combatir(atacante, atacado);
+        try {
+            combate.combatir(atacante, atacado);
+        } catch (MonstruoNoPuedeAtacarError e){
+            Stage ventanaDeError = new Stage();
+            TextArea avisoDeErrorDeSacrifcios = new TextArea( "Monstruo elegido no esta en posicion de ataque.\n");
+            avisoDeErrorDeSacrifcios.setEditable(false);
+            Scene escenaDeErrorDeInvocacion = new Scene(avisoDeErrorDeSacrifcios);
+            ventanaDeError.setScene(escenaDeErrorDeInvocacion);
+            ventanaDeError.show();
+            ventantaDeAtaque.close();
+            return;
+        }
+
         this.monstruosQueYaAtacaron.add(atacante);
         this.actualizador.actualizar();
-        stage.close();
+        ventantaDeAtaque.close();
 
         System.out.print("Combate realizado:" + atacante.toString() + " vs " + atacado.toString());
 

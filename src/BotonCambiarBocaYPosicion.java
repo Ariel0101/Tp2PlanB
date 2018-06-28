@@ -99,6 +99,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
             System.out.print("Colocado en pos ataque, por defecto.\n");
             cartaElegida.colocarEnPosAtaque();
         }
+
     }
 
     public void reiniciar(){

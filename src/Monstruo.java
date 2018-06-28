@@ -123,4 +123,7 @@ public class Monstruo{
     }
 
 
+    public String posicionEnCaracteres() {
+        return this.posicion.enCaracteres();
+    }
 }

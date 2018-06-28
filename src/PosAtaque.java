@@ -22,4 +22,9 @@ public class PosAtaque implements Posicion {
 
     }
 
+    @Override
+    public String enCaracteres() {
+        return "Ataque";
+    }
+
 }

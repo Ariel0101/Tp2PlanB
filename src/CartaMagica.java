@@ -52,7 +52,7 @@ class CartaMagica implements Carta {
 
     public Image imagen(){
 
-        return this.boca.imagen(this.nombre);
+        return this.boca.imagen(this.nombre, "");
 
     }
 

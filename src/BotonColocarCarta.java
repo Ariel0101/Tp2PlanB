@@ -184,7 +184,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
 
             cartaAColocar.colocarEnPosAtaque();
         }
-
+        this.actualizador.actualizar();
         ventanaElegirPosicion.close();
     }
 

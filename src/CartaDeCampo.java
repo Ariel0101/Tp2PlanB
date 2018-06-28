@@ -40,7 +40,7 @@ public class CartaDeCampo implements Carta {
     @Override
     public Image imagen() {
         
-		return this.boca.imagen(this.nombre);
+		return this.boca.imagen(this.nombre, "");
 		
     }
 

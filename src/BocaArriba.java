@@ -23,8 +23,14 @@ public class BocaArriba implements Boca {
     }
 
     @Override
-    public Image imagen(String nombre) {
-        return new Image("imagenes/" + nombre + ".jpg");
+    public Image imagen(String nombre, String posicion) {
+
+        return new Image("imagenes/" + nombre + posicion + ".jpg");
+    }
+
+    @Override
+    public String verNombre(String nombre) {
+        return nombre;
     }
 
 }

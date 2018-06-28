@@ -120,14 +120,18 @@ class CartaMonstruo implements Carta {
     @Override
     public String toString(){
 
-        return this.nombre;
+        return this.boca.verNombre(this.nombre);
 
     }
 
     @Override
     public Image imagen() {
+        String posicionEnCaracteres = this.monstruo.posicionEnCaracteres();
+        if (posicionEnCaracteres == "Dormido"){
+            posicionEnCaracteres = "Ataque";
+        }
 
-        return this.boca.imagen(this.nombre);
+        return this.boca.imagen(this.nombre, " " + posicionEnCaracteres);
     }
 
 }

@@ -10,5 +10,7 @@ public interface Boca {
 
     boolean estaBocaAbajo();
 
-    Image imagen(String nombre);
+    Image imagen(String nombre, String posicion);
+
+    String verNombre(String nombre);
 }

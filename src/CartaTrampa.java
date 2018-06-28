@@ -8,8 +8,12 @@ public class CartaTrampa implements Carta {
     CartaTrampa(Trampa trampa) {
         this.trampa = trampa;
         this.boca = new BocaNeutra();
+        this.nombre = "sin-nombre";
     }
 
+    public String toString(){
+        return this.nombre;
+    }
 
     public void colocarse(Mano unaMano) {
         unaMano.agregar(this);
@@ -30,7 +34,7 @@ public class CartaTrampa implements Carta {
     @Override
     public Image imagen() {
 
-        return this.boca.imagen(this.nombre);
+        return this.boca.imagen(this.nombre, "");
     }
 
     @Override
