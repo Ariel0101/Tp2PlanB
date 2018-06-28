@@ -96,4 +96,9 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
         }
 
     }
+
+    public boolean estaVacia() {
+
+        return monstruos.isEmpty();
+    }
 }

@@ -2,7 +2,7 @@ import javafx.scene.image.Image;
 
 public class BocaArriba implements Boca {
 
-    public Botin atacar(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError{
+    public Botin atacar(CartaMonstruo cartaAtacante, Atacable cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError{
         return cartaAtacada.recibirAtaque(cartaAtacante, campoEnemigo);
     }
 

@@ -178,5 +178,4 @@ public class MonstruoTest extends TestCase {
         assertFalse(lanzoError);
 
     }
-
 }

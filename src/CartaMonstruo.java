@@ -1,6 +1,6 @@
 import javafx.scene.image.Image;
 
-class CartaMonstruo implements Carta {
+class CartaMonstruo implements Carta, Atacable {
 
     protected Monstruo monstruo;
     protected Boca boca;
@@ -42,7 +42,7 @@ class CartaMonstruo implements Carta {
 
     }
 
-    Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
+    Botin atacar(Atacable cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
 
         return this.boca.atacar(this, cartaAtacada, campoEnemigo);
 
@@ -109,6 +109,10 @@ class CartaMonstruo implements Carta {
     	this.invocar(c);
         c.agregarMonstruo(this);
 
+    }
+
+    public int conCuantosPuntosAtaca() {
+        return monstruo.obtenerPuntos();
     }
 
     public void ponerNombre(String nombre){

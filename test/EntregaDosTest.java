@@ -5,8 +5,10 @@ public class EntregaDosTest extends TestCase {
         Jugador j1 = new Jugador("1",1000);
         Monstruo jinzo7 = new Monstruo(500,400);
         CartaMonstruoJinzo7 cartaJinzo7 = new CartaMonstruoJinzo7(jinzo7, 2);
+        Campo unCampo = new Campo(new Cementerio());
+
         cartaJinzo7.colocarEnPosAtaque();
-        cartaJinzo7.atacar(j1);
+        cartaJinzo7.atacar(j1, unCampo);
 
         assertEquals(1000-500,j1.verVida());
     }

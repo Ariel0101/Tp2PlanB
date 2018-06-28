@@ -3,8 +3,11 @@ public class CartaMonstruoJinzo7 extends CartaMonstruo {
         super(m, estrellas);
     }
 
-    public void atacar(Jugador jugadorAtacado) {
-        int danio = this.monstruo.obtenerPuntosDeAtaque();
-        jugadorAtacado.recibirAtaque(danio);
+
+    Botin atacar(Jugador jugadorAtacado, Campo campoEnemigo) {
+        Botin botin = new Botin();
+        botin.setDanioAtacado(this.conCuantosPuntosAtaca());
+        botin.atacarJugador(jugadorAtacado);
+        return botin;
     }
 }

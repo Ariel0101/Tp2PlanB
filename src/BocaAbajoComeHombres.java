@@ -2,7 +2,7 @@ import javafx.scene.image.Image;
 
 public class BocaAbajoComeHombres implements Boca {
 
-    public Botin atacar(CartaMonstruo cartaMonstruo, CartaMonstruo cartaM, Campo campoEnemigo) {
+    public Botin atacar(CartaMonstruo cartaMonstruo, Atacable cartaM, Campo campoEnemigo) {
         return new Botin();
     }
 
