@@ -20,10 +20,10 @@ public class Jugador implements Atacable{
 
     }
 
-    public Botin recibirAtaque(CartaMonstruo monstruoAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError {
+    public Botin recibirAtaque(CartaMonstruo monstruoAtacante, Campo miCampo) throws NoSePuedeAtacarAJugadorError {
 
         if (miCampo.noHayMonstruos() == false) {
-            throw new MonstruoNoPuedeAtacarError();
+            throw new NoSePuedeAtacarAJugadorError();
         }
         Botin botin = new Botin();
         botin.setDanioAtacado(monstruoAtacante.conCuantosPuntosAtaca());
@@ -42,7 +42,6 @@ public class Jugador implements Atacable{
     int verVida() {
     	
     	return this.vida;
-
     }
 
     public void ganar() {
