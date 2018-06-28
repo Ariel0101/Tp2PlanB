@@ -1,3 +1,5 @@
+import Excepciones.NoHayCartasError;
+
 import java.util.LinkedList;
 
 public class Mazo {

@@ -1,4 +1,4 @@
-import javafx.stage.Stage;
+import Excepciones.NoHayCartasError;
 import junit.framework.TestCase;
 
 public class MazoTest extends TestCase {

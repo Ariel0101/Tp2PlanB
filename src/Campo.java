@@ -1,3 +1,6 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
+import Excepciones.NoHaySufucienteSacrificiosError;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -140,7 +143,7 @@ public class Campo implements Reiniciable {
 	public void fusionar(CartaMonstruo cartaMonstruoAFusionar, int cantidadAFusionar) {
 		
 		LinkedList<CartaMonstruo> listaObtenida = listaMonstruos.obtenerTodas(cartaMonstruoAFusionar);
-        if (listaObtenida.size() < cantidadAFusionar) {
+		if (listaObtenida.size() < cantidadAFusionar) {
             throw new NoHaySufucienteSacrificiosError();
         }
 

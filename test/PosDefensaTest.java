@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class PosDefensaTest extends TestCase {

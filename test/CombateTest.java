@@ -1,3 +1,5 @@
+import Excepciones.MonstruoAtacanteNoPertenceACampoAtacadoError;
+import Excepciones.MonstruoAtacanteNoPertenceACampoAtacanteError;
 import junit.framework.TestCase;
 
 public class CombateTest extends TestCase {

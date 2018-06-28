@@ -1,3 +1,6 @@
+import Excepciones.MonstruoAtacanteNoPertenceACampoAtacadoError;
+import Excepciones.MonstruoAtacanteNoPertenceACampoAtacanteError;
+
 public class Combate {
 
     private final Jugador jugadorAtacante;

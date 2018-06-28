@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
@@ -57,7 +58,7 @@ public class EntregaDosTest extends TestCase {
         assertFalse(unCementerio.esta(aitsu4));
     }
 
-    public void testActivarSogenAumenta500LaDefensaDeMonstruosAmigosY200ElAtaqueOponente() throws MonstruoNoPuedeAtacarError{
+    public void testActivarSogenAumenta500LaDefensaDeMonstruosAmigosY200ElAtaqueOponente() throws MonstruoNoPuedeAtacarError {
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);

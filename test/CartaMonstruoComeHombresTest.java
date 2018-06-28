@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class CartaMonstruoComeHombresTest extends TestCase {
@@ -41,7 +42,7 @@ public class CartaMonstruoComeHombresTest extends TestCase {
         assertFalse(unCementerio.esta(cartaMokey));
     }
 
-    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() throws MonstruoNoPuedeAtacarError{
+    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() throws MonstruoNoPuedeAtacarError {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);

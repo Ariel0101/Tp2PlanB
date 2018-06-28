@@ -1,3 +1,4 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
 import javafx.scene.image.Image;
 
 class CartaMonstruo implements Carta, Atacable {

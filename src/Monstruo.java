@@ -1,3 +1,5 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
+
 public class Monstruo{
 
     private Posicion posicion;

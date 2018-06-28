@@ -1,3 +1,5 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
+
 public interface Posicion {
 
     int obtenerPuntos(int danio, int defensa) throws MonstruoNoPuedeAtacarError;

@@ -1,3 +1,5 @@
+import Excepciones.NoSePuedeAtacarAJugadorError;
+
 public class Jugador implements Atacable{
 
     private int vida;

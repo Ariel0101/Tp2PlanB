@@ -1,8 +1,10 @@
+import Excepciones.MonstruoNoPuedeAtacarError;
+import Excepciones.NoSePuedeAtacarAJugadorError;
 import junit.framework.TestCase;
 
 public class CartaMonstruoTest extends TestCase {
 
-    public void testCartaConMosntruoAitsuNoAtacaSiEstaBocaAbajo() throws MonstruoNoPuedeAtacarError{
+    public void testCartaConMosntruoAitsuNoAtacaSiEstaBocaAbajo() throws MonstruoNoPuedeAtacarError {
 
         Monstruo ai = new Monstruo(100, 100);
         CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
