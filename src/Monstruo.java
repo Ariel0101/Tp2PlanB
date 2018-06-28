@@ -34,7 +34,7 @@ public class Monstruo{
 
     }
 
-    private int obtenerPuntos() throws MonstruoNoPuedeAtacarError {
+    public int obtenerPuntos() throws MonstruoNoPuedeAtacarError {
     	
         return this.posicion.obtenerPuntos(this.danio, this.defensa);
     }

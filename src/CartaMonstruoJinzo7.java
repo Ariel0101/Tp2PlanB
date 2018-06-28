@@ -5,6 +5,6 @@ public class CartaMonstruoJinzo7 extends CartaMonstruo {
 
     public void atacar(Jugador jugadorAtacado) {
         int danio = this.monstruo.obtenerPuntosDeAtaque();
-        jugadorAtacado.recibirAtaque(danio);
+        jugadorAtacado.restarVida(danio);
     }
 }

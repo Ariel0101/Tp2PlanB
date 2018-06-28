@@ -94,14 +94,11 @@ public class Campo implements Reiniciable {
 
     }
 
-    void aplicarEnMonstruos(Efecto efecto){
+    void aplicarEnMonstruos(Efecto efecto) {
 
         this.listaMonstruos.aplicar(efecto);
 
     }
-
-
-
 
 	public void setEfectoDeCampoPropio(Efecto unEfectoDeCampo) {
 		
@@ -152,4 +149,9 @@ public class Campo implements Reiniciable {
         }
 
 	}
+
+	public boolean noHayMonstruos() {
+        return listaMonstruos.estaVacia();
+    }
+
 }

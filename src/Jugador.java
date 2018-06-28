@@ -1,6 +1,4 @@
-import javafx.stage.Stage;
-
-public class Jugador {
+public class Jugador implements Atacable{
 
     private int vida;
     private String nombre;
@@ -22,16 +20,24 @@ public class Jugador {
 
     }
 
-    void recibirAtaque(int puntosRestarAtacante) {
+    public Botin recibirAtaque(CartaMonstruo monstruoAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError {
 
-        this.vida = this.vida - puntosRestarAtacante;
+        if (miCampo.noHayMonstruos() == false) {
+            throw new MonstruoNoPuedeAtacarError();
+        }
+        Botin botin = new Botin();
+        botin.setDanioAtacado(monstruoAtacante.conCuantosPuntosAtaca());
+        botin.atacarJugador(this);
         if (this.vida <= 0){
             this.perder();
         }
-
+        return botin;
     }
 
+    void restarVida(int vidaARestar) {
 
+        this.vida -= vidaARestar;
+    }
 
     int verVida() {
     	

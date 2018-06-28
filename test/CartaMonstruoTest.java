@@ -44,4 +44,17 @@ public class CartaMonstruoTest extends TestCase {
 
     }
 
+    public void testMonstruoPuedeAtacarAJugadorSiNoHayMonstruosEnElCampoEnemigo() {
+
+        Monstruo m1 = new Monstruo(100, 100);
+        CartaMonstruo aitsu = new CartaMonstruo(m1, 1);
+        Jugador yuGi = new Jugador("YuGi", 8000);
+        Campo campoYugi = new Campo(new Cementerio());
+
+        aitsu.colocarBocaArriba();
+        aitsu.colocarEnPosAtaque();
+        aitsu.atacar(yuGi, campoYugi);
+
+        assertTrue(yuGi.verVida() == (8000-100));
+    }
 }

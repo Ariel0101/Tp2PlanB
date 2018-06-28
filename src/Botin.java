@@ -26,11 +26,15 @@ class Botin {
 
     void infligirDanios(Jugador atacante, Jugador atacado) {
 
-        atacado.recibirAtaque(this.danioDeAtacado);
-        atacante.recibirAtaque(this.danioDeAtacante);
+        atacado.restarVida(this.danioDeAtacado);
+        atacante.restarVida(this.danioDeAtacante);
 
     }
 
+    void atacarJugador(Jugador atacado) {
+
+        atacado.restarVida(this.danioDeAtacado);
+    }
     void ejecutar(Campo c){
 
         for (Monstruo m : this.muertos){
