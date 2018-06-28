@@ -77,6 +77,8 @@ public class Main extends Application {
         /*magicasTrampasEnCampoEnemigo.setAlignment(Pos.BASELINE_CENTER);*/
         magicasTrampasEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
 
+
+
         //Actualizador de Representaciones (actualiza el campo de batalla)
         LinkedList<Actualizable> representaciones = new LinkedList<>();
         representaciones.add(monstruosEnCampo);
@@ -104,6 +106,12 @@ public class Main extends Application {
         Button botonAgarrarCarta = new Button("Sacar carta del mazo");
         BotonSacarCartaDeMazo botonAgarrarCartaHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCarta);
         botonAgarrarCarta.setOnAction(botonAgarrarCartaHandler);
+
+        Button botonVerVida = new Button("Ver vida");
+        BotonVerVida botonVerVidaHandler = new BotonVerVida(jugador);
+        botonVerVida.setOnAction(botonVerVidaHandler);
+
+
 
         //Botones del enemigo:
         Button botonColocarEnemigo = new Button("Colocar una carta");

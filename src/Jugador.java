@@ -40,4 +40,10 @@ public class Jugador {
     public void perder() {
         this.partida.setPerdedor(this.nombre);
     }
+
+    String nombre(){
+
+        return this.nombre;
+
+    }
 }
