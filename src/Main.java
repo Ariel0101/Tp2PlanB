@@ -7,10 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
 import java.util.LinkedList;
 
 public class Main extends Application {
@@ -23,7 +22,6 @@ public class Main extends Application {
         ventanaPrincipal.setTitle("Al-Go-Oh");
         //ventanaPrincipal.setFullScreen(true);
        // ventanaPrincipal.setFullScreenExitHint("");
-
 
         //Partida
         Partida unaPartida = new Partida();
@@ -89,17 +87,16 @@ public class Main extends Application {
         randomizadorEnem.llenarMazo(mazoEnemigo);
 
         //Contenedor de las imagenes de cosas del jugador:
-        HBox jugadorVisualHBox = new HBox();
+        VBox jugadorVisualVBox = new VBox(10);
         ImageView imagenYugi = this.crearImagen("imagenes/yugi.png", 200, 200);
         ProgressBar barraDeVidaJugador1 = new ProgressBar();
         barraDeVidaJugador1.setProgress(1.0);
         barraDeVidaJugador1.setPrefSize(200, 20);
         Label nombreJ1 = new Label(jugador.toString() +" "+ (int)jugador.verVida() + "/" + (int)jugador.verVidaMaxima());
         nombreJ1.setStyle("-fx-font: 20 arial;");
+        jugadorVisualVBox.setAlignment(Pos.TOP_LEFT);
+        RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualVBox, imagenYugi, barraDeVidaJugador1, nombreJ1);
 
-
-        jugadorVisualHBox.setAlignment(Pos.TOP_LEFT);
-        RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualHBox, imagenYugi, barraDeVidaJugador1, nombreJ1);
         HBox monstruosEnCampo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruos = new RepresentacionCampoMonstruos(campo,monstruosEnCampo);
         HBox magicasTrampasEnCampo = new HBox();
@@ -114,8 +111,8 @@ public class Main extends Application {
         magicasTrampasEnCampo.setStyle("-fx-background-color: #336699;");
 
         //Contenedor de las imagenes de cosas del jugador enemigo:
-        HBox jugadorEnemigoVisualHBox = new HBox();
-        jugadorEnemigoVisualHBox.setAlignment(Pos.TOP_LEFT);
+        VBox jugadorEnemigoVisualVBox = new VBox(10);
+        jugadorEnemigoVisualVBox.setAlignment(Pos.TOP_LEFT);
         ImageView imagenSeto = this.crearImagen("imagenes/seto.png", 200, 200);
         ProgressBar barraDeVidaJugador2 = new ProgressBar();
         barraDeVidaJugador2.setProgress(1.0);
@@ -123,7 +120,7 @@ public class Main extends Application {
         Label nombreJ2 = new Label(enemigo.toString()+" "+ (int)enemigo.verVida() + "/" + (int)enemigo.verVidaMaxima());
         nombreJ2.setStyle("-fx-font: 20 arial;");
 
-        RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualHBox, imagenSeto, barraDeVidaJugador2, nombreJ2);
+        RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto, barraDeVidaJugador2, nombreJ2);
         HBox monstruosEnCampoEnemigo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruosEnemigo = new RepresentacionCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
         HBox magicasTrampasEnCampoEnemigo = new HBox();
@@ -212,11 +209,11 @@ public class Main extends Application {
         gridDeJugador.setPadding(new Insets(10, 10, 10, 10));
         gridDeJugador.setVgap(10);
         gridDeJugador.setHgap(10);
-        gridDeJugador.setAlignment(Pos.TOP_CENTER);
-        gridDeJugador.add(jugadorVisualHBox,0,0);
-        gridDeJugador.add(contenedorHorizontal, 0, 1);
-        gridDeJugador.add(monstruosEnCampo, 0, 2);
-        gridDeJugador.add(magicasTrampasEnCampo, 0, 3);
+        gridDeJugador.setAlignment(Pos.TOP_LEFT);
+        gridDeJugador.add(jugadorVisualVBox,0,3);
+        gridDeJugador.add(contenedorHorizontal, 1, 2);
+        gridDeJugador.add(monstruosEnCampo, 1, 0);
+        gridDeJugador.add(magicasTrampasEnCampo, 1, 1);
 
         //Grilla de enemigo:
         GridPane gridDeEnemigo = new GridPane();
@@ -224,8 +221,8 @@ public class Main extends Application {
         gridDeEnemigo.setPadding(new Insets(10, 10, 10, 10));
         gridDeEnemigo.setVgap(10);
         gridDeEnemigo.setHgap(10);
-        gridDeEnemigo.setAlignment(Pos.BOTTOM_CENTER);
-        gridDeEnemigo.add(jugadorEnemigoVisualHBox,0,0);
+        gridDeEnemigo.setAlignment(Pos.BOTTOM_RIGHT);
+        gridDeEnemigo.add(jugadorEnemigoVisualVBox,1,0);
         gridDeEnemigo.add(contenedorHorizontalEnem, 0, 1);
         gridDeEnemigo.add(monstruosEnCampoEnemigo, 0, 2);
         gridDeEnemigo.add(magicasTrampasEnCampoEnemigo, 0, 3);
@@ -254,6 +251,9 @@ public class Main extends Application {
         VBox contenedorPrincipal = new VBox(gridDeJugador, gridDeEnemigo, botonDeTurno);
         contenedorPrincipal.setSpacing(80);
         contenedorPrincipal.setPadding(new Insets(40));
+        BackgroundImage imagenFondo = new BackgroundImage(new Image("imagenes/background1.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(-1, -1, true, true, false, true));
+        Background fondo = new Background(imagenFondo);
+        contenedorPrincipal.setBackground(fondo);
 
         Scene scene = new Scene(contenedorPrincipal, 1000, 850);
 
