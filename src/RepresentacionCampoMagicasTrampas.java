@@ -36,7 +36,7 @@ public class RepresentacionCampoMagicasTrampas implements Actualizable {
 
         Iterator<CartaTrampa> iteradorTrampas = cartasTrampa.iterator();
 
-        while (iteradorMagicas.hasNext()) {
+        while (iteradorTrampas.hasNext()) {
             Carta carta = iteradorTrampas.next();
             ImageView imagenCarta = new ImageView();
             imagenCarta.setFitWidth(ancho_imagen);
