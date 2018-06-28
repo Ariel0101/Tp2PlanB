@@ -3,6 +3,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -15,21 +19,24 @@ public class Main extends Application {
         launch(args);
     }
 
-    public void start(Stage ventana) throws Exception {
-        ventana.setTitle("Al-Go-Oh");
+    public void start(Stage ventanaPrincipal) throws Exception {
+        ventanaPrincipal.setTitle("Al-Go-Oh");
+        //ventanaPrincipal.setFullScreen(true);
+       // ventanaPrincipal.setFullScreenExitHint("");
+
 
         //Partida
         Partida unaPartida = new Partida();
-        unaPartida.setVentana(ventana);
+        unaPartida.setVentana(ventanaPrincipal);
 
         //Cosas del jugador:
-        Jugador jugador = new Jugador("Yugi-1", 8000, unaPartida);
+        Jugador jugador = new Jugador("Yugi Muto", 8000, unaPartida);
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
 
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("Yugi-2", 8000, unaPartida);
+        Jugador enemigo = new Jugador("Seto Kaiba", 8000, unaPartida);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
@@ -83,7 +90,16 @@ public class Main extends Application {
 
         //Contenedor de las imagenes de cosas del jugador:
         HBox jugadorVisualHBox = new HBox();
-        RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualHBox);
+        ImageView imagenYugi = this.crearImagen("imagenes/yugi.png", 200, 200);
+        ProgressBar barraDeVidaJugador1 = new ProgressBar();
+        barraDeVidaJugador1.setProgress(1.0);
+        barraDeVidaJugador1.setPrefSize(200, 20);
+        Label nombreJ1 = new Label(jugador.toString() +" "+ (int)jugador.verVida() + "/" + (int)jugador.verVidaMaxima());
+        nombreJ1.setStyle("-fx-font: 20 arial;");
+
+
+        jugadorVisualHBox.setAlignment(Pos.TOP_LEFT);
+        RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualHBox, imagenYugi, barraDeVidaJugador1, nombreJ1);
         HBox monstruosEnCampo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruos = new RepresentacionCampoMonstruos(campo,monstruosEnCampo);
         HBox magicasTrampasEnCampo = new HBox();
@@ -99,7 +115,15 @@ public class Main extends Application {
 
         //Contenedor de las imagenes de cosas del jugador enemigo:
         HBox jugadorEnemigoVisualHBox = new HBox();
-        RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualHBox);
+        jugadorEnemigoVisualHBox.setAlignment(Pos.TOP_LEFT);
+        ImageView imagenSeto = this.crearImagen("imagenes/seto.png", 200, 200);
+        ProgressBar barraDeVidaJugador2 = new ProgressBar();
+        barraDeVidaJugador2.setProgress(1.0);
+        barraDeVidaJugador2.setPrefSize(200, 20);
+        Label nombreJ2 = new Label(enemigo.toString()+" "+ (int)enemigo.verVida() + "/" + (int)enemigo.verVidaMaxima());
+        nombreJ2.setStyle("-fx-font: 20 arial;");
+
+        RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualHBox, imagenSeto, barraDeVidaJugador2, nombreJ2);
         HBox monstruosEnCampoEnemigo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruosEnemigo = new RepresentacionCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
         HBox magicasTrampasEnCampoEnemigo = new HBox();
@@ -130,7 +154,7 @@ public class Main extends Application {
         botonColocarCarta.setOnAction(botonColocarCartaHandler);
 
         Button botonAtacar = new Button("Atacar");
-        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador);
+        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador, ventanaPrincipal);
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
         Button verMano1 = new Button("Ver mano");
@@ -155,7 +179,7 @@ public class Main extends Application {
         botonColocarEnemigo.setOnAction(botonColocarCartaEnemigoHandler);
 
         Button botonEnemigoAtacar = new Button("Atacar");
-        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador);
+        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador, ventanaPrincipal);
         botonEnemigoAtacar.setOnAction(botonEnemAtacarEventHandler);
 
         Button verMano2 = new Button("Ver mano");
@@ -233,10 +257,16 @@ public class Main extends Application {
 
         Scene scene = new Scene(contenedorPrincipal, 1000, 850);
 
-        ventana.setScene(scene);
+        ventanaPrincipal.setScene(scene);
 
-        ventana.show();
+        ventanaPrincipal.show();
     }
 
-
+    public ImageView crearImagen(String url, int height, int width){
+        Image img = new Image(url);
+        ImageView imgView = new ImageView(img);
+        imgView.setFitHeight(height);
+        imgView.setFitWidth(width);
+        return imgView;
+    }
 }

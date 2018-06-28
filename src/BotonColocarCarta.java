@@ -41,9 +41,10 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         }
 
         ComboBox<String> opcionesBoca = new ComboBox<>();
-        opcionesBoca.setPromptText("Boca abajo");
-        opcionesBoca.getItems().add("Boca arriba");
+        opcionesBoca.setPromptText("Boca arriba o boca abajo?");
         opcionesBoca.getItems().add("Boca abajo");
+        opcionesBoca.getItems().add("Boca arriba");
+
 
 
         Button botonAceptarBoca = new Button("Bueno, colocar en el campo");
