@@ -95,6 +95,7 @@ public class Main extends Application {
         Label nombreJ1 = new Label(jugador.toString() +" "+ (int)jugador.verVida() + "/" + (int)jugador.verVidaMaxima());
         nombreJ1.setStyle("-fx-font: 20 arial;");
         jugadorVisualVBox.setAlignment(Pos.TOP_LEFT);
+        jugadorVisualVBox.setMaxWidth(200);
         RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualVBox, imagenYugi, barraDeVidaJugador1, nombreJ1);
 
         HBox monstruosEnCampo = new HBox();
@@ -119,8 +120,9 @@ public class Main extends Application {
         barraDeVidaJugador2.setPrefSize(200, 20);
         Label nombreJ2 = new Label(enemigo.toString()+" "+ (int)enemigo.verVida() + "/" + (int)enemigo.verVidaMaxima());
         nombreJ2.setStyle("-fx-font: 20 arial;");
-
+        jugadorEnemigoVisualVBox.setMaxWidth(200);
         RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto, barraDeVidaJugador2, nombreJ2);
+
         HBox monstruosEnCampoEnemigo = new HBox();
         RepresentacionCampoMonstruos representacionCampoMonstruosEnemigo = new RepresentacionCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
         HBox magicasTrampasEnCampoEnemigo = new HBox();
@@ -205,24 +207,27 @@ public class Main extends Application {
 
         //Grilla de jugador:
         GridPane gridDeJugador = new GridPane();
-        gridDeJugador.setMinSize(300, 240);
+        gridDeJugador.setMinSize(300, 250);
+        gridDeJugador.setMaxSize(1500, 450);
         gridDeJugador.setPadding(new Insets(10, 10, 10, 10));
         gridDeJugador.setVgap(10);
         gridDeJugador.setHgap(10);
-        gridDeJugador.setAlignment(Pos.TOP_LEFT);
-        gridDeJugador.add(jugadorVisualVBox,0,3);
+        gridDeJugador.setAlignment(Pos.CENTER_LEFT);
+        gridDeJugador.add(jugadorVisualVBox,0,1);
         gridDeJugador.add(contenedorHorizontal, 1, 2);
         gridDeJugador.add(monstruosEnCampo, 1, 0);
         gridDeJugador.add(magicasTrampasEnCampo, 1, 1);
 
         //Grilla de enemigo:
         GridPane gridDeEnemigo = new GridPane();
-        gridDeEnemigo.setMinSize(300, 240);
+        gridDeEnemigo.setMinSize(300, 250);
+        gridDeEnemigo.setMaxSize(1500, 450);
+
         gridDeEnemigo.setPadding(new Insets(10, 10, 10, 10));
         gridDeEnemigo.setVgap(10);
         gridDeEnemigo.setHgap(10);
         gridDeEnemigo.setAlignment(Pos.BOTTOM_RIGHT);
-        gridDeEnemigo.add(jugadorEnemigoVisualVBox,1,0);
+        gridDeEnemigo.add(jugadorEnemigoVisualVBox,1,2);
         gridDeEnemigo.add(contenedorHorizontalEnem, 0, 1);
         gridDeEnemigo.add(monstruosEnCampoEnemigo, 0, 2);
         gridDeEnemigo.add(magicasTrampasEnCampoEnemigo, 0, 3);
@@ -249,13 +254,16 @@ public class Main extends Application {
         botonDeTurno.setOnAction(e -> turno.siguienteTurno());
 
         VBox contenedorPrincipal = new VBox(gridDeJugador, gridDeEnemigo, botonDeTurno);
-        contenedorPrincipal.setSpacing(80);
+        contenedorPrincipal.setSpacing(30);
+        contenedorPrincipal.setAlignment(Pos.CENTER);
+        botonDeTurno.setAlignment(Pos.BOTTOM_LEFT);
         contenedorPrincipal.setPadding(new Insets(40));
+
         BackgroundImage imagenFondo = new BackgroundImage(new Image("imagenes/background1.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(-1, -1, true, true, false, true));
         Background fondo = new Background(imagenFondo);
         contenedorPrincipal.setBackground(fondo);
 
-        Scene scene = new Scene(contenedorPrincipal, 1000, 850);
+        Scene scene = new Scene(contenedorPrincipal, 1000, 900);
 
         ventanaPrincipal.setScene(scene);
 
