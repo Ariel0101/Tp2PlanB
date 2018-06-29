@@ -23,7 +23,7 @@ public class BocaAbajoComeHombres implements Boca {
     @Override
     public Image imagen(String nombre, String posicion) {
 
-        return new Image("imagenes/bocaAbajo " + posicion + ".jpg");
+        return new Image("imagenes/bocaAbajo" + posicion + ".jpg");
     }
 
     @Override

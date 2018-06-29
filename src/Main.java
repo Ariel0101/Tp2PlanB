@@ -20,7 +20,7 @@ public class Main extends Application {
 
     public void start(Stage ventanaPrincipal) throws Exception {
         ventanaPrincipal.setTitle("Al-Go-Oh");
-        //ventanaPrincipal.setFullScreen(true);
+        ventanaPrincipal.setFullScreen(true);
        // ventanaPrincipal.setFullScreenExitHint("");
 
         //Partida
@@ -39,29 +39,10 @@ public class Main extends Application {
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
 
-        //Cartas para probar
-        //Constructor Cartas
-        ConstructorDeCartas constructor = new ConstructorDeCartas();
-        //Amigo
-        CartaMonstruo aitsu = constructor.aitsu();
-        CartaMonstruo monkey = constructor.mokeyMokey();
-        CartaMagica agujero = constructor.agujeroNegro(campo, campoEnemigo);
-        CartaMonstruoJinzo7 jinzo7 = constructor.jinzo7();
-        mano.agregar(aitsu);
-        mano.agregar(monkey);
-        mano.agregar(agujero);
-        mano.agregar(jinzo7);
-        //Enemigo
-        CartaMonstruo goblin = constructor.goblinFalso();
-        CartaMonstruo agujaAsesina = constructor.agujaAsesina();
-        CartaMonstruo alasDeLlamaPerversa = constructor.alasDeLlamaPerversa();
-        CartaMonstruoComeHombres insectoComeHombres = constructor.insectoComeHombres(campo);
-        manoEnemiga.agregar(goblin);
-        manoEnemiga.agregar(agujaAsesina);
-        manoEnemiga.agregar(alasDeLlamaPerversa);
-        manoEnemiga.agregar(insectoComeHombres);
 
         //Sets de prueba
+        //Constructor Cartas
+        ConstructorDeCartas constructor = new ConstructorDeCartas();
         //Mazo con cartas de campo
         Mazo mazoConCartasDeCampo = new Mazo(jugador);
         mazoConCartasDeCampo.agregar(constructor.sogen(campo,campoEnemigo));
@@ -69,7 +50,7 @@ public class Main extends Application {
         mazoConCartasDeCampo.agregar(constructor.goblinFalso());
         //Prueba sacar ultima carta del mazo
         Mazo mazoDeUnaCarta = new Mazo(jugador);
-        mazoDeUnaCarta.agregar(jinzo7);
+        mazoDeUnaCarta.agregar(constructor.goblinFalso());
         //Prueba colocar 5 partes de exodia en la mano;
         Mazo mazoConUltimaParteDeExodia = new Mazo(jugador);
         mazoConUltimaParteDeExodia.agregar(constructor.cabezaDeExodia());
@@ -86,13 +67,19 @@ public class Main extends Application {
         RandomizadorCartas randomizadorEnem = new RandomizadorCartas(campo, campoEnemigo, manoEnemiga, mazoEnemigo);
         randomizadorEnem.llenarMazo(mazoEnemigo);
 
+        //Llenar manos
+        for (int i = 0; i<5; i++){
+            mano.agregar(mazo.sacar());
+            manoEnemiga.agregar(mazo.sacar());
+        }
+
         //Contenedor de las imagenes de cosas del jugador:
         VBox jugadorVisualVBox = new VBox(10);
         ImageView imagenYugi = this.crearImagen("imagenes/yugi.png", 150, 150);
         ProgressBar barraDeVidaJugador1 = new ProgressBar();
         barraDeVidaJugador1.setProgress(1.0);
         barraDeVidaJugador1.setPrefSize(150, 20);
-        Label nombreJ1 = new Label(jugador.toString() +" "+ (int)jugador.verVida() + "/" + (int)jugador.verVidaMaxima());
+        Label nombreJ1 = new Label(jugador.toString() +" "+ jugador.verVida() + "/" + jugador.verVida());
         nombreJ1.setStyle("-fx-font: 15 arial;");
         jugadorVisualVBox.setAlignment(Pos.TOP_LEFT);
         RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualVBox, imagenYugi, barraDeVidaJugador1, nombreJ1);
@@ -122,7 +109,7 @@ public class Main extends Application {
         ProgressBar barraDeVidaJugador2 = new ProgressBar();
         barraDeVidaJugador2.setProgress(1.0);
         barraDeVidaJugador2.setPrefSize(150, 20);
-        Label nombreJ2 = new Label(enemigo.toString()+" "+ (int)enemigo.verVida() + "/" + (int)enemigo.verVidaMaxima());
+        Label nombreJ2 = new Label(enemigo.toString()+" "+ enemigo.verVida() + "/" + enemigo.verVida());
         nombreJ2.setStyle("-fx-font: 15 arial;");
 
         RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto, barraDeVidaJugador2, nombreJ2);
@@ -160,7 +147,7 @@ public class Main extends Application {
         botonColocarCarta.setOnAction(botonColocarCartaHandler);
 
         Button botonAtacar = new Button("Atacar");
-        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador, ventanaPrincipal);
+        BotonAtacar botonAtacarEventHandler = new BotonAtacar(campo, campoEnemigo, jugador, enemigo, actualizador);
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
         Button verMano1 = new Button("Ver mano");
@@ -185,7 +172,7 @@ public class Main extends Application {
         botonColocarEnemigo.setOnAction(botonColocarCartaEnemigoHandler);
 
         Button botonEnemigoAtacar = new Button("Atacar");
-        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador, ventanaPrincipal);
+        BotonAtacar botonEnemAtacarEventHandler = new BotonAtacar(campoEnemigo, campo, enemigo, jugador, actualizador);
         botonEnemigoAtacar.setOnAction(botonEnemAtacarEventHandler);
 
         Button verMano2 = new Button("Ver mano");

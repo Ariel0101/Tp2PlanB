@@ -1,4 +1,3 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
 import javafx.scene.image.Image;
 
 class CartaMonstruo implements Carta, Atacable {
@@ -43,13 +42,13 @@ class CartaMonstruo implements Carta, Atacable {
 
     }
 
-    Botin atacar(Atacable cartaAtacada, Campo campoEnemigo) throws MonstruoNoPuedeAtacarError {
+    Botin atacar(CartaMonstruo cartaAtacada, Campo campoEnemigo) {
 
         return this.boca.atacar(this, cartaAtacada, campoEnemigo);
 
     }
 
-    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) throws MonstruoNoPuedeAtacarError {
+    public Botin recibirAtaque(CartaMonstruo cartaAtacante, Campo miCampo) {
         return this.boca.recibirAtaque(this, this.monstruo, cartaAtacante.monstruo, miCampo);
     }
     

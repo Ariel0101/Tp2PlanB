@@ -6,6 +6,7 @@ import javafx.scene.layout.VBox;
 public class RepresentacionJugador implements Actualizable{
     private final Jugador jugador;
     private final VBox jugadorVBox;
+    private final int vidaTotal;
     private ImageView imagen;
     private ProgressBar barra;
     private Label nombre;
@@ -16,6 +17,7 @@ public class RepresentacionJugador implements Actualizable{
         this.imagen = imagenJugador;
         this.barra = barraDeVida;
         this.nombre = etiqueta;
+        this.vidaTotal = this.jugador.verVida();
 
     }
 
@@ -23,8 +25,8 @@ public class RepresentacionJugador implements Actualizable{
     @Override
     public void actualizar() {
         this.jugadorVBox.getChildren().clear();
-        nombre.setText(jugador.toString() +" "+ (int)jugador.verVida() + "/" + (int)jugador.verVidaMaxima());
-        barra.setProgress(jugador.verVida()/(1.0*jugador.verVidaMaxima()));
+        nombre.setText(jugador.toString() +" "+ jugador.verVida() + "/" + this.vidaTotal);
+        barra.setProgress(jugador.verVida()/(1.0*this.vidaTotal));
         this.jugadorVBox.getChildren().addAll(imagen, nombre, barra);
         }
 }

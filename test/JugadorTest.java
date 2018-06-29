@@ -9,10 +9,10 @@ public class JugadorTest extends TestCase {
 		
 	}
 	
-	public void testJugadorRecibeAtaqueYSeLeRestaLaVidaCorrecta () {
+	public void testJugadorRecibirDanioRestaDichoDanioASuVida() {
 		
 		Jugador jugadorUno = new Jugador("nombreJugador", 8000);		
-		jugadorUno.restarVida(7334);
+		jugadorUno.recibirDanio(7334);
 		int resultadoEsperado = 8000-7334;
 		
 		assertEquals(jugadorUno.verVida(), resultadoEsperado);
