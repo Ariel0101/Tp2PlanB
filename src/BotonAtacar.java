@@ -1,5 +1,4 @@
 import Excepciones.MonstruoNoPuedeAtacarError;
-import Excepciones.NoSePuedeAtacarAJugadorError;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -20,9 +19,8 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
     private Campo campoEnemigo;
     private final Jugador jugador;
     private final Jugador enemigo;
-    private Stage ventana;
 
-    BotonAtacar(Campo campo, Campo campoEnemigo, Jugador jugador, Jugador enemigo, ActualizadorDeRepresentaciones actualizador, Stage ventanaPrincipal) {
+    BotonAtacar(Campo campo, Campo campoEnemigo, Jugador jugador, Jugador enemigo, ActualizadorDeRepresentaciones actualizador) {
 
         this.campo = campo;
         this.campoEnemigo = campoEnemigo;
@@ -30,7 +28,6 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         this.enemigo = enemigo;
         this.actualizador = actualizador;
         this.monstruosQueYaAtacaron = new HashSet<>();
-        this.ventana = ventanaPrincipal;
 
     }
 
@@ -47,30 +44,51 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
             }
         }
 
-        ComboBox<Atacable> eleccionAtacado = new ComboBox<>();
-        eleccionAtacado.setPromptText("Elige a quien quieres atacar ");
-
-        eleccionAtacado.getItems().add(enemigo);
-        for (CartaMonstruo m : this.campoEnemigo.listaMonstruos()) {
-
-            eleccionAtacado.getItems().add(m);
-
-        }
-
-        Button comenzarAtaque = new Button("Atacar");
-
-        comenzarAtaque.setOnAction(e ->
-                this.aceptar(eleccionAtacante.getValue(), eleccionAtacado.getValue(), ventantaDeAtaque)
-        );
+        Button botonElegirOponente = new Button("Elegir Oponente");
+        botonElegirOponente.setOnAction(actionEvent1 -> {
+            CartaMonstruo atacante = eleccionAtacante.getValue();
+            this.elegirOponente(atacante);
+            ventantaDeAtaque.close();
+        });
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 300, 20));
-        layout.getChildren().addAll(eleccionAtacante, eleccionAtacado, comenzarAtaque);
+        layout.getChildren().addAll(eleccionAtacante, botonElegirOponente); //, eleccionAtacado, comenzarAtaque
 
         Scene scene =  new Scene(layout, 300, 500);
         ventantaDeAtaque.setScene(scene);
         ventantaDeAtaque.show();
 
+
+    }
+
+    private void elegirOponente(CartaMonstruo atacante){
+        Stage ventantaDeAtaque = new Stage();
+
+        ComboBox<Atacable> eleccionAtacado = new ComboBox<>();
+        eleccionAtacado.setPromptText("Eligir oponente ");
+
+        for (Atacable m : this.campoEnemigo.listaMonstruos()) {
+
+            eleccionAtacado.getItems().add(m);
+
+        }
+        if (atacante instanceof CartaMonstruoJinzo7){
+            eleccionAtacado.getItems().add(this.enemigo);
+        }
+
+        Button comenzarAtaque = new Button("Comenzar ataque");
+
+        comenzarAtaque.setOnAction(e ->{
+                this.aceptar(atacante, eleccionAtacado.getValue(), ventantaDeAtaque);
+        });
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(20, 20, 300, 20));
+        layout.getChildren().addAll(eleccionAtacado, comenzarAtaque); //, eleccionAtacado, comenzarAtaque
+
+        Scene scene =  new Scene(layout, 300, 500);
+        ventantaDeAtaque.setScene(scene);
+        ventantaDeAtaque.show();
 
     }
 
@@ -82,9 +100,17 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
 
         }
 
+        if (atacado instanceof Jugador){
+            atacado.recibirAtaque(atacante, campoEnemigo);
+            this.monstruosQueYaAtacaron.add(atacante);
+            this.actualizador.actualizar();
+            ventantaDeAtaque.close();
+            return;
+        }
+
         Combate combate = new Combate(jugador, campo, enemigo, campoEnemigo);
         try {
-            combate.combatir(atacante, atacado);
+            combate.combatir(atacante, (CartaMonstruo) atacado);
         } catch (MonstruoNoPuedeAtacarError e){
             Stage ventanaDeError = new Stage();
             TextArea avisoDeErrorDeSacrifcios = new TextArea( "Monstruo elegido no esta en posicion de ataque.\n");
@@ -94,8 +120,6 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
             ventanaDeError.show();
             ventantaDeAtaque.close();
             return;
-        } catch (NoSePuedeAtacarAJugadorError e) {
-            new Alerta("No es posible atacar al jugador enemigo si tiene monstruos en su campo!", this.ventana);
         }
 
         this.monstruosQueYaAtacaron.add(atacante);

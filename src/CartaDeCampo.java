@@ -48,4 +48,8 @@ public class CartaDeCampo implements Carta {
 	public void ponerNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public String toString(){
+	    return this.nombre;
+    }
 }

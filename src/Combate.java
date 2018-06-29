@@ -16,7 +16,7 @@ public class Combate {
         this.campoAtacado = campoAtacado;
     }
 
-    public void combatir(CartaMonstruo atacante, Atacable atacado) {
+    public void combatir(CartaMonstruo atacante, CartaMonstruo atacado) {
         Botin botin = atacante.atacar(atacado, this.campoAtacado);
         botin.infligirDanios(this.jugadorAtacante,this.jugadorAtacado);
         botin.ejecutar(this.campoAtacante);
