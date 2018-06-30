@@ -1,4 +1,11 @@
-import Excepciones.NoHaySufucienteSacrificiosError;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.CartaMonstruoDragon;
+import Modelo.CartasMonstruo.CartaMonstruoDragonDefinitivo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.NoHaySufucienteSacrificiosError;
 import junit.framework.TestCase;
 
 public class SacrificiosTest extends TestCase {

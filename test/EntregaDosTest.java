@@ -1,4 +1,13 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
+import Controlador.Partida;
+import Modelo.Campo.*;
+import Modelo.Carta;
+import Modelo.CartasMagiaTrampa.*;
+import Modelo.CartasMonstruo.*;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mano;
+import Modelo.Jugador.Mazo;
 import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
@@ -112,7 +121,7 @@ public class EntregaDosTest extends TestCase {
 
     public void testOllaDeLaCodiciaActivarSacaDosCartasDelMazoYlasColocaEnLaMano(){
         Campo unCampo = new Campo(new Cementerio());
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);
@@ -150,7 +159,7 @@ public class EntregaDosTest extends TestCase {
         cartaMonstruoTres.colocarse(otroCampo);
         cartaMonstruoUno.colocarBocaArriba();
         cartaMonstruoDos.colocarBocaArriba();
-        cartaMonstruoTres.colocarBocaAbajo(); //Fisura no la tiene que contar. Solo mira las boca Arriba
+        cartaMonstruoTres.colocarBocaAbajo(); //Modelo.CartasMagiaTrampa.Fisura no la tiene que contar. Solo mira las boca Arriba
 
         cartaFisura.colocarse(unCampo);
         cartaFisura.colocarBocaArriba();
@@ -315,7 +324,7 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testManoAgregarLas5PartesDeExodiaSeteaEnPartidaAlGanador(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
@@ -335,12 +344,12 @@ public class EntregaDosTest extends TestCase {
         cartaPiernaDerecha.colocarse(unaMano);
         cartaPiernaIzquierda.colocarse(unaMano);
 
-        assertEquals("Jugador 1",unaPartida.verGanador());
+        assertEquals("Modelo.Jugador.Jugador 1",unaPartida.verGanador());
 
     }
 
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);

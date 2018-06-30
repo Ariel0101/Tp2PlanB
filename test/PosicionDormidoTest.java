@@ -1,4 +1,8 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Estados.PosDormido;
+import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class PosicionDormidoTest extends TestCase {

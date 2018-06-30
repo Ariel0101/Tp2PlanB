@@ -1,4 +1,12 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMagiaTrampa.AgujeroOscuro;
+import Modelo.CartasMagiaTrampa.CartaMagica;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Jugador.Jugador;
 import junit.framework.TestCase;
 
 public class EntregaUnoTest extends TestCase {

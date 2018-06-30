@@ -1,9 +1,22 @@
-import Excepciones.NoHayCartasError;
+import Controlador.Partida;
+import Modelo.Campo.Campo;
+import Modelo.Campo.CartaDeCampo;
+import Modelo.Campo.Cementerio;
+import Modelo.Campo.EfectoDeCampoNulo;
+import Modelo.CartasMagiaTrampa.CartaMagica;
+import Modelo.CartasMagiaTrampa.CartaTrampa;
+import Modelo.CartasMagiaTrampa.MagiaNula;
+import Modelo.CartasMagiaTrampa.TrampaNula;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Excepciones.NoHayCartasError;
+import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mazo;
 import junit.framework.TestCase;
 
 public class MazoTest extends TestCase {
     public void testMazoSacarLevantaErrorCuandoNoQuedanMasCartas(){
-        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Modelo.Jugador.Jugador 1", 8000);
         Mazo unMazo = new Mazo(unJugador);
         boolean lanzoError = false;
         try {
@@ -15,14 +28,14 @@ public class MazoTest extends TestCase {
     }
 
     public void testMazoCantidadEsCeroAlCrearse(){
-        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Modelo.Jugador.Jugador 1", 8000);
         Mazo unMazo = new Mazo(unJugador);
 
         assertEquals(0, unMazo.cantidad());
     }
 
     public void testMazoCantidadEs4CuandoAgrego4Cartas(){
-        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Modelo.Jugador.Jugador 1", 8000);
         Mazo unMazo = new Mazo(unJugador);
         CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
         CartaMagica cartaMagica = new CartaMagica(new MagiaNula());
@@ -39,7 +52,7 @@ public class MazoTest extends TestCase {
     }
 
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);

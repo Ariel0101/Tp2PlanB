@@ -1,3 +1,11 @@
+import Controlador.ConstructorDeCartas;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Estados.Boca;
+import Modelo.Estados.BocaAbajoComeHombres;
 import junit.framework.TestCase;
 
 public class BocaAbajoComeHombreTest extends TestCase {

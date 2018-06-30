@@ -1,10 +1,12 @@
+import Controlador.Partida;
+import Modelo.Jugador.Jugador;
 import junit.framework.TestCase;
 
 public class JugadorTest extends TestCase {
 
 	public void testVerVidaDeJugador () {
 		
-		Jugador jugadorUno = new Jugador("nombreJugador", 8000);		
+		Jugador jugadorUno = new Jugador("nombreJugador", 8000);
 		assertEquals(jugadorUno.verVida(), 8000);
 		
 	}
@@ -21,7 +23,7 @@ public class JugadorTest extends TestCase {
 
 	public void testJugadorGanarSeSeteaComoGanadorEnPartida(){
 	    Partida unaPartida = new Partida();
-	    String nombre = "Jugador 1";
+	    String nombre = "Modelo.Jugador.Jugador 1";
 	    Jugador unJugador = new Jugador(nombre,8000, unaPartida);
 	    unJugador.ganar();
 
@@ -30,7 +32,7 @@ public class JugadorTest extends TestCase {
 
     public void testJugadorPederSeSeteaComoPerdedorEnPartida(){
         Partida unaPartida = new Partida();
-        String nombre = "Jugador 1";
+        String nombre = "Modelo.Jugador.Jugador 1";
         Jugador unJugador = new Jugador(nombre,8000, unaPartida);
         unJugador.perder();
 

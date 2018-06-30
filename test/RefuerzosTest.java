@@ -1,4 +1,13 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMagiaTrampa.CartaTrampa;
+import Modelo.CartasMagiaTrampa.Refuerzos;
+import Modelo.CartasMagiaTrampa.Trampa;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Jugador.Jugador;
 import junit.framework.TestCase;
 
 public class RefuerzosTest extends TestCase {

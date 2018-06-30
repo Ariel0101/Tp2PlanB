@@ -1,3 +1,9 @@
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Estados.PosAtaque;
 import junit.framework.TestCase;
 
 public class PosAtaqueTest extends TestCase {
@@ -44,14 +50,14 @@ public class PosAtaqueTest extends TestCase {
 
    /* public void testPosAtaqueAtacarNoLanzaError(){
 
-        PosAtaque p = new PosAtaque();
+        Modelo.Estados.PosAtaque p = new Modelo.Estados.PosAtaque();
         boolean lanzoError = false;
 
         try{
 
             p.atacar();
 
-        }catch(Excepciones.MonstruoNoPuedeAtacarError e ){
+        }catch(MonstruoNoPuedeAtacarError e ){
 
             lanzoError = true;
 
