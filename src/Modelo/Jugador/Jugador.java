@@ -11,14 +11,6 @@ public class Jugador implements Atacable {
     private int vida;
     private String nombre;
     private Partida partida;
-    //ELEGIR UN SÓLO CONSTRUCTOR
-    public Jugador(String nombre, int vida) {
-    	
-        this.vida = vida;
-        this.nombre = nombre;
-        this.partida = new Partida();
-    }
-
 
     public Jugador(String nombre, int vida, Partida partida) {
 

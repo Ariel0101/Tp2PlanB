@@ -2,7 +2,7 @@ package Modelo.CartasMonstruo;
 
 import Modelo.Campo.Campo;
 
-public class InvocacionSacrificio extends Invocacion {
+public class InvocacionSacrificio implements Invocacion {
 	
 	private int monstruosASacrificar;
 	

@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class MazoTest {
     @Test(expected = NoHayCartasError.class)
     public void testMazoSacarLevantaErrorCuandoNoQuedanMasCartas(){
-        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Jugador 1", 8000, new Partida());
         Mazo unMazo = new Mazo(unJugador);
 
         unMazo.sacar();
@@ -27,14 +27,14 @@ public class MazoTest {
     }
     @Test
     public void testMazoCantidadEsCeroAlCrearse(){
-        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Jugador 1", 8000, new Partida());
         Mazo unMazo = new Mazo(unJugador);
 
         assertEquals(0, unMazo.cantidad());
     }
     @Test
     public void testMazoCantidadEs4CuandoAgrego4Cartas(){
-        Jugador unJugador = new Jugador("Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Jugador 1", 8000, new Partida());
         Mazo unMazo = new Mazo(unJugador);
         CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
         CartaMagica cartaMagica = new CartaMagica(new MagiaNula());

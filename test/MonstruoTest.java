@@ -1,3 +1,4 @@
+import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.CartasMonstruo.CartaMonstruo;
@@ -103,8 +104,8 @@ public class MonstruoTest{
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        Jugador atacante = new Jugador("", 1000);
-        Jugador atacado = new Jugador("", 1000);
+        Jugador atacante = new Jugador("", 1000, new Partida());
+        Jugador atacado = new Jugador("", 1000, new Partida());
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
@@ -121,8 +122,8 @@ public class MonstruoTest{
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        Jugador atacante = new Jugador("", 10000);
-        Jugador atacado = new Jugador("", 10000);
+        Jugador atacante = new Jugador("", 10000, new Partida());
+        Jugador atacado = new Jugador("", 10000, new Partida());
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
@@ -138,8 +139,8 @@ public class MonstruoTest{
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        Jugador atacante = new Jugador("", 10000);
-        Jugador atacado = new Jugador("", 10000);
+        Jugador atacante = new Jugador("", 10000, new Partida());
+        Jugador atacado = new Jugador("", 10000, new Partida());
         aitsu.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
@@ -160,14 +161,20 @@ public class MonstruoTest{
         aitsu.atacar(agujaAsesina);
 
     }
-    @Test(expected = MonstruoNoPuedeAtacarError.class)
+    @Test
     public void testAitsuEnPosAtaqueIntentaAtacarAAgujaAsesinaYNoSeLevantaUnaExcepcion(){
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
+        boolean lanzoError = false;
+        try{
+            aitsu.atacar(agujaAsesina);
+        } catch (MonstruoNoPuedeAtacarError e){
+            lanzoError = true;
+        }
+        assertFalse(lanzoError);
 
-        aitsu.atacar(agujaAsesina);
     }
 }

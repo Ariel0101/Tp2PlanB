@@ -6,14 +6,14 @@ public class JugadorTest extends TestCase {
 
 	public void testVerVidaDeJugador () {
 		
-		Jugador jugadorUno = new Jugador("nombreJugador", 8000);
+		Jugador jugadorUno = new Jugador("nombreJugador", 8000, new Partida());
 		assertEquals(jugadorUno.verVida(), 8000);
 		
 	}
 	
 	public void testJugadorRecibirDanioRestaDichoDanioASuVida() {
 		
-		Jugador jugadorUno = new Jugador("nombreJugador", 8000);		
+		Jugador jugadorUno = new Jugador("nombreJugador", 8000, new Partida());
 		jugadorUno.recibirDanio(7334);
 		int resultadoEsperado = 8000-7334;
 		

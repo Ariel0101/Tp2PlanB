@@ -1,3 +1,4 @@
+import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.CartasMonstruo.CartaMonstruo;
@@ -9,9 +10,9 @@ import junit.framework.TestCase;
 public class CombateTest extends TestCase {
     public void testCombateDestruyeMokeyMokeyYResta100AJugadorOponenteTrasCombatirAtacanteGoblinFalsoYAtacadoMokeyMokey(){
         Cementerio unCementerio = new Cementerio();
-        Jugador miJugador = new Jugador("1", 8000);
+        Jugador miJugador = new Jugador("1", 8000, new Partida());
         Campo miCampo = new Campo(unCementerio);
-        Jugador jugadorOponente = new Jugador("2", 8000);
+        Jugador jugadorOponente = new Jugador("2", 8000, new Partida());
         Campo campoOponete = new Campo(unCementerio);
 
         Monstruo gf = new Monstruo(400, 400);
