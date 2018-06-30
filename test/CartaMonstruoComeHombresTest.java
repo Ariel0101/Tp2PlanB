@@ -1,4 +1,10 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.CartaMonstruoComeHombres;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import junit.framework.TestCase;
 
 public class CartaMonstruoComeHombresTest extends TestCase {

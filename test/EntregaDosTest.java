@@ -1,4 +1,13 @@
-import Excepciones.MonstruoNoPuedeAtacarError;
+import Controlador.Partida;
+import Modelo.Campo.*;
+import Modelo.Carta;
+import Modelo.CartasMagiaTrampa.*;
+import Modelo.CartasMonstruo.*;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
+import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mano;
+import Modelo.Jugador.Mazo;
 import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
@@ -150,7 +159,7 @@ public class EntregaDosTest extends TestCase {
         cartaMonstruoTres.colocarse(otroCampo);
         cartaMonstruoUno.colocarBocaArriba();
         cartaMonstruoDos.colocarBocaArriba();
-        cartaMonstruoTres.colocarBocaAbajo(); //Fisura no la tiene que contar. Solo mira las boca Arriba
+        cartaMonstruoTres.colocarBocaAbajo(); //Modelo.CartasMagiaTrampa.Fisura no la tiene que contar. Solo mira las boca Arriba
 
         cartaFisura.colocarse(unCampo);
         cartaFisura.colocarBocaArriba();

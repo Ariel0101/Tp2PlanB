@@ -1,3 +1,7 @@
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
 import junit.framework.TestCase;
 
 public class CampoTest extends TestCase {

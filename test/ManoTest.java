@@ -1,8 +1,14 @@
+import Controlador.Partida;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.CartaMonstruoExodia;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mano;
 import junit.framework.TestCase;
 
 public class ManoTest extends TestCase {
     public void testManoContarCartasDevuelveLaCantidadDeCartasAgregadasALaManoDelTipoRecibido(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
@@ -32,7 +38,7 @@ public class ManoTest extends TestCase {
     }
 
     public void testManoGanarSeteaASuJugadorComoGanadorEnPartidaCuandoTodasLasPartesDeExodiaEstanEnLaMano(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
@@ -57,7 +63,7 @@ public class ManoTest extends TestCase {
         assertEquals(nombreJugador, unaPartida.verGanador());
     }
     public void testManoGanarNoHaceNadaCuandoNoTodasLasPartesDeExodiaEstanEnLaMano(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
@@ -68,7 +74,7 @@ public class ManoTest extends TestCase {
     }
 
     public void testManoAgregarLas5PartesDeExodiaHaceGanarAlJugadorDeLaMano(){
-        String nombreJugador = "Jugador 1";
+        String nombreJugador = "Modelo.Jugador.Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
@@ -88,7 +94,7 @@ public class ManoTest extends TestCase {
         cartaPiernaDerecha.colocarse(unaMano);
         cartaPiernaIzquierda.colocarse(unaMano);
 
-        assertEquals("Jugador 1",unaPartida.verGanador());
+        assertEquals("Modelo.Jugador.Jugador 1",unaPartida.verGanador());
 
     }
 }

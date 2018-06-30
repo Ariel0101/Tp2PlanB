@@ -1,7 +1,19 @@
-import Excepciones.NoHaySufucienteSacrificiosError;
-import junit.framework.TestCase;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.CartaMonstruoDragon;
+import Modelo.CartasMonstruo.CartaMonstruoDragonDefinitivo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Excepciones.NoHaySufucienteSacrificiosError;
+import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-public class SacrificiosTest extends TestCase {
+
+public class SacrificiosTest  {
+
+    @Test
     public void testColocarMonstruoDe5EstrellasSacrificaAMonstruoEnCampo() {
 
         Cementerio unCementerio = new Cementerio();
@@ -29,6 +41,7 @@ public class SacrificiosTest extends TestCase {
         assertTrue(otroCementerio.esta(cartaAtacada));
     }
 
+    @Test
     public void testColocarMonstruoDe7EstrellasSacrificaDosMonstruosEnCampo() {
 
         Cementerio unCementerio = new Cementerio();
@@ -60,6 +73,7 @@ public class SacrificiosTest extends TestCase {
         assertTrue(otroCementerio.esta(cartaAtacada));
     }
 
+    @Test(expected = NoHaySufucienteSacrificiosError.class)
     public void testColocarMonstruoLevantaNoHaySuficientesSacrificiosErrorCuandoNoHaySuficientesMonstruosEnElCampoParaInvoacionPedida(){
         Cementerio unCementerio = new Cementerio();
         Campo unCampo = new Campo(unCementerio);
@@ -67,17 +81,12 @@ public class SacrificiosTest extends TestCase {
         Monstruo monstruo7Estrellas = new Monstruo(300, 100);
         CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
 
-        Boolean lanzoError = false;
-        try {
-            carta7Estrellas.colocarse(unCampo);
-        } catch (NoHaySufucienteSacrificiosError e){
-            lanzoError = true;
-        }
+        carta7Estrellas.colocarse(unCampo);
 
-        assertTrue(lanzoError);
         assertFalse(unCampo.esta(carta7Estrellas));
     }
 
+    @Test
     public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones() {
         Cementerio unCementerio = new Cementerio();
         Cementerio otroCementerio = new Cementerio();
@@ -134,6 +143,7 @@ public class SacrificiosTest extends TestCase {
         assertTrue(otroCementerio.esta(cartaAtacada));
     }
 
+    @Test(expected = NoHaySufucienteSacrificiosError.class)
     public void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoLevantaErrorNohaySufucienteSacrificiosErrorCuandoNoHaySuficientesDragonesBlancosDeOjosAzulesEnJuego(){
         Cementerio unCementerio = new Cementerio();
 
@@ -149,14 +159,8 @@ public class SacrificiosTest extends TestCase {
         cartaSacrificada2.colocarse(unCampo);
         cartaDragon1.colocarse(unCampo);
 
-        boolean lanzoError = false;
-        try {
-            unCampo.colocarCarta(cartaDragonDefinitivo);
-        } catch (NoHaySufucienteSacrificiosError e){
-            lanzoError = true;
-        }
+        unCampo.colocarCarta(cartaDragonDefinitivo);
 
-        assertTrue(lanzoError);
         assertFalse(unCampo.esta(cartaDragonDefinitivo));
 
 

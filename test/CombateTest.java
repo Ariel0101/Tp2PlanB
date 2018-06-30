@@ -1,5 +1,9 @@
-import Excepciones.MonstruoAtacanteNoPertenceACampoAtacadoError;
-import Excepciones.MonstruoAtacanteNoPertenceACampoAtacanteError;
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Combate;
+import Modelo.Jugador.Jugador;
 import junit.framework.TestCase;
 
 public class CombateTest extends TestCase {

@@ -1,3 +1,10 @@
+import Modelo.Campo.Campo;
+import Modelo.Campo.Cementerio;
+import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.CartaMonstruoJinzo7;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Combate.Botin;
+import Modelo.Jugador.Jugador;
 import junit.framework.TestCase;
 
 public class CartaMonstruoTest extends TestCase {
