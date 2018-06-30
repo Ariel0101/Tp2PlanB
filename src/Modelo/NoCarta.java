@@ -29,7 +29,7 @@ public class NoCarta implements Carta {
     @Override
     public Image imagen() {
 
-        return new Image("Vista/imagenes/bocaNeutra.jpg");
+        return new Image("Vista/Imagenes/bocaNeutra.jpg");
 
     }
 

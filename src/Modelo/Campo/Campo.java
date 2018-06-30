@@ -25,14 +25,14 @@ public class Campo implements Reiniciable {
     private Efecto efectoDeCampoEnemigo;
     private ListaMonstruos listaMonstruos;
 
-    public Campo(Cementerio c){
+    public Campo(Cementerio cementerio){
 
+        this.listaMonstruos = new ListaMonstruos();
         this.magicas = new LinkedList<>();
         this.trampas = new LinkedList<>();
-        this.cementerio = c;
+        this.cementerio = cementerio;
         this.efectoDeCampoPropio = new EfectoNulo();
         this.efectoDeCampoEnemigo = new EfectoNulo();
-        this.listaMonstruos = new ListaMonstruos();
 
     }
     public void destruir(CartaMagica carta){

@@ -16,7 +16,7 @@ public class CartaMonstruo implements Carta, Atacable {
 
     protected Monstruo monstruo;
     protected Boca boca;
-    private int estrellas;
+    protected int estrellas;
     protected Invocacion invocacion;
     String nombre;
 

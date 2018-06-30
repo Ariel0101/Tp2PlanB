@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Campo.Campo;
+import Modelo.Campo.ListaMonstruos;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.CartaMonstruoComeHombres;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Reiniciable {
 
@@ -20,13 +22,15 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
     private final ActualizadorDeRepresentaciones actualizador;
     private final HashSet<CartaMonstruo> monstruosQueYaCambiaron;
     private final BotonColocarCarta botonColocar;
+    private final Campo campoEnemigo;
 
 
-    BotonCambiarBocaYPosicion(Campo campo, BotonColocarCarta botonColocar , ActualizadorDeRepresentaciones actualizador){
+    BotonCambiarBocaYPosicion(Campo campo, BotonColocarCarta botonColocar , ActualizadorDeRepresentaciones actualizador, Campo campoEnemigo){
         this.campo = campo;
         this.actualizador = actualizador;
         this.monstruosQueYaCambiaron = new HashSet<CartaMonstruo>();
         this.botonColocar = botonColocar;
+        this.campoEnemigo = campoEnemigo;
     }
 
     public void handle(ActionEvent actionEvent) {
@@ -76,8 +80,10 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
     private void colocarBoca(ComboBox<String> opcionesBoca, CartaMonstruo cartaElegida) {
         if (opcionesBoca.getValue() == "Boca arriba" || opcionesBoca.getValue() == null){ //por defecto
             if (cartaElegida instanceof CartaMonstruoComeHombres){
-                CartaMonstruoComeHombres cartaComeHombres = (CartaMonstruoComeHombres) cartaElegida;
-                cartaComeHombres.activarEfectoVisualmente(this.actualizador);
+                /*CartaMonstruoComeHombres cartaComeHombres = (CartaMonstruoComeHombres) cartaElegida;
+                cartaComeHombres.activarEfectoVisualmente(this.actualizador);*/
+                ControladorEfectoComeHombres controladorEfectoComeHombres = new ControladorEfectoComeHombres((CartaMonstruoComeHombres) cartaElegida,this.campoEnemigo, this.actualizador);
+                controladorEfectoComeHombres.activarEfecto();
             }
             cartaElegida.colocarBocaArriba();
             System.out.print("Colocado boca arriba\n");
@@ -106,6 +112,8 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
         }
 
     }
+
+
 
     public void reiniciar(){
         this.monstruosQueYaCambiaron.clear();
