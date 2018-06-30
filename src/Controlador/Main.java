@@ -83,19 +83,12 @@ public class Main extends Application {
         //Contenedor de las Vista.imagenes de cosas del jugador:
         VBox jugadorVisualVBox = new VBox(10);
         ImageView imagenYugi = this.crearImagen("Vista/imagenes/yugi.png", 150, 150);
-        ProgressBar barraDeVidaJugador1 = new ProgressBar();
-        barraDeVidaJugador1.setProgress(1.0);
-        barraDeVidaJugador1.setPrefSize(150, 20);
-        Label nombreJ1 = new Label(jugador.toString() +" "+ jugador.verVida() + "/" + jugador.verVida());
-        nombreJ1.setStyle("-fx-font: 15 arial;");
-        jugadorVisualVBox.setAlignment(Pos.TOP_LEFT);
-        RepresentacionJugador representacionJugador = new RepresentacionJugador(jugador, jugadorVisualVBox, imagenYugi, barraDeVidaJugador1, nombreJ1);
-        imagenYugi.autosize();
+        ControladorJugador controladorJugador = new ControladorJugador(jugador, jugadorVisualVBox, imagenYugi);
 
         HBox monstruosEnCampo = new HBox();
-        RepresentacionCampoMonstruos representacionCampoMonstruos = new RepresentacionCampoMonstruos(campo,monstruosEnCampo);
+        ControladorCampoMonstruos controladorCampoMonstruos = new ControladorCampoMonstruos(campo,monstruosEnCampo);
         HBox magicasTrampasEnCampo = new HBox();
-        RepresentacionCampoMagicasTrampas representacionCampoMagicasTrampas = new RepresentacionCampoMagicasTrampas(campo, magicasTrampasEnCampo);
+        ControladorCampoMagicasTrampas controladorCampoMagicasTrampas = new ControladorCampoMagicasTrampas(campo, magicasTrampasEnCampo);
 
         monstruosEnCampo.setPadding(new Insets(5, 5, 5, 5));
         monstruosEnCampo.setSpacing(10);
@@ -110,20 +103,13 @@ public class Main extends Application {
 
         //Contenedor de las Vista.imagenes de cosas del jugador enemigo:
         VBox jugadorEnemigoVisualVBox = new VBox(10);
-        jugadorEnemigoVisualVBox.setAlignment(Pos.TOP_LEFT);
         ImageView imagenSeto = this.crearImagen("Vista/imagenes/seto.png", 150, 150);
-        //imagenSeto.autosize();
-        ProgressBar barraDeVidaJugador2 = new ProgressBar();
-        barraDeVidaJugador2.setProgress(1.0);
-        barraDeVidaJugador2.setPrefSize(150, 20);
-        Label nombreJ2 = new Label(enemigo.toString()+" "+ enemigo.verVida() + "/" + enemigo.verVida());
-        nombreJ2.setStyle("-fx-font: 15 arial;");
+        ControladorJugador controladorJugadorEnemigo = new ControladorJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto);
 
-        RepresentacionJugador representacionJugadorEnemigo = new RepresentacionJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto, barraDeVidaJugador2, nombreJ2);
         HBox monstruosEnCampoEnemigo = new HBox();
-        RepresentacionCampoMonstruos representacionCampoMonstruosEnemigo = new RepresentacionCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
+        ControladorCampoMonstruos controladorCampoMonstruosEnemigo = new ControladorCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
         HBox magicasTrampasEnCampoEnemigo = new HBox();
-        RepresentacionCampoMagicasTrampas representacionCampoMagicasTrampasEnemigo = new RepresentacionCampoMagicasTrampas(campoEnemigo, magicasTrampasEnCampoEnemigo);
+        ControladorCampoMagicasTrampas controladorCampoMagicasTrampasEnemigo = new ControladorCampoMagicasTrampas(campoEnemigo, magicasTrampasEnCampoEnemigo);
 
         monstruosEnCampoEnemigo.setPadding(new Insets(5, 5, 5, 5));
         monstruosEnCampoEnemigo.setSpacing(10);
@@ -139,12 +125,12 @@ public class Main extends Application {
 
         //Actualizador de Representaciones
         LinkedList<Actualizable> representaciones = new LinkedList<>();
-        representaciones.add(representacionCampoMonstruos);
-        representaciones.add(representacionCampoMonstruosEnemigo);
-        representaciones.add(representacionCampoMagicasTrampas);
-        representaciones.add(representacionCampoMagicasTrampasEnemigo);
-        representaciones.add(representacionJugador);
-        representaciones.add(representacionJugadorEnemigo);
+        representaciones.add(controladorCampoMonstruos);
+        representaciones.add(controladorCampoMonstruosEnemigo);
+        representaciones.add(controladorCampoMagicasTrampas);
+        representaciones.add(controladorCampoMagicasTrampasEnemigo);
+        representaciones.add(controladorJugador);
+        representaciones.add(controladorJugadorEnemigo);
         ActualizadorDeRepresentaciones actualizador = new ActualizadorDeRepresentaciones(representaciones);
         actualizador.actualizar();
 
@@ -206,41 +192,19 @@ public class Main extends Application {
         HBox contenedorHorizontalEnem = new HBox(botonColocarEnemigo, botonCambiarBocaPosicionMonstruoEnemigo,botonEnemigoAtacar, verMano2, botonEnemActivarMagica, botonAgarrarCartaEnem);
         contenedorHorizontalEnem.setSpacing(20);
 
-        //Grilla de jugador:
+        //Box entero del jugador1
         VBox campoJugador1VBox = new VBox(5);
         campoJugador1VBox.getChildren().addAll(monstruosEnCampo, magicasTrampasEnCampo, contenedorHorizontal);
         HBox pantallaJugador1HBox = new HBox(5);
         pantallaJugador1HBox.getChildren().addAll(jugadorVisualVBox, campoJugador1VBox);
         
      
-        /*GridPane gridDeJugador = new GridPane();
-        gridDeJugador.setMinSize(300, 240);
-        gridDeJugador.setPadding(new Insets(10, 10, 10, 10));
-        gridDeJugador.setVgap(10);
-        gridDeJugador.setHgap(10);
-        gridDeJugador.setAlignment(Pos.TOP_LEFT);
-        gridDeJugador.add(jugadorVisualVBox,0,1);
-        gridDeJugador.add(contenedorHorizontal, 1, 2);
-        gridDeJugador.add(monstruosEnCampo, 1, 0);
-        gridDeJugador.add(magicasTrampasEnCampo, 1, 1);
-        gridDeJugador.*/
-
-        //Grilla de enemigo:
-        
+        //Box entero del jugador2
         VBox campoJugador2VBox = new VBox(5);
         campoJugador2VBox.getChildren().addAll(monstruosEnCampoEnemigo, magicasTrampasEnCampoEnemigo, contenedorHorizontalEnem);
         HBox pantallaJugador2HBox = new HBox(5);
         pantallaJugador2HBox.getChildren().addAll(campoJugador2VBox, jugadorEnemigoVisualVBox);
-        /*GridPane gridDeEnemigo = new GridPane();
-        gridDeEnemigo.setMinSize(300, 240);
-        gridDeEnemigo.setPadding(new Insets(10, 10, 10, 10));
-        gridDeEnemigo.setVgap(10);
-        gridDeEnemigo.setHgap(10);
-        gridDeEnemigo.setAlignment(Pos.BOTTOM_RIGHT);
-        gridDeEnemigo.add(jugadorEnemigoVisualVBox,1, 1);
-        gridDeEnemigo.add(contenedorHorizontalEnem, 0, 0);
-        gridDeEnemigo.add(monstruosEnCampoEnemigo, 0, 1);
-        gridDeEnemigo.add(magicasTrampasEnCampoEnemigo, 0, 2);*/
+
 
         // Objetos a reiniciar cuando termine el turno
         LinkedList<Reiniciable> reiniciablesAlTerminarTurno = new LinkedList<>();

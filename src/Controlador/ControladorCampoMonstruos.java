@@ -9,12 +9,12 @@ import javafx.scene.layout.HBox;
 
 import java.util.Iterator;
 
-public class RepresentacionCampoMonstruos implements Actualizable {
+public class ControladorCampoMonstruos implements Actualizable {
 
     private final Campo campo;
     private final HBox campoHBox;
 
-    RepresentacionCampoMonstruos(Campo campo, HBox campoMonstruosHBox){
+    ControladorCampoMonstruos(Campo campo, HBox campoMonstruosHBox){
         this.campo = campo;
         this.campoHBox = campoMonstruosHBox;
     }

@@ -10,12 +10,12 @@ import javafx.scene.layout.HBox;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class RepresentacionCampoMagicasTrampas implements Actualizable {
+public class ControladorCampoMagicasTrampas implements Actualizable {
 
     private final Campo campo;
     private final HBox campoHBox;
 
-    RepresentacionCampoMagicasTrampas(Campo campo, HBox campoMagicasTrampasHBox){
+    ControladorCampoMagicasTrampas(Campo campo, HBox campoMagicasTrampasHBox){
         this.campo = campo;
         this.campoHBox = campoMagicasTrampasHBox;
     }
