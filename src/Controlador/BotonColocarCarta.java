@@ -88,17 +88,11 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         try {
             cartaAColocar.colocarse(this.campo);
         } catch (NoHaySufucienteSacrificiosError e){
-            Stage ventanaDeError = new Stage();
             String avisoParteUno = "No hay suficientes sacrificios en el campo: \n";
             String avisoParteDos = "5 a 6 estrellas : 1 Sacrificios \n";
             String avisoParteTres = "7 o mas estrellas : 2 Sacrificios \n";
             String avisoParteCuatro = "En caso de fusion, leer descripcion en la carta \n";
-            TextArea avisoDeErrorDeSacrifcios = new TextArea( avisoParteUno + avisoParteDos + avisoParteTres + avisoParteCuatro);
-            avisoDeErrorDeSacrifcios.setEditable(false);
-            Scene escenaDeErrorDeInvocacion = new Scene(avisoDeErrorDeSacrifcios);
-            ventanaDeError.setScene(escenaDeErrorDeInvocacion);
-            ventanaDeError.show();
-            ventanaColocarCarta.close();
+            new Alerta(avisoParteUno + avisoParteDos + avisoParteTres + avisoParteCuatro, ventanaColocarCarta);
             return;
         }
         if (cartaAColocar instanceof CartaMonstruo){

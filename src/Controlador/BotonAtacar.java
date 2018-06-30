@@ -120,13 +120,7 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         try {
             combate.combatir(atacante, (CartaMonstruo) atacado);
         } catch (MonstruoNoPuedeAtacarError e){
-            Stage ventanaDeError = new Stage();
-            TextArea avisoDeErrorDeSacrifcios = new TextArea( "Monstruo elegido no esta en posicion de ataque.\n");
-            avisoDeErrorDeSacrifcios.setEditable(false);
-            Scene escenaDeErrorDeInvocacion = new Scene(avisoDeErrorDeSacrifcios);
-            ventanaDeError.setScene(escenaDeErrorDeInvocacion);
-            ventanaDeError.show();
-            ventantaDeAtaque.close();
+            new Alerta("Monstruo elegido no esta en posicion de ataque.\n", ventantaDeAtaque);
             return;
         }
 

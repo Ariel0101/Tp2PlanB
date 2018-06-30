@@ -21,6 +21,10 @@ import java.util.LinkedList;
 
 public class Main extends Application {
 
+    private String colorDeFondoDeCampoJugador1 = "-fx-background-color: #336699;";
+    private String colorDeFondoDeCampoJugador2 = "-fx-background-color: #336679;";
+
+
     public static void main(String[] args){
         launch(args);
     }
@@ -50,7 +54,7 @@ public class Main extends Application {
         //Sets de prueba
         //Constructor Cartas
         ConstructorDeCartas constructor = new ConstructorDeCartas();
-        //Modelo.Jugador.Mazo con cartas de campo
+        //Mazo con cartas de campo
         Mazo mazoConCartasDeCampo = new Mazo(jugador);
         mazoConCartasDeCampo.agregar(constructor.sogen(campo,campoEnemigo));
         mazoConCartasDeCampo.agregar(constructor.wasteland(campo,campoEnemigo));
@@ -81,47 +85,28 @@ public class Main extends Application {
         }
 
         //Contenedor de las Vista.imagenes de cosas del jugador:
+
         VBox jugadorVisualVBox = new VBox(10);
         ImageView imagenYugi = this.crearImagen("Vista/imagenes/yugi.png", 150, 150);
         ControladorJugador controladorJugador = new ControladorJugador(jugador, jugadorVisualVBox, imagenYugi);
 
-        HBox monstruosEnCampo = new HBox();
+        HBox monstruosEnCampo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador1);
         ControladorCampoMonstruos controladorCampoMonstruos = new ControladorCampoMonstruos(campo,monstruosEnCampo);
-        HBox magicasTrampasEnCampo = new HBox();
+
+        HBox magicasTrampasEnCampo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador1);
         ControladorCampoMagicasTrampas controladorCampoMagicasTrampas = new ControladorCampoMagicasTrampas(campo, magicasTrampasEnCampo);
 
-        monstruosEnCampo.setPadding(new Insets(5, 5, 5, 5));
-        monstruosEnCampo.setSpacing(10);
-        monstruosEnCampo.setPrefHeight(130);;
-        monstruosEnCampo.setStyle("-fx-background-color: #336699;");
-
-        magicasTrampasEnCampo.setPadding(new Insets(5, 5, 5, 5));
-        magicasTrampasEnCampo.setSpacing(10);
-        magicasTrampasEnCampo.setPrefHeight(130);;
-
-        magicasTrampasEnCampo.setStyle("-fx-background-color: #336699;");
-
         //Contenedor de las Vista.imagenes de cosas del jugador enemigo:
+
         VBox jugadorEnemigoVisualVBox = new VBox(10);
         ImageView imagenSeto = this.crearImagen("Vista/imagenes/seto.png", 150, 150);
         ControladorJugador controladorJugadorEnemigo = new ControladorJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto);
 
-        HBox monstruosEnCampoEnemigo = new HBox();
+        HBox monstruosEnCampoEnemigo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador2);
         ControladorCampoMonstruos controladorCampoMonstruosEnemigo = new ControladorCampoMonstruos(campoEnemigo,monstruosEnCampoEnemigo);
-        HBox magicasTrampasEnCampoEnemigo = new HBox();
+
+        HBox magicasTrampasEnCampoEnemigo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador2);
         ControladorCampoMagicasTrampas controladorCampoMagicasTrampasEnemigo = new ControladorCampoMagicasTrampas(campoEnemigo, magicasTrampasEnCampoEnemigo);
-
-        monstruosEnCampoEnemigo.setPadding(new Insets(5, 5, 5, 5));
-        monstruosEnCampoEnemigo.setSpacing(10);
-        monstruosEnCampoEnemigo.setPrefHeight(120);;
-
-        monstruosEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
-
-        magicasTrampasEnCampoEnemigo.setPadding(new Insets(5, 5, 5, 5));
-        magicasTrampasEnCampoEnemigo.setSpacing(10);
-        magicasTrampasEnCampoEnemigo.setPrefHeight(120);;
-
-        magicasTrampasEnCampoEnemigo.setStyle("-fx-background-color: #336679;");
 
         //Actualizador de Representaciones
         LinkedList<Actualizable> representaciones = new LinkedList<>();
@@ -252,4 +237,15 @@ public class Main extends Application {
         imgView.setFitWidth(width);
         return imgView;
     }
+
+    private HBox crearVistaDeSectorDeCampo(String colorDeFondoDeCampo) {
+
+        HBox sectorDeCampo = new HBox();
+        sectorDeCampo.setPadding(new Insets(5, 5, 5, 5));
+        sectorDeCampo.setSpacing(10);
+        sectorDeCampo.setPrefHeight(130);;
+        sectorDeCampo.setStyle(colorDeFondoDeCampo);
+        return sectorDeCampo;
+    }
+
 }
