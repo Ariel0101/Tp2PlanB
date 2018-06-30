@@ -5,58 +5,54 @@ import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Estados.PosDefensa;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
-public class PosDefensaTest extends TestCase {
+public class PosDefensaTest{
 
+    @Test
     public void testPosDefensaObtenerPuntosDevuelveLaDefensaDelMonstruo() {
 
-        PosDefensa d = new PosDefensa();
+        PosDefensa posicionDefensa = new PosDefensa();
 
-        assertEquals(d.obtenerPuntos(100, 1), 1);
+        assertEquals(posicionDefensa.obtenerPuntos(100, 1), 1);
 
     }
 
+    @Test
     public void testPosDefensaDanioDePersonajeDevuelveCero(){
 
-        PosDefensa p = new PosDefensa();
+        PosDefensa posicionDefensa = new PosDefensa();
 
-        assertEquals(p.danioDePersonaje(200), 0);
+        assertEquals(posicionDefensa.danioDePersonaje(200), 0);
 
     }
 
+    @Test
     public void testPosDefensaMatarAUnMonstruoNoLoAgregaAlBotinDeMuertos(){
 
-        PosDefensa p = new PosDefensa();
-        Cementerio c = new Cementerio();
-        Monstruo m = new Monstruo(1,1);
-        CartaMonstruo carta = new CartaMonstruo(m, 1);
-        Botin b = new Botin();
+        PosDefensa posicionDefensa = new PosDefensa();
+        Cementerio cementerio = new Cementerio();
+        Monstruo monstruo = new Monstruo(1,1);
+        CartaMonstruo carta = new CartaMonstruo(monstruo, 1);
+        Botin unBotin = new Botin();
 
-        p.matar(m, b);
+        posicionDefensa.matar(monstruo, unBotin);
 
-        b.ejecutar(new Campo(c));
+        unBotin.ejecutar(new Campo(cementerio));
 
-        assertFalse(c.esta(carta));
+        assertFalse(cementerio.esta(carta));
 
     }
 
+    @Test(expected = MonstruoNoPuedeAtacarError.class)
     public void testPosDefensaAtacarLanzaError(){
 
-        PosDefensa p = new PosDefensa();
-        boolean lanzoError = false;
+        PosDefensa posicionDefensa = new PosDefensa();
 
-        try{
+        posicionDefensa.atacar();
 
-            p.atacar();
-
-        }catch(MonstruoNoPuedeAtacarError e ){
-
-            lanzoError = true;
-
-        }
-
-        assertTrue(lanzoError);
     }
 
 }

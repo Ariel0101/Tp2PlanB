@@ -5,10 +5,14 @@ import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import Modelo.Jugador.Jugador;
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-public class MonstruoTest extends TestCase {
+public class MonstruoTest{
 
+    @Test
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYAitsuMuere() throws MonstruoNoPuedeAtacarError {
 
         Monstruo a = new Monstruo(100, 100);
@@ -24,6 +28,7 @@ public class MonstruoTest extends TestCase {
         assertTrue(c.esta(aitsu));
     }
 
+    @Test
     public void testPeleaAgujaAsesinaEnAtaqueContraAlasDeLaLlamaPerversaEnAtaqueYAlasDeLaLlamaPerversaMuere() throws MonstruoNoPuedeAtacarError{
 
         Monstruo a = new Monstruo(700, 600);
@@ -39,7 +44,8 @@ public class MonstruoTest extends TestCase {
         assertTrue(c.esta(alasDeLlamaPerversa));
     }
 
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnAtaqueYMuerenAmbos() throws MonstruoNoPuedeAtacarError{
+    @Test
+    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnAtaqueYMuerenAmbos() {
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -56,7 +62,8 @@ public class MonstruoTest extends TestCase {
         assertTrue(c.esta(cartaAguja));
     }
 
-    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere() throws MonstruoNoPuedeAtacarError{
+    @Test
+    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere() {
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -73,7 +80,8 @@ public class MonstruoTest extends TestCase {
         assertFalse(c.esta(cAguja));
     }
 
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro() throws MonstruoNoPuedeAtacarError{
+    @Test
+    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro() {
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -90,7 +98,8 @@ public class MonstruoTest extends TestCase {
         assertFalse(c.esta(cAguja));
     }
 
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida() throws MonstruoNoPuedeAtacarError{
+    @Test
+    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida() {
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -107,7 +116,8 @@ public class MonstruoTest extends TestCase {
 
     }
 
-    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYElBotinQuita1100DeVidaAlAtacado() throws MonstruoNoPuedeAtacarError{
+    @Test
+    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYElBotinQuita1100DeVidaAlAtacado() {
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -123,8 +133,8 @@ public class MonstruoTest extends TestCase {
         assertEquals(atacado.verVida(), 10000 - 1100);
 
     }
-
-    public void testPeleaAitsuEnDefensaContraAgujaAsesinaEnAtaqueYElBotinNoQuitaVida() throws MonstruoNoPuedeAtacarError{
+    @Test
+    public void testPeleaAitsuEnDefensaContraAgujaAsesinaEnAtaqueYElBotinNoQuitaVida() {
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
@@ -140,29 +150,17 @@ public class MonstruoTest extends TestCase {
         assertEquals(atacado.verVida(), 10000);
 
     }
-
+    @Test(expected = MonstruoNoPuedeAtacarError.class)
     public void testAitsuEnPosDefensaIntentaAtacarAAgujaAsesinaYSeLevantaUnaExcepcion(){
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
         aitsu.colocarEnPosDefensa();
 
-        boolean lanzoError = false;
-
-        try{
-
-            aitsu.atacar(agujaAsesina);
-
-        }catch(MonstruoNoPuedeAtacarError e){
-
-            lanzoError = true;
-
-        }
-
-        assertTrue(lanzoError);
+        aitsu.atacar(agujaAsesina);
 
     }
-
+    @Test(expected = MonstruoNoPuedeAtacarError.class)
     public void testAitsuEnPosAtaqueIntentaAtacarAAgujaAsesinaYNoSeLevantaUnaExcepcion(){
 
         Monstruo aitsu = new Monstruo(100, 100);
@@ -170,19 +168,6 @@ public class MonstruoTest extends TestCase {
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
 
-        boolean lanzoError = false;
-
-        try{
-
-            aitsu.atacar(agujaAsesina);
-
-        }catch(MonstruoNoPuedeAtacarError e){
-
-            lanzoError = true;
-
-        }
-
-        assertFalse(lanzoError);
-
+        aitsu.atacar(agujaAsesina);
     }
 }

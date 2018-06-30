@@ -12,30 +12,29 @@ import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Excepciones.NoHayCartasError;
 import Modelo.Jugador.Jugador;
 import Modelo.Jugador.Mazo;
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class MazoTest extends TestCase {
+import static org.junit.Assert.assertEquals;
+
+public class MazoTest {
+    @Test(expected = NoHayCartasError.class)
     public void testMazoSacarLevantaErrorCuandoNoQuedanMasCartas(){
-        Jugador unJugador = new Jugador("Modelo.Jugador.Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Jugador 1", 8000);
         Mazo unMazo = new Mazo(unJugador);
-        boolean lanzoError = false;
-        try {
-            unMazo.sacar();
-        } catch (NoHayCartasError e){
-            lanzoError = true;
-        }
-        assertTrue(lanzoError);
-    }
 
+        unMazo.sacar();
+
+    }
+    @Test
     public void testMazoCantidadEsCeroAlCrearse(){
-        Jugador unJugador = new Jugador("Modelo.Jugador.Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Jugador 1", 8000);
         Mazo unMazo = new Mazo(unJugador);
 
         assertEquals(0, unMazo.cantidad());
     }
-
+    @Test
     public void testMazoCantidadEs4CuandoAgrego4Cartas(){
-        Jugador unJugador = new Jugador("Modelo.Jugador.Jugador 1", 8000);
+        Jugador unJugador = new Jugador("Jugador 1", 8000);
         Mazo unMazo = new Mazo(unJugador);
         CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
         CartaMagica cartaMagica = new CartaMagica(new MagiaNula());
@@ -50,9 +49,9 @@ public class MazoTest extends TestCase {
 
         assertEquals(4, unMazo.cantidad());
     }
-
+    @Test
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
-        String nombreJugador = "Modelo.Jugador.Jugador 1";
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);

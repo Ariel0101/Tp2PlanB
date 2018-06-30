@@ -121,7 +121,7 @@ public class EntregaDosTest extends TestCase {
 
     public void testOllaDeLaCodiciaActivarSacaDosCartasDelMazoYlasColocaEnLaMano(){
         Campo unCampo = new Campo(new Cementerio());
-        String nombreJugador = "Modelo.Jugador.Jugador 1";
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);
@@ -324,7 +324,7 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testManoAgregarLas5PartesDeExodiaSeteaEnPartidaAlGanador(){
-        String nombreJugador = "Modelo.Jugador.Jugador 1";
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
@@ -344,12 +344,12 @@ public class EntregaDosTest extends TestCase {
         cartaPiernaDerecha.colocarse(unaMano);
         cartaPiernaIzquierda.colocarse(unaMano);
 
-        assertEquals("Modelo.Jugador.Jugador 1",unaPartida.verGanador());
+        assertEquals("Jugador 1",unaPartida.verGanador());
 
     }
 
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
-        String nombreJugador = "Modelo.Jugador.Jugador 1";
+        String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);

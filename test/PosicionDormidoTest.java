@@ -3,76 +3,48 @@ import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Estados.PosDormido;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-public class PosicionDormidoTest extends TestCase {
+
+public class PosicionDormidoTest {
+
+    @Test(expected = MonstruoNoPuedeAtacarError.class)
     public void testPosDormidoObtenerPuntosLanzaError() {
+        PosDormido posicionDormido = new PosDormido();
 
-        PosDormido p = new PosDormido();
-        boolean lanzoError = false;
+        posicionDormido.obtenerPuntos(100,100);
 
-        try{
-
-            p.obtenerPuntos(100,100);
-
-        }catch(MonstruoNoPuedeAtacarError e ){
-
-            lanzoError = true;
-
-        }
-
-        assertTrue(lanzoError);
     }
 
 
-
+    @Test
     public void testPosDefensaDanioDePersonajeDevuelveCero(){
 
-        PosDormido p = new PosDormido();
+        PosDormido posicionDormido = new PosDormido();
 
-        assertEquals(p.danioDePersonaje(200), 0);
+        assertEquals(posicionDormido.danioDePersonaje(200), 0);
 
     }
 
+    @Test(expected = MonstruoNoPuedeAtacarError.class)
     public void testPosDormidoMatarLanzaError(){
 
-        PosDormido p = new PosDormido();
+        PosDormido posicionDormido = new PosDormido();
         Botin unBotin = new Botin();
         Monstruo mokeyMokey = new Monstruo(300,100);
         CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
-        boolean lanzoError = false;
 
-        try{
-
-            p.matar(mokeyMokey,unBotin);
-
-        }catch(MonstruoNoPuedeAtacarError e ){
-
-            lanzoError = true;
-
-        }
-
-        assertTrue(lanzoError);
+        posicionDormido.matar(mokeyMokey, unBotin);
     }
 
 
-
+    @Test(expected = MonstruoNoPuedeAtacarError.class)
     public void testPosDormidoAtacarLanzaError(){
+        PosDormido posicionDormido = new PosDormido();
 
-        PosDormido p = new PosDormido();
-        boolean lanzoError = false;
+        posicionDormido.atacar();
 
-        try{
-
-            p.atacar();
-
-        }catch(MonstruoNoPuedeAtacarError e ){
-
-            lanzoError = true;
-
-        }
-
-        assertTrue(lanzoError);
     }
 
 }
