@@ -27,7 +27,6 @@ public class PosDefensa implements Posicion {
 
     }
 
-    @Override
     public String enCaracteres() {
         return "Defensa";
     }

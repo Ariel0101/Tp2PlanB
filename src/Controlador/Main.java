@@ -39,13 +39,13 @@ public class Main extends Application {
         unaPartida.setVentana(ventanaPrincipal);
 
         //Cosas del jugador:
-        Jugador jugador = new Jugador("Yugi Muto", 8000, unaPartida);
+        Jugador jugador = new Jugador("Yugi Muto", 100, unaPartida);
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
 
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("Seto Kaiba", 8000, unaPartida);
+        Jugador enemigo = new Jugador("Seto Kaiba", 100, unaPartida);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
@@ -81,13 +81,13 @@ public class Main extends Application {
         //Llenar manos
         for (int i = 0; i<5; i++){
             mano.agregar(mazo.sacar());
-            manoEnemiga.agregar(mazo.sacar());
+            manoEnemiga.agregar(mazoEnemigo.sacar());
         }
 
         //Contenedor de las Vista.imagenes de cosas del jugador:
 
         VBox jugadorVisualVBox = new VBox(10);
-        ImageView imagenYugi = this.crearImagen("Vista/imagenes/yugi.png", 150, 150);
+        ImageView imagenYugi = this.crearImagen("Vista/Imagenes/yugi.png", 150, 150);
         ControladorJugador controladorJugador = new ControladorJugador(jugador, jugadorVisualVBox, imagenYugi);
 
         HBox monstruosEnCampo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador1);
@@ -99,7 +99,7 @@ public class Main extends Application {
         //Contenedor de las Vista.imagenes de cosas del jugador enemigo:
 
         VBox jugadorEnemigoVisualVBox = new VBox(10);
-        ImageView imagenSeto = this.crearImagen("Vista/imagenes/seto.png", 150, 150);
+        ImageView imagenSeto = this.crearImagen("Vista/Imagenes/seto.png", 150, 150);
         ControladorJugador controladorJugadorEnemigo = new ControladorJugador(enemigo, jugadorEnemigoVisualVBox, imagenSeto);
 
         HBox monstruosEnCampoEnemigo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador2);
@@ -219,7 +219,7 @@ public class Main extends Application {
         pantallaJugador2HBox.setAlignment(Pos.BOTTOM_RIGHT);
 
       
-        BackgroundImage imagenFondo = new BackgroundImage(new Image("Vista/imagenes/background1.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(-1, -1, true, true, false, true));
+        BackgroundImage imagenFondo = new BackgroundImage(new Image("Vista/Imagenes/background1.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(-1, -1, true, true, false, true));
         Background fondo = new Background(imagenFondo);
         contenedorPrincipal.setBackground(fondo);
 

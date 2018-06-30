@@ -42,6 +42,9 @@ public class Jugador implements Atacable {
     public void recibirDanio(int vidaARestar) {
 
         this.vida -= vidaARestar;
+        if (this.vida <= 0){
+            this.perder();
+        }
     }
 
     public int verVida() {

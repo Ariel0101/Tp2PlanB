@@ -36,7 +36,7 @@ public class BocaAbajo implements Boca {
     @Override
     public Image imagen(String nombre, String posicion) {
 
-        return new Image("Vista/imagenes/bocaAbajo" + posicion + ".jpg");
+        return new Image("Vista/Imagenes/bocaAbajo" + posicion + ".jpg");
     }
 
     @Override

@@ -30,7 +30,7 @@ public class PosDormido implements Posicion {
 
     }
 
-    @Override
+
     public String enCaracteres() {
         return "Dormido";
     }

@@ -37,7 +37,7 @@ public class Partida {
 
     public void setGanador(String nombreJugador) {
         this.ganador = nombreJugador;
-        String mensajeFinDelJuego = String.format("Modelo.Jugador.Jugador : %s ha ganado.", nombreJugador);
+        String mensajeFinDelJuego = String.format("Jugador : %s ha ganado.", nombreJugador);
         this.finalizarJuego(mensajeFinDelJuego);
     }
 
@@ -50,7 +50,7 @@ public class Partida {
     public void setPerdedor(String nombreJugador) {
 
         this.perdedor = nombreJugador;
-        String mensajeFinDelJuego = String.format("Modelo.Jugador.Jugador : %s ha perdido.", nombreJugador);
+        String mensajeFinDelJuego = String.format("Jugador : %s ha perdido.", nombreJugador);
         this.finalizarJuego(mensajeFinDelJuego);
     }
 

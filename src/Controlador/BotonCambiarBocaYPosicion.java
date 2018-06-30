@@ -33,7 +33,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
         Stage ventanaCambiarPosicion = new Stage();
 
         ComboBox<CartaMonstruo> opcionesMonstruo = new ComboBox<>();
-        opcionesMonstruo.setPromptText("Eligi tu Modelo.CartasMonstruo.Monstruo");
+        opcionesMonstruo.setPromptText("Eligi tu Monstruo");
 
         for (CartaMonstruo m : this.campo.listaMonstruos()) {
             if (!this.monstruosQueYaCambiaron.contains(m) && !botonColocar.colocaste(m)){
@@ -42,15 +42,15 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
         }
 
         ComboBox<String> opcionesBoca = new ComboBox<>();
-        opcionesBoca.setPromptText("Modelo.Estados.Boca arriba");
-        opcionesBoca.getItems().add("Modelo.Estados.Boca arriba");
-        opcionesBoca.getItems().add("Modelo.Estados.Boca abajo");
+        opcionesBoca.setPromptText("Boca arriba");
+        opcionesBoca.getItems().add("Boca arriba");
+        opcionesBoca.getItems().add("Boca abajo");
 
 
         ComboBox<String> opcionesPosicion = new ComboBox<>();
-        opcionesPosicion.setPromptText("Modelo.Estados.Posicion Ataque");
-        opcionesPosicion.getItems().add("Modelo.Estados.Posicion Ataque");
-        opcionesPosicion.getItems().add("Modelo.Estados.Posicion Defensa");
+        opcionesPosicion.setPromptText("Posicion Ataque");
+        opcionesPosicion.getItems().add("Posicion Ataque");
+        opcionesPosicion.getItems().add("Posicion Defensa");
 
         Button botonAceptarCambio = new Button("aceptar");
         botonAceptarCambio.setOnAction(actionEvent1-> {
@@ -74,7 +74,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
     }
 
     private void colocarBoca(ComboBox<String> opcionesBoca, CartaMonstruo cartaElegida) {
-        if (opcionesBoca.getValue() == "Modelo.Estados.Boca arriba" || opcionesBoca.getValue() == null){ //por defecto
+        if (opcionesBoca.getValue() == "Boca arriba" || opcionesBoca.getValue() == null){ //por defecto
             if (cartaElegida instanceof CartaMonstruoComeHombres){
                 CartaMonstruoComeHombres cartaComeHombres = (CartaMonstruoComeHombres) cartaElegida;
                 cartaComeHombres.activarEfectoVisualmente(this.actualizador);
@@ -83,19 +83,19 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
             System.out.print("Colocado boca arriba\n");
         }
 
-        if (opcionesBoca.getValue() == "Modelo.Estados.Boca abajo"){
+        if (opcionesBoca.getValue() == "Boca abajo"){
             System.out.print("Colocado boca abajo\n");
             cartaElegida.colocarBocaAbajo();
         }
     }
 
     private void colocarPosicion(ComboBox<String> opcionesPosicion, CartaMonstruo cartaElegida) {
-        if (opcionesPosicion.getValue() == "Modelo.Estados.Posicion Ataque"){
+        if (opcionesPosicion.getValue() == "Posicion Ataque"){
             System.out.print("Colocado en pos ataque.\n");
             cartaElegida.colocarEnPosAtaque();
         }
 
-        if (opcionesPosicion.getValue() == "Modelo.Estados.Posicion Defensa"){
+        if (opcionesPosicion.getValue() == "Posicion Defensa"){
             System.out.print("Colocado en pos defensa.\n");
             cartaElegida.colocarEnPosDefensa();
         }

@@ -11,7 +11,7 @@ import Modelo.Jugador.Mazo;
 
 public class ConstructorDeCartas {
 
-    //Cartas Modelo.CartasMonstruo.Monstruo
+    //Cartas Monstruo
     public CartaMonstruo aitsu(){
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo aitsuCart =  new CartaMonstruo(aitsu, 5);
@@ -135,16 +135,16 @@ public class ConstructorDeCartas {
     public CartaMagica fisura(Campo campoEnemigo){
         Fisura fisura = new Fisura(campoEnemigo);
         CartaMagica carta = new CartaMagica(fisura);
-        carta.ponerNombre("Modelo.CartasMagiaTrampa.Fisura");
+        carta.ponerNombre("Fisura");
         return carta;
     }
 
-    //Cartas Modelo.CartasMagiaTrampa.Trampa
+    //Cartas Trampa
 
     public CartaTrampa refuerzos(){
         Refuerzos refuerzos = new Refuerzos();
         CartaTrampa carta = new CartaTrampa(refuerzos);
-        carta.ponerNombre("Modelo.CartasMagiaTrampa.Refuerzos");
+        carta.ponerNombre("Refuerzos");
         return carta;
     }
 
@@ -155,7 +155,7 @@ public class ConstructorDeCartas {
         return carta;
     }
 
-    // Cartas de Modelo.Campo.Campo
+    // Cartas de Campo
 
     public CartaDeCampo wasteland(Campo campoAmigo, Campo campoEnemigo){
         EfectoWasteland efectoWasteland = new EfectoWasteland(campoAmigo, campoEnemigo);
