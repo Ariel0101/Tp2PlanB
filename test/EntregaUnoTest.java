@@ -1,3 +1,4 @@
+import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.CartasMagiaTrampa.AgujeroOscuro;
@@ -85,8 +86,8 @@ public class EntregaUnoTest extends TestCase {
         aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
         agujaAsesina.colocarBocaArriba();
-        Jugador jAitsu = new Jugador("", 10000);
-        Jugador jAgujero = new Jugador("", 10000);
+        Jugador jAitsu = new Jugador("", 10000, new Partida());
+        Jugador jAgujero = new Jugador("", 10000, new Partida());
 
         Botin b = agujaAsesina.atacar(aitsu, new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
@@ -109,8 +110,8 @@ public class EntregaUnoTest extends TestCase {
         agujaAsesina1.colocarBocaArriba();
         agujaAsesina2.colocarEnPosAtaque();
         agujaAsesina2.colocarBocaArriba();
-        Jugador j1 = new Jugador("", 10000);
-        Jugador j2 = new Jugador("", 10000);
+        Jugador j1 = new Jugador("", 10000, new Partida());
+        Jugador j2 = new Jugador("", 10000, new Partida());
 
         Botin b = agujaAsesina1.atacar(agujaAsesina2,new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
@@ -135,8 +136,8 @@ public class EntregaUnoTest extends TestCase {
         aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
         agujaAsesina.colocarBocaArriba();
-        Jugador jAitsu = new Jugador("", 10000);
-        Jugador jAgujero = new Jugador("", 10000);
+        Jugador jAitsu = new Jugador("", 10000, new Partida());
+        Jugador jAgujero = new Jugador("", 10000, new Partida());
 
         Botin b = agujaAsesina.atacar(aitsu,new Campo(new Cementerio()));
         Cementerio c = new Cementerio();
@@ -157,8 +158,8 @@ public class EntregaUnoTest extends TestCase {
         CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
-        Jugador jAitsu = new Jugador("", 10000);
-        Jugador jAgujero = new Jugador("", 10000);
+        Jugador jAitsu = new Jugador("", 10000, new Partida());
+        Jugador jAgujero = new Jugador("", 10000, new Partida());
 
         Botin b = aitsu.atacar(agujaAsesina,new Campo(new Cementerio()));
         Cementerio c = new Cementerio();

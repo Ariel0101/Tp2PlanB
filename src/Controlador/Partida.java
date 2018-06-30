@@ -23,8 +23,8 @@ public class Partida {
     }
 
     private void finalizarJuego(String resultadoDeLaPartida){
-        //Interfaz Grafica //Solo valido cuando las ordenes vienen desde el main.
-        if (this.ventana != null){
+
+        if (this.ventana != null){ //Pues solo funciona si se abre un ventana desde el main
             Stage ventanaFinDelJuego = new Stage();
             TextArea textoFinDelJuego = new TextArea(resultadoDeLaPartida);
             textoFinDelJuego.setEditable(false);

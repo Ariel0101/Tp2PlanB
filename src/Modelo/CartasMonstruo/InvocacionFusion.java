@@ -2,7 +2,7 @@ package Modelo.CartasMonstruo;
 
 import Modelo.Campo.Campo;
 
-public class InvocacionFusion extends Invocacion {
+public class InvocacionFusion implements Invocacion {
 
 	private CartaMonstruo cartaMonstruoAFusionar;
 	private int cantidadAFusionar;
@@ -13,7 +13,7 @@ public class InvocacionFusion extends Invocacion {
 		cantidadAFusionar = cantidadDeCartas;
 	}
 
-	void activar(Campo unCampo) {
+	public void activar(Campo unCampo) {
 		unCampo.fusionar(cartaMonstruoAFusionar, cantidadAFusionar);
 	}
 

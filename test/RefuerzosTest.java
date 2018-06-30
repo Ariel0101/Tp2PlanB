@@ -1,3 +1,4 @@
+import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.CartasMagiaTrampa.CartaTrampa;
@@ -15,8 +16,8 @@ public class RefuerzosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Jugador jugadorUno = new Jugador("1",1000);
-        Jugador jugadorDos = new Jugador("2",1000);
+        Jugador jugadorUno = new Jugador("1",1000, new Partida());
+        Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
         CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);
@@ -50,8 +51,8 @@ public class RefuerzosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Jugador jugadorUno = new Jugador("1",1000);
-        Jugador jugadorDos = new Jugador("2",1000);
+        Jugador jugadorUno = new Jugador("1",1000, new Partida());
+        Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
         CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);
@@ -88,8 +89,8 @@ public class RefuerzosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Jugador jugadorUno = new Jugador("1",1000);
-        Jugador jugadorDos = new Jugador("2",1000);
+        Jugador jugadorUno = new Jugador("1",1000, new Partida());
+        Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
         CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);

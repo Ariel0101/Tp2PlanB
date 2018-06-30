@@ -2,7 +2,7 @@ package Modelo.CartasMonstruo;
 
 import Modelo.Campo.Campo;
 
-public abstract class Invocacion {
+public interface Invocacion {
 
-	abstract void activar(Campo unCampo);
+	void activar(Campo unCampo);
 }

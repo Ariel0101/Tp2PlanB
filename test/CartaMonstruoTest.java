@@ -1,3 +1,4 @@
+import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.CartasMonstruo.CartaMonstruo;
@@ -59,7 +60,7 @@ public class CartaMonstruoTest extends TestCase {
         CartaMonstruo aitsuEnemigo = new CartaMonstruo(m2, 1);
         Monstruo m3 = new Monstruo(1200, 1000);
         CartaMonstruo agujaAsesina = new CartaMonstruo(m3, 1);
-        Jugador yuGi = new Jugador("YuGi", 8000);
+        Jugador yuGi = new Jugador("YuGi", 8000,new Partida());
         Campo campoYugi = new Campo(new Cementerio());
 
         aitsuEnemigo.colocarse(campoYugi);

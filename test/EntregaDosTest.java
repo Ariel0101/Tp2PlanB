@@ -14,7 +14,7 @@ public class EntregaDosTest extends TestCase {
 
     public void testJinzo7PuedeAtacarDirectamenteAlJugador() throws MonstruoNoPuedeAtacarError{
 
-        Jugador j1 = new Jugador("1",1000);
+        Jugador j1 = new Jugador("1",1000, new Partida());
         Monstruo jinzo7 = new Monstruo(500,400);
         CartaMonstruoJinzo7 cartaJinzo7 = new CartaMonstruoJinzo7(jinzo7, 2);
         Monstruo m1 = new Monstruo(500,400);
@@ -33,8 +33,8 @@ public class EntregaDosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);
-        Jugador j1 = new Jugador("a", 1000);
-        Jugador j2 = new Jugador("b", 1000);
+        Jugador j1 = new Jugador("a", 1000, new Partida());
+        Jugador j2 = new Jugador("b", 1000, new Partida());
         Monstruo a1 = new Monstruo(200, 100);
         Monstruo a2 = new Monstruo(10, 10);
         Monstruo a3 = new Monstruo(100,100);
@@ -78,8 +78,8 @@ public class EntregaDosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);
-        Jugador j1 = new Jugador("a", 1000);
-        Jugador j2 = new Jugador("b", 1000);
+        Jugador j1 = new Jugador("a", 1000, new Partida());
+        Jugador j2 = new Jugador("b", 1000, new Partida());
         Monstruo g1 = new Monstruo(400, 400);
         Monstruo a2 = new Monstruo(10, 10);
         Monstruo a3 = new Monstruo(100,100);
@@ -259,8 +259,8 @@ public class EntregaDosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Jugador jugadorUno = new Jugador("1",1000);
-        Jugador jugadorDos = new Jugador("2",1000);
+        Jugador jugadorUno = new Jugador("1",1000, new Partida());
+        Jugador jugadorDos = new Jugador("2",1000, new Partida());
         Monstruo mokeyMokey = new Monstruo(300,100);
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo cartaMokeyMokey = new CartaMonstruo(mokeyMokey,3);
@@ -292,8 +292,8 @@ public class EntregaDosTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Jugador jugadorUno = new Jugador("1",1000);
-        Jugador jugadorDos = new Jugador("2",1000);
+        Jugador jugadorUno = new Jugador("1",1000, new Partida());
+        Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
         CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);
