@@ -1,16 +1,11 @@
 import Controlador.Partida;
-import Modelo.Campo.Campo;
-import Modelo.Campo.CartaDeCampo;
-import Modelo.Campo.Cementerio;
-import Modelo.Campo.EfectoDeCampoNulo;
-import Modelo.CartasMagiaTrampa.CartaMagica;
-import Modelo.CartasMagiaTrampa.CartaTrampa;
-import Modelo.CartasMagiaTrampa.MagiaNula;
-import Modelo.CartasMagiaTrampa.TrampaNula;
+import Modelo.Campo.*;
+import Modelo.CartasMagiaTrampa.*;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Excepciones.NoHayCartasError;
 import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mano;
 import Modelo.Jugador.Mazo;
 import org.junit.Test;
 
@@ -37,11 +32,11 @@ public class MazoTest {
         Jugador unJugador = new Jugador("Jugador 1", 8000, new Partida());
         Mazo unMazo = new Mazo(unJugador);
         CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
-        CartaMagica cartaMagica = new CartaMagica(new MagiaNula());
+        CartaMagica cartaMagica = new CartaMagica(new OllaDeLaCodicia(new Mano(unJugador), unMazo));
         CartaTrampa cartaTrampa = new CartaTrampa(new TrampaNula());
         Cementerio c1 = new Cementerio();
         Cementerio c2 = new Cementerio();
-        CartaDeCampo cartaDeCampo = new CartaDeCampo(new EfectoDeCampoNulo(new Campo(c1), new Campo(c2)));
+        CartaDeCampo cartaDeCampo = new CartaDeCampo(new EfectoSogen(new Campo(c1), new Campo(c2)));
         unMazo.agregar(cartaMonstruo);
         unMazo.agregar(cartaMagica);
         unMazo.agregar(cartaTrampa);

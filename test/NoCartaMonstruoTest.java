@@ -41,7 +41,7 @@ public class NoCartaMonstruoTest  {
         Monstruo monstruoCualquiera = new Monstruo(0,0);
         NoCartaMonstruo noCartaMonstruo = new NoCartaMonstruo(monstruoCualquiera);
 
-        noCartaMonstruo.colocarEnPosAtaque();
+        noCartaMonstruo.colocarBocaAbajo();
     }
 
     @Test(expected = NoCartaMonstruoError.class)
