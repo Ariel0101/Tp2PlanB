@@ -37,13 +37,13 @@ public class Main extends Application {
         unaPartida.setVentana(ventanaPrincipal);
 
         //Cosas del jugador:
-        Jugador jugador = new Jugador("Yugi Muto", 100, unaPartida);
+        Jugador jugador = new Jugador("Yugi Muto", 2000, unaPartida);
         Campo campo = new Campo(new Cementerio());
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
 
         //Cosas del enemigo:
-        Jugador enemigo = new Jugador("Seto Kaiba", 100, unaPartida);
+        Jugador enemigo = new Jugador("Seto Kaiba", 2000, unaPartida);
         Campo campoEnemigo = new Campo(new Cementerio());
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);

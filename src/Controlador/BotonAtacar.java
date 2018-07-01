@@ -13,6 +13,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -58,9 +59,14 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
             ventantaDeAtaque.close();
         });
 
+        ImageView imagenDeCarta = new ImageView();
+        imagenDeCarta.setFitWidth(240);
+        imagenDeCarta.setFitHeight(400);
+        eleccionAtacante.setOnAction((e -> imagenDeCarta.setImage(eleccionAtacante.getValue().imagen())));
+
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 300, 20));
-        layout.getChildren().addAll(eleccionAtacante, botonElegirOponente); //, eleccionAtacado, comenzarAtaque
+        layout.getChildren().addAll(eleccionAtacante, botonElegirOponente, imagenDeCarta); //, eleccionAtacado, comenzarAtaque
 
         Scene scene =  new Scene(layout, 300, 500);
         ventantaDeAtaque.setScene(scene);
@@ -89,9 +95,15 @@ public class BotonAtacar implements EventHandler<ActionEvent> , Reiniciable {
         comenzarAtaque.setOnAction(e ->{
                 this.aceptar(atacante, eleccionAtacado.getValue(), ventantaDeAtaque);
         });
+
+        ImageView imagenDeCarta = new ImageView();
+        imagenDeCarta.setFitWidth(240);
+        imagenDeCarta.setFitHeight(400);
+        eleccionAtacado.setOnAction((e -> imagenDeCarta.setImage(eleccionAtacado.getValue().imagen())));
+        
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 300, 20));
-        layout.getChildren().addAll(eleccionAtacado, comenzarAtaque); //, eleccionAtacado, comenzarAtaque
+        layout.getChildren().addAll(eleccionAtacado, comenzarAtaque, imagenDeCarta); //, eleccionAtacado, comenzarAtaque
 
         Scene scene =  new Scene(layout, 300, 500);
         ventantaDeAtaque.setScene(scene);

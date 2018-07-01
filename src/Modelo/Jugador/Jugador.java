@@ -5,6 +5,7 @@ import Modelo.Campo.Campo;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.Combate.Atacable;
 import Modelo.Combate.Botin;
+import javafx.scene.image.Image;
 
 public class Jugador implements Atacable {
 
@@ -54,5 +55,12 @@ public class Jugador implements Atacable {
 
     public String toString(){
         return this.nombre;
+    }
+
+    @Override
+    public Image imagen() {
+
+        return new Image("Vista/Imagenes/bocaNeutra.jpg");
+
     }
 }
