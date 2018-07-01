@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -46,9 +47,15 @@ public class ControladorEfectoComeHombres {
             ventanaSeleccionarCarta.close();
             System.out.println(cartaElegida.toString() + " fue destruida por efecto de " + this.comeHombres.toString());
         });
+
+        ImageView imagenDeCarta = new ImageView();
+        imagenDeCarta.setFitWidth(240);
+        imagenDeCarta.setFitHeight(400);
+        opcionesMonstruos.setOnAction((e -> imagenDeCarta.setImage(opcionesMonstruos.getValue().imagen())));
+
         VBox contenedorSeleccion = new VBox(10);
-        contenedorSeleccion.setPadding(new Insets(20, 20, 300, 20));
-        contenedorSeleccion.getChildren().addAll(opcionesMonstruos,botonAceptarSeleccion);
+        contenedorSeleccion.setPadding(new Insets(20, 20, 100, 20));
+        contenedorSeleccion.getChildren().addAll(opcionesMonstruos,botonAceptarSeleccion, imagenDeCarta);
         Scene escenaSeleccionarCarta = new Scene(contenedorSeleccion);
         ventanaSeleccionarCarta.setScene(escenaSeleccionarCarta);
         ventanaSeleccionarCarta.show();
