@@ -85,12 +85,6 @@ public class CartaMonstruo implements Carta, Atacable {
         unaMano.agregar(this);
     }
 
-
-    private void invocar(Campo miCampo) { 	
-    	invocacion.activar(miCampo);
-
-    }
-
     public boolean estaBocaArriba() {
 
         return this.boca.estaBocaArriba();
@@ -116,11 +110,10 @@ public class CartaMonstruo implements Carta, Atacable {
         this.monstruo.desactivarTemporales();
     }
 
-    public void colocarse(Campo c) {
-    	
-    	this.invocar(c);
-        c.agregarMonstruo(this);
+    public void colocarse(Campo miCampo) {
 
+        invocacion.activar(miCampo);
+        miCampo.agregarMonstruo(this);
     }
 
     public int conCuantosPuntosAtaca() {
