@@ -2,7 +2,6 @@ package Modelo.Campo;
 
 import Modelo.Carta;
 import Modelo.Estados.Boca;
-import Modelo.Estados.BocaAbajo;
 import Modelo.Estados.BocaNeutra;
 import Modelo.Jugador.Mano;
 import javafx.scene.image.Image;
@@ -13,8 +12,9 @@ public class CartaDeCampo implements Carta {
     protected EfectoDeCampo efectoDeCampo;
 	private String nombre;
 
-	public CartaDeCampo(EfectoDeCampo unEfectoDeCampo) {
-		
+	public CartaDeCampo(String nombre, EfectoDeCampo unEfectoDeCampo) {
+
+		this.nombre = nombre;
 		this.efectoDeCampo = unEfectoDeCampo;
 		this.boca = new BocaNeutra();
 		
@@ -45,17 +45,11 @@ public class CartaDeCampo implements Carta {
     public void colocarBocaArriba() {
     }
 
-    @Override
     public Image imagen() {
         
 		return this.boca.imagen(this.nombre, "");
 		
     }
-
-	@Override
-	public void ponerNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	public String toString(){
 	    return this.nombre;

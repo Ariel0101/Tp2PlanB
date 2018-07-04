@@ -37,7 +37,7 @@ public class PosAtaqueTest extends TestCase {
         PosAtaque posicionAtaque = new PosAtaque();
         Cementerio cementerio = new Cementerio();
         Monstruo monstruo = new Monstruo(1,1);
-        CartaMonstruo carta = new CartaMonstruo(monstruo, 1);
+        CartaMonstruo carta = new CartaMonstruo("", monstruo, 1);
         Botin unBotin = new Botin();
 
         posicionAtaque.matar(monstruo, unBotin);

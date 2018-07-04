@@ -21,11 +21,11 @@ public class SacrificiosTest  {
         Campo unCampo = new Campo(unCementerio);
         Campo otroCampo = new Campo(otroCementerio);
         Monstruo monstruoSacrificado = new Monstruo(100, 100);
-        CartaMonstruo cartaSacrificada = new CartaMonstruo(monstruoSacrificado, 4);
+        CartaMonstruo cartaSacrificada = new CartaMonstruo("", monstruoSacrificado, 4);
         Monstruo monstruo5Estrellas = new Monstruo(300, 100);
-        CartaMonstruo carta5Estrellas = new CartaMonstruo(monstruo5Estrellas ,5);
+        CartaMonstruo carta5Estrellas = new CartaMonstruo("", monstruo5Estrellas ,5);
         Monstruo monstruoAtacado = new Monstruo(10, 10);
-        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        CartaMonstruo cartaAtacada = new CartaMonstruo("", monstruoAtacado ,1);
 
         unCampo.colocarCarta(cartaSacrificada);
         unCampo.colocarCarta(carta5Estrellas);
@@ -49,13 +49,13 @@ public class SacrificiosTest  {
         Campo unCampo = new Campo(unCementerio);
         Campo otroCampo = new Campo(otroCementerio);
         Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
-        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo("", monstruoSacrificado1, 4);
         Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
-        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 2);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo("", monstruoSacrificado2, 2);
         Monstruo monstruo7Estrellas = new Monstruo(300, 100);
-        CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
+        CartaMonstruo carta7Estrellas = new CartaMonstruo("", monstruo7Estrellas, 7);
         Monstruo monstruoAtacado = new Monstruo(10, 10);
-        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        CartaMonstruo cartaAtacada = new CartaMonstruo("", monstruoAtacado ,1);
 
         unCampo.colocarCarta(cartaSacrificada1);
         unCampo.colocarCarta(cartaSacrificada2);
@@ -79,7 +79,7 @@ public class SacrificiosTest  {
         Campo unCampo = new Campo(unCementerio);
 
         Monstruo monstruo7Estrellas = new Monstruo(300, 100);
-        CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
+        CartaMonstruo carta7Estrellas = new CartaMonstruo("", monstruo7Estrellas, 7);
 
         carta7Estrellas.colocarse(unCampo);
 
@@ -93,24 +93,24 @@ public class SacrificiosTest  {
         Campo unCampo = new Campo(unCementerio);
         Campo otroCampo = new Campo(otroCementerio);
         Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
-        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo("", monstruoSacrificado1, 4);
         Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
-        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 3);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo("", monstruoSacrificado2, 3);
         Monstruo monstruoSacrificado3 = new Monstruo(100, 8);
-        CartaMonstruo cartaSacrificada3 = new CartaMonstruo(monstruoSacrificado3, 4);
+        CartaMonstruo cartaSacrificada3 = new CartaMonstruo("", monstruoSacrificado3, 4);
         Monstruo monstruoSacrificado4 = new Monstruo(100, 6);
-        CartaMonstruo cartaSacrificada4 = new CartaMonstruo(monstruoSacrificado4, 1);
+        CartaMonstruo cartaSacrificada4 = new CartaMonstruo("", monstruoSacrificado4, 1);
         Monstruo monstruoSacrificado5 = new Monstruo(100, 77);
-        CartaMonstruo cartaSacrificada5 = new CartaMonstruo(monstruoSacrificado5, 2);
+        CartaMonstruo cartaSacrificada5 = new CartaMonstruo("", monstruoSacrificado5, 2);
         Monstruo monstruoSacrificado6 = new Monstruo(100, 33);
-        CartaMonstruo cartaSacrificada6 = new CartaMonstruo(monstruoSacrificado6, 1);
+        CartaMonstruo cartaSacrificada6 = new CartaMonstruo("", monstruoSacrificado6, 1);
 
-        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon();
-        CartaMonstruo cartaDragon2 = new CartaMonstruoDragon();
-        CartaMonstruo cartaDragon3 = new CartaMonstruoDragon();
-        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo();
+        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon("Dragon De Ojos Azules");
+        CartaMonstruo cartaDragon2 = new CartaMonstruoDragon("Dragon De Ojos Azules");
+        CartaMonstruo cartaDragon3 = new CartaMonstruoDragon("Dragon De Ojos Azules");
+        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo("Dragon Definitivo");
         Monstruo monstruoAtacado = new Monstruo(10, 10);
-        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        CartaMonstruo cartaAtacada = new CartaMonstruo("", monstruoAtacado ,1);
 
         unCampo.colocarCarta(cartaSacrificada1);
         unCampo.colocarCarta(cartaSacrificada2);
@@ -149,11 +149,11 @@ public class SacrificiosTest  {
 
         Campo unCampo = new Campo(unCementerio);
         Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
-        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo("", monstruoSacrificado1, 4);
         Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
-        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 3);
-        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon();
-        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo();
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo("", monstruoSacrificado2, 3);
+        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon("Dragon De Ojos Azules");
+        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo("Dragon Definitivo");
 
         cartaSacrificada1.colocarse(unCampo);
         cartaSacrificada2.colocarse(unCampo);

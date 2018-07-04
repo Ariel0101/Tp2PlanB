@@ -10,6 +10,8 @@ import Modelo.Jugador.Jugador;
 import Modelo.Jugador.Mano;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertEquals;
+
 
 public class NoCartaMonstruoTest  {
     @Test(expected = NoCartaMonstruoError.class)
@@ -122,5 +124,38 @@ public class NoCartaMonstruoTest  {
         NoCartaMonstruo noCartaMonstruo = new NoCartaMonstruo(monstruoCualquiera);
 
         noCartaMonstruo.desactivarTemporales();
+    }
+
+    @Test(expected = NoCartaMonstruoError.class)
+    public void testNoCartaMonstruoLevantaErrorAlVerSiEstaBocaAbajo(){
+        Monstruo monstruoCualquiera = new Monstruo(0,0);
+        NoCartaMonstruo noCartaMonstruo = new NoCartaMonstruo(monstruoCualquiera);
+
+        noCartaMonstruo.estaBocaAbajo();
+    }
+
+    @Test(expected = NoCartaMonstruoError.class)
+    public void testNoCartaMonstruoLevantaErrorAlVerSiEstaBocaArriba(){
+        Monstruo monstruoCualquiera = new Monstruo(0,0);
+        NoCartaMonstruo noCartaMonstruo = new NoCartaMonstruo(monstruoCualquiera);
+
+        noCartaMonstruo.estaBocaArriba();
+    }
+
+    @Test
+    public void testNoCartaMonstruoToStringDevuelveCadenaNoCartaMonstruo(){
+        Monstruo monstruoCualquiera = new Monstruo(0,0);
+        NoCartaMonstruo noCartaMonstruo = new NoCartaMonstruo(monstruoCualquiera);
+
+        assertEquals("NoCartaMonstruo",noCartaMonstruo.toString());
+    }
+
+    @Test(expected = NoCartaMonstruoError.class)
+    public void testNoCartaMonstruoMonstruoConMenorAtaqueLevantaError(){
+        Monstruo monstruoCualquiera = new Monstruo(0,0);
+        NoCartaMonstruo noCartaMonstruo = new NoCartaMonstruo(monstruoCualquiera);
+        CartaMonstruo otraCartaMonstruo = new CartaMonstruo("",monstruoCualquiera,1);
+
+        noCartaMonstruo.monstruoConMenorAtaque(otraCartaMonstruo);
     }
 }

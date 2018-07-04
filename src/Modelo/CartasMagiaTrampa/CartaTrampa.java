@@ -17,10 +17,10 @@ public class CartaTrampa implements Carta {
     private Boca boca;
     private String nombre;
 
-    public CartaTrampa(Trampa trampa) {
+    public CartaTrampa(String nombre, Trampa trampa) {
         this.trampa = trampa;
         this.boca = new BocaNeutra();
-        this.nombre = "sin-nombre";
+        this.nombre = nombre;
     }
 
     public String toString(){
@@ -43,15 +43,9 @@ public class CartaTrampa implements Carta {
         this.boca = new BocaArriba();
     }
 
-    @Override
     public Image imagen() {
 
         return this.boca.imagen(this.nombre, "");
-    }
-
-    @Override
-    public void ponerNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {

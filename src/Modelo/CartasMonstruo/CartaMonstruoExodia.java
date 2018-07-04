@@ -4,8 +4,9 @@ import Modelo.Jugador.Mano;
 
 public class CartaMonstruoExodia extends CartaMonstruo {
 
-    public CartaMonstruoExodia(Monstruo m, int estrellas) {
-        super(m, estrellas);
+    public CartaMonstruoExodia(String nombre, Monstruo m, int estrellas) {
+
+        super(nombre, m, estrellas);
     }
 
     public void colocarse(Mano unaMano){

@@ -18,8 +18,8 @@ public class MazoTest {
         Jugador unJugador = new Jugador("j1", 8000, new Partida());
         Mazo unMazo = new Mazo(unJugador);
         Mano unaMano = new Mano(unJugador);
-        Carta unaCartaCualquiera = new CartaMonstruo(new Monstruo(0,0),1);
-        Carta otraCartaCualquiera = new CartaMonstruo(new Monstruo(0,0),1);
+        Carta unaCartaCualquiera = new CartaMonstruo("", new Monstruo(0,0),1);
+        Carta otraCartaCualquiera = new CartaMonstruo("", new Monstruo(0,0),1);
         unMazo.agregar(unaCartaCualquiera);
         unMazo.agregar(otraCartaCualquiera);
         unMazo.sacar(unaMano);
@@ -48,12 +48,12 @@ public class MazoTest {
     public void testMazoCantidadEs4CuandoAgrego4Cartas(){
         Jugador unJugador = new Jugador("Jugador 1", 8000, new Partida());
         Mazo unMazo = new Mazo(unJugador);
-        CartaMonstruo cartaMonstruo = new CartaMonstruo(new Monstruo(1,1),2);
-        CartaMagica cartaMagica = new CartaMagica(new OllaDeLaCodicia(new Mano(unJugador), unMazo));
-        CartaTrampa cartaTrampa = new CartaTrampa(new TrampaNula());
+        CartaMonstruo cartaMonstruo = new CartaMonstruo("", new Monstruo(1,1),2);
+        CartaMagica cartaMagica = new CartaMagica("", new OllaDeLaCodicia(new Mano(unJugador), unMazo));
+        CartaTrampa cartaTrampa = new CartaTrampa("", new TrampaNula());
         Cementerio c1 = new Cementerio();
         Cementerio c2 = new Cementerio();
-        CartaDeCampo cartaDeCampo = new CartaDeCampo(new EfectoSogen(new Campo(c1), new Campo(c2)));
+        CartaDeCampo cartaDeCampo = new CartaDeCampo("", new EfectoSogen(new Campo(c1), new Campo(c2)));
         unMazo.agregar(cartaMonstruo);
         unMazo.agregar(cartaMagica);
         unMazo.agregar(cartaTrampa);
@@ -69,7 +69,7 @@ public class MazoTest {
         Mano unaMano = new Mano(unJugador);
         Mazo unMazo = new Mazo(unJugador);
         Monstruo aitsu = new Monstruo(100,100);
-        CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
+        CartaMonstruo cartaAitsu = new CartaMonstruo("", aitsu,4);
         unMazo.agregar(cartaAitsu);
         unMazo.sacar(unaMano);
 

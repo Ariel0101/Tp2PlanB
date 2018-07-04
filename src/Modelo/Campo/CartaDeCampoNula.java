@@ -3,11 +3,10 @@ package Modelo.Campo;
 import javafx.scene.image.Image;
 
 public class CartaDeCampoNula extends CartaDeCampo {
-    CartaDeCampoNula(EfectoDeCampoNulo unEfectoDeCampoNulo) {
-        super(unEfectoDeCampoNulo);
+    CartaDeCampoNula(String nombre ,EfectoDeCampoNulo unEfectoDeCampoNulo) {
+        super(nombre, unEfectoDeCampoNulo);
     }
 
-    @Override
     public Image imagen() {
         return new Image("Vista/Imagenes/bocaNeutra.jpg");
     }

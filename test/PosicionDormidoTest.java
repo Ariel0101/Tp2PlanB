@@ -33,7 +33,7 @@ public class PosicionDormidoTest {
         PosDormido posicionDormido = new PosDormido();
         Botin unBotin = new Botin();
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
 
         posicionDormido.matar(mokeyMokey, unBotin);
     }

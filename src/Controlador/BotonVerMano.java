@@ -40,8 +40,8 @@ public class BotonVerMano implements EventHandler<ActionEvent> {
 
             ImageView i = new ImageView();
             i.setImage(c.imagen());
-            i.setFitWidth(100);
-            i.setFitHeight(150);
+            i.setFitWidth(150);
+            i.setFitHeight(180);
             monstruosEnMano.getChildren().add(i);
 
         }

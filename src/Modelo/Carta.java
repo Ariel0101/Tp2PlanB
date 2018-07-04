@@ -16,6 +16,4 @@ public interface Carta {
      String toString();
 
      Image imagen();
-
-     void ponerNombre(String nombre);
 }

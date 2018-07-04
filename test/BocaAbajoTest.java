@@ -32,11 +32,11 @@ public class BocaAbajoTest extends TestCase {
     public void testBocaAbajoRecibirAtaqueDevuelveBotinConResultadoDeLaBatalla(){
         Cementerio unCementerio = new Cementerio();
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
         cartaMokey.colocarEnPosAtaque();
 
         Monstruo goblinFalso = new Monstruo(400,400);
-        CartaMonstruo cartaGoblin = new CartaMonstruo(goblinFalso,3);
+        CartaMonstruo cartaGoblin = new CartaMonstruo("", goblinFalso,3);
         cartaGoblin.colocarEnPosAtaque();
 
         Campo campoEnemigo = new Campo(unCementerio);

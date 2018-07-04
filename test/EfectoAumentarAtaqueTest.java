@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 
 public class EfectoAumentarAtaqueTest extends TestCase {
     public void testEfectoAumentarAtaqueAumentaElAtaqueDeLaCartaMonstruoRecidaEnElAumentoInicializado(){
-        CartaMonstruo unaCartaMonstruo = new CartaMonstruo(new Monstruo(0,0),1);
+        CartaMonstruo unaCartaMonstruo = new CartaMonstruo("", new Monstruo(0,0),1);
         unaCartaMonstruo.colocarEnPosAtaque();
         unaCartaMonstruo.colocarBocaArriba();
 
@@ -19,8 +19,8 @@ public class EfectoAumentarAtaqueTest extends TestCase {
     }
 
     public void testEfectoAumentarAtaqueAumentaElAtaqueDeTodosLosMonstruosEnLaListaMonstruosRecibida(){
-        CartaMonstruo unaCartaMonstruo = new CartaMonstruo(new Monstruo(0,0),1);
-        CartaMonstruo otraCartaMonstruo = new CartaMonstruo(new Monstruo(0,0),1);
+        CartaMonstruo unaCartaMonstruo = new CartaMonstruo("", new Monstruo(0,0),1);
+        CartaMonstruo otraCartaMonstruo = new CartaMonstruo("", new Monstruo(0,0),1);
         unaCartaMonstruo.colocarEnPosAtaque();
         unaCartaMonstruo.colocarBocaArriba();
         otraCartaMonstruo.colocarEnPosAtaque();

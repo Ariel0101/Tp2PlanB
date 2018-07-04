@@ -4,7 +4,6 @@ import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Estados.Boca;
-import Modelo.Estados.BocaAbajo;
 import Modelo.Estados.BocaArriba;
 import junit.framework.TestCase;
 
@@ -12,11 +11,11 @@ public class BocaArribaTest extends TestCase {
     public void testBocaArribaAtacarDevuelveBotinConResultadoDeLaBatalla(){
         Cementerio unCementerio = new Cementerio();
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
         cartaMokey.colocarEnPosAtaque();
 
         Monstruo goblinFalso = new Monstruo(400,400);
-        CartaMonstruo cartaGoblin = new CartaMonstruo(goblinFalso,3);
+        CartaMonstruo cartaGoblin = new CartaMonstruo("", goblinFalso,3);
         cartaGoblin.colocarEnPosAtaque();
 
         Campo campoEnemigo = new Campo(unCementerio);
@@ -38,11 +37,11 @@ public class BocaArribaTest extends TestCase {
     public void testBocaArribaRecibirAtaqueDevuelveBotinConResultadoDeLaBatalla(){
         Cementerio unCementerio = new Cementerio();
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
         cartaMokey.colocarEnPosAtaque();
 
         Monstruo goblinFalso = new Monstruo(400,400);
-        CartaMonstruo cartaGoblin = new CartaMonstruo(goblinFalso,3);
+        CartaMonstruo cartaGoblin = new CartaMonstruo("", goblinFalso,3);
         cartaGoblin.colocarEnPosAtaque();
 
         Campo campoEnemigo = new Campo(unCementerio);

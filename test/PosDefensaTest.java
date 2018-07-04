@@ -3,7 +3,6 @@ import Modelo.Campo.Cementerio;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
-import Modelo.Estados.PosAtaque;
 import Modelo.Estados.PosDefensa;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import org.junit.Test;
@@ -36,7 +35,7 @@ public class PosDefensaTest{
         PosDefensa posicionDefensa = new PosDefensa();
         Cementerio cementerio = new Cementerio();
         Monstruo monstruo = new Monstruo(1,1);
-        CartaMonstruo carta = new CartaMonstruo(monstruo, 1);
+        CartaMonstruo carta = new CartaMonstruo("", monstruo, 1);
         Botin unBotin = new Botin();
 
         posicionDefensa.matar(monstruo, unBotin);

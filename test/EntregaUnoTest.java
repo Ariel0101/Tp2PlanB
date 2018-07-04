@@ -18,8 +18,8 @@ public class EntregaUnoTest extends TestCase {
         ganador.colocarEnPosAtaque();
         Monstruo perdedor = new Monstruo(1000, 0);
         perdedor.colocarEnPosAtaque();
-        CartaMonstruo cGanador = new CartaMonstruo(ganador, 0);
-        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor, 0);
+        CartaMonstruo cGanador = new CartaMonstruo("", ganador, 0);
+        CartaMonstruo cPerdedor = new CartaMonstruo("", perdedor, 0);
 
         Botin b = ganador.atacar(perdedor);
         Cementerio c = new Cementerio();
@@ -36,8 +36,8 @@ public class EntregaUnoTest extends TestCase {
         ganador.colocarEnPosDefensa();
         Monstruo perdedor = new Monstruo(1000, 0);
         perdedor.colocarEnPosAtaque();
-        CartaMonstruo cGanador = new CartaMonstruo(ganador, 0);
-        CartaMonstruo cPerdedor = new CartaMonstruo(perdedor, 0);
+        CartaMonstruo cGanador = new CartaMonstruo("", ganador, 0);
+        CartaMonstruo cPerdedor = new CartaMonstruo("", perdedor, 0);
 
         Botin b = perdedor.atacar(ganador);
         Cementerio c = new Cementerio();
@@ -53,9 +53,9 @@ public class EntregaUnoTest extends TestCase {
         Cementerio cementerio = new Cementerio();
         Campo campo = new Campo(cementerio);
         AgujeroOscuro agujero = new AgujeroOscuro(campo, campo);
-        CartaMagica agujeroOscuro = new CartaMagica(agujero);
+        CartaMagica agujeroOscuro = new CartaMagica("", agujero);
         Monstruo m = new Monstruo(100, 100);
-        CartaMonstruo aitsu = new CartaMonstruo(m, 4);
+        CartaMonstruo aitsu = new CartaMonstruo("", m, 4);
 
         agujeroOscuro.colocarBocaAbajo();
         campo.colocarCarta(agujeroOscuro);
@@ -68,7 +68,7 @@ public class EntregaUnoTest extends TestCase {
 
         Cementerio cementerio = new Cementerio();
         Monstruo m = new Monstruo(100, 100);
-        CartaMonstruo aitsu = new CartaMonstruo(m, 4);
+        CartaMonstruo aitsu = new CartaMonstruo("", m, 4);
 
         aitsu.destruir(cementerio);
 
@@ -80,8 +80,8 @@ public class EntregaUnoTest extends TestCase {
 
         Monstruo ai = new Monstruo(100, 100);
         Monstruo ag = new Monstruo(1200, 1000);
-        CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
-        CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
+        CartaMonstruo aitsu = new CartaMonstruo("", ai, 5);
+        CartaMonstruo agujaAsesina = new CartaMonstruo("", ag, 4);
         aitsu.colocarEnPosAtaque();
         aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
@@ -104,8 +104,8 @@ public class EntregaUnoTest extends TestCase {
 
         Monstruo ag1 = new Monstruo(1200, 1000);
         Monstruo ag2 = new Monstruo(1200, 1000);
-        CartaMonstruo agujaAsesina1 = new CartaMonstruo(ag1, 4);
-        CartaMonstruo agujaAsesina2 = new CartaMonstruo(ag2, 4);
+        CartaMonstruo agujaAsesina1 = new CartaMonstruo("", ag1, 4);
+        CartaMonstruo agujaAsesina2 = new CartaMonstruo("", ag2, 4);
         agujaAsesina1.colocarEnPosAtaque();
         agujaAsesina1.colocarBocaArriba();
         agujaAsesina2.colocarEnPosAtaque();
@@ -130,8 +130,8 @@ public class EntregaUnoTest extends TestCase {
 
         Monstruo ai = new Monstruo(100, 100);
         Monstruo ag = new Monstruo(1200, 1000);
-        CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
-        CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
+        CartaMonstruo aitsu = new CartaMonstruo("", ai, 5);
+        CartaMonstruo agujaAsesina = new CartaMonstruo("", ag, 4);
         aitsu.colocarEnPosDefensa();
         aitsu.colocarBocaArriba();
         agujaAsesina.colocarEnPosAtaque();
@@ -154,8 +154,8 @@ public class EntregaUnoTest extends TestCase {
 
         Monstruo ai = new Monstruo(100, 100);
         Monstruo ag = new Monstruo(1200, 1000);
-        CartaMonstruo aitsu = new CartaMonstruo(ai, 5);
-        CartaMonstruo agujaAsesina = new CartaMonstruo(ag, 4);
+        CartaMonstruo aitsu = new CartaMonstruo("", ai, 5);
+        CartaMonstruo agujaAsesina = new CartaMonstruo("", ag, 4);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
         Jugador jAitsu = new Jugador("", 10000, new Partida());
@@ -178,11 +178,11 @@ public class EntregaUnoTest extends TestCase {
         Campo campoUno = new Campo(cementerio);
         Campo campoDos = new Campo(cementerio);
         AgujeroOscuro agujero = new AgujeroOscuro(campoUno, campoDos);
-        CartaMagica agujeroOscuro = new CartaMagica(agujero);
+        CartaMagica agujeroOscuro = new CartaMagica("",agujero);
         Monstruo a = new Monstruo(100, 100);
-        CartaMonstruo aitsu = new CartaMonstruo(a, 4);
+        CartaMonstruo aitsu = new CartaMonstruo("", a, 4);
         Monstruo m = new Monstruo(300,100);
-        CartaMonstruo mokeyMokey = new CartaMonstruo(m,3);
+        CartaMonstruo mokeyMokey = new CartaMonstruo("", m,3);
         campoUno.colocarCarta(aitsu);
         campoDos.colocarCarta(mokeyMokey);
         campoUno.colocarCarta(agujeroOscuro);
@@ -200,11 +200,11 @@ public class EntregaUnoTest extends TestCase {
         Campo unCampo = new Campo(unCementerio);
         Campo otroCampo = new Campo(otroCementerio);
         Monstruo monstruoSacrificado = new Monstruo(100, 100);
-        CartaMonstruo cartaSacrificada = new CartaMonstruo(monstruoSacrificado, 4);
+        CartaMonstruo cartaSacrificada = new CartaMonstruo("", monstruoSacrificado, 4);
         Monstruo monstruo5Estrellas = new Monstruo(300, 100);
-        CartaMonstruo carta5Estrellas = new CartaMonstruo(monstruo5Estrellas ,5);
+        CartaMonstruo carta5Estrellas = new CartaMonstruo("", monstruo5Estrellas ,5);
         Monstruo monstruoAtacado = new Monstruo(10, 10);
-        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        CartaMonstruo cartaAtacada = new CartaMonstruo("", monstruoAtacado ,1);
         
         unCampo.colocarCarta(cartaSacrificada);
         unCampo.colocarCarta(carta5Estrellas);
@@ -227,13 +227,13 @@ public class EntregaUnoTest extends TestCase {
         Campo unCampo = new Campo(unCementerio);
         Campo otroCampo = new Campo(otroCementerio);
         Monstruo monstruoSacrificado1 = new Monstruo(100, 100);
-        CartaMonstruo cartaSacrificada1 = new CartaMonstruo(monstruoSacrificado1, 4);
+        CartaMonstruo cartaSacrificada1 = new CartaMonstruo("", monstruoSacrificado1, 4);
         Monstruo monstruoSacrificado2 = new Monstruo(100, 50);
-        CartaMonstruo cartaSacrificada2 = new CartaMonstruo(monstruoSacrificado2, 2);
+        CartaMonstruo cartaSacrificada2 = new CartaMonstruo("", monstruoSacrificado2, 2);
         Monstruo monstruo7Estrellas = new Monstruo(300, 100);
-        CartaMonstruo carta7Estrellas = new CartaMonstruo(monstruo7Estrellas, 7);
+        CartaMonstruo carta7Estrellas = new CartaMonstruo("", monstruo7Estrellas, 7);
         Monstruo monstruoAtacado = new Monstruo(10, 10);
-        CartaMonstruo cartaAtacada = new CartaMonstruo(monstruoAtacado ,1);
+        CartaMonstruo cartaAtacada = new CartaMonstruo("", monstruoAtacado ,1);
         
         unCampo.colocarCarta(cartaSacrificada1);
         unCampo.colocarCarta(cartaSacrificada2);

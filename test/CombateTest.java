@@ -16,13 +16,13 @@ public class CombateTest extends TestCase {
         Campo campoOponete = new Campo(unCementerio);
 
         Monstruo gf = new Monstruo(400, 400);
-        CartaMonstruo goblinFalso = new CartaMonstruo(gf, 1);
+        CartaMonstruo goblinFalso = new CartaMonstruo("", gf, 1);
         goblinFalso.colocarEnPosAtaque();
         goblinFalso.colocarBocaArriba();
         goblinFalso.colocarse(miCampo);
 
         Monstruo mk = new Monstruo(300, 100);
-        CartaMonstruo mokeyMokey = new CartaMonstruo(mk, 3);
+        CartaMonstruo mokeyMokey = new CartaMonstruo("", mk, 3);
         mokeyMokey.colocarEnPosAtaque();
         mokeyMokey.colocarBocaArriba();
         mokeyMokey.colocarse(campoOponete);

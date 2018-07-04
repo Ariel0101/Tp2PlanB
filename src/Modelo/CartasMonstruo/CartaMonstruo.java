@@ -18,16 +18,16 @@ public class CartaMonstruo implements Carta, Atacable {
     protected Boca boca;
     protected int estrellas;
     protected Invocacion invocacion;
-    String nombre;
+    private String nombre;
 
-    public CartaMonstruo(Monstruo monstruo, int estrellas){
+    public CartaMonstruo(String nombre, Monstruo monstruo, int estrellas){
 
         monstruo.setCarta(this);
         this.monstruo = monstruo;
         this.boca = new BocaNeutra();
         this.estrellas = estrellas;
         this.invocacion = new InvocacionSacrificio(estrellas);
-        this.nombre = "sin-nombre";
+        this.nombre = nombre;
     }
 
     public void colocarEnPosAtaque() {
@@ -82,13 +82,19 @@ public class CartaMonstruo implements Carta, Atacable {
     }
 
     public void colocarse(Mano unaMano) {
+
         unaMano.agregar(this);
+    }
+
+    public void colocarse(Campo miCampo) {
+
+        invocacion.activar(miCampo);
+        miCampo.agregarMonstruo(this);
     }
 
     public boolean estaBocaArriba() {
 
         return this.boca.estaBocaArriba();
-
     }
 
     public CartaMonstruo monstruoConMenorAtaque(CartaMonstruo otraCartaMonstruo) {
@@ -106,36 +112,23 @@ public class CartaMonstruo implements Carta, Atacable {
     }
 
     public void desactivarTemporales() {
+
         this.monstruo.desactivarTemporales();
     }
 
-    public void colocarse(Campo miCampo) {
-
-        invocacion.activar(miCampo);
-        miCampo.agregarMonstruo(this);
-    }
-
     public int conCuantosPuntosAtaca() {
+
         return monstruo.obtenerPuntos();
     }
 
-    public void ponerNombre(String nombre){
-
-        this.nombre = nombre;
-
-    }
-
-    @Override
     public String toString(){
 
         return this.boca.verNombre(this.nombre);
-
     }
 
-    @Override
     public Image imagen() {
         String posicionEnCaracteres = this.monstruo.posicionEnCaracteres();
-        if (posicionEnCaracteres == "Dormido"){
+        if (posicionEnCaracteres.equals("Dormido")){
             posicionEnCaracteres = "Ataque";
         }
 

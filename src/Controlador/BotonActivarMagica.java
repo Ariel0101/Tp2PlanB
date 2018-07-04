@@ -49,7 +49,7 @@ public class BotonActivarMagica implements EventHandler<ActionEvent> {
 
     }
 
-    void activar(CartaMagica carta, Stage stage){
+    private void activar(CartaMagica carta, Stage stage){
 
         if (carta == null){
 

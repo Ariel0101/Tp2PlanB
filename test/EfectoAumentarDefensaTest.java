@@ -8,15 +8,13 @@ import Modelo.Combate.Botin;
 import Modelo.Efecto;
 import junit.framework.TestCase;
 
-import java.util.List;
-
 public class EfectoAumentarDefensaTest extends TestCase {
     public void testEfectoAumentarDefensaAumentaLaDefensaDeLaCartaMonstruoRecidaEnElAumentoInicializado(){
         Cementerio unCementerio = new Cementerio();
         Campo unCampo = new Campo(unCementerio);
-        CartaMonstruo unaCartaMonstruo = new CartaMonstruo(new Monstruo(0,0),1);
-        CartaMonstruo unaCartaMonstruoConUnPuntoMasDeDefensa = new CartaMonstruo(new Monstruo(0,0),1);
-        CartaMonstruo otraCartaMonstruo = new CartaMonstruo(new Monstruo(100,0),1);
+        CartaMonstruo unaCartaMonstruo = new CartaMonstruo("", new Monstruo(0,0),1);
+        CartaMonstruo unaCartaMonstruoConUnPuntoMasDeDefensa = new CartaMonstruo("", new Monstruo(0,0),1);
+        CartaMonstruo otraCartaMonstruo = new CartaMonstruo("", new Monstruo(100,0),1);
         unaCartaMonstruo.colocarEnPosDefensa();
         unaCartaMonstruo.colocarBocaArriba();
         unaCartaMonstruoConUnPuntoMasDeDefensa.colocarEnPosDefensa();
@@ -39,9 +37,9 @@ public class EfectoAumentarDefensaTest extends TestCase {
     public void testEfectoAumentarDefensaAumentaLaDefensaTodasLasCartaMonstruoEnUnaListaMonstruos(){
         Cementerio unCementerio = new Cementerio();
         Campo unCampo = new Campo(unCementerio);
-        CartaMonstruo unaCartaMonstruo = new CartaMonstruo(new Monstruo(0,0),1);
-        CartaMonstruo unaCartaMonstruoConUnPuntoMasDeDefensa = new CartaMonstruo(new Monstruo(0,0),1);
-        CartaMonstruo otraCartaMonstruo = new CartaMonstruo(new Monstruo(100,0),1);
+        CartaMonstruo unaCartaMonstruo = new CartaMonstruo("", new Monstruo(0,0),1);
+        CartaMonstruo unaCartaMonstruoConUnPuntoMasDeDefensa = new CartaMonstruo("", new Monstruo(0,0),1);
+        CartaMonstruo otraCartaMonstruo = new CartaMonstruo("", new Monstruo(100,0),1);
         unaCartaMonstruo.colocarEnPosDefensa();
         unaCartaMonstruo.colocarBocaArriba();
         unaCartaMonstruoConUnPuntoMasDeDefensa.colocarEnPosDefensa();

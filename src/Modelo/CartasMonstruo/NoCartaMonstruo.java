@@ -11,7 +11,8 @@ public class NoCartaMonstruo extends CartaMonstruo {
 
 
     public NoCartaMonstruo(Monstruo monstruo) {
-        super(monstruo, 0);
+
+        super("NoCartaMonstruo", monstruo, 0);
     }
 
     public void colocarEnPosAtaque() {
@@ -85,6 +86,12 @@ public class NoCartaMonstruo extends CartaMonstruo {
 
     }
 
+    public boolean estaBocaAbajo() {
+
+        throw new NoCartaMonstruoError();
+
+    }
+
     public CartaMonstruo monstruoConMenorAtaque(CartaMonstruo otra) {
 
         throw new NoCartaMonstruoError();
@@ -105,20 +112,11 @@ public class NoCartaMonstruo extends CartaMonstruo {
 
     }
 
-    public void ponerNombre(String nombre){
-
-        throw new NoCartaMonstruoError();
-
-    }
-
-    @Override
     public String toString(){
 
         return "NoCartaMonstruo";
-
     }
 
-    @Override
     public Image imagen() {
         return new Image("Vista/Imagenes/bocaNeutra.jpg");
     }

@@ -12,8 +12,8 @@ public class CartaMonstruoComeHombres extends CartaMonstruo {
     private final Campo campoEnemigo;
     private CartaMonstruo cartaSeleccionada;
     private Efecto efecto;
-    public CartaMonstruoComeHombres(Monstruo monstruo, int estrellas, Campo campoEnemigo) {
-        super(monstruo, estrellas);
+    public CartaMonstruoComeHombres(String nombre, Monstruo monstruo, int estrellas, Campo campoEnemigo) {
+        super(nombre, monstruo, estrellas);
         this.cartaSeleccionada = new NoCartaMonstruo(monstruo); //Le paso un monstruos cualquiera
         this.campoEnemigo = campoEnemigo;
     }

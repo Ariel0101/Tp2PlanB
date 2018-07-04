@@ -15,13 +15,13 @@ public class CartaDeCampoTest extends TestCase {
 		Campo unCampo = new Campo(new Cementerio());
 		Campo otroCampo = new Campo(new Cementerio());
 		EfectoWasteland efectoWasteland = new EfectoWasteland(unCampo, otroCampo);
-		CartaDeCampo cartaWasteland = new CartaDeCampo(efectoWasteland);
+		CartaDeCampo cartaWasteland = new CartaDeCampo("", efectoWasteland);
 		
 		int ataqueInicialM1 = 100, defensaInicialM2 = 100;
 		Monstruo m1 = new Monstruo(ataqueInicialM1, 0);
 		Monstruo m2 = new Monstruo(0, defensaInicialM2);
-		CartaMonstruo cartaMonstruoUno = new CartaMonstruo(m1, 1);
-		CartaMonstruo cartaMonstruoDos = new CartaMonstruo(m2, 2);
+		CartaMonstruo cartaMonstruoUno = new CartaMonstruo("", m1, 1);
+		CartaMonstruo cartaMonstruoDos = new CartaMonstruo("", m2, 2);
 		
 		cartaMonstruoUno.colocarse(unCampo);
 		cartaMonstruoDos.colocarse(otroCampo);
@@ -38,7 +38,7 @@ public class CartaDeCampoTest extends TestCase {
 		Campo unCampo = new Campo(new Cementerio());
 		Campo otroCampo = new Campo(new Cementerio());
 		EfectoWasteland efectoWasteland = new EfectoWasteland(unCampo, otroCampo);
-		CartaDeCampo cartaWasteland = new CartaDeCampo(efectoWasteland);
+		CartaDeCampo cartaWasteland = new CartaDeCampo("", efectoWasteland);
 		
 		int ataqueInicialM1 = 200, defensaInicialM2 = 0;
 		int ataqueInicialM3 = 50, defensaInicialM4 = 300;
@@ -46,10 +46,10 @@ public class CartaDeCampoTest extends TestCase {
 		Monstruo m2 = new Monstruo(0, defensaInicialM2);
 		Monstruo m3 = new Monstruo(ataqueInicialM3, 0);
 		Monstruo m4 = new Monstruo(0, defensaInicialM4);
-		CartaMonstruo cartaMonstruoUno = new CartaMonstruo(m1, 1);
-		CartaMonstruo cartaMonstruoDos = new CartaMonstruo(m2, 2);
-		CartaMonstruo cartaMonstruoTres = new CartaMonstruo(m3, 1);
-		CartaMonstruo cartaMonstruoCuatro = new CartaMonstruo(m4, 2);
+		CartaMonstruo cartaMonstruoUno = new CartaMonstruo("", m1, 1);
+		CartaMonstruo cartaMonstruoDos = new CartaMonstruo("", m2, 2);
+		CartaMonstruo cartaMonstruoTres = new CartaMonstruo("", m3, 1);
+		CartaMonstruo cartaMonstruoCuatro = new CartaMonstruo("", m4, 2);
 		
 		cartaMonstruoUno.colocarse(unCampo);
 		cartaMonstruoDos.colocarse(otroCampo);
@@ -68,7 +68,7 @@ public class CartaDeCampoTest extends TestCase {
 	public void testCartaDeCampoColocarseSeAgregaEnManoRecibida(){
 	    Campo unCampo = new Campo(new Cementerio());
         Campo otroCampo = new Campo(new Cementerio());
-	    CartaDeCampo unaCartaDeCampo = new CartaDeCampo(new EfectoSogen(unCampo, otroCampo));
+	    CartaDeCampo unaCartaDeCampo = new CartaDeCampo("", new EfectoSogen(unCampo, otroCampo));
         Mano unaMano = new Mano(new Jugador("j1",8000, new Partida()));
 
 	    unaCartaDeCampo.colocarse(unaMano);

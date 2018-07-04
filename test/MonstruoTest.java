@@ -18,7 +18,7 @@ public class MonstruoTest{
 
         Monstruo a = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        CartaMonstruo aitsu = new CartaMonstruo(a, 5);
+        CartaMonstruo aitsu = new CartaMonstruo("", a, 5);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -33,7 +33,7 @@ public class MonstruoTest{
     public void testPeleaAgujaAsesinaEnAtaqueContraAlasDeLaLlamaPerversaEnAtaqueYAlasDeLaLlamaPerversaMuere() throws MonstruoNoPuedeAtacarError{
 
         Monstruo a = new Monstruo(700, 600);
-        CartaMonstruo alasDeLlamaPerversa = new CartaMonstruo(a, 2);
+        CartaMonstruo alasDeLlamaPerversa = new CartaMonstruo("", a, 2);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
         Cementerio c = new Cementerio();
         alasDeLlamaPerversa.colocarEnPosAtaque();
@@ -50,8 +50,8 @@ public class MonstruoTest{
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        CartaMonstruo cartaAgresor = new CartaMonstruo(agresorOscuro, 4);
-        CartaMonstruo cartaAguja = new CartaMonstruo(agujaAsesina, 4);
+        CartaMonstruo cartaAgresor = new CartaMonstruo("", agresorOscuro, 4);
+        CartaMonstruo cartaAguja = new CartaMonstruo("", agujaAsesina, 4);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -68,8 +68,8 @@ public class MonstruoTest{
 
         Monstruo aitsu = new Monstruo(100, 100);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        CartaMonstruo cAitsu = new CartaMonstruo(aitsu, 5);
-        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina, 4);
+        CartaMonstruo cAitsu = new CartaMonstruo("", aitsu, 5);
+        CartaMonstruo cAguja = new CartaMonstruo("", agujaAsesina, 4);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
@@ -86,8 +86,8 @@ public class MonstruoTest{
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200);
         Monstruo agujaAsesina = new Monstruo(1200, 1000);
-        CartaMonstruo cAgresor = new CartaMonstruo(agresorOscuro, 5);
-        CartaMonstruo cAguja = new CartaMonstruo(agujaAsesina, 4);
+        CartaMonstruo cAgresor = new CartaMonstruo("", agresorOscuro, 5);
+        CartaMonstruo cAguja = new CartaMonstruo("", agujaAsesina, 4);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
@@ -176,5 +176,26 @@ public class MonstruoTest{
         }
         assertFalse(lanzoError);
 
+    }
+
+    @Test
+    public void testAitsuPosicionEnCaracteresDevuelveCadenaDormidoCuandoSeCrea(){
+        Monstruo aitsu = new Monstruo(100, 100);
+
+        assertEquals("Dormido", aitsu.posicionEnCaracteres());
+    }
+
+    @Test
+    public void testAitsuPosicionEnCaracteresDevuelveCadenaAtaqueCuandoSeColocaEnPosicionDeAtaque(){
+        Monstruo aitsu = new Monstruo(100, 100);
+        aitsu.colocarEnPosAtaque();
+        assertEquals("Ataque", aitsu.posicionEnCaracteres());
+    }
+
+    @Test
+    public void testAitsuPosicionEnCaracteresDevuelveCadenaDefensaCuandoSeCrea(){
+        Monstruo aitsu = new Monstruo(100, 100);
+        aitsu.colocarEnPosDefensa();
+        assertEquals("Defensa", aitsu.posicionEnCaracteres());
     }
 }

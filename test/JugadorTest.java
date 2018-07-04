@@ -74,7 +74,7 @@ public class JugadorTest extends TestCase {
         int vidaInicial = 8000;
         Jugador unJugador = new Jugador("j1", vidaInicial, new Partida());
         int danio = 300;
-        CartaMonstruo mokeyMokey = new CartaMonstruo(new Monstruo(danio, 100),3);
+        CartaMonstruo mokeyMokey = new CartaMonstruo("", new Monstruo(danio, 100),3);
         mokeyMokey.colocarEnPosAtaque();
         mokeyMokey.colocarBocaArriba();
         Campo unCampo = new Campo(new Cementerio());
@@ -87,7 +87,7 @@ public class JugadorTest extends TestCase {
     public void testJugadorRecibirAtaqueDeCartaMonstruoConMayorAtaqueQueLaVidaDelJugadorLoHacePerder(){
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador("j1", 100, unaPartida);
-        CartaMonstruo mokeyMokey = new CartaMonstruo(new Monstruo(300, 100),3);
+        CartaMonstruo mokeyMokey = new CartaMonstruo("", new Monstruo(300, 100),3);
         mokeyMokey.colocarEnPosAtaque();
         mokeyMokey.colocarBocaArriba();
         Campo unCampo = new Campo(new Cementerio());

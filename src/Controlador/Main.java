@@ -29,7 +29,7 @@ public class Main extends Application {
 
     public void start(Stage ventanaPrincipal) throws Exception {
         ventanaPrincipal.setTitle("Al-Go-Oh");
-        //ventanaPrincipal.setFullScreen(true);
+        ventanaPrincipal.setFullScreen(true);
        // ventanaPrincipal.setFullScreenExitHint("");
 
         //Controlador.Partida

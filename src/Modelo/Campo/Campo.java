@@ -1,7 +1,6 @@
 package Modelo.Campo;
 
 import Controlador.Reiniciable;
-import Modelo.Carta;
 import Modelo.CartasMagiaTrampa.CartaMagica;
 import Modelo.CartasMagiaTrampa.CartaTrampa;
 import Modelo.CartasMagiaTrampa.TrampaNula;
@@ -33,7 +32,7 @@ public class Campo implements Reiniciable {
         this.cementerio = cementerio;
         this.efectoDeCampoPropio = new EfectoNulo();
         this.efectoDeCampoEnemigo = new EfectoNulo();
-        this.cartaDeCampo = new CartaDeCampoNula(new EfectoDeCampoNulo(this, this)); //Le paso dos campos cualquiera
+        this.cartaDeCampo = new CartaDeCampoNula("CartaDeCampoNula",new EfectoDeCampoNulo(this, this)); //Le paso dos campos cualquiera
 
     }
     public void destruir(CartaMagica carta){
@@ -132,7 +131,7 @@ public class Campo implements Reiniciable {
 
     public Botin activarTrampa(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
         if (this.trampas.size() == 0){
-            CartaTrampa unaCartaTrampa = new CartaTrampa(new TrampaNula());
+            CartaTrampa unaCartaTrampa = new CartaTrampa("", new TrampaNula());
             return unaCartaTrampa.activar(monstruoAtacante, monstruoAtacado, unBotin);
         }
         CartaTrampa unaCartaTrampa = this.trampas.remove();

@@ -5,7 +5,6 @@ import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Estados.Boca;
-import Modelo.Estados.BocaArriba;
 import Modelo.Estados.BocaNeutra;
 import junit.framework.TestCase;
 
@@ -34,9 +33,9 @@ public class BocaNeutraTest extends TestCase {
         Cementerio unCementerio = new Cementerio();
         ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
         Monstruo goblinFalso = new Monstruo(400,400);
-        CartaMonstruo cartaGoblin = new CartaMonstruo(goblinFalso,3);
+        CartaMonstruo cartaGoblin = new CartaMonstruo("", goblinFalso,3);
 
         Campo campoEnemigo = new Campo(unCementerio);
         Campo campoAmigo = new Campo(unCementerio);

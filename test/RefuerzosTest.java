@@ -20,19 +20,19 @@ public class RefuerzosTest extends TestCase {
         Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
-        CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);
+        CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo("", alasDeLlamaPerversa,4);
         cartaAlasDeLlamaPerversa.colocarEnPosAtaque();
         cartaAlasDeLlamaPerversa.colocarBocaArriba();
         cartaAlasDeLlamaPerversa.colocarse(campoDos);
 
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokeyMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokeyMokey = new CartaMonstruo("", mokeyMokey,3);
         cartaMokeyMokey.colocarEnPosAtaque();
         cartaMokeyMokey.colocarBocaArriba();
         cartaMokeyMokey.colocarse(campoUno);
 
         Trampa refuerzos = new Refuerzos();
-        CartaTrampa cartaRefuerzos = new CartaTrampa(refuerzos);
+        CartaTrampa cartaRefuerzos = new CartaTrampa("", refuerzos);
         cartaRefuerzos.colocarse(campoDos);
 
         Botin unBotin = cartaAlasDeLlamaPerversa.atacar(cartaMokeyMokey, campoDos);
@@ -55,25 +55,25 @@ public class RefuerzosTest extends TestCase {
         Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
-        CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);
+        CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo("", alasDeLlamaPerversa,4);
         cartaAlasDeLlamaPerversa.colocarEnPosAtaque();
         cartaAlasDeLlamaPerversa.colocarBocaArriba();
         cartaAlasDeLlamaPerversa.colocarse(campoDos);
 
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokeyMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokeyMokey = new CartaMonstruo("", mokeyMokey,3);
         cartaMokeyMokey.colocarEnPosAtaque();
         cartaMokeyMokey.colocarBocaArriba();
         cartaMokeyMokey.colocarse(campoUno);
 
         Monstruo aitsu = new Monstruo(100,100);
-        CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
+        CartaMonstruo cartaAitsu = new CartaMonstruo("", aitsu,4);
         cartaAitsu.colocarEnPosAtaque();
         cartaAitsu.colocarBocaArriba();
         cartaAitsu.colocarse(campoUno);
 
         Trampa refuerzos = new Refuerzos();
-        CartaTrampa cartaRefuerzos = new CartaTrampa(refuerzos);
+        CartaTrampa cartaRefuerzos = new CartaTrampa("", refuerzos);
         cartaRefuerzos.colocarse(campoDos);
 
         cartaAlasDeLlamaPerversa.atacar(cartaMokeyMokey, campoDos);
@@ -93,25 +93,25 @@ public class RefuerzosTest extends TestCase {
         Jugador jugadorDos = new Jugador("2",1000, new Partida());
 
         Monstruo alasDeLlamaPerversa = new Monstruo(700,600);
-        CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo(alasDeLlamaPerversa,4);
+        CartaMonstruo cartaAlasDeLlamaPerversa = new CartaMonstruo("", alasDeLlamaPerversa,4);
         cartaAlasDeLlamaPerversa.colocarEnPosAtaque();
         cartaAlasDeLlamaPerversa.colocarBocaArriba();
         cartaAlasDeLlamaPerversa.colocarse(campoDos);
 
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokeyMokey = new CartaMonstruo(mokeyMokey,3);
+        CartaMonstruo cartaMokeyMokey = new CartaMonstruo("", mokeyMokey,3);
         cartaMokeyMokey.colocarEnPosAtaque();
         cartaMokeyMokey.colocarBocaArriba();
         cartaMokeyMokey.colocarse(campoUno);
 
         Monstruo aitsu = new Monstruo(100,100);
-        CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
+        CartaMonstruo cartaAitsu = new CartaMonstruo("", aitsu,4);
         cartaAitsu.colocarEnPosAtaque();
         cartaAitsu.colocarBocaArriba();
         cartaAitsu.colocarse(campoUno);
 
         Trampa refuerzos = new Refuerzos();
-        CartaTrampa cartaRefuerzos = new CartaTrampa(refuerzos);
+        CartaTrampa cartaRefuerzos = new CartaTrampa("", refuerzos);
         cartaRefuerzos.colocarse(campoDos);
 
         cartaAlasDeLlamaPerversa.atacar(cartaMokeyMokey, campoDos);

@@ -15,8 +15,9 @@ public class CartaMagica implements Carta {
     private Boca boca;
     private String nombre;
 
-    public CartaMagica(Magia magia) {
+    public CartaMagica(String nombre, Magia magia) {
 
+        this.nombre = nombre;
         this.magia = magia;
         this.boca = new BocaNeutra();
 
@@ -48,12 +49,6 @@ public class CartaMagica implements Carta {
 
     }
 
-    public void ponerNombre(String nombre) {
-
-        this.nombre = nombre;
-    }
-
-    @Override
     public String toString(){
 
         return this.nombre;

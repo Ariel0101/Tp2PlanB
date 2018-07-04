@@ -2,8 +2,6 @@ import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.Carta;
-import Modelo.CartasMagiaTrampa.CartaMagica;
-import Modelo.CartasMagiaTrampa.OllaDeLaCodicia;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.CartaMonstruoExodia;
 import Modelo.CartasMonstruo.Monstruo;
@@ -22,17 +20,17 @@ public class ManoTest extends TestCase {
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
         Monstruo piernaDerechaExodia = new Monstruo(200,300);
         Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
-        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia(cabezaExodia,3);
-        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia(brazoDerechoExodia,3);
-        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia(brazoIzquierdoExodia,3);
-        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia(piernaDerechaExodia,3);
-        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia(piernaIzquierdaExodia,3);
+        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia("", cabezaExodia,3);
+        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia("", brazoDerechoExodia,3);
+        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia("", brazoIzquierdoExodia,3);
+        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia("", piernaDerechaExodia,3);
+        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia("", piernaIzquierdaExodia,3);
         cartaCabeza.colocarse(unaMano);
         cartaBrazoDerecho.colocarse(unaMano);
         cartaBrazoIzquierdo.colocarse(unaMano);
         cartaPiernaDerecha.colocarse(unaMano);
         cartaPiernaIzquierda.colocarse(unaMano);
-        CartaMonstruo cartaAitsu = new CartaMonstruo(new Monstruo(100,100),5);
+        CartaMonstruo cartaAitsu = new CartaMonstruo("", new Monstruo(100,100),5);
         cartaAitsu.colocarse(unaMano);
 
         int cantidadCartasMonstruo = unaMano.contarCartas(cartaAitsu.getClass());
@@ -52,11 +50,11 @@ public class ManoTest extends TestCase {
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
         Monstruo piernaDerechaExodia = new Monstruo(200,300);
         Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
-        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia(cabezaExodia,3);
-        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia(brazoDerechoExodia,3);
-        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia(brazoIzquierdoExodia,3);
-        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia(piernaDerechaExodia,3);
-        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia(piernaIzquierdaExodia,3);
+        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia("", cabezaExodia,3);
+        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia("", brazoDerechoExodia,3);
+        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia("", brazoIzquierdoExodia,3);
+        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia("", piernaDerechaExodia,3);
+        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia("", piernaIzquierdaExodia,3);
         cartaCabeza.colocarse(unaMano);
         cartaBrazoDerecho.colocarse(unaMano);
         cartaBrazoIzquierdo.colocarse(unaMano);
@@ -88,11 +86,11 @@ public class ManoTest extends TestCase {
         Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
         Monstruo piernaDerechaExodia = new Monstruo(200,300);
         Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
-        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia(cabezaExodia,3);
-        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia(brazoDerechoExodia,3);
-        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia(brazoIzquierdoExodia,3);
-        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia(piernaDerechaExodia,3);
-        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia(piernaIzquierdaExodia,3);
+        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia("", cabezaExodia,3);
+        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia("", brazoDerechoExodia,3);
+        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia("", brazoIzquierdoExodia,3);
+        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia("", piernaDerechaExodia,3);
+        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia("", piernaIzquierdaExodia,3);
         cartaCabeza.colocarse(unaMano);
         cartaBrazoDerecho.colocarse(unaMano);
         cartaBrazoIzquierdo.colocarse(unaMano);
@@ -105,7 +103,7 @@ public class ManoTest extends TestCase {
 
     public void testManoColocarCartaHaceColocarseLaCartaRecibidaEnElCampoRecibido(){
         Mano unaMano = new Mano(new Jugador("j1",100, new Partida()));
-        Carta unaCartaCualquiera = new CartaMonstruo(new Monstruo(100,100),1);
+        Carta unaCartaCualquiera = new CartaMonstruo("", new Monstruo(100,100),1);
         Campo unCampo = new Campo(new Cementerio());
 
         unaMano.agregar(unaCartaCualquiera);
