@@ -1,16 +1,37 @@
 import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
-import Modelo.CartasMonstruo.CartaMonstruo;
-import Modelo.CartasMonstruo.CartaMonstruoJinzo7;
-import Modelo.CartasMonstruo.Monstruo;
+import Modelo.CartasMonstruo.*;
 import Modelo.Combate.Botin;
 import Modelo.Jugador.Jugador;
 import junit.framework.TestCase;
 
 public class CartaMonstruoTest extends TestCase {
 
-    public void testCartaConMosntruoAitsuNoAtacaSiEstaBocaAbajo() {
+    public void testCartaMonstruosToStringDevuelveElNombreConQueSeinializoCuandoSeCrea(){
+        String nombre = "nombre";
+        CartaMonstruo unaCarta = new CartaMonstruo(nombre, new Monstruo(0,0),0);
+
+        assertEquals(nombre, unaCarta.toString());
+    }
+
+    public void testCartaMonstruoToStringDevuelveElNombreConQueSeCreaCuandoEstaBocaArriba(){
+        String nombre = "nombre";
+        CartaMonstruo unaCarta = new CartaMonstruo(nombre, new Monstruo(0,0),0);
+        unaCarta.colocarBocaArriba();
+
+        assertEquals(nombre, unaCarta.toString());
+    }
+
+    public void testCartaMonstruoToStringDevuelveUnSignoDePreguntaCuandoEstaBocaAbajo(){
+        String nombre = "nombre";
+        CartaMonstruo unaCarta = new CartaMonstruo(nombre, new Monstruo(0,0),0);
+        unaCarta.colocarBocaAbajo();
+
+        assertEquals("?", unaCarta.toString());
+    }
+
+    public void testCartaConMonstruoAitsuNoAtacaSiEstaBocaAbajo() {
 
         Monstruo ai = new Monstruo(100, 100);
         CartaMonstruo aitsu = new CartaMonstruo("",ai, 5);
@@ -31,7 +52,7 @@ public class CartaMonstruoTest extends TestCase {
 
     }
 
-    public void testCartaConMosntruoAitsuAtacaSiEstaBocaArriba() {
+    public void testCartaConMonstruoAitsuAtacaSiEstaBocaArriba() {
 
         Monstruo ai = new Monstruo(100, 100);
         CartaMonstruo aitsu = new CartaMonstruo("", ai, 5);
@@ -72,28 +93,5 @@ public class CartaMonstruoTest extends TestCase {
         jinzo7.atacar(yuGi, campoYugi);
 
         assertEquals(yuGi.verVida(), (8000 - 400));
-    }
-
-    public void testCartaMonstruosToStringDevuelveElNombreConQueSeinializoCuandoSeCrea(){
-        String nombre = "nombre";
-        CartaMonstruo unaCarta = new CartaMonstruo(nombre, new Monstruo(0,0),0);
-
-        assertEquals(nombre, unaCarta.toString());
-    }
-
-    public void testCartaMonstruoToStringDevuelveElNombreConQueSeCreaCuandoEstaBocaArriba(){
-        String nombre = "nombre";
-        CartaMonstruo unaCarta = new CartaMonstruo(nombre, new Monstruo(0,0),0);
-        unaCarta.colocarBocaArriba();
-
-        assertEquals(nombre, unaCarta.toString());
-    }
-
-    public void testCartaMonstruoToStringDevuelveUnSignoDePreguntaCuandoEstaBocaAbajo(){
-        String nombre = "nombre";
-        CartaMonstruo unaCarta = new CartaMonstruo(nombre, new Monstruo(0,0),0);
-        unaCarta.colocarBocaAbajo();
-
-        assertEquals("?", unaCarta.toString());
     }
 }

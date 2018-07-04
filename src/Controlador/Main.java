@@ -71,7 +71,7 @@ public class Main extends Application {
         manoConCuatroPartesDeExodia.agregar(constructor.brazoDerechoExodia());
         manoConCuatroPartesDeExodia.agregar(constructor.brazoIzquierdoExodia());
         manoConCuatroPartesDeExodia.agregar(constructor.piernaDerechaExodia());
-        manoConCuatroPartesDeExodia.agregar(constructor.piernaizquierdaExodia());
+        manoConCuatroPartesDeExodia.agregar(constructor.piernaIzquierdaExodia());
 
         //Llenar mazos:
         RandomizadorCartas randomizador = new RandomizadorCartas(campoEnemigo, campo, mano, mazo);

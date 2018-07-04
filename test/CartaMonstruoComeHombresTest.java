@@ -1,3 +1,4 @@
+import Controlador.ConstructorDeCartas;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.CartasMonstruo.CartaMonstruo;
@@ -9,13 +10,12 @@ import junit.framework.TestCase;
 
 public class CartaMonstruoComeHombresTest extends TestCase {
     public void testCartaMonstruoComeHombresBocaAbajoColocarBocaArribaDestruyeLaCartaSeleccionada(){
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Monstruo insecto = new Monstruo(450,600);
-        CartaMonstruoComeHombres cartaInsectoComeHombres = new CartaMonstruoComeHombres("", insecto,4, campoUno);
-        Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
+        CartaMonstruoComeHombres cartaInsectoComeHombres = constructorDeCartas.insectoComeHombres(campoUno);
+        CartaMonstruo cartaMokey = constructorDeCartas.mokeyMokey();
         cartaInsectoComeHombres.seleccionar(cartaMokey);
         cartaMokey.colocarBocaArriba();
         cartaMokey.colocarEnPosAtaque();
@@ -30,13 +30,12 @@ public class CartaMonstruoComeHombresTest extends TestCase {
     }
 
     public void testCartaMonstruoComeHombresColocarBocaArribaNoDestruyeLaCartaSeleccionadaSiNoEstabaPrimeroBocaAbajo(){
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        Monstruo insecto = new Monstruo(450,600);
-        CartaMonstruoComeHombres cartaInsectoComeHombres = new CartaMonstruoComeHombres("", insecto,4,campoUno);
-        Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo cartaMokey = new CartaMonstruo("", mokeyMokey,3);
+        CartaMonstruoComeHombres cartaInsectoComeHombres = constructorDeCartas.insectoComeHombres(campoUno);
+        CartaMonstruo cartaMokey = constructorDeCartas.mokeyMokey();
         cartaInsectoComeHombres.seleccionar(cartaMokey);
         cartaMokey.colocarBocaArriba();
         cartaMokey.colocarEnPosAtaque();
@@ -48,7 +47,8 @@ public class CartaMonstruoComeHombresTest extends TestCase {
         assertFalse(unCementerio.esta(cartaMokey));
     }
 
-    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() throws MonstruoNoPuedeAtacarError {
+    public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() {
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -56,8 +56,8 @@ public class CartaMonstruoComeHombresTest extends TestCase {
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 1000);
         Monstruo insectoComeHombres = new Monstruo(450,600);
 
-        CartaMonstruo cartaAlasDeLLama = new CartaMonstruo("", alasDeLlamaPerversa,1);
-        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres("", insectoComeHombres,2, campoUno);
+        CartaMonstruo cartaAlasDeLLama = constructorDeCartas.alasDeLlamaPerversa();
+        CartaMonstruoComeHombres cartaComeHombres = constructorDeCartas.insectoComeHombres(campoUno);
 
         cartaAlasDeLLama.colocarBocaArriba();
         cartaAlasDeLLama.colocarEnPosAtaque();

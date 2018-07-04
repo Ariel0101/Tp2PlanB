@@ -5,7 +5,5 @@ public class EfectoDeCampoNulo extends EfectoDeCampo {
         super(unCampo, otroCampo);
     }
 
-    public void activar() {
-    //No hace nada, funciona como NullPattern
-    }
+    public void activar() { }
 }

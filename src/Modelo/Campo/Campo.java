@@ -40,7 +40,7 @@ public class Campo implements Reiniciable {
         this.magicas.remove(carta);
     }
 
-    void destruir (CartaTrampa carta){
+    public void destruir (CartaTrampa carta){
         this.cementerio.enviar(carta);
         this.trampas.remove(carta);
     }
@@ -93,19 +93,6 @@ public class Campo implements Reiniciable {
 
     public boolean esta(CartaMonstruo unaCartaMonstruo) {
         return listaMonstruos.esta(unaCartaMonstruo);
-    }
-
-    public LinkedList<CartaMagica> magicas(){
-        return this.magicas;
-    }
-    public LinkedList<CartaTrampa> trampas() {
-        return this.trampas;
-    }
-
-    public ListaMonstruos listaMonstruos(){
-
-        return this.listaMonstruos;
-
     }
 
     public void aplicarEnMonstruos(Efecto efecto) {
@@ -164,7 +151,23 @@ public class Campo implements Reiniciable {
 
 	}
 
+    public LinkedList<CartaMagica> magicas(){
+
+        return this.magicas;
+    }
+
+    public LinkedList<CartaTrampa> trampas() {
+
+        return this.trampas;
+    }
+
+    public ListaMonstruos listaMonstruos(){
+
+        return this.listaMonstruos;
+    }
+
     public CartaDeCampo cartaDeCampo() {
+
         return this.cartaDeCampo;
     }
 }

@@ -1,3 +1,4 @@
+import Controlador.ConstructorDeCartas;
 import Controlador.Partida;
 import Modelo.Campo.*;
 import Modelo.CartasMonstruo.CartaMonstruo;
@@ -11,11 +12,10 @@ public class CartaDeCampoTest extends TestCase {
 	public void testActivarCartaDeCampoWastelandModificaDosMonstruosYaEnElCampo() {
 		/* efecto: aumenta en 200 puntos el ataque de tus monstruos, 
 		 * y 300 puntos la defensa de los monstruos de tu oponente */
-		
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
 		Campo unCampo = new Campo(new Cementerio());
 		Campo otroCampo = new Campo(new Cementerio());
-		EfectoWasteland efectoWasteland = new EfectoWasteland(unCampo, otroCampo);
-		CartaDeCampo cartaWasteland = new CartaDeCampo("", efectoWasteland);
+		CartaDeCampo cartaWasteland = constructorDeCartas.wasteland(unCampo, otroCampo);
 		
 		int ataqueInicialM1 = 100, defensaInicialM2 = 100;
 		Monstruo m1 = new Monstruo(ataqueInicialM1, 0);
@@ -34,11 +34,10 @@ public class CartaDeCampoTest extends TestCase {
 	}
 	
 	public void testActivarCartaDeCampoWastelandModificaDosMonstruosColocadosMasTarde() {
-
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
 		Campo unCampo = new Campo(new Cementerio());
 		Campo otroCampo = new Campo(new Cementerio());
-		EfectoWasteland efectoWasteland = new EfectoWasteland(unCampo, otroCampo);
-		CartaDeCampo cartaWasteland = new CartaDeCampo("", efectoWasteland);
+		CartaDeCampo cartaWasteland = constructorDeCartas.wasteland(unCampo, otroCampo);
 		
 		int ataqueInicialM1 = 200, defensaInicialM2 = 0;
 		int ataqueInicialM3 = 50, defensaInicialM4 = 300;
@@ -66,9 +65,10 @@ public class CartaDeCampoTest extends TestCase {
 	}
 
 	public void testCartaDeCampoColocarseSeAgregaEnManoRecibida(){
+		ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
 	    Campo unCampo = new Campo(new Cementerio());
         Campo otroCampo = new Campo(new Cementerio());
-	    CartaDeCampo unaCartaDeCampo = new CartaDeCampo("", new EfectoSogen(unCampo, otroCampo));
+	    CartaDeCampo unaCartaDeCampo = constructorDeCartas.sogen(unCampo, otroCampo);
         Mano unaMano = new Mano(new Jugador("j1",8000, new Partida()));
 
 	    unaCartaDeCampo.colocarse(unaMano);

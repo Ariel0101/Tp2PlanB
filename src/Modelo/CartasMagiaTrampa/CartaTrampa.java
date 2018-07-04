@@ -13,14 +13,15 @@ import Modelo.Jugador.Mano;
 import javafx.scene.image.Image;
 
 public class CartaTrampa implements Carta {
+    private final String nombre;
     private final Trampa trampa;
     private Boca boca;
-    private String nombre;
 
     public CartaTrampa(String nombre, Trampa trampa) {
+        this.nombre = nombre;
         this.trampa = trampa;
         this.boca = new BocaNeutra();
-        this.nombre = nombre;
+
     }
 
     public String toString(){
@@ -43,13 +44,13 @@ public class CartaTrampa implements Carta {
         this.boca = new BocaArriba();
     }
 
-    public Image imagen() {
-
-        return this.boca.imagen(this.nombre, "");
-    }
-
     public Botin activar(Monstruo monstruoAtacante, Monstruo monstruoAtacado, Botin unBotin) throws MonstruoNoPuedeAtacarError {
         this.colocarBocaArriba();
         return this.trampa.activar(monstruoAtacante, monstruoAtacado, unBotin);
+    }
+
+    public Image imagen() {
+
+        return this.boca.imagen(this.nombre, "");
     }
 }

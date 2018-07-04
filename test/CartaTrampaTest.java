@@ -6,6 +6,7 @@ import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mano;
 import junit.framework.TestCase;
 
 public class CartaTrampaTest extends TestCase {
@@ -30,6 +31,15 @@ public class CartaTrampaTest extends TestCase {
         unaCarta.colocarBocaAbajo();
 
         assertEquals(nombre, unaCarta.toString());
+    }
+
+    public void testCartaTrampaColocarseEnUnaManoSeAgregaALaMisma(){
+        Mano unaMano = new Mano(new Jugador("", 8000, new Partida()));
+        CartaTrampa unaCarta = new CartaTrampa("", new TrampaNula());
+
+        unaCarta.colocarse(unaMano);
+
+        assertEquals(1, unaMano.contarCartas(unaCarta.getClass()));
     }
 
     public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() {

@@ -39,11 +39,9 @@ public class CartaDeCampo implements Carta {
 	}
 
 
-    public void colocarBocaAbajo() {
-    }
+    public void colocarBocaAbajo() { }
 
-    public void colocarBocaArriba() {
-    }
+    public void colocarBocaArriba() { }
 
     public Image imagen() {
         

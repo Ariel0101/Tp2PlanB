@@ -1,3 +1,4 @@
+import Controlador.ConstructorDeCartas;
 import Controlador.Partida;
 import Modelo.Campo.*;
 import Modelo.Carta;
@@ -12,16 +13,14 @@ import junit.framework.TestCase;
 
 public class EntregaDosTest extends TestCase {
 
-    public void testJinzo7PuedeAtacarDirectamenteAlJugador() throws MonstruoNoPuedeAtacarError{
-
+    public void testJinzo7PuedeAtacarDirectamenteAlJugador(){
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Jugador j1 = new Jugador("1",1000, new Partida());
-        Monstruo jinzo7 = new Monstruo(500,400);
-        CartaMonstruoJinzo7 cartaJinzo7 = new CartaMonstruoJinzo7("",jinzo7, 2);
-        Monstruo m1 = new Monstruo(500,400);
-        CartaMonstruo cartaM = new CartaMonstruo("", m1, 2);
+        CartaMonstruoJinzo7 cartaJinzo7 = constructorDeCartas.jinzo7(); //daño: 500, defensa: 400
+        CartaMonstruo cartaAgresorOscuro = constructorDeCartas.agresorOscuro(); //daño: 1200, defensa:1200
         Campo campoEnemigo = new Campo(new Cementerio());
 
-        cartaM.colocarse(campoEnemigo);
+        cartaAgresorOscuro.colocarse(campoEnemigo);
         cartaJinzo7.colocarBocaArriba();
         cartaJinzo7.colocarEnPosAtaque();
         cartaJinzo7.atacar(j1, campoEnemigo);
@@ -29,7 +28,7 @@ public class EntregaDosTest extends TestCase {
         assertEquals(1000-500,j1.verVida());
     }
 
-    public void testActivarWasteLandAumenta200ElDanioDeMonstruosAmigosY300LaDefensaOponente() throws MonstruoNoPuedeAtacarError{
+    public void testActivarWasteLandAumenta200ElDanioDeMonstruosAmigosY300LaDefensaOponente(){
         Cementerio unCementerio = new Cementerio();
         Campo c1 = new Campo(unCementerio);
         Campo c2 = new Campo(unCementerio);
@@ -120,16 +119,16 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testOllaDeLaCodiciaActivarSacaDosCartasDelMazoYlasColocaEnLaMano(){
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Campo unCampo = new Campo(new Cementerio());
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mazo unMazo = new Mazo(unJugador);
-        unMazo.agregar(new CartaMonstruo("", new Monstruo(1,1),1));
-        unMazo.agregar(new CartaMagica("", new AgujeroOscuro(unCampo, unCampo)));
+        unMazo.agregar(constructorDeCartas.agujaAsesina());
+        unMazo.agregar(constructorDeCartas.aitsu());
         Mano unaMano = new Mano(unJugador);
-        OllaDeLaCodicia unaOlla = new OllaDeLaCodicia(unaMano, unMazo);
-        CartaMagica cartaOlla = new CartaMagica("", unaOlla);
+        CartaMagica cartaOlla = constructorDeCartas.ollaDeLaCodicia(unaMano, unMazo);
         cartaOlla.colocarBocaAbajo();
         cartaOlla.colocarse(unCampo);
         cartaOlla.colocarBocaArriba();
@@ -140,12 +139,11 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testActivarCartaFisuraDestruyeMonstruoDeMenorAtaqueEnemigoBocaArriba() {
-
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio cementerio = new Cementerio();
         Campo unCampo = new Campo(new Cementerio());
         Campo otroCampo = new Campo(cementerio);
-        Fisura fisura = new Fisura(otroCampo);
-        CartaMagica cartaFisura = new CartaMagica("", fisura);
+        CartaMagica cartaFisura = constructorDeCartas.fisura(otroCampo);
 
         Monstruo muchoAtaque = new Monstruo(400, 0);
         Monstruo pocoAtaque = new Monstruo(30, 12);
@@ -171,6 +169,7 @@ public class EntregaDosTest extends TestCase {
     }
 
     public  void testInvocar3DragonesBlancosDeOjosAzulesYAlDragonDefinitivoSacrificaLosTresDragones()  {
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio unCementerio = new Cementerio();
         Cementerio otroCementerio = new Cementerio();
         Campo unCampo = new Campo(unCementerio);
@@ -188,10 +187,10 @@ public class EntregaDosTest extends TestCase {
         Monstruo monstruoSacrificado6 = new Monstruo(100, 33);
         CartaMonstruo cartaSacrificada6 = new CartaMonstruo("", monstruoSacrificado6, 1);
         
-        CartaMonstruo cartaDragon1 = new CartaMonstruoDragon("Dragon De Ojos Azules");
-        CartaMonstruo cartaDragon2 = new CartaMonstruoDragon("Dragon De Ojos Azules");
-        CartaMonstruo cartaDragon3 = new CartaMonstruoDragon("Dragon De Ojos Azules");
-        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = new CartaMonstruoDragonDefinitivo("Dragon Definitivo");
+        CartaMonstruo cartaDragon1 = constructorDeCartas.dragonDeOjosAzules();
+        CartaMonstruo cartaDragon2 = constructorDeCartas.dragonDeOjosAzules();
+        CartaMonstruo cartaDragon3 = constructorDeCartas.dragonDeOjosAzules();
+        CartaMonstruoDragonDefinitivo cartaDragonDefinitivo = constructorDeCartas.dragonDefinitivoDeOjosAzules();
         Monstruo monstruoAtacado = new Monstruo(10, 10);
         CartaMonstruo cartaAtacada = new CartaMonstruo("", monstruoAtacado ,1);
         
@@ -227,16 +226,13 @@ public class EntregaDosTest extends TestCase {
     }
     
     public void testInsectoComeHombreEsAtacadoBocaAbajoPorOtroMonstruoElPrimeroSeVolteaDestruyendoAlSegundo() {
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
 
-        Monstruo alasDeLlamaPerversa = new Monstruo(700, 1000);
-
-        Monstruo insectoComeHombres = new Monstruo(450,600);
-
-        CartaMonstruo cartaAlasDeLLama = new CartaMonstruo("", alasDeLlamaPerversa,1);
-        CartaMonstruoComeHombres cartaComeHombres = new CartaMonstruoComeHombres("",insectoComeHombres,2,campoUno);
+        CartaMonstruo cartaAlasDeLLama = constructorDeCartas.alasDeLlamaPerversa();
+        CartaMonstruoComeHombres cartaComeHombres = constructorDeCartas.insectoComeHombres(campoUno);
 
         cartaAlasDeLLama.colocarBocaArriba();
         cartaAlasDeLLama.colocarEnPosAtaque();
@@ -256,6 +252,7 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testCartaTrampaCilindroMagicoNiegaElAtaqueDelOponenteYLoReflejaTotalmenteSobreElJugadorEnemigo() {
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         Cementerio unCementerio = new Cementerio();
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
@@ -265,8 +262,7 @@ public class EntregaDosTest extends TestCase {
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo cartaMokeyMokey = new CartaMonstruo("", mokeyMokey,3);
         CartaMonstruo cartaAitsu = new CartaMonstruo("", aitsu,4);
-        Trampa cilindroMagico = new CilindroMagico();
-        CartaTrampa cartaCilindroMagico = new CartaTrampa("",cilindroMagico);
+        CartaTrampa cartaCilindroMagico = constructorDeCartas.cilindroMagico();
         cartaMokeyMokey.colocarEnPosAtaque();
         cartaMokeyMokey.colocarBocaArriba();
         cartaMokeyMokey.colocarse(campoUno);
@@ -324,20 +320,16 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testManoAgregarLas5PartesDeExodiaSeteaEnPartidaAlGanador(){
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
-        Monstruo cabezaExodia = new Monstruo(1000,1000);
-        Monstruo brazoDerechoExodia = new Monstruo(200,300);
-        Monstruo brazoIzquierdoExodia = new Monstruo(200,300);
-        Monstruo piernaDerechaExodia = new Monstruo(200,300);
-        Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
-        CartaMonstruoExodia cartaCabeza = new CartaMonstruoExodia("",cabezaExodia,3);
-        CartaMonstruoExodia cartaBrazoDerecho = new CartaMonstruoExodia("", brazoDerechoExodia,3);
-        CartaMonstruoExodia cartaBrazoIzquierdo = new CartaMonstruoExodia("", brazoIzquierdoExodia,3);
-        CartaMonstruoExodia cartaPiernaDerecha = new CartaMonstruoExodia("", piernaDerechaExodia,3);
-        CartaMonstruoExodia cartaPiernaIzquierda = new CartaMonstruoExodia("", piernaIzquierdaExodia,3);
+        CartaMonstruoExodia cartaCabeza = constructorDeCartas.cabezaDeExodia();
+        CartaMonstruoExodia cartaBrazoDerecho = constructorDeCartas.brazoDerechoExodia();
+        CartaMonstruoExodia cartaBrazoIzquierdo = constructorDeCartas.brazoIzquierdoExodia();
+        CartaMonstruoExodia cartaPiernaDerecha = constructorDeCartas.piernaDerechaExodia();
+        CartaMonstruoExodia cartaPiernaIzquierda = constructorDeCartas.piernaIzquierdaExodia();
         cartaCabeza.colocarse(unaMano);
         cartaBrazoDerecho.colocarse(unaMano);
         cartaBrazoIzquierdo.colocarse(unaMano);
@@ -349,13 +341,13 @@ public class EntregaDosTest extends TestCase {
     }
 
     public void testMazoSacarUltimaCartaSeteaEnPartidaAlPerdedor(){
+        ConstructorDeCartas constructorDeCartas = new ConstructorDeCartas();
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
         Mano unaMano = new Mano(unJugador);
         Mazo unMazo = new Mazo(unJugador);
-        Monstruo aitsu = new Monstruo(100,100);
-        CartaMonstruo cartaAitsu = new CartaMonstruo("", aitsu,4);
+        CartaMonstruo cartaAitsu = constructorDeCartas.aitsu();
         unMazo.agregar(cartaAitsu);
         unMazo.sacar(unaMano);
 

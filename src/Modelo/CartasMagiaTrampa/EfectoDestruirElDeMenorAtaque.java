@@ -23,7 +23,5 @@ public class EfectoDestruirElDeMenorAtaque implements Efecto {
     }
 
     @Override
-    public void activar(CartaMonstruo carta) {
-
-    }
+    public void activar(CartaMonstruo carta) { }
 }

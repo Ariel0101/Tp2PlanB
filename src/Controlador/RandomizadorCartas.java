@@ -56,7 +56,7 @@ public class RandomizadorCartas {
                 break;
             case 4: c = this.constructor.agujaAsesina();
                 break;
-            case 5: c = this.constructor.agujeroNegro(campoAmigo, campoEnemigo);
+            case 5: c = this.constructor.agujeroOscuro(campoAmigo, campoEnemigo);
                 break;
             case 6: c = this.constructor.alasDeLlamaPerversa();
                 break;
@@ -99,7 +99,7 @@ public class RandomizadorCartas {
 
             case 1: c = this.constructor.brazoDerechoExodia();
                 break;
-            case 2: c = this.constructor.piernaizquierdaExodia();
+            case 2: c = this.constructor.piernaIzquierdaExodia();
                 break;
             case 3: c =  this.constructor.brazoIzquierdoExodia();
                 break;

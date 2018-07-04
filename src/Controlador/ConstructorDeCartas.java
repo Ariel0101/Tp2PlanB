@@ -14,14 +14,14 @@ public class ConstructorDeCartas {
     //Cartas Monstruo
     public CartaMonstruo aitsu(){
         Monstruo aitsu = new Monstruo(100,100);
-        CartaMonstruo aitsuCart =  new CartaMonstruo("Aitsu", aitsu, 5);
-        return aitsuCart;
+        CartaMonstruo cartaAitsu =  new CartaMonstruo("Aitsu", aitsu, 5);
+        return cartaAitsu;
     }
 
     public CartaMonstruo mokeyMokey(){
         Monstruo mokeyMokey = new Monstruo(300,100);
-        CartaMonstruo monkey = new CartaMonstruo("Mokey Mokey", mokeyMokey,3);
-        return monkey;
+        CartaMonstruo cartaMokeyMokey = new CartaMonstruo("Mokey Mokey", mokeyMokey,3);
+        return cartaMokeyMokey;
 
     }
 
@@ -85,7 +85,7 @@ public class ConstructorDeCartas {
         return carta;
     }
 
-    public CartaMonstruoExodia piernaizquierdaExodia(){
+    public CartaMonstruoExodia piernaIzquierdaExodia(){
         Monstruo piernaIzquierdaExodia = new Monstruo(200,300);
         CartaMonstruoExodia carta = new CartaMonstruoExodia("Pierna Izquiera De Exodia", piernaIzquierdaExodia,3);
         return carta;
@@ -102,8 +102,8 @@ public class ConstructorDeCartas {
     }
 
     //Cartas Magicas
-    public CartaMagica agujeroNegro(Campo unLadoDelCampo, Campo otroLadoDelCampo){
-        AgujeroOscuro agujeroOscuro = new AgujeroOscuro(unLadoDelCampo, otroLadoDelCampo);
+    public CartaMagica agujeroOscuro(Campo unLadoDelCampo, Campo otroLadoDelCampo){
+        AgujeroOscuro agujeroOscuro= new AgujeroOscuro(unLadoDelCampo, otroLadoDelCampo);
         CartaMagica cartaAgujero = new CartaMagica("Agujero Oscuro", agujeroOscuro);
         return cartaAgujero;
 
