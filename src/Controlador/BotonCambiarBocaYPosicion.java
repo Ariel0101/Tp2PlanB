@@ -10,6 +10,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -75,6 +76,7 @@ public class BotonCambiarBocaYPosicion implements EventHandler<ActionEvent>, Rei
         Scene escenaCambiarPosicion =  new Scene(layout, 300, 500);
         ventanaCambiarPosicion.setScene(escenaCambiarPosicion);
         ventanaCambiarPosicion.show();
+
     }
 
     private void colocarBoca(ComboBox<String> opcionesBoca, CartaMonstruo cartaElegida) {

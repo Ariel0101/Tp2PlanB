@@ -3,7 +3,6 @@ package Modelo.Campo;
 import Controlador.Reiniciable;
 import Modelo.CartasMagiaTrampa.CartaMagica;
 import Modelo.CartasMagiaTrampa.CartaTrampa;
-import Modelo.EfectoNulo;
 import Modelo.CartasMagiaTrampa.TrampaNula;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
@@ -69,7 +68,7 @@ public class Campo implements Reiniciable {
     public void colocarCarta(CartaDeCampo unaCartaDeCampo) {
 
         this.cartaDeCampo = unaCartaDeCampo;
-        cartaDeCampo.activar();
+        this.cartaDeCampo.activar();
 
     }
 
@@ -163,9 +162,5 @@ public class Campo implements Reiniciable {
         }
 
 	}
-
-	public boolean noHayMonstruos() {
-        return listaMonstruos.estaVacia();
-    }
 
 }

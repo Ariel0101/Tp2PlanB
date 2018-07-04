@@ -1,6 +1,4 @@
-package Modelo;
-
-import Modelo.Campo.ListaMonstruos;
+package Modelo.Campo;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.Efecto;
 

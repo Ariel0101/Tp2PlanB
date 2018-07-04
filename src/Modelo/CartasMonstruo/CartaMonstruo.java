@@ -91,18 +91,17 @@ public class CartaMonstruo implements Carta, Atacable {
 
     }
 
-    public CartaMonstruo monstruoConMenorAtaque(CartaMonstruo otra) {
+    public CartaMonstruo monstruoConMenorAtaque(CartaMonstruo otraCartaMonstruo) {
 
-        Monstruo m = this.monstruo.MonstruoConMenorAtaqueQue(otra.monstruo);
+        Monstruo unMonstruo = this.monstruo.MonstruoConMenorAtaqueQue(otraCartaMonstruo.monstruo);
 
-        if (m == this.monstruo){
+        if (unMonstruo == this.monstruo){
 
             return this;
 
         }
 
-        return otra;
-
+        return otraCartaMonstruo;
 
     }
 

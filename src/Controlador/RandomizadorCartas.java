@@ -2,9 +2,10 @@ package Controlador;
 
 import Modelo.Campo.Campo;
 import Modelo.Carta;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.CartasMonstruo.NoCartaMonstruo;
 import Modelo.Jugador.Mano;
 import Modelo.Jugador.Mazo;
-import Modelo.NoCarta;
 
 import java.util.Random;
 
@@ -83,7 +84,7 @@ public class RandomizadorCartas {
                 break;
             case 18: c = this.parteDeExodia();
                 break;
-            default: c = new NoCarta();
+            default: c = new NoCartaMonstruo(new Monstruo(0,0));
         }
 
         return c;

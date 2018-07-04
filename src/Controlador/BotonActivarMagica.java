@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,8 +38,6 @@ public class BotonActivarMagica implements EventHandler<ActionEvent> {
 
         Button aceptar = new Button("Activar");
         aceptar.setOnAction(e -> this.activar(eleccionCarta.getValue(), stage));
-
-        //Podria agregar imagen..
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 300, 20));

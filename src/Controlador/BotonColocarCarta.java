@@ -63,23 +63,23 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         ImageView imagenDeCarta = new ImageView();
         imagenDeCarta.setFitWidth(240);
         imagenDeCarta.setFitHeight(400);
+        eleccionCarta.setOnAction((e -> imagenDeCarta.setImage(eleccionCarta.getValue().imagen())));
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 300, 20));
         layout.getChildren().addAll(eleccionCarta,opcionesBoca, botonAceptarBoca, imagenDeCarta);
 
-
         Scene escenaColocarCarta = new Scene(layout, 300, 550);
         ventanaColocarCarta.setScene(escenaColocarCarta);
         ventanaColocarCarta.show();
 
-        eleccionCarta.setOnAction((e -> imagenDeCarta.setImage(eleccionCarta.getValue().imagen())));
+
     }
 
     private void aceptarColocar(ComboBox<Carta> eleccionCarta, ComboBox<String> opcionesBoca, Stage ventanaColocarCarta) {
         Carta cartaAColocar = eleccionCarta.getValue();
 
-        if (cartaAColocar == null ) { //|| cartaAColocar.getClass() == Modelo.NoCarta.class
+        if (cartaAColocar == null ) {
             ventanaColocarCarta.close();
             return;
         }
