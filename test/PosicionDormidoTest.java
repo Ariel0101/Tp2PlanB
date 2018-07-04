@@ -47,4 +47,10 @@ public class PosicionDormidoTest {
 
     }
 
+    @Test
+    public void testPosDefensaEnCaracteresDevuelveCadenaDefensa(){
+        PosDormido posicionDormido = new PosDormido();
+        assertEquals("Dormido", posicionDormido.enCaracteres());
+    }
+
 }

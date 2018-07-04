@@ -26,9 +26,7 @@ public class Jugador implements Atacable {
         Botin botin = new Botin();
         botin.setDanioAtacado(monstruoAtacante.conCuantosPuntosAtaca());
         botin.infligirDanioAtacado(this);
-        if (this.vida <= 0){
-            this.perder();
-        }
+
         return new Botin();
     }
 

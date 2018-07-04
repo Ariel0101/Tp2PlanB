@@ -48,4 +48,9 @@ public class PosAtaqueTest extends TestCase {
 
     }
 
+    public void testPosAtaqueEnCaracteresDevuelveCadenaAtaque(){
+        PosAtaque posicionAtaque = new PosAtaque();
+        assertEquals("Ataque", posicionAtaque.enCaracteres());
+    }
+
 }

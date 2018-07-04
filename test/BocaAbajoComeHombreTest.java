@@ -5,6 +5,7 @@ import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
 import Modelo.Estados.Boca;
+import Modelo.Estados.BocaAbajo;
 import Modelo.Estados.BocaAbajoComeHombres;
 import junit.framework.TestCase;
 
@@ -61,5 +62,13 @@ public class BocaAbajoComeHombreTest extends TestCase {
         Boca bocaAbajoComeHombres = new BocaAbajoComeHombres();
 
         assertTrue(bocaAbajoComeHombres.estaBocaAbajo());
+    }
+
+    public void testBocaAbajoComeHombresVerNombreDevuelveUnSignoDePreguntaTrasRecibirOtraCadena(){
+        Boca bocaAbajoComeHombres = new BocaAbajoComeHombres();
+        String unNombre = "nombre";
+        String res = bocaAbajoComeHombres.verNombre(unNombre);
+
+        assertEquals("?", res);
     }
 }

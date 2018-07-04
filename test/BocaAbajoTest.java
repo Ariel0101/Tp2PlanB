@@ -68,5 +68,12 @@ public class BocaAbajoTest extends TestCase {
         assertTrue(bocaAbajo.estaBocaAbajo());
     }
 
+    public void testBocaAbajoVerNombreDevuelveUnSignoDePreguntaTrasRecibirOtraCadena(){
+        Boca bocaAbajo = new BocaAbajo();
+        String unNombre = "nombre";
+        String res = bocaAbajo.verNombre(unNombre);
+
+        assertEquals("?", res);
+    }
 
 }

@@ -3,6 +3,7 @@ import Modelo.Campo.Cementerio;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
 import Modelo.Combate.Botin;
+import Modelo.Estados.PosAtaque;
 import Modelo.Estados.PosDefensa;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import org.junit.Test;
@@ -53,6 +54,12 @@ public class PosDefensaTest{
 
         posicionDefensa.atacar();
 
+    }
+
+    @Test
+    public void testPosDefensaEnCaracteresDevuelveCadenaDefensa(){
+        PosDefensa posicionDefensa = new PosDefensa();
+        assertEquals("Defensa", posicionDefensa.enCaracteres());
     }
 
 }
