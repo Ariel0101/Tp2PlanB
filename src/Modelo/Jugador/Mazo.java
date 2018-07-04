@@ -22,7 +22,7 @@ public class Mazo {
         return this.cartas.size();
     }
 
-    public Carta sacar() {
+    public void sacar(Mano unaMano) {
         if (this.cartas.size() == 0){
             throw new NoHayCartasError();
         }
@@ -30,7 +30,7 @@ public class Mazo {
         if (this.cartas.size() == 0){
             this.jugador.perder();
         }
-        return unaCarta;
+        unaCarta.colocarse(unaMano);
 
     }
 }

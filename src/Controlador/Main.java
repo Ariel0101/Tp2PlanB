@@ -81,8 +81,8 @@ public class Main extends Application {
 
         //Llenar manos
         for (int i = 0; i<5; i++){
-            mano.agregar(mazo.sacar());
-            manoEnemiga.agregar(mazoEnemigo.sacar());
+            mazo.sacar(mano);
+            mazoEnemigo.sacar(manoEnemiga);
         }
 
         //Contenedor de las Vista.imagenes de cosas del jugador:

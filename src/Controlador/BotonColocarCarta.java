@@ -4,6 +4,8 @@ import Modelo.Campo.Campo;
 import Modelo.Carta;
 import Modelo.CartasMagiaTrampa.CartaMagica;
 import Modelo.CartasMonstruo.CartaMonstruo;
+import Modelo.CartasMonstruo.Monstruo;
+import Modelo.CartasMonstruo.NoCartaMonstruo;
 import Modelo.Excepciones.NoHaySufucienteSacrificiosError;
 import Modelo.Jugador.Mano;
 import javafx.event.ActionEvent;
@@ -28,7 +30,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         this.campo = campo;
         this.mano = mano;
         this.actualizador = actualizador;
-        this.monstruoColocado = null;
+        this.monstruoColocado = new NoCartaMonstruo(new Monstruo(0,0));
 
     }
 
@@ -39,7 +41,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         eleccionCarta.setPromptText("Eligi tu carta");
 
         for (Carta c : this.mano.cartas()) {
-            if (c instanceof CartaMonstruo && this.monstruoColocado != null){
+            if (c instanceof CartaMonstruo && this.monstruoColocado.getClass() != NoCartaMonstruo.class){
                 continue;
             }
             eleccionCarta.getItems().add(c);
@@ -85,7 +87,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         }
 
         try {
-            cartaAColocar.colocarse(this.campo);
+            this.mano.colocar(cartaAColocar, this.campo);
         } catch (NoHaySufucienteSacrificiosError e){
             String avisoParteUno = "No hay suficientes sacrificios en el campo: \n";
             String avisoParteDos = "5 a 6 estrellas : 1 Sacrificios \n";
@@ -97,9 +99,6 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         if (cartaAColocar instanceof CartaMonstruo){
             this.monstruoColocado = (CartaMonstruo) cartaAColocar;
         }
-
-
-        mano.sacar(cartaAColocar);
 
         this.colocarBoca(cartaAColocar, opcionesBoca);
 
@@ -158,7 +157,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
         layout.setPadding(new Insets(20, 20, 300, 20));
         layout.getChildren().addAll(opcionesPosicion, botonAceptarPosicion);
 
-        Scene scene = new Scene(layout, 200, 250); //
+        Scene scene = new Scene(layout, 200, 250);
 
         ventanaElegirPosicion.setScene(scene);
         ventanaElegirPosicion.show();
@@ -192,7 +191,7 @@ public class BotonColocarCarta implements EventHandler<ActionEvent>, Reiniciable
 
     public void reiniciar(){
 
-        this.monstruoColocado = null;
+        this.monstruoColocado = new NoCartaMonstruo(new Monstruo(0,0));
 
     }
 

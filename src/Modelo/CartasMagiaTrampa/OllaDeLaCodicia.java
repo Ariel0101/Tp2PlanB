@@ -15,7 +15,7 @@ public class OllaDeLaCodicia implements Magia {
     public void activar() {
         int cartasASacar = 2;
         for (int i=0; i<cartasASacar; i++){
-            this.mano.agregar(this.mazo.sacar());
+            this.mazo.sacar(this.mano);
         }
     }
 }

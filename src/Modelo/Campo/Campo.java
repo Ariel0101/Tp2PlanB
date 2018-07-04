@@ -1,6 +1,7 @@
 package Modelo.Campo;
 
 import Controlador.Reiniciable;
+import Modelo.Carta;
 import Modelo.CartasMagiaTrampa.CartaMagica;
 import Modelo.CartasMagiaTrampa.CartaTrampa;
 import Modelo.CartasMagiaTrampa.TrampaNula;

@@ -1,5 +1,6 @@
 import Controlador.Partida;
 import Modelo.Campo.*;
+import Modelo.Carta;
 import Modelo.CartasMagiaTrampa.*;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
@@ -12,12 +13,28 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class MazoTest {
+    @Test
+    public void testMazoSacarCartaLaSacaDelMazoYLaHaceColocarseEnManoRecibida(){
+        Jugador unJugador = new Jugador("j1", 8000, new Partida());
+        Mazo unMazo = new Mazo(unJugador);
+        Mano unaMano = new Mano(unJugador);
+        Carta unaCartaCualquiera = new CartaMonstruo(new Monstruo(0,0),1);
+        Carta otraCartaCualquiera = new CartaMonstruo(new Monstruo(0,0),1);
+        unMazo.agregar(unaCartaCualquiera);
+        unMazo.agregar(otraCartaCualquiera);
+        unMazo.sacar(unaMano);
+
+        assertEquals(1, unMazo.cantidad());
+        assertEquals(1, unaMano.contarCartas(unaCartaCualquiera.getClass()));
+    }
+
     @Test(expected = NoHayCartasError.class)
     public void testMazoSacarLevantaErrorCuandoNoQuedanMasCartas(){
         Jugador unJugador = new Jugador("Jugador 1", 8000, new Partida());
+        Mano unaMano = new Mano(unJugador);
         Mazo unMazo = new Mazo(unJugador);
 
-        unMazo.sacar();
+        unMazo.sacar(unaMano);
 
     }
     @Test
@@ -49,13 +66,16 @@ public class MazoTest {
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         Mazo unMazo = new Mazo(unJugador);
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
         unMazo.agregar(cartaAitsu);
-        unMazo.sacar();
+        unMazo.sacar(unaMano);
 
         assertEquals(nombreJugador, unaPartida.verPerdedor());
 
     }
+
+
 }

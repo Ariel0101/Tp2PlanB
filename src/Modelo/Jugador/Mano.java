@@ -1,5 +1,6 @@
 package Modelo.Jugador;
 
+import Modelo.Campo.Campo;
 import Modelo.Carta;
 import Modelo.CartasMonstruo.CartaMonstruoExodia;
 
@@ -43,12 +44,8 @@ public class Mano {
 
     }
 
-    public void sacar(Carta carta){
-
-        this.cartas.remove(carta);
-
+    public void colocar(Carta unaCarta, Campo unCampo) {
+        unaCarta.colocarse(unCampo);
+        this.cartas.remove(unaCarta);
     }
-
-
-
 }

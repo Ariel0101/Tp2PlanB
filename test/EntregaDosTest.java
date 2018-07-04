@@ -352,11 +352,12 @@ public class EntregaDosTest extends TestCase {
         String nombreJugador = "Jugador 1";
         Partida unaPartida = new Partida();
         Jugador unJugador = new Jugador(nombreJugador, 8000, unaPartida);
+        Mano unaMano = new Mano(unJugador);
         Mazo unMazo = new Mazo(unJugador);
         Monstruo aitsu = new Monstruo(100,100);
         CartaMonstruo cartaAitsu = new CartaMonstruo(aitsu,4);
         unMazo.agregar(cartaAitsu);
-        unMazo.sacar();
+        unMazo.sacar(unaMano);
 
         assertEquals(nombreJugador, unaPartida.verPerdedor());
 
