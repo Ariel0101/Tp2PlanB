@@ -1,14 +1,16 @@
 package Modelo.Campo;
 
 import Modelo.Carta;
+import Modelo.Estados.Boca;
+import Modelo.Estados.BocaAbajo;
 import Modelo.Estados.BocaNeutra;
 import Modelo.Jugador.Mano;
 import javafx.scene.image.Image;
 
 public class CartaDeCampo implements Carta {
 
-    private final BocaNeutra boca;
-    private EfectoDeCampo efectoDeCampo;
+    private Boca boca;
+    protected EfectoDeCampo efectoDeCampo;
 	private String nombre;
 
 	public CartaDeCampo(EfectoDeCampo unEfectoDeCampo) {
@@ -36,7 +38,6 @@ public class CartaDeCampo implements Carta {
 
 
     public void colocarBocaAbajo() {
-
     }
 
     public void colocarBocaArriba() {

@@ -36,15 +36,18 @@ public class Main extends Application {
         Partida unaPartida = new Partida();
         unaPartida.setVentana(ventanaPrincipal);
 
+        //Cementerio
+        Cementerio cementerio = new Cementerio();
+
         //Cosas del jugador:
         Jugador jugador = new Jugador("Yugi Muto", 2000, unaPartida);
-        Campo campo = new Campo(new Cementerio());
+        Campo campo = new Campo(cementerio);
         Mano mano = new Mano(jugador);
         Mazo mazo = new Mazo(jugador);
 
         //Cosas del enemigo:
         Jugador enemigo = new Jugador("Seto Kaiba", 2000, unaPartida);
-        Campo campoEnemigo = new Campo(new Cementerio());
+        Campo campoEnemigo = new Campo(cementerio);
         Mano manoEnemiga = new Mano(enemigo);
         Mazo mazoEnemigo = new Mazo(enemigo);
 
@@ -94,6 +97,9 @@ public class Main extends Application {
         HBox magicasTrampasEnCampo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador1);
         ControladorCampoMagicasTrampas controladorCampoMagicasTrampas = new ControladorCampoMagicasTrampas(campo, magicasTrampasEnCampo);
 
+        VBox slotCartaDeCampo = new VBox();
+        ControladorCartaDeCampo controladorCartaDeCampo = new ControladorCartaDeCampo(campo, slotCartaDeCampo);
+
         //Contenedor de las Vista.imagenes de cosas del jugador enemigo:
 
         VBox jugadorEnemigoVisualVBox = new VBox(10);
@@ -106,6 +112,9 @@ public class Main extends Application {
         HBox magicasTrampasEnCampoEnemigo = this.crearVistaDeSectorDeCampo(colorDeFondoDeCampoJugador2);
         ControladorCampoMagicasTrampas controladorCampoMagicasTrampasEnemigo = new ControladorCampoMagicasTrampas(campoEnemigo, magicasTrampasEnCampoEnemigo);
 
+        VBox slotCartaDeCampoEnemiga = new VBox();
+        ControladorCartaDeCampo controladorCartaDeCampoEnemiga = new ControladorCartaDeCampo(campoEnemigo, slotCartaDeCampoEnemiga);
+
         //Actualizador de Representaciones
         LinkedList<Actualizable> representaciones = new LinkedList<>();
         representaciones.add(controladorCampoMonstruos);
@@ -114,6 +123,8 @@ public class Main extends Application {
         representaciones.add(controladorCampoMagicasTrampasEnemigo);
         representaciones.add(controladorJugador);
         representaciones.add(controladorJugadorEnemigo);
+        representaciones.add(controladorCartaDeCampo);
+        representaciones.add(controladorCartaDeCampoEnemiga);
         ActualizadorDeRepresentaciones actualizador = new ActualizadorDeRepresentaciones(representaciones);
         actualizador.actualizar();
 
@@ -179,14 +190,14 @@ public class Main extends Application {
         VBox campoJugador1VBox = new VBox(5);
         campoJugador1VBox.getChildren().addAll(monstruosEnCampo, magicasTrampasEnCampo, contenedorHorizontal);
         HBox pantallaJugador1HBox = new HBox(5);
-        pantallaJugador1HBox.getChildren().addAll(jugadorVisualVBox, campoJugador1VBox);
+        pantallaJugador1HBox.getChildren().addAll(jugadorVisualVBox, campoJugador1VBox, slotCartaDeCampo);
         
      
         //Box entero del jugador2
         VBox campoJugador2VBox = new VBox(5);
         campoJugador2VBox.getChildren().addAll(monstruosEnCampoEnemigo, magicasTrampasEnCampoEnemigo, contenedorHorizontalEnem);
         HBox pantallaJugador2HBox = new HBox(5);
-        pantallaJugador2HBox.getChildren().addAll(campoJugador2VBox, jugadorEnemigoVisualVBox);
+        pantallaJugador2HBox.getChildren().addAll(slotCartaDeCampoEnemiga, campoJugador2VBox, jugadorEnemigoVisualVBox);
 
 
         // Objetos a reiniciar cuando termine el turno

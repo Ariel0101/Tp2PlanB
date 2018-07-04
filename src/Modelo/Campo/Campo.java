@@ -32,6 +32,7 @@ public class Campo implements Reiniciable {
         this.cementerio = cementerio;
         this.efectoDeCampoPropio = new EfectoNulo();
         this.efectoDeCampoEnemigo = new EfectoNulo();
+        this.cartaDeCampo = new CartaDeCampoNula(new EfectoDeCampoNulo(this, this)); //Le paso dos campos cualquiera
 
     }
     public void destruir(CartaMagica carta){
@@ -163,4 +164,7 @@ public class Campo implements Reiniciable {
 
 	}
 
+    public CartaDeCampo cartaDeCampo() {
+        return this.cartaDeCampo;
+    }
 }
