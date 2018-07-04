@@ -20,8 +20,8 @@ public class ControladorCartaDeCampo implements Actualizable{
         this.slotCartaDeCampo.getChildren().clear();
         CartaDeCampo unaCartaDeCampo = this.campo.cartaDeCampo();
         ImageView imagenCarta = new ImageView();
-        imagenCarta.setFitWidth(80);
-        imagenCarta.setFitHeight(120);
+        imagenCarta.setFitWidth(150);
+        imagenCarta.setFitHeight(170);
         imagenCarta.setImage(unaCartaDeCampo.imagen());
         this.slotCartaDeCampo.getChildren().add(imagenCarta);
     }
