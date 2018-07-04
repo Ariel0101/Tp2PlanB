@@ -1,9 +1,9 @@
-import Modelo.Campo.Campo;
-import Modelo.Campo.CartaDeCampo;
-import Modelo.Campo.Cementerio;
-import Modelo.Campo.EfectoWasteland;
+import Controlador.Partida;
+import Modelo.Campo.*;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
+import Modelo.Jugador.Jugador;
+import Modelo.Jugador.Mano;
 import junit.framework.TestCase;
 
 public class CartaDeCampoTest extends TestCase {
@@ -27,9 +27,9 @@ public class CartaDeCampoTest extends TestCase {
 		cartaMonstruoDos.colocarse(otroCampo);
 		
 		cartaWasteland.colocarse(unCampo);
-		
-		assertTrue(m1.obtenerPuntosDeAtaque() == (ataqueInicialM1 + 200));
-		assertTrue(m2.obtenerPuntosDeDefensa() == (defensaInicialM2 + 300));
+
+		assertEquals(m1.obtenerPuntosDeAtaque(), (ataqueInicialM1 + 200));
+		assertEquals(m2.obtenerPuntosDeDefensa(), (defensaInicialM2 + 300));
 
 	}
 	
@@ -58,11 +58,23 @@ public class CartaDeCampoTest extends TestCase {
 		
 		cartaMonstruoTres.colocarse(unCampo);
 		cartaMonstruoCuatro.colocarse(otroCampo);
-		
-		assertTrue(m1.obtenerPuntosDeAtaque() == (ataqueInicialM1 + 200));
-		assertTrue(m2.obtenerPuntosDeDefensa() == (defensaInicialM2 + 300));
-		assertTrue(m3.obtenerPuntosDeAtaque() == (ataqueInicialM3 + 200));
-		assertTrue(m4.obtenerPuntosDeDefensa() == (defensaInicialM4 + 300));
+
+		assertEquals(m1.obtenerPuntosDeAtaque(), (ataqueInicialM1 + 200));
+		assertEquals(m2.obtenerPuntosDeDefensa(), (defensaInicialM2 + 300));
+		assertEquals(m3.obtenerPuntosDeAtaque(), (ataqueInicialM3 + 200));
+		assertEquals(m4.obtenerPuntosDeDefensa(), (defensaInicialM4 + 300));
+	}
+
+	public void testCartaDeCampoColocarseSeAgregaEnManoRecibida(){
+	    Campo unCampo = new Campo(new Cementerio());
+        Campo otroCampo = new Campo(new Cementerio());
+	    CartaDeCampo unaCartaDeCampo = new CartaDeCampo(new EfectoSogen(unCampo, otroCampo));
+        Mano unaMano = new Mano(new Jugador("j1",8000, new Partida()));
+
+	    unaCartaDeCampo.colocarse(unaMano);
+
+	    assertEquals(1, unaMano.contarCartas(unaCartaDeCampo.getClass()));
+
 	}
 
 

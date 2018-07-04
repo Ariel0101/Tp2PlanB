@@ -11,9 +11,10 @@ public class CartaMonstruoJinzo7 extends CartaMonstruo {
 
 
     public Botin atacar(Jugador jugadorAtacado, Campo campoEnemigo) {
-        Botin botin = new Botin();
+        /*Botin botin = new Botin();
         botin.setDanioAtacado(this.conCuantosPuntosAtaca());
         botin.infligirDanioAtacado(jugadorAtacado);
-        return new Botin();
+        return new Botin();*/
+        return jugadorAtacado.recibirAtaque(this, campoEnemigo);
     }
 }

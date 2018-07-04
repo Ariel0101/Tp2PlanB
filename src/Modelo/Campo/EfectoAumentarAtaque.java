@@ -7,7 +7,7 @@ public class EfectoAumentarAtaque implements Efecto {
 	
 	private int aumentoDeAtaque;
 	
-	EfectoAumentarAtaque (int unAumentoDeAtaque){
+	public EfectoAumentarAtaque(int unAumentoDeAtaque){
 		
 		this.aumentoDeAtaque = unAumentoDeAtaque;
 		

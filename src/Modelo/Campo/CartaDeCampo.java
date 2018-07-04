@@ -22,7 +22,9 @@ public class CartaDeCampo implements Carta {
 
 
 	public void colocarse(Mano unaMano) {
+
 		unaMano.agregar(this);
+
 	}
 
 	public void colocarse(Campo unCampo) {

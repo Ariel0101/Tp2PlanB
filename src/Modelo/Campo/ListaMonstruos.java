@@ -10,12 +10,12 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
 
     LinkedList<CartaMonstruo> monstruos;
 
-    ListaMonstruos(){
+    public ListaMonstruos(){
 
         this.monstruos = new LinkedList<CartaMonstruo>();
     }
 
-    void agregar(CartaMonstruo monstruo){
+    public void agregar(CartaMonstruo monstruo){
 
         this.monstruos.add(monstruo);
 
@@ -100,10 +100,5 @@ public class ListaMonstruos implements Iterable<CartaMonstruo>{
 
         }
 
-    }
-
-    public boolean estaVacia() {
-
-        return monstruos.isEmpty();
     }
 }
