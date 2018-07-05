@@ -3,7 +3,7 @@ package Modelo.Jugador;
 import Controlador.Partida;
 import Modelo.Campo.Campo;
 import Modelo.CartasMonstruo.CartaMonstruo;
-import Modelo.Combate.Atacable;
+import Modelo.Atacable;
 import Modelo.Combate.Botin;
 import javafx.scene.image.Image;
 

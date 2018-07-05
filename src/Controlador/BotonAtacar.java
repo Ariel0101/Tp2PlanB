@@ -3,7 +3,7 @@ package Controlador;
 import Modelo.Campo.Campo;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.CartaMonstruoJinzo7;
-import Modelo.Combate.Atacable;
+import Modelo.Atacable;
 import Modelo.Combate.Combate;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import Modelo.Jugador.Jugador;

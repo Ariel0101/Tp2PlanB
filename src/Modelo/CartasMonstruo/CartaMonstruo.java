@@ -3,7 +3,7 @@ package Modelo.CartasMonstruo;
 import Modelo.Campo.Campo;
 import Modelo.Campo.Cementerio;
 import Modelo.Carta;
-import Modelo.Combate.Atacable;
+import Modelo.Atacable;
 import Modelo.Combate.Botin;
 import Modelo.Estados.Boca;
 import Modelo.Estados.BocaAbajo;

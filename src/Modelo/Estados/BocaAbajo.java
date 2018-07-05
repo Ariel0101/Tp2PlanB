@@ -3,7 +3,7 @@ package Modelo.Estados;
 import Modelo.Campo.Campo;
 import Modelo.CartasMonstruo.CartaMonstruo;
 import Modelo.CartasMonstruo.Monstruo;
-import Modelo.Combate.Atacable;
+import Modelo.Atacable;
 import Modelo.Combate.Botin;
 import Modelo.Excepciones.MonstruoNoPuedeAtacarError;
 import javafx.scene.image.Image;
