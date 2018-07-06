@@ -72,6 +72,18 @@ public class Main extends Application {
         manoConCuatroPartesDeExodia.agregar(constructor.brazoIzquierdoExodia());
         manoConCuatroPartesDeExodia.agregar(constructor.piernaDerechaExodia());
         manoConCuatroPartesDeExodia.agregar(constructor.piernaIzquierdaExodia());
+        //Prueba dragon de ojos azules
+        Mano manoConDragones = new Mano(jugador);
+        /*manoConDragones.agregar(constructor.dragonDefinitivoDeOjosAzules());
+        manoConDragones.agregar(constructor.dragonDeOjosAzules());
+        manoConDragones.agregar(constructor.dragonDeOjosAzules());
+        manoConDragones.agregar(constructor.dragonDeOjosAzules());
+        campo.colocarCarta(constructor.mokeyMokey());
+        campo.colocarCarta(constructor.mokeyMokey());
+        campo.colocarCarta(constructor.mokeyMokey());
+        campo.colocarCarta(constructor.mokeyMokey());
+        campo.colocarCarta(constructor.mokeyMokey());
+        campo.colocarCarta(constructor.mokeyMokey());*/
 
         //Llenar mazos:
         RandomizadorCartas randomizador = new RandomizadorCartas(campoEnemigo, campo, mano, mazo);
@@ -130,7 +142,7 @@ public class Main extends Application {
 
         //Botones del jugador:
         Button botonColocarCarta = new Button("Colocar una carta");
-        BotonColocarCarta botonColocarCartaHandler = new BotonColocarCarta(campo, mano, actualizador);
+        BotonColocarCarta botonColocarCartaHandler = new BotonColocarCarta(campo, mano, actualizador); //
         botonColocarCarta.setOnAction(botonColocarCartaHandler);
 
         Button botonAtacar = new Button("Atacar");
@@ -138,7 +150,7 @@ public class Main extends Application {
         botonAtacar.setOnAction(botonAtacarEventHandler);
 
         Button verMano1 = new Button("Ver mano");
-        BotonVerMano accionVerMano1 = new BotonVerMano(mano);
+        BotonVerMano accionVerMano1 = new BotonVerMano(mano); //mano
         verMano1.setOnAction(accionVerMano1);
 
         Button botonActivarMagica = new Button("Activar carta Magica");
@@ -146,7 +158,7 @@ public class Main extends Application {
         botonActivarMagica.setOnAction(activarMagicaHandler);
 
         Button botonAgarrarCarta = new Button("Sacar carta del mazo");
-        BotonSacarCartaDeMazo botonAgarrarCartaHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCarta);
+        BotonSacarCartaDeMazo botonAgarrarCartaHandler = new BotonSacarCartaDeMazo(mazo, mano, botonAgarrarCarta);  //mano
         botonAgarrarCarta.setOnAction(botonAgarrarCartaHandler);
 
         BotonCambiarBocaYPosicion botonCambiarBocaPosicionHandler = new BotonCambiarBocaYPosicion(campo, botonColocarCartaHandler, actualizador, campoEnemigo);
